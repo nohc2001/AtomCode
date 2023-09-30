@@ -6,6 +6,7 @@ inline bool is1(uint32_t inst, uint32_t loc){
 }
 
 enum class op_type{
+  Undefine,
   Reserved_UDF,
   SME,
   SVP,
@@ -16,7 +17,89 @@ enum class op_type{
   DataProcessing_ScalarFloat_or_SIMD
 };
 
+struct op_range{
+  int start = 0;
+  int end = 0;
+};
+
+inline int gr(op_range r, int index){
+  return r.end - index;
+}
+
+bool masking(uint32_t inst, op_range r, const char* mask){
+  int len = 1 + r.end - r.start;
+  bool b = true;
+  for(int i=0;i<len;++i){
+    switch(mask[i]){
+      case '1':
+      b = b && is1(inst, gr(r, i));
+      break;
+      case '0':
+      b = b && !is1(inst, gr(r, i));
+      break;
+    }
+    
+    if(b == false) return false;
+  }
+
+  return true;
+}
+
+constexpr int op0 = 31;
+constexpr op_range op1 = {25, 28};
+
+op_type getOP_Reserved(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_SME(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_SVE(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_DataProcessing_Immediate(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_Branch_or_ExecptionSystemInstruction(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_Load_Store(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_DataProcessing_Register(uint32_t inst){
+  return op_type::Undefine;
+}
+
+op_type getOP_ScalarFloat_or_SIMD(uint32_t inst){
+  return op_type::Undefine;
+}
+
 op_type getOP(uint32_t inst){
+  if(!is1(inst, op0)){
+    //inst[31] = 0
+    bool b = true;
+    for(int i=0;i<4;++i){
+      b = b && !is1(inst, gr(op1, i));
+    }
+
+    if(b){
+      return getOP_Reserved(inst);
+    }
+  }
+  else{
+    //inst[31] = 1
+
+    bool b = true;
+    for(int i=0;i<4;++i){
+      b = b && !is1(inst, gr(op1, i));
+    }
+  }
 }
 
 int main(){
