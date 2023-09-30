@@ -178,7 +178,12 @@ enum class op_type{
   SME_MoveIntoArray_2_MoveVectorToTitle_2Register,
   SME_MoveIntoArray_2_MoveVectorToTitle_4Register,
 
-  SME_MoveFromArray,
+  SME_MoveFromArray_MOVA_2Register,
+  SME_MoveFromArray_MOVA_4Register,
+  SME_MoveFromArray_MoveArrayToVector,
+  SME_MoveFromArray_2_MoveTitleToVector_2Register,
+  SME_MoveFromArray_2_MoveTitleToVector_4Register,
+
   SME_AddVectorToArray,
   SME_Zero,
   SME_2_Zero_LookupTable,
@@ -840,14 +845,49 @@ inst_info getOP_SME(uint32_t inst){
             return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_2Register, inst);
           }
           if(masking(inst, ssop3, "001") && masking(inst, ssop4, "00")){
-            //constexpr 
-            return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_4Register, inst);
+            constexpr op_range size = {22, 23};
+            constexpr int opec = 2;
+            if(is1(inst, opec)){
+              if(masking(inst, size, "11")){
+                return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_4Register, inst);
+              }
+            }
+            else{
+              return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_4Register, inst);
+            }
           }
         }
       }
     }
     if(masking(inst, sop1, "0xx000x1>")){
-      return gii(op_type::SME_MoveFromArray, inst);
+      //return gii(op_type::SME_MoveFromArray, inst);
+      constexpr op_range ssop0 = {22, 23};
+      constexpr int ssop1 = 18;
+      constexpr op_range ssop2 = {15, 16};
+      constexpr op_range ssop3 = {10, 12};
+      constexpr op_range ssop4 = {8, 9};
+      constexpr op_range ssop5 = {0, 1};
+      if((masking(inst, ssop0, "00") && is1(inst, ssop1)) && (masking(inst, ssop2, "00") && masking(inst, ssop4, "00")))
+      {
+        if(masking(inst, ssop3, "010") && masking(inst, ssop5, "x0")){
+          return gii(op_type::SME_MoveFromArray_MOVA_2Register, inst);
+        }
+        if(masking(inst, ssop3, "011") && masking(inst, ssop5, "00")){
+          return gii(op_type::SME_MoveFromArray_MOVA_4Register, inst);
+        }
+      }
+      if(!is1(inst, ssop1) && masking(inst, ssop4, "0x")){
+        return gii(op_type::SME_MoveFromArray_MoveArrayToVector, inst);
+      }
+      if((is1(inst, ssop1) && masking(inst, ssop2, "0x")) && masking(inst, ssop4, "00"))
+      {
+        if(masking(inst, ssop3, "000") && masking(inst, ssop5, "x0")){
+          return gii(op_type::SME_MoveFromArray_2_MoveTitleToVector_2Register, inst);
+        }
+        if(masking(inst, ssop3, "001") && masking(inst, ssop5, "00")){
+          return gii(op_type::SME_MoveFromArray_2_MoveTitleToVector_4Register, inst);
+        }
+      }
     }
     if(masking(inst, sop1, "0xx010>") && masking(inst, sop2, "x0x")){
       return gii(op_type::SME_AddVectorToArray, inst);
