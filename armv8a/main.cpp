@@ -76,30 +76,44 @@ op_type getOP_DataProcessing_Register(uint32_t inst){
   return op_type::Undefine;
 }
 
-op_type getOP_ScalarFloat_or_SIMD(uint32_t inst){
+op_type getOP_DataProcessing_ScalarFloat_or_SIMD(uint32_t inst){
   return op_type::Undefine;
 }
 
 op_type getOP(uint32_t inst){
   if(!is1(inst, op0)){
     //inst[31] = 0
-    bool b = true;
-    for(int i=0;i<4;++i){
-      b = b && !is1(inst, gr(op1, i));
-    }
-
-    if(b){
+    if(masking(inst, op1, "0000")){
       return getOP_Reserved(inst);
     }
   }
   else{
     //inst[31] = 1
-
-    bool b = true;
-    for(int i=0;i<4;++i){
-      b = b && !is1(inst, gr(op1, i));
+    if(masking(inst, op1, "0000")){
+      return getOP_SME(inst);
     }
   }
+
+  if(masking(inst, op1, "0010")){
+    return getOP_SVE(inst);
+  }
+  if(masking(inst, op1, "100x")){
+    return getOP_DataProcessing_Immediate(inst);
+  }
+  if(masking(inst, op1, "101x")){
+    return getOP_Branch_or_ExecptionSystemInstruction(inst);
+  }
+  if(masking(inst, op1, "x1x0")){
+    return getOP_Load_Store(inst);
+  }
+  if(masking(inst, op1, "x101")){
+    return getOP_DataProcessing_Register(inst);
+  }
+  if(masking(inst, op1, "x111")){
+    return getOP_DataProcessing_ScalarFloat_or_SIMD(inst);
+  }
+
+  return op_type::Undefine;
 }
 
 int main(){
