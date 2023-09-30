@@ -107,8 +107,77 @@ enum class op_type{
   SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_ST1D,
   SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_STNT1D,
 
-  SME_2_MultiVector_Memory_Strided,
-  SME_MoveIntoArray,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1B,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1B,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1H,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1H,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1W,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1W,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1D,
+  SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1D,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1B,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1B,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1H,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1H,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1W,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1W,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1D,
+  SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1D,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1B,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1B,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1H,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1H,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1W,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1W,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1D,
+  SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1D,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1B,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1B,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1H,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1H,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1W,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1W,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1D,
+  SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1D,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1B,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1B,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1H,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1H,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1W,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1W,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1D,
+  SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1D,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LD1B,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LDNT1B,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LD1H,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LDNT1H,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LD1W,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LDNT1W,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LD1D,
+  SME_2_MultiVector_Memory_Strided_Load_spi_4Register_LDNT1D,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1B,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1B,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1H,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1H,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1W,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1W,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1D,
+  SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1D,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1B,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1B,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1H,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1H,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1W,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1W,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1D,
+  SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1D,
+
+  SME_MoveIntoArray_MOVA_2Register,
+  SME_MoveIntoArray_MOVA_4Register,
+  SME_MoveIntoArray_MoveVectorToArray,
+  SME_MoveIntoArray_2_MoveVectorToTitle_2Register,
+  SME_MoveIntoArray_2_MoveVectorToTitle_4Register,
+
   SME_MoveFromArray,
   SME_AddVectorToArray,
   SME_Zero,
@@ -402,33 +471,380 @@ inst_info getOP_SME(uint32_t inst){
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
       }
       if (masking(inst, ssop0, "01x"))
       {
-      }
-      if(masking(inst, ssop0, "0xx")){
-        
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
       }
       if(masking(inst, ssop0, "100")){
-        
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
       }
       if(masking(inst, ssop0, "110")){
-        
-      }
-      if(masking(inst, ssop0, "1x0")){
-        
-      }
-      if(masking(inst, ssop0, "1x1")){
-        
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
       }
     }
     if(masking(inst, sop1, "10>")){
-      return gii(op_type::SME_2_MultiVector_Memory_Strided, inst);
+      //return gii(op_type::SME_2_MultiVector_Memory_Strided, inst);
+      constexpr op_range ssop0 = {20, 22};
+      constexpr int ssop1 = 15;
+      constexpr int ssop2 = 2;
+      if(masking(inst, ssop0, "00x")){
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 3;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 3;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+      }
+      if (masking(inst, ssop0, "01x"))
+      {
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 3;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 3;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+      }
+      if(masking(inst, ssop0, "100")){
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 3;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 3;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+      }
+      if(masking(inst, ssop0, "110")){
+        if(!is1(inst, ssop1)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+
+        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+          constexpr int msz0 = 14;
+          constexpr int msz1 = 13;
+          constexpr int N = 0;
+          constexpr op_type oparr[2][2][2] =
+              {
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1B,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1B},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1H,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1H}},
+                  {{op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1W,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1W},
+                   {op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1D,
+                    op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1D}}};
+          int ind[3] = {
+              is1(inst, msz0) ? 1 : 0,
+              is1(inst,msz1) ? 1 : 0,
+              is1(inst, N) ? 1 : 0};
+          return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
+        }
+      }
     }
   }
   else if(masking(inst, sop0, "10")){
     if(masking(inst, sop1, "0xx000x0>") && masking(inst, sop2, "0xx")){
-      return gii(op_type::SME_MoveIntoArray, inst);
+      //return gii(op_type::SME_MoveIntoArray, inst);
+      constexpr op_range ssop0 = {22, 23};
+      constexpr int ssop1 = 18;
+      constexpr op_range ssop2 = {15, 16};
+      constexpr op_range ssop3 = {10, 12};
+      constexpr op_range ssop4 = {5, 6};
+      constexpr int ssop5 = 3;
+      if((masking(inst, ssop0, "00") && is1(inst, ssop1)) && masking(inst, ssop2, "00")){
+        if((masking(inst, ssop3, "010") && masking(inst, ssop4, "x0")) && !is1(inst, ssop5)){
+          return gii(op_type::SME_MoveIntoArray_MOVA_2Register, inst);
+        }
+        if((masking(inst, ssop3, "011") && masking(inst, ssop4, "00")) && !is1(inst, ssop5)){
+          return gii(op_type::SME_MoveIntoArray_MOVA_4Register, inst);
+        }
+      }
+
+      if(!is1(inst, ssop1)){
+        constexpr op_range size = {22, 23};
+        constexpr int Q = 16;
+        if(is1(inst, Q)){
+          if(masking(inst, size, "11")){
+            return gii(op_type::SME_MoveIntoArray_MoveVectorToArray, inst);
+          }
+        }
+        else{
+          return gii(op_type::SME_MoveIntoArray_MoveVectorToArray, inst);
+        }
+      }
+      else{
+        if(masking(inst, ssop2, "0x") && !is1(inst, ssop5)){
+          if(masking(inst, ssop3, "000") && masking(inst, ssop4, "x0")){
+            return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_2Register, inst);
+          }
+          if(masking(inst, ssop3, "001") && masking(inst, ssop4, "00")){
+            //constexpr 
+            return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_4Register, inst);
+          }
+        }
+      }
     }
     if(masking(inst, sop1, "0xx000x1>")){
       return gii(op_type::SME_MoveFromArray, inst);
