@@ -464,13 +464,13 @@ enum class op_type{
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLALL,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLSLL,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLALL,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SUMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLSLL,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_USMLALL,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SUMLALL,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_FDOT,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_BFDOT,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_FP_DotProduct_4Register_SDOT,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_FP_DotProduct_4Register_UDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_SDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_UDOT,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLA,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLS,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_ADD,
@@ -2177,36 +2177,147 @@ inst_info getOP_SME(uint32_t inst){
 
       if(!is1(inst, _op1)){
         if(masking(inst, _op2, "000") && masking(inst, _op3, "xxx0")){
-          
+          constexpr int sz = 22;
+          constexpr op_range usop = {2, 4};
+          if(masking(inst, usop, "000")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLALL, inst);
+          }
+          if(masking(inst, usop, "010")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLSLL, inst);
+          }
+          if(masking(inst, usop, "100")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_UMLALL, inst);
+          }
+          if(masking(inst, usop, "110")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_UMLSLL, inst);
+          }
+          if(!is1(inst, sz) && masking(inst, usop, "001")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_USMLALL, inst);
+          }
+          if(!is1(inst, sz) && masking(inst, usop, "101")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SUMLALL, inst);
+          }
         }
         if(masking(inst, _op2, "001")){
-          
+          constexpr int sz = 22;
+          constexpr op_range usop = {2, 4};
+          if(masking(inst, usop, "000")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLALL, inst);
+          }
+          if(masking(inst, usop, "010")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLSLL, inst);
+          }
+          if(masking(inst, usop, "100")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_UMLALL, inst);
+          }
+          if(masking(inst, usop, "110")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_UMLSLL, inst);
+          }
+          if(!is1(inst, sz) && masking(inst, usop, "001")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_USMLALL, inst);
+          }
         }
         if(masking(inst, _op2, "100")){
-          
+          constexpr int _op = 22;
+          constexpr op_range opc2 = {3, 4};
+          if(!is1(inst, _op)){
+            if(masking(inst, opc2, "00")){
+              return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register_FDOT, inst);
+            }
+            if(masking(inst, opc2, "01")){
+              return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register_BFDOT, inst);
+            }
+          }
         }
         if(masking(inst, _op2, "101") && masking(inst, _op3, "x0xx")){
-          
+          constexpr int U = 4;
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_SDOT, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_UDOT, inst);
+          }
         }
         if(masking(inst, _op2, "110") && masking(inst, _op3, "0xxx")){
-          
+          constexpr int S = 3;
+          if(!is1(inst, S)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLA, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLS, inst);
+          }
         }
         if(masking(inst, _op2, "110") && masking(inst, _op3, "1xxx")){
-          
+          constexpr int S = 3;
+          if(!is1(inst, S)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_ADD, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_SUB, inst);
+          }
         }
       }
       else{
+        if(masking(inst, _op2, "000") && masking(inst, _op3, "xxx0")){
+          constexpr int sz = 22;
+          constexpr op_range usop = {2, 4};
+          if(masking(inst, usop, "000")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLALL, inst);
+          }
+          if(masking(inst, usop, "010")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLSLL, inst);
+          }
+          if(masking(inst, usop, "100")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLALL, inst);
+          }
+          if(masking(inst, usop, "110")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLSLL, inst);
+          }
+          if(!is1(inst, sz) && masking(inst, usop, "001")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_USMLALL, inst);
+          }
+          if(!is1(inst, sz) && masking(inst, usop, "101")){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SUMLALL, inst);
+          }
+        }
         if(masking(inst, _op2, "100")){
-          
+          constexpr int _op = 22;
+          constexpr op_range opc2 = {3, 4};
+          if(!is1(inst, _op)){
+            if(masking(inst, opc2, "00")){
+              return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_FDOT, inst);
+            }
+            if(masking(inst, opc2, "01")){
+              return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_BFDOT, inst);
+            }
+          }
         }
         if(masking(inst, _op2, "101") && masking(inst, _op3, "x0xx")){
-          
+          constexpr int U = 4;
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_SDOT, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_UDOT, inst);
+          }
         }
         if(masking(inst, _op2, "110") && masking(inst, _op3, "0xxx")){
-          
+          constexpr int S = 3;
+          if(!is1(inst, S)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLA, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLS, inst);
+          }
         }
         if(masking(inst, _op2, "110") && masking(inst, _op3, "1xxx")){
-          
+          constexpr int S = 3;
+          if(!is1(inst, S)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_ADD, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_SUB, inst);
+          }
         }
       }
     }
