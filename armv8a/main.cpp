@@ -3,10 +3,13 @@
 using namespace std;
 
 enum class op_type{
+  //undefined
   Undefine,
 
+  //Reserved
   Reserved_UDF,
 
+  //SME
   SME_OuterProduct_64bit_FP64_FMOPA,
   SME_OuterProduct_64bit_FP64_FMOPS,
 
@@ -273,11 +276,11 @@ enum class op_type{
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SUVDOT,
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SDOT2,
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FDOT,
-  SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT,
+  SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT2,
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_BFDOT,
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SDOT4,
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_USDOT,
-  SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT,
+  SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT4,
   SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SUDOT,
   SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLALL,
   SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLSLL,
@@ -298,22 +301,124 @@ enum class op_type{
   SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLAL,
   SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLSL,
 
-  SME_2_MultiVector_SVE_Select,
-  SME_2_MultiVector_SVE_Constructive_Binary,
-  SME_2_MultiVector_SVE_Constructive_Unary,
-  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register,
-  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register,
-  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register,
+  SME_2_MultiVector_SVE_Select_SEL,
+
+  SME_2_MultiVector_SVE_Constructive_Binary_QuadwordsZIP_2Register_ZIP,
+  SME_2_MultiVector_SVE_Constructive_Binary_QuadwordsZIP_2Register_UZP,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_SQRSHR,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_UQRSHR,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_SQRSHRU,
+  SME_2_MultiVector_SVE_Constructive_Binary_FCLAMP,
+  SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_2Register_SCLAMP,
+  SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_2Register_UCLAMP,
+  SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_4Register_SCLAMP,
+  SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_4Register_UCLAMP,
+  SME_2_MultiVector_SVE_Constructive_Binary_ZIP_2Register_ZIP,
+  SME_2_MultiVector_SVE_Constructive_Binary_ZIP_2Register_UZP,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHR,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_UQRSHR,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRU,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRN,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_UQRSHRN,
+  SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRUN,
+
+  SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_2Register_FCVTZS,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_2Register_FCVTZU,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_2Register_SCVTF,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_2Register_UCVTF,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_4Register_FCVTZS,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_4Register_FCVTZU,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_4Register_SCVTF,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_4Register_UCVTF,
+  SME_2_MultiVector_SVE_Constructive_Unary_QuadwordZIP_4Register_ZIP,
+  SME_2_MultiVector_SVE_Constructive_Unary_QuadwordZIP_4Register_UZP,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
+  SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVTN,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_2Regiter_SQCVT,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_2Regiter_UQCVT,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_2Regiter_SQCVTU,
+  SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_SUNPK,
+  SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_UUNPK,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTN,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTP,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTM,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTA,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVT,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_UQCVT,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTN,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_UQCVTN,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTU,
+  SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTUN,
+  SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_SUNPK,
+  SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_UUNPK,
+  SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP,
+  SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_UZP,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTN,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTP,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTM,
+  SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTA,
+  
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMAX,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMAX,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMIN,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMIN,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAX,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMIN,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMINNM,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_SRSHL,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_URSHL,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_SQDMULH,
+
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMAX,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMAX,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMIN,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMIN,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAX,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMIN,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMINNM,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_SRSHL,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_URSHL,
+  SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_SQDMULH,
+
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMAX,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMAX,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMIN,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMIN,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAX,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMIN,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMINNM,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_SRSHL,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_URSHL,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_ADD,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_SQDMULH,
+
   SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors,
   SME_2_MultiVector_Multiple_ArrayVectors_2Register,
   SME_2_MultiVector_Multiple_ArrayVectors_4Register,
   SME_Memory,
+  
+  //SVP
   SVP,
+
+  //DataProcessing_Immidate
   DataProcessing_Immidate,
+
+  //Branch or ExeptionSystemInstruction
   Branch_or_ExeptionSystemInstruction,
+
+  //Load and Store
   Load_or_Store,
+
+  //DataProcessing_Register
   DataProcessing_Register,
+
+  //DataProcessing_ScalarFloat and SIMD
   DataProcessing_ScalarFloat_or_SIMD
 };
 
@@ -1307,45 +1412,478 @@ inst_info getOP_SME(uint32_t inst){
       constexpr op_range ssop1 = {11, 12};
       constexpr op_range ssop2 = {5, 6};
       if((masking(inst, ssop0, "00") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "0x")){
-        
+        constexpr op_range opus = {3, 5};
+        if(masking(inst, opus, "000")){
+          return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SMLALL, inst);
+        }
+        if(masking(inst, opus, "001")){
+          return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SMLSLL, inst);
+        }
+        if(masking(inst, opus, "010")){
+          return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_UMLALL, inst);
+        }
+        if(masking(inst, opus, "011")){
+          return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_UMLSLL, inst);
+        }
+        if(masking(inst, opus, "100")){
+          return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_USMLALL, inst);
+        }
+        if(masking(inst, opus, "110")){
+          return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SUMLALL, inst);
+        }
       }
       if((masking(inst, ssop0, "01")) && masking(inst, ssop2, "0x")){
-        
+        constexpr int _op = 12;
+        constexpr op_range opc2 = {3, 5};
+        if(!is1(inst, _op)){
+          if(masking(inst, opc2, "000")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FMLA, inst);
+          }
+          if(masking(inst, opc2, "010")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FMLS, inst);
+          }
+          if(masking(inst, opc2, "100")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SVDOT, inst);
+          }
+          if(masking(inst, opc2, "101")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_USVDOT, inst);
+          }
+          if(masking(inst, opc2, "110")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UVDOT, inst);
+          }
+          if(masking(inst, opc2, "111")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SUVDOT, inst);
+          }
+        }
+        else{
+          if(masking(inst, opc2, "000")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SDOT2, inst);
+          }
+          if(masking(inst, opc2, "001")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FDOT, inst);
+          }
+          if(masking(inst, opc2, "010")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT2, inst);
+          }
+          if(masking(inst, opc2, "011")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_BFDOT, inst);
+          }
+          if(masking(inst, opc2, "100")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SDOT4, inst);
+          }
+          if(masking(inst, opc2, "101")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_USDOT, inst);
+          }
+          if(masking(inst, opc2, "110")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT4, inst);
+          }
+          if(masking(inst, opc2, "111")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SUDOT, inst);
+          }
+        }
       }
       if((masking(inst, ssop0, "10") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00")){
-        
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLALL,
+          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLSLL
+        }, {
+          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLALL,
+          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLSLL
+        }};
+        constexpr int U = 4;
+        constexpr int S = 3;
+        return gii(oarr[is1(inst, U) ? 1:0][is1(inst, S) ? 1:0], inst);
       }
       if((masking(inst, ssop0, "10") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00")){
-        
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLAL,
+          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLSL
+        }, {
+          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLAL,
+          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLSL
+        }};
+        constexpr int U = 4;
+        constexpr int S = 3;
+        return gii(oarr[is1(inst, U) ? 1:0][is1(inst, S) ? 1:0], inst);
       }
       if((masking(inst, ssop0, "11") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "00")){
-        
+        constexpr int _op = 11;
+        constexpr op_range opc2 = {3, 4};
+        if(!is1(inst, _op)){
+          if(masking(inst, opc2, "00")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_FMLA, inst);
+          }
+          if(masking(inst, opc2, "01")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_SDOT, inst);
+          }
+          if(masking(inst, opc2, "10")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_FMLS, inst);
+          }
+          if(masking(inst, opc2, "11")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_UDOT, inst);
+          }
+        }
+        else{
+          if(masking(inst, opc2, "01")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_SVDOT, inst);
+          }
+          if(masking(inst, opc2, "11")){
+            return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_UVDOT, inst);
+          }
+        }
       }
       if((masking(inst, ssop0, "11") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00")){
-        
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLAL,
+          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLSL
+        }, {
+          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLAL,
+          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLSL
+        }};
+        constexpr int U = 4;
+        constexpr int S = 3;
+        return gii(oarr[is1(inst, U) ? 1:0][is1(inst, S) ? 1:0], inst);
       }
     }
     if(masking(inst, sop1, "1xx1xxxxx100>")){
-      return gii(op_type::SME_2_MultiVector_SVE_Select, inst);
-    }
-    if(masking(inst, sop1, "1xx1xxxxx100>")){
-      return gii(op_type::SME_2_MultiVector_SVE_Select, inst);
+      constexpr op_range ssop0 = {16, 17};
+      constexpr op_range ssop1 = {5, 6};
+      constexpr op_range ssop2 = {0, 1};
+      if((masking(inst, ssop0, "01") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00")){
+        return gii(op_type::SME_2_MultiVector_SVE_Select_SEL, inst);
+      }
+      if((masking(inst, ssop0, "x0") && masking(inst, ssop1, "x0")) && masking(inst, ssop2, "x0")){
+        return gii(op_type::SME_2_MultiVector_SVE_Select_SEL, inst);
+      }
     }
     if(masking(inst, sop1, "1xx1xxxxx110>")){
-      return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary, inst);
+      //return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary, inst);
+      constexpr op_range _op0 = {22, 23};
+      constexpr op_range _op1 = {10, 12};
+      constexpr op_range _op2 = {0, 1};
+      if(masking(inst, _op0, "00") && masking(inst, _op1, "101")){
+        if(!is1(inst, 0)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_QuadwordsZIP_2Register_ZIP, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_QuadwordsZIP_2Register_UZP, inst);
+        }
+      }
+      if(masking(inst, _op0, "11") && masking(inst, _op1, "101")){
+        constexpr int _op = 20;
+        constexpr int U = 5;
+        if(!is1(inst, _op)){
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_SQRSHR, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_UQRSHR, inst);
+          }
+        }
+        else{
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_SQRSHRU, inst);
+          }
+        }
+      }
+      if((masking(inst, _op2, "x0") && masking(inst, _op1, "000")) || (masking(inst, _op2, "00") && masking(inst, _op1, "010"))){
+        return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_FCLAMP, inst);
+      }
+      if(masking(inst, _op1, "001")){
+        if(!is1(inst, 0)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_2Register_SCLAMP, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_2Register_UCLAMP, inst);
+        }
+      }
+      if(masking(inst, _op1, "011") && masking(inst, _op2, "0x")){
+        if(!is1(inst, 0)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_4Register_SCLAMP, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_4Register_UCLAMP, inst);
+        }
+      }
+      if(masking(inst, _op1, "100")){
+        if(!is1(inst, 0)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_ZIP_2Register_ZIP, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_ZIP_2Register_UZP, inst);
+        }
+      }
+      if(masking(inst, _op1, "11x")){
+        constexpr int N = 10;
+        constexpr op_range opU = {5, 6};
+        if(!is1(inst, N)){
+          if(masking(inst, opU, "00")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHR, inst);
+          }
+          if(masking(inst, opU, "01")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_UQRSHR, inst);
+          }
+          if(masking(inst, opU, "10")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRU, inst);
+          }
+        }
+        else{
+          if(masking(inst, opU, "00")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRN, inst);
+          }
+          if(masking(inst, opU, "01")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_UQRSHRN, inst);
+          }
+          if(masking(inst, opU, "10")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRUN, inst);
+          }
+        }
+      }
     }
     if(masking(inst, sop1, "1xx1xxxxx111000")){
-      return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary, inst);
+      //return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary, inst);
+      constexpr op_range _op0 = {22, 23};
+      constexpr op_range _op1 = {16, 20};
+      constexpr op_range _op2 = {5, 6};
+      constexpr op_range _op3 = {0, 1};
+      constexpr int U = 5;
+      if((masking(inst, _op0, "00") && masking(inst, _op1, "00001")) && (masking(inst, _op3, "x0"))){
+        if(!is1(inst, U)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_2Register_FCVTZS, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_2Register_FCVTZU, inst);
+        }
+      }
+      if((masking(inst, _op0, "00") && masking(inst, _op1, "00010")) && (masking(inst, _op3, "x0"))){
+        if(!is1(inst, U)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_2Register_SCVTF, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_2Register_UCVTF, inst);
+        }
+      }
+      if((masking(inst, _op0, "00") && masking(inst, _op1, "10001")) && (masking(inst, _op2, "0x") && masking(inst, _op3, "00"))){
+        if(!is1(inst, U)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_4Register_FCVTZS, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_4Register_FCVTZU, inst);
+        }
+      }
+      if((masking(inst, _op0, "00") && masking(inst, _op1, "10010")) && (masking(inst, _op2, "0x") && masking(inst, _op3, "00"))){
+        if(!is1(inst, U)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_4Register_SCVTF, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_4Register_UCVTF, inst);
+        }
+      }
+      if((masking(inst, _op0, "00") && masking(inst, _op1, "10111")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0"))){
+        constexpr int _op = 1;
+        if(!is1(inst, _op)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_UZP, inst);
+        }
+      }
+      if(masking(inst, _op0, "0x") && masking(inst, _op1, "00000")){
+        constexpr int _op = 22;
+        constexpr int N = 5;
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN
+        }, {
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVTN
+        }};
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, N)?1:0], inst);
+      }
+      if(masking(inst, _op0, "0x") && masking(inst, _op1, "00011")){
+        constexpr int _op = 22;
+        constexpr int _U = 0;
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN
+        }, {
+          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
+          op_type::Undefine
+        }};
+        op_type ot = oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0];
+        if(ot != op_type::Undefine){
+          return gii(ot, inst);
+        }
+      }
+      if(masking(inst, _op1, "00101")){
+        constexpr int _U = 0;
+        op_type ot = (!is1(inst, _U)) ? op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_SUNPK : op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_UUNPK;
+        return gii(ot, inst);
+      }
+      if((masking(inst, _op1, "01xxx")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "x0"))){
+        constexpr op_range size = {22, 23};
+        constexpr op_range opc = {16, 18};
+        if(masking(inst, size, "10") && masking(inst, opc, "000")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTN, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, opc, "001")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTP, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, opc, "010")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTM, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, opc, "100")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTA, inst);
+        }
+      }
+      if(masking(inst, _op1, "10011")){
+        constexpr int _op = 22;
+        constexpr op_range nu = {5, 6};
+        if(!is1(inst, _op)){
+          if(masking(inst, nu, "00")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVT, inst);
+          }
+          if(masking(inst, nu, "01")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_UQCVT, inst);
+          }
+          if(masking(inst, nu, "10")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTN, inst);
+          }
+          if(masking(inst, nu, "11")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_UQCVTN, inst);
+          }
+        }
+        else{
+          if(masking(inst, nu, "00")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTU, inst);
+          }
+          if(masking(inst, nu, "10")){
+            return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTUN, inst);
+          }
+        }
+      }
+      if((masking(inst, _op1, "10101")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "0x"))){
+        constexpr int _U = 0;
+        if(!is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_SUNPK, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_UUNPK, inst);
+        }
+      }
+      if((masking(inst, _op1, "10110")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0"))){
+        constexpr int _op = 1;
+        if(!is1(inst, _op)){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP, inst);
+        }
+        else{
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_UZP, inst);
+        }
+      }
+      if((masking(inst, _op1, "11xxx")) && (masking(inst, _op2, "00") && masking(inst, _op3, "00"))){
+        constexpr op_range size = {22, 23};
+        constexpr op_range opc = {16, 18};
+        if(masking(inst, size, "10") && masking(inst, opc, "000")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTN, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, opc, "001")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTP, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, opc, "010")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTM, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, opc, "100")){
+          return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTA, inst);
+        }
+      }
     }
-
     if(masking(inst, sop1, "1xx1xxxx010110x")){
-      return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register, inst);
+      //return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register, inst);
+      constexpr op_range _op0op1 = {5, 10};
+      constexpr int _op2 = 0;
+      if(masking(inst, _op0op1, "00000x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMAX,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMAX
+        }, {
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMIN,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMIN
+        }};
+        constexpr int _op = 5;
+        constexpr int _U = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "00100x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAX,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMIN
+        }, {
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMINNM
+        }};
+        constexpr int _op = 5;
+        constexpr int _o2 = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "010xxx")){
+        constexpr op_range opc = {5, 7};
+        constexpr int _U = 0;
+        if(masking(inst, opc, "001") && !is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_SRSHL, inst);
+        }
+        if(masking(inst, opc, "001") && is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_URSHL, inst);
+        }
+      }
+      if(masking(inst, _op0op1, "10000x") && is1(inst, _op2)){
+        return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_SQDMULH, inst);
+      }
     }
     if(masking(inst, sop1, "1xx1xxxx010111x")){
-      return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register,inst);
+      //return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register,inst);
+      constexpr op_range _op0op1 = {5, 10};
+      constexpr int _op2 = 0;
+      if(masking(inst, _op0op1, "00000x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMAX,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMAX
+        }, {
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMIN,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMIN
+        }};
+        constexpr int _op = 5;
+        constexpr int _U = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "00100x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAX,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMIN
+        }, {
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
+          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMINNM
+        }};
+        constexpr int _op = 5;
+        constexpr int _o2 = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "010xxx")){
+        constexpr op_range opc = {5, 7};
+        constexpr int _U = 0;
+        if(masking(inst, opc, "001") && !is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_SRSHL, inst);
+        }
+        if(masking(inst, opc, "001") && is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_URSHL, inst);
+        }
+      }
+      if(masking(inst, _op0op1, "10000x") && is1(inst, _op2)){
+        return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_SQDMULH, inst);
+      }
     }
     if(masking(inst, sop1, "1xx10xxx010100x")){
-      return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
+      //return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
+      
     }
     if(masking(inst, sop1, "1xx10xxx010101x")){
       return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
@@ -1355,10 +1893,10 @@ inst_info getOP_SME(uint32_t inst){
       return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);;
     }
     if(masking(inst, sop1, "11x1xxxx00>")){
-      return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
+      return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register, inst);
     }
     if(masking(inst, sop1, "11x1xxxx10>")){
-      return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
+      return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register, inst);
     }
   }
   else if(masking(inst, sop0, "11")){
