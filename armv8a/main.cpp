@@ -397,8 +397,41 @@ enum class op_type{
   SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_ADD,
   SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_SQDMULH,
 
-  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMAX,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMAX,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMIN,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMIN,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAX,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMIN,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMINNM,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_SRSHL,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_URSHL,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_ADD,
+  SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_SQDMULH,
+
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_4Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_longMLA_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register,
   SME_2_MultiVector_MultiAndSingle_ArrayVectors,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors,
+
   SME_2_MultiVector_Multiple_ArrayVectors_2Register,
   SME_2_MultiVector_Multiple_ArrayVectors_4Register,
   SME_Memory,
@@ -1883,12 +1916,94 @@ inst_info getOP_SME(uint32_t inst){
     }
     if(masking(inst, sop1, "1xx10xxx010100x")){
       //return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
-      
+      constexpr op_range _op0op1 = {5, 10};
+      constexpr int _op2 = 0;
+      if(masking(inst, _op0op1, "00000x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMAX,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMIN
+        }, {
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMAX,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMIN
+        }};
+        constexpr int _op = 5;
+        constexpr int _U = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "00100x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAX,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMIN
+        }, {
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMINNM
+        }};
+        constexpr int _op = 5;
+        constexpr int _o2 = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "010xxx")){
+        constexpr op_range opc = {5, 7};
+        constexpr int _U = 0;
+        if(masking(inst, opc, "001") && !is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_SRSHL, inst);
+        }
+        if(masking(inst, opc, "001") && is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_URSHL, inst);
+        }
+      }
+      if(masking(inst, _op0op1, "011000")){
+        return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_ADD, inst);
+      }
+      if(masking(inst, _op0op1, "100000") && !is1(inst, _op2)){
+        return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_SQDMULH, inst);
+      }
     }
     if(masking(inst, sop1, "1xx10xxx010101x")){
-      return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
+      //return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
+      constexpr op_range _op0op1 = {5, 10};
+      constexpr int _op2 = 0;
+      if(masking(inst, _op0op1, "00000x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMAX,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMIN
+        }, {
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMAX,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMIN
+        }};
+        constexpr int _op = 5;
+        constexpr int _U = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "00100x")){
+        constexpr op_type oarr[2][2] = {{
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAX,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMIN
+        }, {
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
+          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMINNM
+        }};
+        constexpr int _op = 5;
+        constexpr int _o2 = 0;
+        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+      }
+      if(masking(inst, _op0op1, "010xxx")){
+        constexpr op_range opc = {5, 7};
+        constexpr int _U = 0;
+        if(masking(inst, opc, "001") && !is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_SRSHL, inst);
+        }
+        if(masking(inst, opc, "001") && is1(inst, _U)){
+          return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_URSHL, inst);
+        }
+      }
+      if(masking(inst, _op0op1, "011000")){
+        return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_ADD, inst);
+      }
+      if(masking(inst, _op0op1, "100000") && !is1(inst, _op2)){
+        return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_SQDMULH, inst);
+      }
     }
-
     if(masking(inst, sop1, "10x1xxxxx0>")){
       return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);;
     }
