@@ -410,27 +410,71 @@ enum class op_type{
   SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_ADD,
   SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_SQDMULH,
 
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_4Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_longMLA_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors,
-  SME_2_MultiVector_MultiAndSingle_ArrayVectors,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_USDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_SUDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_USDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_SUDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_SDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_UDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLAL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLSL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_SDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_UDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_UMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_UMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_USMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SUMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_UMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_UMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_USMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register_FDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register_BFDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_SDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_UDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLA,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLS,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_ADD,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_SUB,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SUMLSLL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_USMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SUMLALL,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_FDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_BFDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_FP_DotProduct_4Register_SDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_FP_DotProduct_4Register_UDOT,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLA,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLS,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_ADD,
+  SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_SUB,
 
   SME_2_MultiVector_Multiple_ArrayVectors_2Register,
   SME_2_MultiVector_Multiple_ArrayVectors_4Register,
@@ -2005,7 +2049,166 @@ inst_info getOP_SME(uint32_t inst){
       }
     }
     if(masking(inst, sop1, "10x1xxxxx0>")){
-      return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);;
+      //return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);
+      constexpr int _op0 = 22;
+      constexpr int _op1 = 20;
+      constexpr op_range _op2 = {10, 12};
+      constexpr op_range _op3 = {1, 4};
+      if(!is1(inst, _op0) && !is1(inst, _op1)){
+        //00
+        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+          constexpr int _op = 4;
+          constexpr int S = 3;
+          constexpr op_type oarr[2][2] = {{
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLSL
+          }, {
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLSL
+          }};
+          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+        }
+        if(masking(inst, _op2, "011")){
+          constexpr int _op = 4;
+          constexpr int S = 3;
+          constexpr op_type oarr[2][2] = {{
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLSL
+          }, {
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLSL
+          }};
+          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+        }
+        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+          constexpr int U = 4;
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_USDOT, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_SUDOT, inst);
+          }
+        }
+      }
+      if(!is1(inst, _op0) && is1(inst, _op1)){
+        //01
+        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+          constexpr int _op = 4;
+          constexpr int S = 3;
+          constexpr op_type oarr[2][2] = {{
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLSL
+          }, {
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLSL
+          }};
+          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+        }
+        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+          constexpr int U = 4;
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_USDOT, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_SUDOT, inst);
+          }
+        }
+      }
+      if(is1(inst, _op0) && !is1(inst, _op1)){
+        //10
+        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+          constexpr int _op = 4;
+          constexpr int S = 3;
+          constexpr op_type oarr[2][2] = {{
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLSL
+          }, {
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLSL
+          }};
+          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+        }
+        if(masking(inst, _op2, "011")){
+          constexpr int _op = 4;
+          constexpr int S = 3;
+          constexpr op_type oarr[2][2] = {{
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLSL
+          }, {
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLSL
+          }};
+          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+        }
+        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+          constexpr int U = 4;
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_SDOT, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_UDOT, inst);
+          }
+        }
+      }
+      if(is1(inst, _op0) && is1(inst, _op1)){
+        //11
+        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+          constexpr int _op = 4;
+          constexpr int S = 3;
+          constexpr op_type oarr[2][2] = {{
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLSL
+          }, {
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLAL,
+            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLSL
+          }};
+          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+        }
+        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+          constexpr int U = 4;
+          if(!is1(inst, U)){
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_SDOT, inst);
+          }
+          else{
+            return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_UDOT, inst);
+          }
+        }
+      }
+
+      if(!is1(inst, _op1)){
+        if(masking(inst, _op2, "000") && masking(inst, _op3, "xxx0")){
+          
+        }
+        if(masking(inst, _op2, "001")){
+          
+        }
+        if(masking(inst, _op2, "100")){
+          
+        }
+        if(masking(inst, _op2, "101") && masking(inst, _op3, "x0xx")){
+          
+        }
+        if(masking(inst, _op2, "110") && masking(inst, _op3, "0xxx")){
+          
+        }
+        if(masking(inst, _op2, "110") && masking(inst, _op3, "1xxx")){
+          
+        }
+      }
+      else{
+        if(masking(inst, _op2, "100")){
+          
+        }
+        if(masking(inst, _op2, "101") && masking(inst, _op3, "x0xx")){
+          
+        }
+        if(masking(inst, _op2, "110") && masking(inst, _op3, "0xxx")){
+          
+        }
+        if(masking(inst, _op2, "110") && masking(inst, _op3, "1xxx")){
+          
+        }
+      }
     }
     if(masking(inst, sop1, "11x1xxxx00>")){
       return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register, inst);
