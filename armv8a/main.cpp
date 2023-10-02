@@ -549,8 +549,235 @@ enum class op_type{
   SME_Memory_LD1Q,
   SME_Memory_ST1Q,
   
-  //SVP
-  SVP,
+  //SVE 83
+  SVE_Int_Multiply_Add_Predicated_MAccumulateWritingAddressAddend,
+  SVE_Int_Multiply_Add_Predicated_MAddWritingMultiplicand,
+
+  SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors,
+  SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations,
+
+  SVE_Int_Reduction_Int_AddReduction,
+  SVE_Int_Reduction_Int_MinMaxReduction,
+  SVE_Int_Reduction_ConstructivePrefix,
+  SVE_Int_Reduction_BitwiseLogicalOperation,
+
+  SVE_Bitwise_Shift_Predicated_byImmediate,
+  SVE_Bitwise_Shift_Predicated_byVector,
+  SVE_Bitwise_Shift_Predicated_byWideElement,
+
+  SVE_Int_Unary_Arithmetic_Predicated_Int,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin,
+
+  SVE_Int_AddSubVectors_UnPredicated_ADD,
+  SVE_Int_AddSubVectors_UnPredicated_SUB,
+  SVE_Int_AddSubVectors_UnPredicated_SQADD,
+  SVE_Int_AddSubVectors_UnPredicated_UQADD,
+  SVE_Int_AddSubVectors_UnPredicated_SQSUB,
+  SVE_Int_AddSubVectors_UnPredicated_UQSUB,
+
+  SVE_Bistwise_Logical_UnPredicated_Operations,
+  SVE_Bistwise_Logical_UnPredicated_XAR,
+  SVE_Bistwise_Logical_UnPredicated_TernaryOperations,
+
+  SVE_IndexGeneration_INDEX_Immediates,
+  SVE_IndexGeneration_INDEX_ScalarAndImmediate,
+  SVE_IndexGeneration_INDEX_ImmediateAndScalar,
+  SVE_IndexGeneration_INDEX_Scalars,
+
+  SVE_StackAllocation_FrameAdjustment,
+  SVE_StackAllocation_StreamingFrameAdjustment,
+  SVE_StackAllocation_FrameSize,
+  SVE_StackAllocation_StreamingFrameSize,
+
+  SVE_2_Int_Multiply_UnPredicated_Vectors,
+  SVE_2_Int_Multiply_UnPredicated_SignedSateratingDoublingHigh,
+
+  SVE_Bitwise_Shift_UnPredicated_WideElement,
+  SVE_Bitwise_Shift_UnPredicated_Immediate,
+
+  SVE_AddressGenration_ADR,
+
+  SVE_Int_Misc_UnPredicated_FloatingPointTrigSelectCoefficient,
+  SVE_Int_Misc_UnPredicated_FloatingPointExponentialAccelerator,
+  SVE_Int_Misc_UnPredicated_ConstructivePrefix,
+
+  SVE_ElementCount_Saturating_IncDec_Vector_byElementCount,
+  SVE_ElementCount_ElementCount,
+  SVE_ElementCount_IncDec_Vector_byElementCount,
+  SVE_ElementCount_IncDev_Register_byElementCount,
+  SVE_ElementCount_Saturating_IncDec_Register_byElementCount,
+
+  SVE_Bitwise_Immediate_DUPM,
+  SVE_Bitwise_Immediate_Logical,
+
+  SVE_Int_Wide_Immediate_Predicated_CopyInteger,
+  SVE_Int_Wide_Immediate_Predicated_FCPY,
+
+  SVE_DUP_Indexed_DUP,
+
+  SVE_TableLookup_3s_TBL,
+  SVE_TableLookup_3s_TBX,
+
+  SVE_TBL,
+
+  SVE_PermuteVector_UnPredicate_Scalar_DUP,
+  SVE_PermuteVector_UnPredicate_Scalar_INSR,
+  SVE_PermuteVector_UnPredicate_UnpackVectorElements,
+  SVE_PermuteVector_UnPredicate_SIMD_FP_Scalar_INSR,
+  SVE_PermuteVector_UnPredicate_Vector_REV,
+
+  SVE_Permute_Predicate_UnpackElement,
+  SVE_Permute_Predicate_PremuteElement,
+  SVE_Permute_Predicate_REV,
+
+  SVE_PermuteVectorElements_ZIP1_or_ZIP2,
+  SVE_PermuteVectorElements_UZP1_or_UZP2,
+  SVE_PermuteVectorElements_TRN1_or_TRN2,
+
+  SVE_PermuteVector_Predicate_SIMD_FP_Scalar_CPY,
+  SVE_PermuteVector_Predicate_COMPACT,
+  SVE_PermuteVector_Predicate_ExtractElementToGeneralRegister,
+  SVE_PermuteVector_Predicate_ExtractElementToSIMDandFPscalarRegister,
+  SVE_PermuteVector_Predicate_ReverseWithinElements,
+  SVE_PermuteVector_Predicate_Scalar_CPY,
+  SVE_PermuteVector_Predicate_ConditionallyBroadCastElementToVector,
+  SVE_PermuteVector_Predicate_ConditionallyExtractElementToSIMDandFPscalar,
+  SVE_PermuteVector_Predicate_SPLICE,
+  SVE_PermuteVector_Predicate_ReverseDoubleWord,
+  SVE_PermuteVector_Predicate_ConditionallyExtractElementToGeneralRegister,
+
+  SVE_Vector_SEL,
+
+  SVE_PermuteVector_Extract_EXT,
+
+  SVE_PermuteVector_Segments_Vector,
+
+  SVE_Int_Compare_Vectors,
+  SVE_Int_Compare_Vectors_WithWideElement,
+
+  SVE_Int_Compare_UnsignedImmediate_Immediate_CMPcc,
+
+  SVE_Int_Compare_SignedImmediate_Immediate_CMPcc,
+  
+  SVE_Predicate_LogicalOperation_AND,
+  SVE_Predicate_LogicalOperation_BIC,
+  SVE_Predicate_LogicalOperation_EOR,
+  SVE_Predicate_LogicalOperation_SEL,
+  SVE_Predicate_LogicalOperation_ANDS,
+  SVE_Predicate_LogicalOperation_BICS,
+  SVE_Predicate_LogicalOperation_EORS,
+  SVE_Predicate_LogicalOperation_ORR,
+  SVE_Predicate_LogicalOperation_ORN,
+  SVE_Predicate_LogicalOperation_NOR,
+  SVE_Predicate_LogicalOperation_NAND,
+  SVE_Predicate_LogicalOperation_ORRS,
+  SVE_Predicate_LogicalOperation_ORNS,
+  SVE_Predicate_LogicalOperation_NORS,
+  SVE_Predicate_LogicalOperation_NANDS,
+
+  SVE_PropagateBreak_FromPreviousPartition,
+
+  SVE_PartitionBreak_PropagateBreakToNextPartition,
+  SVE_PartitionBreak_Condition,
+
+  SVE_PredicateMisc_PredicateTest,
+  SVE_PredicateMisc_PredicateFirstActive,
+  SVE_PredicateMisc_PredicateZero,
+  SVE_PredicateMisc_PredicateReadFromFFR_Predicate,
+  SVE_PredicateMisc_PNEXT,
+  SVE_PredicateMisc_PredicateReadFromFFR_UnPredicate,
+  SVE_PredicateMisc_PredicateInitialize,
+
+  SVE_Int_Compare_Scalars_CountAndLimit,
+  SVE_Int_Compare_Scalars_ConditionallyTerminateScalar,
+  SVE_Int_Compare_Scalars_PointerConflictCompare,
+
+  SVE_BroadcastPredicatedElement_PSEL,
+
+  SVE_ScalarInt_Compare_PredicateAsCounter_ExtractMaskPredicateFromPredicateAsCounter,
+  SVE_ScalarInt_Compare_PredicateAsCounter_PTRUE,
+  SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair,
+  SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter,
+
+  SVE_Int_Wide_Immediate_UnPredicated_AddSub,
+  SVE_Int_Wide_Immediate_UnPredicated_MinMax,
+  SVE_Int_Wide_Immediate_UnPredicated_Multiply,
+  SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Int,
+  SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Float,
+
+  SVE_Predicated_Count_PredicateAsCounter,
+  SVE_Predicated_Count,
+
+  SVE_IncOrDecByPredicateCount_Saturating_Vector,
+  SVE_IncOrDecByPredicateCount_Saturating_Register,
+  SVE_IncOrDecByPredicateCount_Vector,
+  SVE_IncOrDecByPredicateCount_Register,
+
+  SVE_WriteFFR_FromPredicate,
+  SVE_WriteFFR_Initialise,
+
+  SVE_Int_Multiply_Add_UnPredicated_DotProduct,
+  SVE_Int_Multiply_Add_UnPredicated_2_Saturating_MultiAdd_Interleaved_long,
+  SVE_Int_Multiply_Add_UnPredicated_Vector_CDOT,
+  SVE_Int_Multiply_Add_UnPredicated_ComplexInt_MultiAdd,
+  SVE_Int_Multiply_Add_UnPredicated_Int_MultiAdd_long,
+  SVE_Int_Multiply_Add_UnPredicated_Saturating_MultiAdd_long,
+  SVE_Int_Multiply_Add_UnPredicated_Saturating_MultiAdd_high,
+  SVE_Int_Multiply_Add_UnPredicated_MixedSign_DotProduct,
+
+  SVE_2_Int_Predicated_PairwiseAddAndAccumulateLong,
+  SVE_2_Int_Predicated_UnaryOperations,
+  SVE_2_Int_Predicated_SaturatingOrRounding_Bitwise_ShiftLeft,
+  SVE_2_Int_Predicated_Halving_AddSub,
+  SVE_2_Int_Predicated_PairwiseArithmetic,
+  SVE_2_Int_Predicated_Saturating_AddSub,
+
+  SVE_Int_Clamp_SCLAMP,
+  SVE_Int_Clamp_UCLAMP,
+
+  SVE_Multiply_Indexed,
+  SVE_tw_DotProduct,
+  SVE_tw_DotProduct_Indexed,
+  SVE_2_Widening_Int_Arithmetic,
+  SVE_Misc,
+  SVE_2_Accumulate,
+  SVE_2_Narrowing,
+  SVE_2_Charactor_Match,
+  SVE_2_HistogramComputation_Segment,
+  SVE_HISTCNT,
+  SVE_2_Crypto_Extensions,
+  SVE_FCMLA_Vectors,
+  SVE_FCADD,
+  SVE_FloatingPoint_ConvertPrecisionOddElement,
+  SVE_FloatingPoint_PairwiseOperations,
+  SVE_FloatingPoint_Multiply_Add_Indexed,
+  SVE_FloatingPoint_Complex_Multiply_Add_Indexed,
+  SVE_FloatingPoint_Multiply_Indexed,
+  SVE_FCLAMP,
+  SVE_FloatPoint_Widening_Multiply_Add_Indexed,
+  SVE_FloatPoint_Widening_Multiply_Add,
+  SVE_FloatPoint_MatrixMultiplyAccumulate,
+  SVE_FloatPoint_Compare_Vectors,
+  SVE_FloatPoint_Arithmetic_UnPredicate,
+  SVE_FloatPoint_Arithmetic_Predicate,
+  SVE_FloatPoint_UnaryOperations_Predicated,
+  SVE_FloatPoint_RecursiveReduction,
+  SVE_FloatPoint_UnaryOperations_UnPredicated,
+  SVE_FloatPoint_Compare_withZero,
+  SVE_FloatPoint_AccumilatingReduction,
+  SVE_FloatPoint_Multiply_Add,
+  SVE_Memory_32bitGatherAndUnsizedContiguous,
+  SVE_Memory_ContiguousLoad,
+  SVE_Memory_64bitGather,
+  SVE_Memory_ContiguousStoreAndUnsizedContiguous,
+  SVE_Memory_NonTemporalAndQuadwordScatterStore,
+  SVE_Memory_NonTempoalAndMultiRegisterContiguousStore,
+  SVE_Memory_ScatterWithOptionalSignExtend,
+  SVE_Memory_Scatter,
+  SVE_Memory_ContinguousStoreWithImmediateOffset,
 
   //DataProcessing_Immidate
   DataProcessing_Immidate,
