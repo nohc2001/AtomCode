@@ -550,8 +550,8 @@ enum class op_type{
   SME_Memory_ST1Q,
   
   //SVE 83
-  SVE_Int_Multiply_Add_Predicated_MAccumulateWritingAddressAddend,
-  SVE_Int_Multiply_Add_Predicated_MAddWritingMultiplicand,
+  SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend,
+  SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand,
 
   SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors,
   SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference,
@@ -719,14 +719,14 @@ enum class op_type{
   SVE_WriteFFR_FromPredicate,
   SVE_WriteFFR_Initialise,
 
-  SVE_Int_Multiply_Add_UnPredicated_DotProduct,
-  SVE_Int_Multiply_Add_UnPredicated_2_Saturating_MultiAdd_Interleaved_long,
-  SVE_Int_Multiply_Add_UnPredicated_Vector_CDOT,
-  SVE_Int_Multiply_Add_UnPredicated_ComplexInt_MultiAdd,
-  SVE_Int_Multiply_Add_UnPredicated_Int_MultiAdd_long,
-  SVE_Int_Multiply_Add_UnPredicated_Saturating_MultiAdd_long,
-  SVE_Int_Multiply_Add_UnPredicated_Saturating_MultiAdd_high,
-  SVE_Int_Multiply_Add_UnPredicated_MixedSign_DotProduct,
+  SVE_Int_MultiAdd_UnPredicated_DotProduct,
+  SVE_Int_MultiAdd_UnPredicated_2_Saturating_MultiAdd_Interleaved_long,
+  SVE_Int_MultiAdd_UnPredicated_Vector_CDOT,
+  SVE_Int_MultiAdd_UnPredicated_ComplexInt_MultiAdd,
+  SVE_Int_MultiAdd_UnPredicated_Int_MultiAdd_long,
+  SVE_Int_MultiAdd_UnPredicated_Saturating_MultiAdd_long,
+  SVE_Int_MultiAdd_UnPredicated_Saturating_MultiAdd_high,
+  SVE_Int_MultiAdd_UnPredicated_MixedSign_DotProduct,
 
   SVE_2_Int_Predicated_PairwiseAddAndAccumulateLong,
   SVE_2_Int_Predicated_UnaryOperations,
@@ -752,45 +752,171 @@ enum class op_type{
   SVE_Multiply_Indexed_2_Saturating_Multiply_high,
   SVE_Multiply_Indexed_2_Int_Multiply,
 
-  SVE_tw_DotProduct,
-  SVE_tw_DotProduct_Indexed,
-  SVE_2_Widening_Int_Arithmetic,
-  SVE_Misc,
-  SVE_2_Accumulate,
-  SVE_2_Narrowing,
-  SVE_2_Charactor_Match,
-  SVE_2_HistogramComputation_Segment,
+  SVE_tw_DotProduct_SDOT,
+  SVE_tw_DotProduct_UDOT,
+
+  SVE_tw_DotProduct_Indexed_SDOT,
+  SVE_tw_DotProduct_Indexed_UDOT,
+
+  SVE_2_Widening_Int_Arithmetic_AddSub_long,
+  SVE_2_Widening_Int_Arithmetic_AddSub_wide,
+  SVE_2_Widening_Int_Arithmetic_Multiply_long,
+
+  SVE_Misc_BitwiseShiftLeft_long,
+  SVE_Misc_Int_AddSub_Interleaved_long,
+  SVE_Misc_BitwiseExclusiveOrInterleaved,
+  SVE_Misc_Int_MatrixMultiplyAccumulate,
+  SVE_Misc_BitwisePermute,
+
+  SVE_2_Accumulate_ComplexInt_Add,
+  SVE_2_Accumulate_Int_AbsDiffrenceAndAccumulate_long,
+  SVE_2_Accumulate_Int_AddSub_long_withCarry,
+  SVE_2_Accumulate_BitwiseShiftRightAndAccumulate,
+  SVE_2_Accumulate_BitwiseShiftAndInsert,
+  SVE_2_Accumulate_AbsDifferenceAndAccumulate,
+
+  SVE_2_Narrowing_SaturatingExtract,
+  SVE_2_Narrowing_MultiVec_Extract,
+  SVE_2_Narrowing_BitwiseShiftRight,
+  SVE_2_Narrowing_MultiVec_Shift,
+  SVE_2_Narrowing_Int_AddSub_HighPart,
+
+  SVE_2_Charactor_Match_MATCH,
+  SVE_2_Charactor_Match_NMATCH,
+
+  SVE_2_HistogramComputation_Segment_HISTSEG,
+
   SVE_HISTCNT,
-  SVE_2_Crypto_Extensions,
-  SVE_FCMLA_Vectors,
+
+  SVE_2_Crypto_Extensions_UnaryOperations,
+  SVE_2_Crypto_Extensions_DestuctiveBinaryOperations,
+  SVE_2_Crypto_Extensions_ConstructiveBinaryOperations,
+
+  SVE_Vectors_FCMLA,
+  
   SVE_FCADD,
-  SVE_FloatingPoint_ConvertPrecisionOddElement,
-  SVE_FloatingPoint_PairwiseOperations,
-  SVE_FloatingPoint_Multiply_Add_Indexed,
-  SVE_FloatingPoint_Complex_Multiply_Add_Indexed,
-  SVE_FloatingPoint_Multiply_Indexed,
+  
+  SVE_FloatingPoint_ConvertPrecisionOddElement_FCVTXNT,
+  SVE_FloatingPoint_ConvertPrecisionOddElement_FCVTNT,
+  SVE_FloatingPoint_ConvertPrecisionOddElement_FCVTLT,
+  SVE_FloatingPoint_ConvertPrecisionOddElement_BFCVTNT,
+
+  SVE_FloatingPoint_PairwiseOperations_FADDP,
+  SVE_FloatingPoint_PairwiseOperations_FMAXNMP,
+  SVE_FloatingPoint_PairwiseOperations_FMINNMP,
+  SVE_FloatingPoint_PairwiseOperations_FMAXP,
+  SVE_FloatingPoint_PairwiseOperations_FMINP,
+
+  SVE_FloatingPoint_MultiAdd_Indexed_FMLA,
+  SVE_FloatingPoint_MultiAdd_Indexed_FMLS,
+
+  SVE_FloatingPoint_Complex_MultiAdd_Indexed_FCMLA,
+
+  SVE_FloatingPoint_Multiply_Indexed_FMUL,
+
   SVE_FCLAMP,
-  SVE_FloatPoint_Widening_Multiply_Add_Indexed,
-  SVE_FloatPoint_Widening_Multiply_Add,
-  SVE_FloatPoint_MatrixMultiplyAccumulate,
-  SVE_FloatPoint_Compare_Vectors,
-  SVE_FloatPoint_Arithmetic_UnPredicate,
-  SVE_FloatPoint_Arithmetic_Predicate,
-  SVE_FloatPoint_UnaryOperations_Predicated,
-  SVE_FloatPoint_RecursiveReduction,
-  SVE_FloatPoint_UnaryOperations_UnPredicated,
-  SVE_FloatPoint_Compare_withZero,
-  SVE_FloatPoint_AccumilatingReduction,
-  SVE_FloatPoint_Multiply_Add,
-  SVE_Memory_32bitGatherAndUnsizedContiguous,
-  SVE_Memory_ContiguousLoad,
-  SVE_Memory_64bitGather,
-  SVE_Memory_ContiguousStoreAndUnsizedContiguous,
-  SVE_Memory_NonTemporalAndQuadwordScatterStore,
-  SVE_Memory_NonTempoalAndMultiRegisterContiguousStore,
-  SVE_Memory_ScatterWithOptionalSignExtend,
-  SVE_Memory_Scatter,
-  SVE_Memory_ContinguousStoreWithImmediateOffset,
+
+  SVE_FloatPoint_Widening_MultiAdd_Indexed_BFloat16_DotProduct,
+  SVE_FloatPoint_Widening_MultiAdd_Indexed_Float_MultiAdd_long,
+
+  SVE_FloatPoint_Widening_MultiAdd_BFloat16_DotProduct,
+  SVE_FloatPoint_Widening_MultiAdd_Float_MultiAdd_long,
+
+  SVE_FloatPoint_MatrixMultiplyAccumulate_BFMMLA,
+  SVE_FloatPoint_MatrixMultiplyAccumulate_FMMLA,
+
+  SVE_FloatPoint_Compare_Vectors_FCMcc,
+  SVE_FloatPoint_Compare_Vectors_FACcc,
+
+  SVE_FloatPoint_Arithmetic_UnPredicate_FADD,
+  SVE_FloatPoint_Arithmetic_UnPredicate_FSUB,
+  SVE_FloatPoint_Arithmetic_UnPredicate_FMUL,
+  SVE_FloatPoint_Arithmetic_UnPredicate_FTSMUL,
+  SVE_FloatPoint_Arithmetic_UnPredicate_FRECPS,
+  SVE_FloatPoint_Arithmetic_UnPredicate_FRSQRTS,
+
+  SVE_FloatPoint_Arithmetic_Predicate_n,
+  SVE_FloatPoint_Arithmetic_Predicate_FTMAD,
+  SVE_FloatPoint_Arithmetic_Predicate_withImmediate,
+
+  SVE_FloatPoint_UnaryOperations_Predicated_RoundToInt,
+  SVE_FloatPoint_UnaryOperations_Predicated_ConvertPrecision,
+  SVE_FloatPoint_UnaryOperations_Predicated_n,
+  SVE_FloatPoint_UnaryOperations_Predicated_IntConvertToFloat,
+  SVE_FloatPoint_UnaryOperations_Predicated_ConvertToInt,
+
+  SVE_FloatPoint_RecursiveReduction_FADDV,
+  SVE_FloatPoint_RecursiveReduction_FMAXNMV,
+  SVE_FloatPoint_RecursiveReduction_FMINNMV,
+  SVE_FloatPoint_RecursiveReduction_FMAXV,
+  SVE_FloatPoint_RecursiveReduction_FMINV,
+
+  SVE_FloatPoint_UnaryOperations_UnPredicated_ReciprocalEstimate,
+
+  SVE_FloatPoint_Compare_withZero_FCMcc,
+
+  SVE_FloatPoint_AccumilatingReduction_Serial_FADDA,
+
+  SVE_FloatPoint_MultiAdd_WritingAddEnd,
+  SVE_FloatPoint_MultiAdd_WritingMuliplicand,
+
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Prefetch_ScalarPlus32bitScaledOffsets,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Load_Halfwords_ScalarPlus32bitScaledOffsets,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Load_Words_ScalarPlus32bitScaledOffsets,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Predicate_LDR,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Vector_LDR,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Prefetch_ScalarPlusImmediate,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Gather_Load_ScalarPlus32bitScaledOffsets,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Gather_NonTemporalLoad_VectorPlusScalar,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_Prefetch_ScalarPlusScalar,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_32bitGather_Prefetch_VectorPlusImmediate,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_32bitGather_Load_VectorPlusImmediate,
+  SVE_Memory_32bitGatherAndUnsizedContiguous_LoadAndBroadcastElement,
+
+  SVE_Memory_ContiguousLoad_NonTemporal_Load_ScalarPlusImmediate,
+  SVE_Memory_ContiguousLoad_NonTemporal_Load_ScalarPlusScalar,
+  SVE_Memory_ContiguousLoad_Load_MultipleStructures_ScalarPlusImmediate,
+  SVE_Memory_ContiguousLoad_Load_MultipleStructures_ScalarPlusScalar,
+  SVE_Memory_ContiguousLoad_LoadAndBroadcast_Quadword_ScalarPlusImmediate,
+  SVE_Memory_ContiguousLoad_ScalarPlusImmediate,
+  SVE_Memory_ContiguousLoad_NonFaultLoad_ScalarPlusImmediate,
+  SVE_Memory_ContiguousLoad_LoadAndBroadcast_Quadword_ScalarPlusScalar,
+  SVE_Memory_ContiguousLoad_ScalarPlusScalar,
+  SVE_Memory_ContiguousLoad_FirstFaultLoad_ScalarPlusScalar,
+
+  SVE_Memory_64bitGather_Prefetch_ScalarPlus64bitScaledOffsets,
+  SVE_Memory_64bitGather_Prefetch_ScalarPlusUnpacked32bitOffsets,
+  SVE_Memory_64bitGather_Load_ScalarPlus64bitScaledOffsets,
+  SVE_Memory_64bitGather_Load_ScalarPlusUnpacked32bitOffsets,
+  SVE_Memory_64bitGather_Prefetch_VectorPlusImmediate,
+  SVE_Memory_64bitGather_NonTemporalLoad_VectorPlusScalar,
+  SVE_Memory_64bitGather_Load_VectorPlusImmediate,
+  SVE_Memory_64bitGather_Load_ScalarPlus64bitUnScaledOffsets,
+  SVE_Memory_64bitGather_Load_ScalarPlusUnpack32bitUnScaledOffsets,
+
+  SVE_Memory_ContiguousStoreAndUnsizedContiguous_Predicate_STR,
+  SVE_Memory_ContiguousStoreAndUnsizedContiguous_Vector_STR,
+  SVE_Memory_ContiguousStoreAndUnsizedContiguous_ScalarPlusScalar,
+
+  SVE_Memory_NonTemporalAndQuadwordScatterStore_64bit_NonTemporal_VectorPlusScalar,
+  SVE_Memory_NonTemporalAndQuadwordScatterStore_32bit_NonTemporal_VectorPlusScalar,
+
+  SVE_Memory_NonTempoalAndMultiRegisterContiguousStore_ScalarPlusScalar,
+  SVE_Memory_NonTempoalAndMultiRegisterContiguousStore_MultipleStructures_ScalarPlusScalar,
+
+  SVE_Memory_ScatterWithOptionalSignExtend_64bitStore_ScalarPlusUnpacked32bitUnScaledOffsets,
+  SVE_Memory_ScatterWithOptionalSignExtend_64bitStore_ScalarPlusUnpacked32bitScaledOffsets,
+  SVE_Memory_ScatterWithOptionalSignExtend_32bitStore_ScalarPlus32bitUnScaledOffsets,
+  SVE_Memory_ScatterWithOptionalSignExtend_32bitStore_ScalarPlus32bitScaledOffsets,
+
+  SVE_Memory_Scatter_64bitStore_ScalarPlus64bitUnScaledOffsets,
+  SVE_Memory_Scatter_64bitStore_ScalarPlus64bitScaledOffsets,
+  SVE_Memory_Scatter_64bitStore_VectorPlusImmediate,
+  SVE_Memory_Scatter_32bitStore_VectorPlusImmediate,
+
+  SVE_Memory_ContinguousStoreWithImmediateOffset_NonTemporal_ScalarPlusImmediate,
+  SVE_Memory_ContinguousStoreWithImmediateOffset_MultipleStructures_ScalarPlusImmediate,
+  SVE_Memory_ContinguousStoreWithImmediateOffset_Contiguous_ScalarPlusImmediate,
 
   //DataProcessing_Immidate
   DataProcessing_Immidate,
@@ -858,7 +984,7 @@ void push_text(ccstr* str, const char* text){
 
 struct inst_info{
   //mnimonic
-  char mnimonic[8] = {};
+  char mnimonic[16] = {};
 
   //param_array
   int param_len = 0;
