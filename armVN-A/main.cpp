@@ -550,26 +550,73 @@ enum class op_type{
   SME_Memory_ST1Q,
   
   //SVE 83
-  SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend,
-  SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand,
+  SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend_MLA,
+  SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend_MLS,
+  SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand_MAD,
+  SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand_MSB,
 
-  SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors,
-  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference,
-  SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors,
-  SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors,
-  SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_ADD,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_SUB,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_SUBR,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SMAX,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_UMAX,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SMIN,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_UMIN,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SABD,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_UABD,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_MUL,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_SMULH,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_UMULH,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_SDIV,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_UDIV,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_SDIVR,
+  SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_UDIVR,
+  SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_ORR,
+  SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_EOR,
+  SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_AND,
+  SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_BIC,
 
-  SVE_Int_Reduction_Int_AddReduction,
-  SVE_Int_Reduction_Int_MinMaxReduction,
-  SVE_Int_Reduction_ConstructivePrefix,
-  SVE_Int_Reduction_BitwiseLogicalOperation,
+  SVE_Int_Reduction_Int_AddReduction_SADDV,
+  SVE_Int_Reduction_Int_AddReduction_UADDV,
+  SVE_Int_Reduction_Int_MinMaxReduction_SMAXV,
+  SVE_Int_Reduction_Int_MinMaxReduction_UMAXV,
+  SVE_Int_Reduction_Int_MinMaxReduction_SMINV,
+  SVE_Int_Reduction_Int_MinMaxReduction_UMINV,
+  SVE_Int_Reduction_ConstructivePrefix_MOVPREFX,
+  SVE_Int_Reduction_BitwiseLogicalOperation_ORV,
+  SVE_Int_Reduction_BitwiseLogicalOperation_EORV,
+  SVE_Int_Reduction_BitwiseLogicalOperation_ANDV,
 
-  SVE_Bitwise_Shift_Predicated_byImmediate,
-  SVE_Bitwise_Shift_Predicated_byVector,
-  SVE_Bitwise_Shift_Predicated_byWideElement,
+  SVE_Bitwise_Shift_Predicated_byImmediate_ASR,
+  SVE_Bitwise_Shift_Predicated_byImmediate_LSR,
+  SVE_Bitwise_Shift_Predicated_byImmediate_LSL,
+  SVE_Bitwise_Shift_Predicated_byImmediate_ASRD,
+  SVE_Bitwise_Shift_Predicated_byImmediate_SQSHL,
+  SVE_Bitwise_Shift_Predicated_byImmediate_UQSHL,
+  SVE_Bitwise_Shift_Predicated_byImmediate_SRSHR,
+  SVE_Bitwise_Shift_Predicated_byImmediate_URSHR,
+  SVE_Bitwise_Shift_Predicated_byImmediate_SQSHLU,
+  SVE_Bitwise_Shift_Predicated_byVector_ASR,
+  SVE_Bitwise_Shift_Predicated_byVector_LSR,
+  SVE_Bitwise_Shift_Predicated_byVector_LSL,
+  SVE_Bitwise_Shift_Predicated_byVector_ASRR,
+  SVE_Bitwise_Shift_Predicated_byVector_LSRR,
+  SVE_Bitwise_Shift_Predicated_byVector_LSLR,
+  SVE_Bitwise_Shift_Predicated_byWideElement_ASR,
+  SVE_Bitwise_Shift_Predicated_byWideElement_LSR,
+  SVE_Bitwise_Shift_Predicated_byWideElement_LSL,
 
-  SVE_Int_Unary_Arithmetic_Predicated_Int,
-  SVE_Int_Unary_Arithmetic_Predicated_Bin,
+  SVE_Int_Unary_Arithmetic_Predicated_Int_SXTx_BHW,
+  SVE_Int_Unary_Arithmetic_Predicated_Int_UXTx_BHW,
+  SVE_Int_Unary_Arithmetic_Predicated_Int_ABS,
+  SVE_Int_Unary_Arithmetic_Predicated_Int_NEG,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_CLS,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_CLZ,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_CNT,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_CNOT,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_FABS,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_FNEG,
+  SVE_Int_Unary_Arithmetic_Predicated_Bin_NOT,
 
   SVE_Int_AddSubVectors_UnPredicated_ADD,
   SVE_Int_AddSubVectors_UnPredicated_SUB,
@@ -3149,6 +3196,355 @@ inst_info getOP_SME(uint32_t inst){
 }
 
 inst_info getOP_SVE(uint32_t inst){
+  constexpr op_range o0 = {29, 31};
+  constexpr op_range o1 = {10, 24};
+  constexpr int o2 = 4;
+
+  if(masking(inst, o0, "000")){
+    if(masking(inst, o1, "0xx0xxxxxx1>")){
+      constexpr int op0 = 15;
+      constexpr int op = 13;
+    }
+    if(masking(inst, o1, "0xx0xxxxx000>")){
+      
+    }
+    if(masking(inst, o1, "0xx0xxxxx001>")){
+      
+    }
+    if(masking(inst, o1, "0xx0xxxxx100>")){
+      
+    }
+    if(masking(inst, o1, "0xx0xxxxx101>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx000>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx001>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx0100>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx0101>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx011>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx100>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx1010>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx1011>")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx11>")){
+      
+    }
+    if(masking(inst, o1, "1xx00>")){
+      
+    }
+    if(masking(inst, o1, "1xx01>")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx001000")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx001001")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "1xx1xxxxx00101x")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx0011x1")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "1xx1xxxxx001100")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx001110")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx010>")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx011>")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx10>")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx11>")){
+      
+    }
+    if(masking(inst, o1, "10x1xxxxx000>")){
+      
+    }
+    if(masking(inst, o1, "11x1xxxxx000>")){
+      
+    }
+  }
+  if(masking(inst, o0, "001")){
+    if(masking(inst, o1, "0xx0>")){
+      
+    }
+    if(masking(inst, o1, "0xx1>")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxxx0>")){
+      
+    }
+    if(masking(inst, o1, "1xx00xxxx01>")){
+      
+    }
+    if(masking(inst, o1, "1xx00xxxx11>")){
+      
+    }
+    if(masking(inst, o1, "1xx01xxxx01>")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx00>")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx01>") && !is1(inst, o2)){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx01>") && is1(inst, o2)){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx11>")){
+      
+    }
+    if(masking(inst, o1, "1xx100xxx10>")){
+      
+    }
+    if(masking(inst, o1, "1xx101xxx1000>")){
+      
+    }
+    if(masking(inst, o1, "1xx101xxx1001>")){
+      
+    }
+    if(masking(inst, o1, "1xx101xxx101>")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "1xx11xxxx10>")){
+      return gii(op_type::Undefine, inst);
+    }
+  }
+  if(masking(inst, o0, "010")){
+    if(masking(inst, o1, "0xx0xxxxx0>")){
+      
+    }
+    if(masking(inst, o1, "0xx0xxxxx10>")){
+      
+    }
+    if(masking(inst, o1, "0xx0xxxxx11000x")){
+      
+    }
+    if(masking(inst, o1, "0xx0xxxxx1101xx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx0xxxxx111xxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxxxxxxxx")){
+      
+    }
+    if(masking(inst, o1, "0x10xxxxx11001x")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0000xxxxx11001x")){
+
+    }
+    if(masking(inst, o1, "0100xxxxx11001x")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxx0xxxxx")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxx10xxxx")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxx11xxxx")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx0xxxxx")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx100xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx110xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxx111xxx")){
+      
+    }
+  }
+  if(masking(inst, o0, "011")){
+    if(masking(inst, o1, "0xx0xxxxx0xxxxx")){
+      
+    }
+    if(masking(inst, o1, "0xx00000x100xxx")){
+      
+    }
+    if(masking(inst, o1, "0xx00000x101xxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx00000x11xxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx00001x1xxxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx0001xx1xxxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx0010xx100xxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx0010xx101xxx")){
+      
+    }
+    if(masking(inst, o1, "0xx0010xx11xxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx001100100xxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx00110011xxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx0011011xxxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx00111x1xxxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx010xxx100xxx")){
+      
+    }
+    if(masking(inst, o1, "0xx010xxx101xxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx010xxx11xxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx011xxx1xxxxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx0000xx")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx0001xx")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx0010x0")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx001001")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx001011")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx0011xx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx01x0xx")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx01x1xx")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx10x00x")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx10x01x")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx10x1xx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx110xxx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx111000")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx111001")){
+      
+    }
+    if(masking(inst, o1, "0xx1xxxxx11101x")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "0xx1xxxxx1111xx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "1xx0xxxxxx1xxxx")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxx000xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxx100xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx0xxxxx101xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx000xxx001xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx001xxx0010xx")){
+      return gii(op_type::Undefine, inst);
+    }
+    if(masking(inst, o1, "1xx001xxx0011xx")){
+      
+    }
+    if(masking(inst, o1, "1xx010xxx001xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx011xxx001xxx")){
+      
+    }
+    if(masking(inst, o1, "1xx1xxxxxxxxxxx")){
+      
+    }
+  }
+  if(masking(inst, o0, "100")){
+    
+  }
+  if(masking(inst, o0, "101")){
+    
+  }
+  if(masking(inst, o0, "110")){
+    
+  }
+  if(masking(inst, o0, "111")){
+    if(masking(inst, o1, "xxxxxxxxx0x0xxx")){
+      
+    }
+    if(masking(inst, o1, "xxxxxxxxx001xxx")){
+      
+    }
+    if(masking(inst, o1, "xxxxxxxxx011xxx")){
+      
+    }
+    if(masking(inst, o1, "xxxxxxxxx1x0xxx")){
+      
+    }
+    if(masking(inst, o1, "xxxxxxxxx101xxx")){
+      
+    }
+    if(masking(inst, o1, "xxxxxxxxx111xxx")){
+      
+    }
+  }
+
   return gii(op_type::Undefine, inst);
 }
 
