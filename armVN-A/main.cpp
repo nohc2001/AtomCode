@@ -854,8 +854,8 @@ enum class op_type{
   SVE_Int_Wide_Immediate_UnPredicated_MinMax_SMIN,
   SVE_Int_Wide_Immediate_UnPredicated_MinMax_UMIN,
   SVE_Int_Wide_Immediate_UnPredicated_Multiply_Immediate_MUL,
-  SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Int,
-  SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Float,
+  SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Int_Immediate_DUP,
+  SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Float_FDUP,
 
   SVE_Predicated_Count_PredicateAsCounter,
   SVE_Predicated_Count,
