@@ -1506,7 +1506,38 @@ enum class op_type{
   SVE_Memory_ContinguousStoreWithImmediateOffset_Contiguous_ScalarPlusImmediate_ST1D,
 
   //DataProcessing_Immidate
-  DataProcessing_Immidate,
+  DataProcessing_Immidate_PCrel_Addressing_ADR,
+  DataProcessing_Immidate_PCrel_Addressing_ADRP,
+
+  DataProcessing_Immidate_AddSub_ADD,
+  DataProcessing_Immidate_AddSub_ADDS,
+  DataProcessing_Immidate_AddSub_SUB,
+  DataProcessing_Immidate_AddSub_SUBS,
+
+  DataProcessing_Immidate_AddSub_Tag_ADDG,
+  DataProcessing_Immidate_AddSub_Tag_SUBG,
+
+  DataProcessing_Immidate_Logical_AND,
+  DataProcessing_Immidate_Logical_ORR,
+  DataProcessing_Immidate_Logical_EOR,
+  DataProcessing_Immidate_Logical_ANDS,
+
+  DataProcessing_Immidate_MoveWide_32bitVariant_MOVN,
+  DataProcessing_Immidate_MoveWide_32bitVariant_MOVZ,
+  DataProcessing_Immidate_MoveWide_32bitVariant_MOVK,
+  DataProcessing_Immidate_MoveWide_64bitVariant_MOVN,
+  DataProcessing_Immidate_MoveWide_64bitVariant_MOVZ,
+  DataProcessing_Immidate_MoveWide_64bitVariant_MOVK,
+
+  DataProcessing_Immidate_Bitfield_32bitVariant_SBFM,
+  DataProcessing_Immidate_Bitfield_32bitVariant_BFM,
+  DataProcessing_Immidate_Bitfield_32bitVariant_UBFM,
+  DataProcessing_Immidate_Bitfield_64bitVariant_SBFM,
+  DataProcessing_Immidate_Bitfield_64bitVariant_BFM,
+  DataProcessing_Immidate_Bitfield_64bitVariant_UBFM,
+
+  DataProcessing_Immidate_Extract_32bitVariant_EXTR,
+  DataProcessing_Immidate_Extract_64bitVariant_EXTR,
 
   //Branch or ExeptionSystemInstruction
   Branch_or_ExeptionSystemInstruction,
