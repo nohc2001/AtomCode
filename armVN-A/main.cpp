@@ -5563,11 +5563,69 @@ inst_info getOP_SVE(uint32_t inst)
       if(masking(inst, op0, "11")){
         coprange opc = {22, 23};
         coprange opc2 = {16, 20};
-        if(masking(inst, opc, "00") &&)
+        if(masking(inst, opc, "00") && masking(inst, opc2, "00000")){
+          return gii(op_type::SVE_Int_Misc_UnPredicated_ConstructivePrefix_MOVPRFX, inst);
+        }
       }
     }
     if (masking(inst, o1, "0xx1xxxxx11>"))
     {
+      copn op0 = 20;
+      coprange op1 = {11, 13};
+      if(isp(inst, op0, '0') && masking(inst, op1, "00x")){
+        coprange size = {22, 23};
+        coprange du = {10, 11};
+        if(masking(inst, size, "01") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_SQINCH, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQINCH, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_SQDECH, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQDECH, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_SQINCW, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQINCW, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_SQDECW, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQDECW, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_SQINCD, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQINCD, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_SQDECD, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQDECD, inst);
+        }
+      }
+      if(isp(inst, op0, '0') && masking(inst, op1, "100")){
+        if(isp(inst, 10, '0')){
+          return gii(op_type::SVE_ElementCount_ElementCount_CNTx_BHWD, inst);
+        }
+      }
+      if(isp(inst, op0, '1') && masking(inst, op1, "000")){
+        
+      }
+      if(isp(inst, op0, '1') && masking(inst, op1, "100")){
+        
+      }
+      if(masking(inst, op1, "11x")){
+        
+      }
     }
     if (masking(inst, o1, "1xx00>"))
     {
