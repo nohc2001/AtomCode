@@ -5250,25 +5250,268 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx0xxxxx100>"))
     {
-      
+      constexpr op_range op0 = {19, 20};
+      if(masking(inst, op0, "0x")){
+        constexpr op_range opclu = {16, 19};
+        if(masking(inst, opclu, "0000")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_ASR, inst);
+        }
+        if(masking(inst, opclu, "0001")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_LSR, inst);
+        }
+        if(masking(inst, opclu, "0011")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_LSL, inst);
+        }
+        if(masking(inst, opclu, "0100")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_ASRD, inst);
+        }
+        if(masking(inst, opclu, "0110")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_SQSHL, inst);
+        }
+        if(masking(inst, opclu, "0111")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_UQSHL, inst);
+        }
+        if(masking(inst, opclu, "1100")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_SRSHR, inst);
+        }
+        if(masking(inst, opclu, "1101")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_URSHR, inst);
+        }
+        if(masking(inst, opclu, "1111")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byImmediate_SQSHLU, inst);
+        }
+      }
+      if(masking(inst, op0, "10")){
+        constexpr op_range rlu = {16, 18};
+        if(masking(inst, rlu, "000")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byVector_ASR, inst);
+        }
+        if(masking(inst, rlu, "001")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byVector_LSR, inst);
+        }
+        if(masking(inst, rlu, "011")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byVector_LSL, inst);
+        }
+        if(masking(inst, rlu, "100")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byVector_ASRR, inst);
+        }
+        if(masking(inst, rlu, "101")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byVector_LSRR, inst);
+        }
+        if(masking(inst, rlu, "111")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byVector_LSLR, inst);
+        }
+      }
+      if(masking(inst, op0, "11")){
+        constexpr op_range rlu = {16, 18};
+        if(masking(inst, rlu, "000")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byWideElement_ASR, inst);
+        }
+        if(masking(inst, rlu, "001")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byWideElement_LSR, inst);
+        }
+        if(masking(inst, rlu, "011")){
+          return gii(optype::SVE_Bitwise_Shift_Predicated_byWideElement_LSL, inst);
+        }
+      }
     }
     if (masking(inst, o1, "0xx0xxxxx101>"))
     {
+      constexpr op_range op0 = {19, 20};
+      if(masking(inst, op0, "10")){
+        constexpr op_range opc = {16, 18};
+        if(masking(inst, opc, "000")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_SXTx_BHW, inst);
+        }
+        if(masking(inst, opc, "001")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_UXTx_BHW, inst);
+        }
+        if(masking(inst, opc, "010")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_SXTx_BHW, inst);
+        }
+        if(masking(inst, opc, "011")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_UXTx_BHW, inst);
+        }
+        if(masking(inst, opc, "100")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_SXTx_BHW, inst);
+        }
+        if(masking(inst, opc, "101")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_UXTx_BHW, inst);
+        }
+        if(masking(inst, opc, "110")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_ABS, inst);
+        }
+        if(masking(inst, opc, "111")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Int_NEG, inst);
+        }
+      }
+      if(masking(inst, op0, "11")){
+        constexpr op_range opc = {16, 18};
+        if(masking(inst, opc, "000")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_CLS, inst);
+        }
+        if(masking(inst, opc, "001")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_CLZ, inst);
+        }
+        if(masking(inst, opc, "010")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_CNT, inst);
+        }
+        if(masking(inst, opc, "011")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_CNOT, inst);
+        }
+        if(masking(inst, opc, "100")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_FABS, inst);
+        }
+        if(masking(inst, opc, "101")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_FNEG, inst);
+        }
+        if(masking(inst, opc, "110")){
+          return gii(optype::SVE_Int_Unary_Arithmetic_Predicated_Bin_NOT, inst);
+        }
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx000>"))
     {
+      constexpr op_range opc = {10, 12};
+      if(masking(inst, opc, "000")){
+        return gii(optype::SVE_Int_AddSubVectors_UnPredicated_ADD, inst);
+      }
+      if(masking(inst, opc, "001")){
+        return gii(optype::SVE_Int_AddSubVectors_UnPredicated_SUB, inst);
+      }
+      if(masking(inst, opc, "100")){
+        return gii(optype::SVE_Int_AddSubVectors_UnPredicated_SQADD, inst);
+      }
+      if(masking(inst, opc, "101")){
+        return gii(optype::SVE_Int_AddSubVectors_UnPredicated_UQADD, inst);
+      }
+      if(masking(inst, opc, "110")){
+        return gii(optype::SVE_Int_AddSubVectors_UnPredicated_SQSUB, inst);
+      }
+      if(masking(inst, opc, "111")){
+        return gii(optype::SVE_Int_AddSubVectors_UnPredicated_UQSUB, inst);
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx001>"))
     {
+      constexpr op_range op0 = {10, 12};
+      if(masking(inst, op0, "100")){
+        constexpr op_range opc = {22, 23};
+        if(masking(inst, opc, "00")){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_Operations_AND, inst);
+        }
+        if(masking(inst, opc, "01")){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_Operations_ORR, inst);
+        }
+        if(masking(inst, opc, "10")){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_Operations_EOR, inst);
+        }
+        if(masking(inst, opc, "11")){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_Operations_BIC, inst);
+        }
+      }
+      if(masking(inst, op0, "101")){
+        return gii(optype::SVE_Bistwise_Logical_UnPredicated_XAR, inst);
+      }
+      if(masking(inst, op0, "11x")){
+        constexpr op_range opc = {22, 23};
+        constexpr int o2 = 10;
+        if(masking(inst, opc, "00") && isp(inst, o2, '0')){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_EOR3, inst);
+        }
+        if(masking(inst, opc, "00") && isp(inst, o2, '1')){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_BSL, inst);
+        }
+        if(masking(inst, opc, "01") && isp(inst, o2, '0')){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_BCAX, inst);
+        }
+        if(masking(inst, opc, "01") && isp(inst, o2, '1')){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_BSL1N, inst);
+        }
+        if(masking(inst, opc, "10") && isp(inst, o2, '1')){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_BSL2N, inst);
+        }
+        if(masking(inst, opc, "11") && isp(inst, o2, '1')){
+          return gii(optype::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_NBSL, inst);
+        }
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx0100>"))
     {
+      constexpr op_range op0 = {10, 11};
+      if(masking(inst, op0, "00")){
+        return gii(optype::SVE_IndexGeneration_Immediates_INDEX, inst);
+      }
+      if(masking(inst, op0, "01")){
+        return gii(optype::SVE_IndexGeneration_ScalarAndImmediate_INDEX, inst);
+      }
+      if(masking(inst, op0, "10")){
+        return gii(optype::SVE_IndexGeneration_ImmediateAndScalar_INDEX, inst);
+      }
+      if(masking(inst, op0, "11")){
+        return gii(optype::SVE_IndexGeneration_Scalars_INDEX, inst);
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx0101>"))
     {
+      constexpr int op0 = 23;
+      constexpr int op1 = 11;
+      if(isp(inst, op0, '0') && isp(inst, op1, '0')){
+        constexpr int op = 22;
+        if(isp(inst, op, '0')){
+          return gii(optype::SVE_StackAllocation_FrameAdjustment_ADDVL, inst);
+        }
+        if(isp(inst, op, '1')){
+          return gii(optype::SVE_StackAllocation_FrameAdjustment_ADDPL, inst);
+        }
+      }
+      if(isp(inst, op0, '0') && isp(inst, op1, '1')){
+        constexpr int op = 22;
+        if(isp(inst, op, '0')){
+          return gii(optype::SVE_StackAllocation_StreamingFrameAdjustment_ADDSVL, inst);
+        }
+        if(isp(inst, op, '1')){
+          return gii(optype::SVE_StackAllocation_StreamingFrameAdjustment_ADDSVL, inst);
+        }
+      }
+      if(isp(inst, op0, '1') && isp(inst, op1, '0')){
+        if(isp(inst, 22, '0') && masking(inst, {16, 20}, "11111")){
+          return gii(optype::SVE_StackAllocation_FrameSize_RDVL, inst);
+        }
+      }
+      if(isp(inst, op0, '1') && isp(inst, op1, '1')){
+        if(isp(inst, 22, '0') && masking(inst, {16, 20}, "11111")){
+          return gii(optype::SVE_StackAllocation_StreamingFrameSize_RDSVL, inst);
+        }
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx011>"))
     {
+      constexpr op_range op0 = {11. 12};
+      if(masking(inst, op0, "0x")){
+        constexpr op_range size = {22, 23};
+        constexpr op_range opc = {10. 11};
+        if(masking(inst, opc, "00")){
+          return gii(optype::SVE_2_Int_Multiply_UnPredicated_Vectors_MUL, inst);
+        }
+        if(masking(inst, opc, "10")){
+          return gii(optype::SVE_2_Int_Multiply_UnPredicated_Vectors_SMULH, inst);
+        }
+        if(masking(inst, opc, "11")){
+          return gii(optype::SVE_2_Int_Multiply_UnPredicated_Vectors_UMULH, inst);
+        }
+        if(masking(inst, opc, "01") && masking(inst, size, "00")){
+          return gii(optype::SVE_2_Int_Multiply_UnPredicated_Vectors_PMUL, inst);
+        }
+      }
+      if(masking(inst, op0, "10")){
+        if(isp(inst, 10, '0')){
+          return gii(optype::SVE_2_Int_Multiply_UnPredicated_SignedSateratingDoublingHigh_SQDMULH, inst);
+        }
+        if(isp(inst, 10, '1')){
+          return gii(optype::SVE_2_Int_Multiply_UnPredicated_SignedSateratingDoublingHigh_SQRDMULH, inst);
+        }
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx100>"))
     {
