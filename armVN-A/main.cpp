@@ -2,6 +2,9 @@
 #include <string.h>
 using namespace std;
 
+#define coprange constexpr op_range
+#define copn constexpr int
+
 enum class op_type
 {
   // undefined
@@ -2596,13 +2599,13 @@ inst_info gii(op_type type, uint32_t inst)
   return ii;
 }
 
-constexpr int op0 = 31;
-constexpr op_range op1 = {25, 28};
+copn op0 = 31;
+coprange op1 = {25, 28};
 
 inst_info getOP_Reserved(uint32_t inst)
 {
-  static constexpr op_range sop0 = {29, 30};
-  static constexpr op_range sop1 = {16, 24};
+  static coprange sop0 = {29, 30};
+  static coprange sop1 = {16, 24};
   if (masking(inst, sop0, "00") && masking(inst, sop1, "000000000"))
   {
     return gii(op_type::Reserved_UDF, inst);
@@ -2613,17 +2616,17 @@ inst_info getOP_Reserved(uint32_t inst)
 
 inst_info getOP_SME(uint32_t inst)
 {
-  static constexpr op_range sop0 = {29, 30};
-  static constexpr op_range sop1 = {10, 24};
-  static constexpr op_range sop2 = {2, 4};
+  static coprange sop0 = {29, 30};
+  static coprange sop1 = {10, 24};
+  static coprange sop2 = {2, 4};
 
   if (masking(inst, sop0, "00"))
   {
     if (masking(inst, sop1, "x10>") && masking(inst, sop2, "x00"))
     {
-      constexpr int ssop0 = 24;
-      constexpr int ssop1 = 21;
-      constexpr int S = 4;
+      copn ssop0 = 24;
+      copn ssop1 = 21;
+      copn S = 4;
       if (!is1(inst, ssop0) && !is1(inst, ssop1))
       {
         if (!is1(inst, S))
@@ -2664,8 +2667,8 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "010>") && masking(inst, sop2, "x10"))
     {
       // return gii(op_type::SME_2_Binary_OuterProduct_32bit, inst);
-      constexpr int ssop0 = 21;
-      constexpr int S = 4;
+      copn ssop0 = 21;
+      copn S = 4;
       if (!is1(inst, ssop0))
       {
         if (!is1(inst, S))
@@ -2684,12 +2687,12 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "x10>") && masking(inst, sop2, "xx1"))
     {
       // return gii(op_type::SME_Integer_Outer_Product_32bit, inst);
-      constexpr int ssop0 = 21;
-      constexpr int ssop1 = 3;
-      constexpr int S = 4;
+      copn ssop0 = 21;
+      copn ssop1 = 3;
+      copn S = 4;
       if (!is1(inst, ssop0) && is1(inst, ssop1))
       {
-        constexpr int u0 = 24;
+        copn u0 = 24;
         if (!is1(inst, u0))
         {
           if (!is1(inst, S))
@@ -2715,8 +2718,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (!is1(inst, ssop1))
       {
-        constexpr int u0 = 24;
-        constexpr int u1 = 21;
+        copn u0 = 24;
+        copn u1 = 21;
         constexpr op_type oparr[2][2][2] =
             {
                 {{op_type::SME_Integer_Outer_Product_32bit_Int8_SMOPA,
@@ -2737,16 +2740,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "00>"))
     {
       // return gii(op_type::SME_2_MultiVector_Memory_Continguous, inst);
-      constexpr op_range ssop0 = {20, 22};
-      constexpr int ssop1 = 15;
-      constexpr int ssop2 = 1;
+      coprange ssop0 = {20, 22};
+      copn ssop1 = 15;
+      copn ssop2 = 1;
       if (masking(inst, ssop0, "00x"))
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_2Register_LD1B,
@@ -2766,9 +2769,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1B,
@@ -2790,9 +2793,9 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_ST1B,
@@ -2812,9 +2815,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_ST1B,
@@ -2836,9 +2839,9 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LD1B,
@@ -2858,9 +2861,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LD1B,
@@ -2882,9 +2885,9 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_ST1B,
@@ -2904,9 +2907,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_ST1B,
@@ -2928,16 +2931,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "10>"))
     {
       // return gii(op_type::SME_2_MultiVector_Memory_Strided, inst);
-      constexpr op_range ssop0 = {20, 22};
-      constexpr int ssop1 = 15;
-      constexpr int ssop2 = 2;
+      coprange ssop0 = {20, 22};
+      copn ssop1 = 15;
+      copn ssop2 = 2;
       if (masking(inst, ssop0, "00x"))
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 3;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 3;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LD1B,
@@ -2957,9 +2960,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 3;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 3;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1B,
@@ -2981,9 +2984,9 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 3;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 3;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_ST1B,
@@ -3003,9 +3006,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 3;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 3;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_ST1B,
@@ -3027,9 +3030,9 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 3;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 3;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LD1B,
@@ -3049,9 +3052,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 3;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 3;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LD1B,
@@ -3073,9 +3076,9 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (!is1(inst, ssop1))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_ST1B,
@@ -3095,9 +3098,9 @@ inst_info getOP_SME(uint32_t inst)
 
         if (is1(inst, ssop1) && !is1(inst, ssop2))
         {
-          constexpr int msz0 = 14;
-          constexpr int msz1 = 13;
-          constexpr int N = 0;
+          copn msz0 = 14;
+          copn msz1 = 13;
+          copn N = 0;
           constexpr op_type oparr[2][2][2] =
               {
                   {{op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_ST1B,
@@ -3122,12 +3125,12 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "0xx000x0>") && masking(inst, sop2, "0xx"))
     {
       // return gii(op_type::SME_MoveIntoArray, inst);
-      constexpr op_range ssop0 = {22, 23};
-      constexpr int ssop1 = 18;
-      constexpr op_range ssop2 = {15, 16};
-      constexpr op_range ssop3 = {10, 12};
-      constexpr op_range ssop4 = {5, 6};
-      constexpr int ssop5 = 3;
+      coprange ssop0 = {22, 23};
+      copn ssop1 = 18;
+      coprange ssop2 = {15, 16};
+      coprange ssop3 = {10, 12};
+      coprange ssop4 = {5, 6};
+      copn ssop5 = 3;
       if ((masking(inst, ssop0, "00") && is1(inst, ssop1)) && masking(inst, ssop2, "00"))
       {
         if ((masking(inst, ssop3, "010") && masking(inst, ssop4, "x0")) && !is1(inst, ssop5))
@@ -3142,8 +3145,8 @@ inst_info getOP_SME(uint32_t inst)
 
       if (!is1(inst, ssop1))
       {
-        constexpr op_range size = {22, 23};
-        constexpr int Q = 16;
+        coprange size = {22, 23};
+        copn Q = 16;
         if (is1(inst, Q))
         {
           if (masking(inst, size, "11"))
@@ -3166,8 +3169,8 @@ inst_info getOP_SME(uint32_t inst)
           }
           if (masking(inst, ssop3, "001") && masking(inst, ssop4, "00"))
           {
-            constexpr op_range size = {22, 23};
-            constexpr int opec = 2;
+            coprange size = {22, 23};
+            copn opec = 2;
             if (is1(inst, opec))
             {
               if (masking(inst, size, "11"))
@@ -3186,12 +3189,12 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "0xx000x1>"))
     {
       // return gii(op_type::SME_MoveFromArray, inst);
-      constexpr op_range ssop0 = {22, 23};
-      constexpr int ssop1 = 18;
-      constexpr op_range ssop2 = {15, 16};
-      constexpr op_range ssop3 = {10, 12};
-      constexpr op_range ssop4 = {8, 9};
-      constexpr op_range ssop5 = {0, 1};
+      coprange ssop0 = {22, 23};
+      copn ssop1 = 18;
+      coprange ssop2 = {15, 16};
+      coprange ssop3 = {10, 12};
+      coprange ssop4 = {8, 9};
+      coprange ssop5 = {0, 1};
       if ((masking(inst, ssop0, "00") && is1(inst, ssop1)) && (masking(inst, ssop2, "00") && masking(inst, ssop4, "00")))
       {
         if (masking(inst, ssop3, "010") && masking(inst, ssop5, "x0"))
@@ -3205,8 +3208,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (!is1(inst, ssop1) && masking(inst, ssop4, "0x"))
       {
-        constexpr op_range size = {22, 23};
-        constexpr int Q = 16;
+        coprange size = {22, 23};
+        copn Q = 16;
         if (is1(inst, Q))
         {
           if (masking(inst, size, "11"))
@@ -3227,8 +3230,8 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, ssop3, "001") && masking(inst, ssop5, "00"))
         {
-          constexpr op_range size = {22, 23};
-          constexpr int opec = 2;
+          coprange size = {22, 23};
+          copn opec = 2;
           if (is1(inst, opec))
           {
             if (masking(inst, size, "11"))
@@ -3246,14 +3249,14 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "0xx010>") && masking(inst, sop2, "x0x"))
     {
       // return gii(op_type::SME_AddVectorToArray, inst);
-      constexpr int ssop0 = 23;
-      constexpr op_range ssop1 = {17, 18};
-      constexpr int ssop2 = 4;
+      copn ssop0 = 23;
+      coprange ssop1 = {17, 18};
+      copn ssop2 = 4;
       if ((is1(inst, ssop0) && masking(inst, ssop1, "00")) && !is1(inst, ssop2))
       {
-        constexpr int _op = 22;
-        constexpr int V = 16;
-        constexpr op_range opc2 = {0, 2};
+        copn _op = 22;
+        copn V = 16;
+        coprange opc2 = {0, 2};
         if (!is1(inst, _op) && masking(inst, opc2, "0xx"))
         {
           if (!is1(inst, V))
@@ -3280,7 +3283,7 @@ inst_info getOP_SME(uint32_t inst)
     }
     if (masking(inst, sop1, "0000010>"))
     {
-      constexpr op_range ssop0 = {8, 17};
+      coprange ssop0 = {8, 17};
       if (masking(inst, ssop0, "0000000000"))
       {
         return gii(op_type::SME_Zero, inst);
@@ -3288,8 +3291,8 @@ inst_info getOP_SME(uint32_t inst)
     }
     if (masking(inst, sop1, "0010010>"))
     {
-      constexpr op_range ssop0 = {4, 17};
-      constexpr op_range opc = {0, 3};
+      coprange ssop0 = {4, 17};
+      coprange opc = {0, 3};
       if (masking(inst, ssop0, "0000000000000") && masking(inst, opc, "0001"))
       {
         return gii(op_type::SME_2_Zero_LookupTable, inst);
@@ -3297,9 +3300,9 @@ inst_info getOP_SME(uint32_t inst)
     }
     if (masking(inst, sop1, "0010011>"))
     {
-      constexpr int ssop0 = 17;
-      constexpr op_range ssop1 = {15, 16};
-      constexpr op_range opc = {5, 11};
+      copn ssop0 = 17;
+      coprange ssop1 = {15, 16};
+      coprange opc = {5, 11};
       if (masking(inst, ssop1, "00") && masking(inst, opc, "0011111"))
       {
         if (!is1(inst, ssop0))
@@ -3315,13 +3318,13 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "01x001>"))
     {
       // return gii(op_type::SME_2_Expand_LookupTable_Continguous, inst);
-      constexpr int ssop0 = 22;
-      constexpr op_range ssop1 = {14, 15};
-      constexpr op_range ssop2 = {0, 1};
+      copn ssop0 = 22;
+      coprange ssop1 = {14, 15};
+      coprange ssop2 = {0, 1};
       if ((!is1(inst, ssop0) && masking(inst, ssop1, "10")) && masking(inst, ssop2, "00"))
       {
-        constexpr op_range opc = {16, 18};
-        constexpr op_range opc2 = {10, 11};
+        coprange opc = {16, 18};
+        coprange opc2 = {10, 11};
         if (masking(inst, opc, "01x") && masking(inst, opc2, "00"))
         {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_4Register_LUTI4, inst);
@@ -3333,8 +3336,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, ssop0) && masking(inst, ssop1, "x1")) && masking(inst, ssop2, "x0"))
       {
-        constexpr op_range opc = {15, 18};
-        constexpr op_range opc2 = {10, 11};
+        coprange opc = {15, 18};
+        coprange opc2 = {10, 11};
         if (masking(inst, opc, "01xx") && masking(inst, opc2, "00"))
         {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_2Register_LUTI4, inst);
@@ -3346,8 +3349,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (is1(inst, ssop0))
       {
-        constexpr op_range opc = {14, 18};
-        constexpr op_range opc2 = {10, 11};
+        coprange opc = {14, 18};
+        coprange opc2 = {10, 11};
         if (masking(inst, opc, "01xxx") && masking(inst, opc2, "00"))
         {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_1Register_LUTI4, inst);
@@ -3361,12 +3364,12 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx00>"))
     {
       // return gii(op_type::SME_2_MultiVector_Indexed_1Register, inst);
-      constexpr op_range ssop0 = {22, 23};
-      constexpr int ssop1 = 12;
-      constexpr int ssop2 = 2;
+      coprange ssop0 = {22, 23};
+      copn ssop1 = 12;
+      copn ssop2 = 2;
       if (masking(inst, ssop0, "00"))
       {
-        constexpr op_range USop = {2, 4};
+        coprange USop = {2, 4};
         if (masking(inst, USop, "000"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_SMLALL, inst);
@@ -3401,8 +3404,8 @@ inst_info getOP_SME(uint32_t inst)
                op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_SMLSLL},
               {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_UMLALL,
                op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_UMLSLL}};
-          constexpr int U = 4;
-          constexpr int S = 3;
+          copn U = 4;
+          copn S = 3;
           return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
         if (is1(inst, ssop1))
@@ -3412,8 +3415,8 @@ inst_info getOP_SME(uint32_t inst)
                op_type::SME_2_MultiVector_Indexed_1Register_longFMA_FMLSL},
               {op_type::SME_2_MultiVector_Indexed_1Register_longFMA_BFMLAL,
                op_type::SME_2_MultiVector_Indexed_1Register_longFMA_BFMLSL}};
-          constexpr int U = 4;
-          constexpr int S = 3;
+          copn U = 4;
+          copn S = 3;
           return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
       }
@@ -3424,20 +3427,20 @@ inst_info getOP_SME(uint32_t inst)
              op_type::SME_2_MultiVector_Indexed_1Register_longMLA_SMLSL},
             {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_UMLAL,
              op_type::SME_2_MultiVector_Indexed_1Register_longMLA_UMLSL}};
-        constexpr int U = 4;
-        constexpr int S = 3;
+        copn U = 4;
+        copn S = 3;
         return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
     }
     if (masking(inst, sop1, "1xx01xxxx0>"))
     {
       // return gii(op_type::SME_2_MultiVector_Indexed_2Register, inst);
-      constexpr op_range ssop0 = {20, 21};
-      constexpr op_range ssop1 = {11, 12};
-      constexpr int ssop2 = 5;
+      coprange ssop0 = {20, 21};
+      coprange ssop1 = {11, 12};
+      copn ssop2 = 5;
       if (masking(inst, ssop0, "00") && masking(inst, ssop1, "0x"))
       {
-        constexpr op_range opus = {3, 5};
+        coprange opus = {3, 5};
         if (masking(inst, opus, "000"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SMLALL, inst);
@@ -3465,8 +3468,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, ssop0, "01"))
       {
-        constexpr int op = 12;
-        constexpr op_range opc2 = {3, 5};
+        copn op = 12;
+        coprange opc2 = {3, 5};
         if (!is1(inst, op))
         {
           if (masking(inst, opc2, "000"))
@@ -3532,7 +3535,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, ssop0, "10") && masking(inst, ssop1, "00") && !is1(inst, ssop2))
       {
-        constexpr op_range us = {3, 4};
+        coprange us = {3, 4};
         if (masking(inst, us, "00"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SMLALL, inst);
@@ -3552,7 +3555,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, ssop0, "10") && masking(inst, ssop1, "1x") && !is1(inst, ssop2))
       {
-        constexpr op_range us = {3, 4};
+        coprange us = {3, 4};
         if (masking(inst, us, "00"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longFMA_ts_FMLAL, inst);
@@ -3572,7 +3575,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, ssop0, "11") && masking(inst, ssop1, "00") && !is1(inst, ssop2))
       {
-        constexpr op_range us = {3, 4};
+        coprange us = {3, 4};
         if (masking(inst, us, "00"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_64bit_FMLA, inst);
@@ -3592,7 +3595,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, ssop0, "11") && masking(inst, ssop1, "1x") && !is1(inst, ssop2))
       {
-        constexpr op_range us = {3, 4};
+        coprange us = {3, 4};
         if (masking(inst, us, "00"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longMLA_ts_SMLAL, inst);
@@ -3614,12 +3617,12 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx01xxxx1>"))
     {
       // return gii(op_type::SME_2_MultiVector_Indexed_4Register, inst);
-      constexpr op_range ssop0 = {22, 23};
-      constexpr op_range ssop1 = {11, 12};
-      constexpr op_range ssop2 = {5, 6};
+      coprange ssop0 = {22, 23};
+      coprange ssop1 = {11, 12};
+      coprange ssop2 = {5, 6};
       if ((masking(inst, ssop0, "00") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "0x"))
       {
-        constexpr op_range opus = {3, 5};
+        coprange opus = {3, 5};
         if (masking(inst, opus, "000"))
         {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SMLALL, inst);
@@ -3647,8 +3650,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((masking(inst, ssop0, "01")) && masking(inst, ssop2, "0x"))
       {
-        constexpr int _op = 12;
-        constexpr op_range opc2 = {3, 5};
+        copn _op = 12;
+        coprange opc2 = {3, 5};
         if (!is1(inst, _op))
         {
           if (masking(inst, opc2, "000"))
@@ -3718,8 +3721,8 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLSLL},
                                         {op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLALL,
                                          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLSLL}};
-        constexpr int U = 4;
-        constexpr int S = 3;
+        copn U = 4;
+        copn S = 3;
         return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
       if ((masking(inst, ssop0, "10") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00"))
@@ -3728,14 +3731,14 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLSL},
                                         {op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLAL,
                                          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLSL}};
-        constexpr int U = 4;
-        constexpr int S = 3;
+        copn U = 4;
+        copn S = 3;
         return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
       if ((masking(inst, ssop0, "11") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "00"))
       {
-        constexpr int _op = 11;
-        constexpr op_range opc2 = {3, 4};
+        copn _op = 11;
+        coprange opc2 = {3, 4};
         if (!is1(inst, _op))
         {
           if (masking(inst, opc2, "00"))
@@ -3773,16 +3776,16 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLSL},
                                         {op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLAL,
                                          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLSL}};
-        constexpr int U = 4;
-        constexpr int S = 3;
+        copn U = 4;
+        copn S = 3;
         return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
     }
     if (masking(inst, sop1, "1xx1xxxxx100>"))
     {
-      constexpr op_range ssop0 = {16, 17};
-      constexpr op_range ssop1 = {5, 6};
-      constexpr op_range ssop2 = {0, 1};
+      coprange ssop0 = {16, 17};
+      coprange ssop1 = {5, 6};
+      coprange ssop2 = {0, 1};
       if ((masking(inst, ssop0, "01") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00"))
       {
         return gii(op_type::SME_2_MultiVector_SVE_Select_SEL, inst);
@@ -3795,9 +3798,9 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx1xxxxx110>"))
     {
       // return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary, inst);
-      constexpr op_range _op0 = {22, 23};
-      constexpr op_range _op1 = {10, 12};
-      constexpr op_range _op2 = {0, 1};
+      coprange _op0 = {22, 23};
+      coprange _op1 = {10, 12};
+      coprange _op2 = {0, 1};
       if (masking(inst, _op0, "00") && masking(inst, _op1, "101"))
       {
         if (!is1(inst, 0))
@@ -3811,8 +3814,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op0, "11") && masking(inst, _op1, "101"))
       {
-        constexpr int _op = 20;
-        constexpr int U = 5;
+        copn _op = 20;
+        copn U = 5;
         if (!is1(inst, _op))
         {
           if (!is1(inst, U))
@@ -3871,8 +3874,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op1, "11x"))
       {
-        constexpr int N = 10;
-        constexpr op_range opU = {5, 6};
+        copn N = 10;
+        coprange opU = {5, 6};
         if (!is1(inst, N))
         {
           if (masking(inst, opU, "00"))
@@ -3908,11 +3911,11 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx1xxxxx111000"))
     {
       // return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary, inst);
-      constexpr op_range _op0 = {22, 23};
-      constexpr op_range _op1 = {16, 20};
-      constexpr op_range _op2 = {5, 6};
-      constexpr op_range _op3 = {0, 1};
-      constexpr int U = 5;
+      coprange _op0 = {22, 23};
+      coprange _op1 = {16, 20};
+      coprange _op2 = {5, 6};
+      coprange _op3 = {0, 1};
+      copn U = 5;
       if ((masking(inst, _op0, "00") && masking(inst, _op1, "00001")) && (masking(inst, _op3, "x0")))
       {
         if (!is1(inst, U))
@@ -3959,7 +3962,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((masking(inst, _op0, "00") && masking(inst, _op1, "10111")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0")))
       {
-        constexpr int _op = 1;
+        copn _op = 1;
         if (!is1(inst, _op))
         {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP, inst);
@@ -3971,8 +3974,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op0, "0x") && masking(inst, _op1, "00000"))
       {
-        constexpr int _op = 22;
-        constexpr int N = 5;
+        copn _op = 22;
+        copn N = 5;
         constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
                                          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN},
                                         {op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
@@ -3981,8 +3984,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op0, "0x") && masking(inst, _op1, "00011"))
       {
-        constexpr int _op = 22;
-        constexpr int _U = 0;
+        copn _op = 22;
+        copn _U = 0;
         constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
                                          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN},
                                         {op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
@@ -3995,14 +3998,14 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op1, "00101"))
       {
-        constexpr int _U = 0;
+        copn _U = 0;
         op_type ot = (!is1(inst, _U)) ? op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_SUNPK : op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_UUNPK;
         return gii(ot, inst);
       }
       if ((masking(inst, _op1, "01xxx")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "x0")))
       {
-        constexpr op_range size = {22, 23};
-        constexpr op_range opc = {16, 18};
+        coprange size = {22, 23};
+        coprange opc = {16, 18};
         if (masking(inst, size, "10") && masking(inst, opc, "000"))
         {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTN, inst);
@@ -4022,8 +4025,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op1, "10011"))
       {
-        constexpr int _op = 22;
-        constexpr op_range nu = {5, 6};
+        copn _op = 22;
+        coprange nu = {5, 6};
         if (!is1(inst, _op))
         {
           if (masking(inst, nu, "00"))
@@ -4057,7 +4060,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((masking(inst, _op1, "10101")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "0x")))
       {
-        constexpr int _U = 0;
+        copn _U = 0;
         if (!is1(inst, _U))
         {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_SUNPK, inst);
@@ -4069,7 +4072,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((masking(inst, _op1, "10110")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0")))
       {
-        constexpr int _op = 1;
+        copn _op = 1;
         if (!is1(inst, _op))
         {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP, inst);
@@ -4081,8 +4084,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((masking(inst, _op1, "11xxx")) && (masking(inst, _op2, "00") && masking(inst, _op3, "00")))
       {
-        constexpr op_range size = {22, 23};
-        constexpr op_range opc = {16, 18};
+        coprange size = {22, 23};
+        coprange opc = {16, 18};
         if (masking(inst, size, "10") && masking(inst, opc, "000"))
         {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTN, inst);
@@ -4104,16 +4107,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx1xxxx010110x"))
     {
       // return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register, inst);
-      constexpr op_range _op0op1 = {5, 10};
-      constexpr int _op2 = 0;
+      coprange _op0op1 = {5, 10};
+      copn _op2 = 0;
       if (masking(inst, _op0op1, "00000x"))
       {
         constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMAX,
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMAX},
                                         {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMIN,
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMIN}};
-        constexpr int _op = 5;
-        constexpr int _U = 0;
+        copn _op = 5;
+        copn _U = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "00100x"))
@@ -4122,14 +4125,14 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMIN},
                                         {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMINNM}};
-        constexpr int _op = 5;
-        constexpr int _o2 = 0;
+        copn _op = 5;
+        copn _o2 = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "010xxx"))
       {
-        constexpr op_range opc = {5, 7};
-        constexpr int _U = 0;
+        coprange opc = {5, 7};
+        copn _U = 0;
         if (masking(inst, opc, "001") && !is1(inst, _U))
         {
           return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_SRSHL, inst);
@@ -4147,16 +4150,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx1xxxx010111x"))
     {
       // return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register,inst);
-      constexpr op_range _op0op1 = {5, 10};
-      constexpr int _op2 = 0;
+      coprange _op0op1 = {5, 10};
+      copn _op2 = 0;
       if (masking(inst, _op0op1, "00000x"))
       {
         constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMAX,
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMAX},
                                         {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMIN,
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMIN}};
-        constexpr int _op = 5;
-        constexpr int _U = 0;
+        copn _op = 5;
+        copn _U = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "00100x"))
@@ -4165,14 +4168,14 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMIN},
                                         {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
                                          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMINNM}};
-        constexpr int _op = 5;
-        constexpr int _o2 = 0;
+        copn _op = 5;
+        copn _o2 = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "010xxx"))
       {
-        constexpr op_range opc = {5, 7};
-        constexpr int _U = 0;
+        coprange opc = {5, 7};
+        copn _U = 0;
         if (masking(inst, opc, "001") && !is1(inst, _U))
         {
           return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_SRSHL, inst);
@@ -4190,16 +4193,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx10xxx010100x"))
     {
       // return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
-      constexpr op_range _op0op1 = {5, 10};
-      constexpr int _op2 = 0;
+      coprange _op0op1 = {5, 10};
+      copn _op2 = 0;
       if (masking(inst, _op0op1, "00000x"))
       {
         constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMAX,
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMIN},
                                         {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMAX,
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMIN}};
-        constexpr int _op = 5;
-        constexpr int _U = 0;
+        copn _op = 5;
+        copn _U = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "00100x"))
@@ -4208,14 +4211,14 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMIN},
                                         {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMINNM}};
-        constexpr int _op = 5;
-        constexpr int _o2 = 0;
+        copn _op = 5;
+        copn _o2 = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "010xxx"))
       {
-        constexpr op_range opc = {5, 7};
-        constexpr int _U = 0;
+        coprange opc = {5, 7};
+        copn _U = 0;
         if (masking(inst, opc, "001") && !is1(inst, _U))
         {
           return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_SRSHL, inst);
@@ -4237,16 +4240,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "1xx10xxx010101x"))
     {
       // return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
-      constexpr op_range _op0op1 = {5, 10};
-      constexpr int _op2 = 0;
+      coprange _op0op1 = {5, 10};
+      copn _op2 = 0;
       if (masking(inst, _op0op1, "00000x"))
       {
         constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMAX,
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMIN},
                                         {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMAX,
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMIN}};
-        constexpr int _op = 5;
-        constexpr int _U = 0;
+        copn _op = 5;
+        copn _U = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "00100x"))
@@ -4255,14 +4258,14 @@ inst_info getOP_SME(uint32_t inst)
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMIN},
                                         {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
                                          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMINNM}};
-        constexpr int _op = 5;
-        constexpr int _o2 = 0;
+        copn _op = 5;
+        copn _o2 = 0;
         return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
       if (masking(inst, _op0op1, "010xxx"))
       {
-        constexpr op_range opc = {5, 7};
-        constexpr int _U = 0;
+        coprange opc = {5, 7};
+        copn _U = 0;
         if (masking(inst, opc, "001") && !is1(inst, _U))
         {
           return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_SRSHL, inst);
@@ -4284,17 +4287,17 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "10x1xxxxx0>"))
     {
       // return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);
-      constexpr int _op0 = 22;
-      constexpr int _op1 = 20;
-      constexpr op_range _op2 = {10, 12};
-      constexpr op_range _op3 = {1, 4};
+      copn _op0 = 22;
+      copn _op1 = 20;
+      coprange _op2 = {10, 12};
+      coprange _op3 = {1, 4};
       if (!is1(inst, _op0) && !is1(inst, _op1))
       {
         // 00
         if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLAL,
                                            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLSL},
                                           {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLAL,
@@ -4303,8 +4306,8 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "011"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLAL,
                                            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLSL},
                                           {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLAL,
@@ -4313,7 +4316,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_USDOT, inst);
@@ -4329,8 +4332,8 @@ inst_info getOP_SME(uint32_t inst)
         // 01
         if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLAL,
                                            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLSL},
                                           {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLAL,
@@ -4339,7 +4342,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_USDOT, inst);
@@ -4355,8 +4358,8 @@ inst_info getOP_SME(uint32_t inst)
         // 10
         if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLAL,
                                            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLSL},
                                           {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLAL,
@@ -4365,8 +4368,8 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "011"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLAL,
                                            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLSL},
                                           {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLAL,
@@ -4375,7 +4378,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_SDOT, inst);
@@ -4391,8 +4394,8 @@ inst_info getOP_SME(uint32_t inst)
         // 11
         if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLAL,
                                            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLSL},
                                           {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLAL,
@@ -4401,7 +4404,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_SDOT, inst);
@@ -4417,8 +4420,8 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (masking(inst, _op2, "000") && masking(inst, _op3, "xxx0"))
         {
-          constexpr int sz = 22;
-          constexpr op_range usop = {2, 4};
+          copn sz = 22;
+          coprange usop = {2, 4};
           if (masking(inst, usop, "000"))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLALL, inst);
@@ -4446,8 +4449,8 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "001"))
         {
-          constexpr int sz = 22;
-          constexpr op_range usop = {2, 4};
+          copn sz = 22;
+          coprange usop = {2, 4};
           if (masking(inst, usop, "000"))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLALL, inst);
@@ -4471,8 +4474,8 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "100"))
         {
-          constexpr int _op = 22;
-          constexpr op_range opc2 = {3, 4};
+          copn _op = 22;
+          coprange opc2 = {3, 4};
           if (!is1(inst, _op))
           {
             if (masking(inst, opc2, "00"))
@@ -4487,7 +4490,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "x0xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_SDOT, inst);
@@ -4499,7 +4502,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "110") && masking(inst, _op3, "0xxx"))
         {
-          constexpr int S = 3;
+          copn S = 3;
           if (!is1(inst, S))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLA, inst);
@@ -4511,7 +4514,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "110") && masking(inst, _op3, "1xxx"))
         {
-          constexpr int S = 3;
+          copn S = 3;
           if (!is1(inst, S))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_ADD, inst);
@@ -4526,8 +4529,8 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (masking(inst, _op2, "000") && masking(inst, _op3, "xxx0"))
         {
-          constexpr int sz = 22;
-          constexpr op_range usop = {2, 4};
+          copn sz = 22;
+          coprange usop = {2, 4};
           if (masking(inst, usop, "000"))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLALL, inst);
@@ -4555,8 +4558,8 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "100"))
         {
-          constexpr int _op = 22;
-          constexpr op_range opc2 = {3, 4};
+          copn _op = 22;
+          coprange opc2 = {3, 4};
           if (!is1(inst, _op))
           {
             if (masking(inst, opc2, "00"))
@@ -4571,7 +4574,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "x0xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_SDOT, inst);
@@ -4583,7 +4586,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "110") && masking(inst, _op3, "0xxx"))
         {
-          constexpr int S = 3;
+          copn S = 3;
           if (!is1(inst, S))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLA, inst);
@@ -4595,7 +4598,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "110") && masking(inst, _op3, "1xxx"))
         {
-          constexpr int S = 3;
+          copn S = 3;
           if (!is1(inst, S))
           {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_ADD, inst);
@@ -4610,16 +4613,16 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "11x1xxxx00>"))
     {
       // return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register, inst);
-      constexpr int _op0 = 22;
-      constexpr op_range _op1 = {17, 20};
-      constexpr op_range _op2 = {10, 12};
-      constexpr op_range _op3 = {1, 5};
+      copn _op0 = 22;
+      coprange _op1 = {17, 20};
+      coprange _op2 = {10, 12};
+      coprange _op3 = {1, 5};
       if (!is1(inst, _op0))
       {
         if (masking(inst, _op2, "010") && masking(inst, _op3, "0xx0x"))
         {
-          constexpr int _op = 4;
-          constexpr int S = 3;
+          copn _op = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_FMLAL,
                                            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_FMLSL},
                                           {op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_BFMLAL,
@@ -4635,8 +4638,8 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (masking(inst, _op2, "010") && masking(inst, _op3, "0xx0x"))
         {
-          constexpr int _U = 4;
-          constexpr int S = 3;
+          copn _U = 4;
+          copn S = 3;
           constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_SMLAL,
                                            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_SMLSL},
                                           {op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_UMLAL,
@@ -4645,7 +4648,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "101") && masking(inst, _op3, "0x1xx"))
         {
-          constexpr int U = 4;
+          copn U = 4;
           if (!is1(inst, U))
           {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvtw_DotProduct_SDOT, inst);
@@ -4661,7 +4664,7 @@ inst_info getOP_SME(uint32_t inst)
       {
         if (masking(inst, _op2, "111") && masking(inst, _op3, "00xxx"))
         {
-          constexpr int S = 3;
+          copn S = 3;
           if (!is1(inst, S))
           {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvb_FP_FADD, inst);
@@ -4673,7 +4676,7 @@ inst_info getOP_SME(uint32_t inst)
         }
         if (masking(inst, _op2, "111") && masking(inst, _op3, "01xxx"))
         {
-          constexpr int S = 3;
+          copn S = 3;
           if (!is1(inst, S))
           {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvb_Int_ADD, inst);
@@ -4687,8 +4690,8 @@ inst_info getOP_SME(uint32_t inst)
 
       if (masking(inst, _op2, "000") && masking(inst, _op3, "0xxx0"))
       {
-        constexpr int sz = 22;
-        constexpr op_range usop = {2, 4};
+        copn sz = 22;
+        coprange usop = {2, 4};
         if (masking(inst, usop, "000"))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_llongMLA_ts_SMLALL, inst);
@@ -4712,8 +4715,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op2, "100") && masking(inst, _op3, "xx0xx"))
       {
-        constexpr int _op = 22;
-        constexpr op_range opc2 = {4, 5};
+        copn _op = 22;
+        coprange opc2 = {4, 5};
         if (!is1(inst, _op))
         {
           if (masking(inst, opc2, "00"))
@@ -4728,7 +4731,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op2, "101") && masking(inst, _op3, "0x0xx"))
       {
-        constexpr int U = 4;
+        copn U = 4;
         if (!is1(inst, U))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvfw_DotProduct_SDOT, inst);
@@ -4740,7 +4743,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op2, "110") && masking(inst, _op3, "00xxx"))
       {
-        constexpr int S = 3;
+        copn S = 3;
         if (!is1(inst, S))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_Ternary_FP_FMLA, inst);
@@ -4752,7 +4755,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if (masking(inst, _op2, "110") && masking(inst, _op3, "01xxx"))
       {
-        constexpr int S = 3;
+        copn S = 3;
         if (!is1(inst, S))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_Ternary_Int_ADD, inst);
@@ -4766,12 +4769,12 @@ inst_info getOP_SME(uint32_t inst)
     if (masking(inst, sop1, "11x1xxxx10>"))
     {
       // return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register, inst);
-      constexpr int _op0 = 22;
-      constexpr op_range _op1 = {18, 20};
-      constexpr int _op2 = 17;
-      constexpr op_range _op3 = {10, 12};
-      constexpr op_range _op4 = {5, 6};
-      constexpr op_range _op5 = {1, 4};
+      copn _op0 = 22;
+      coprange _op1 = {18, 20};
+      copn _op2 = 17;
+      coprange _op3 = {10, 12};
+      coprange _op4 = {5, 6};
+      coprange _op5 = {1, 4};
       if (!is1(inst, _op0))
       {
         if (!is1(inst, _op2))
@@ -4779,8 +4782,8 @@ inst_info getOP_SME(uint32_t inst)
           if ((masking(inst, _op3, "010") && masking(inst, _op4, "00")) && masking(inst, _op5, "xx0x"))
           {
             //
-            constexpr int _op = 4;
-            constexpr int S = 3;
+            copn _op = 4;
+            copn S = 3;
             constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_longFMA_fs_FMLAL,
                                              op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_longFMA_fs_FMLSL},
                                             {op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_longFMA_fs_BFMLAL,
@@ -4801,8 +4804,8 @@ inst_info getOP_SME(uint32_t inst)
           if ((masking(inst, _op3, "010") && masking(inst, _op4, "00")) && masking(inst, _op5, "xx0x"))
           {
             //
-            constexpr int _U = 4;
-            constexpr int S = 3;
+            copn _U = 4;
+            copn S = 3;
             constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_longMLA_fs_SMLAL,
                                              op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_longMLA_fs_SMLSL},
                                             {op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_longMLA_fs_UMLAL,
@@ -4812,7 +4815,7 @@ inst_info getOP_SME(uint32_t inst)
           if ((masking(inst, _op3, "101") && masking(inst, _op4, "00")) && masking(inst, _op5, "x1xx"))
           {
             //
-            constexpr int U = 4;
+            copn U = 4;
             if (!is1(inst, U))
             {
               return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvtw_DotProduct_SDOT, inst);
@@ -4827,7 +4830,7 @@ inst_info getOP_SME(uint32_t inst)
 
       if ((masking(inst, _op1, "000") && !is1(inst, _op2)) && ((masking(inst, _op3, "111") && masking(inst, _op4, "00")) && masking(inst, _op5, "0xxx")))
       {
-        constexpr int S = 3;
+        copn S = 3;
         if (!is1(inst, S))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvb_FP_FADD, inst);
@@ -4839,7 +4842,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((masking(inst, _op1, "000") && !is1(inst, _op2)) && ((masking(inst, _op3, "111") && masking(inst, _op4, "00")) && masking(inst, _op5, "1xxx")))
       {
-        constexpr int S = 3;
+        copn S = 3;
         if (!is1(inst, S))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvb_Int_ADD, inst);
@@ -4851,8 +4854,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, _op2)) && ((masking(inst, _op3, "000") && masking(inst, _op4, "00")) && masking(inst, _op5, "xxx0")))
       {
-        constexpr int sz = 22;
-        constexpr op_range usop = {2, 4};
+        copn sz = 22;
+        coprange usop = {2, 4};
         if (masking(inst, usop, "000"))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_llongMLA_fs_SMLALL, inst);
@@ -4876,8 +4879,8 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, _op2)) && ((masking(inst, _op3, "100") && masking(inst, _op4, "0x")) && masking(inst, _op5, "x0xx")))
       {
-        constexpr int _op = 22;
-        constexpr op_range opc2 = {4, 5};
+        copn _op = 22;
+        coprange opc2 = {4, 5};
         if (!is1(inst, _op))
         {
           if (masking(inst, opc2, "00"))
@@ -4892,7 +4895,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, _op2)) && ((masking(inst, _op3, "101") && masking(inst, _op4, "00")) && masking(inst, _op5, "x0xx")))
       {
-        constexpr int U = 4;
+        copn U = 4;
         if (!is1(inst, U))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvfw_DotProduct_SDOT, inst);
@@ -4904,7 +4907,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, _op2)) && ((masking(inst, _op3, "110") && masking(inst, _op4, "00")) && masking(inst, _op5, "0xxx")))
       {
-        constexpr int S = 3;
+        copn S = 3;
         if (!is1(inst, S))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_FP_FMLA, inst);
@@ -4916,7 +4919,7 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, _op2)) && ((masking(inst, _op3, "110") && masking(inst, _op4, "00")) && masking(inst, _op5, "1xxx")))
       {
-        constexpr int S = 3;
+        copn S = 3;
         if (!is1(inst, S))
         {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_Int_ADD, inst);
@@ -4931,11 +4934,11 @@ inst_info getOP_SME(uint32_t inst)
   else if (masking(inst, sop0, "11"))
   {
     // return gii(op_type::SME_Memory, inst);
-    constexpr op_range _op0123 = {10, 24};
-    constexpr op_range _op4 = {2, 4};
+    coprange _op0123 = {10, 24};
+    coprange _op4 = {2, 4};
     if (masking(inst, _op0123, "0xx0>") && masking(inst, _op4, "0xx"))
     {
-      constexpr op_range msz = {22, 23};
+      coprange msz = {22, 23};
       if (masking(inst, msz, "00"))
       {
         return gii(op_type::SME_Memory_Load_ArrayVector_LD1B, inst);
@@ -4955,7 +4958,7 @@ inst_info getOP_SME(uint32_t inst)
     }
     if (masking(inst, _op0123, "0xx1>") && masking(inst, _op4, "0xx"))
     {
-      constexpr op_range msz = {22, 23};
+      coprange msz = {22, 23};
       if (masking(inst, msz, "00"))
       {
         return gii(op_type::SME_Memory_Store_ArrayVector_ST1B, inst);
@@ -4975,7 +4978,7 @@ inst_info getOP_SME(uint32_t inst)
     }
     if (masking(inst, _op0123, "100x000000xx000") && masking(inst, _op4, "0xx"))
     {
-      constexpr int _op = 22;
+      copn _op = 22;
       if (!is1(inst, _op))
       {
         return gii(op_type::SME_Memory_SaveAndRestoreArray_LDR, inst);
@@ -4987,8 +4990,8 @@ inst_info getOP_SME(uint32_t inst)
     }
     if (masking(inst, _op0123, "100xxxxxx100000") && masking(inst, _op4, "000"))
     {
-      constexpr op_range opc = {16, 21};
-      constexpr op_range opc2 = {0, 1};
+      coprange opc = {16, 21};
+      coprange opc2 = {0, 1};
       if (masking(inst, opc, "011111") && masking(inst, opc2, "00"))
       {
         return gii(op_type::SME_Memory_LookupTable_LoadOrStore_LDR, inst);
@@ -5012,12 +5015,12 @@ inst_info getOP_SME(uint32_t inst)
   {
     if (masking(inst, sop1, "x11>"))
     {
-      constexpr int ssop0 = 29;
-      constexpr int ssop1 = 24;
-      constexpr int ssop2 = 21;
+      copn ssop0 = 29;
+      copn ssop1 = 24;
+      copn ssop2 = 21;
       if (is1(inst, ssop0))
       {
-        constexpr int sssop0 = 4;
+        copn sssop0 = 4;
         if (is1(inst, sssop0))
         {
           return gii(op_type::SME_OuterProduct_64bit_FP64_FMOPA, inst);
@@ -5029,9 +5032,9 @@ inst_info getOP_SME(uint32_t inst)
       }
       if ((!is1(inst, ssop0) && !is1(inst, ssop1)) && !is1(inst, ssop2))
       {
-        constexpr int u0 = 24;
-        constexpr int u1 = 21;
-        constexpr int S = 4;
+        copn u0 = 24;
+        copn u1 = 21;
+        copn S = 4;
         if (!is1(inst, u0))
         {
           if (!is1(inst, u1))
@@ -5090,16 +5093,16 @@ inst_info getOP_SME(uint32_t inst)
 
 inst_info getOP_SVE(uint32_t inst)
 {
-  constexpr op_range o0 = {29, 31};
-  constexpr op_range o1 = {10, 24};
-  constexpr int o2 = 4;
+  coprange o0 = {29, 31};
+  coprange o1 = {10, 24};
+  copn o2 = 4;
 
   if (masking(inst, o0, "000"))
   {
     if (masking(inst, o1, "0xx0xxxxxx1>"))
     {
-      constexpr int op0 = 15;
-      constexpr int op = 13;
+      copn op0 = 15;
+      copn op = 13;
       if (isp(inst, op0, '0'))
       {
         if (isp(inst, op0, '0'))
@@ -5125,9 +5128,9 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx0xxxxx000>"))
     {
-      constexpr op_range op0 = {18, 20};
+      coprange op0 = {18, 20};
       if(masking(inst, op0, "00x")){
-        constexpr op_range opc = {16, 18};
+        coprange opc = {16, 18};
         if(masking(inst, opc, "000")){
           return gii(op_type::SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_ADD, inst);
         }
@@ -5139,7 +5142,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "01x")){
-        constexpr op_range opcu = {16, 18};
+        coprange opcu = {16, 18};
         if(masking(inst, opcu, "000")){
           return gii(op_type::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SMAX, inst);
         }
@@ -5160,7 +5163,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "100")){
-        constexpr op_range hu = {16, 17};
+        coprange hu = {16, 17};
         if(masking(inst, hu, "00")){
           return gii(op_type::SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_MUL, inst);
         }
@@ -5172,7 +5175,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "101")){
-        constexpr op_range hu = {16, 17};
+        coprange hu = {16, 17};
         if(masking(inst, hu, "00")){
           return gii(op_type::SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_SDIV, inst);
         }
@@ -5187,7 +5190,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "11x")){
-        constexpr op_range opcu = {16, 18};
+        coprange opcu = {16, 18};
         if(masking(inst, opcu, "000")){
           return gii(op_type::SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_ORR, inst);
         }
@@ -5204,9 +5207,9 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx0xxxxx001>"))
     {
-      constexpr op_range op0 = {18, 20};
+      coprange op0 = {18, 20};
       if(masking(inst, op0, "000")){
-        constexpr op_range opu = {16, 17};
+        coprange opu = {16, 17};
         if(masking(inst, opu, "00")){
           return gii(op_type::SVE_Int_Reduction_Int_AddReduction_SADDV, inst);
         }
@@ -5215,7 +5218,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "010")){
-        constexpr op_range opu = {16, 17};
+        coprange opu = {16, 17};
         if(masking(inst, opu, "00")){
           return gii(op_type::SVE_Int_Reduction_Int_MinMaxReduction_SMAXV, inst);
         }
@@ -5230,13 +5233,13 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "10x")){
-        constexpr op_range opc = {17, 18};
+        coprange opc = {17, 18};
         if(masking(inst, opc, "00")){
           return gii(op_type::SVE_Int_Reduction_ConstructivePrefix_MOVPREFX, inst);
         }
       }
       if(masking(inst, op0, "110")){
-        constexpr op_range opc = {16, 17};
+        coprange opc = {16, 17};
         if(masking(inst, opc, "00")){
           return gii(op_type::SVE_Int_Reduction_BitwiseLogicalOperation_ORV, inst);
         }
@@ -5250,9 +5253,9 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx0xxxxx100>"))
     {
-      constexpr op_range op0 = {19, 20};
+      coprange op0 = {19, 20};
       if(masking(inst, op0, "0x")){
-        constexpr op_range opclu = {16, 19};
+        coprange opclu = {16, 19};
         if(masking(inst, opclu, "0000")){
           return gii(op_type::SVE_Bitwise_Shift_Predicated_byImmediate_ASR, inst);
         }
@@ -5282,7 +5285,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "10")){
-        constexpr op_range rlu = {16, 18};
+        coprange rlu = {16, 18};
         if(masking(inst, rlu, "000")){
           return gii(op_type::SVE_Bitwise_Shift_Predicated_byVector_ASR, inst);
         }
@@ -5303,7 +5306,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "11")){
-        constexpr op_range rlu = {16, 18};
+        coprange rlu = {16, 18};
         if(masking(inst, rlu, "000")){
           return gii(op_type::SVE_Bitwise_Shift_Predicated_byWideElement_ASR, inst);
         }
@@ -5317,9 +5320,9 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx0xxxxx101>"))
     {
-      constexpr op_range op0 = {19, 20};
+      coprange op0 = {19, 20};
       if(masking(inst, op0, "10")){
-        constexpr op_range opc = {16, 18};
+        coprange opc = {16, 18};
         if(masking(inst, opc, "000")){
           return gii(op_type::SVE_Int_Unary_Arithmetic_Predicated_Int_SXTx_BHW, inst);
         }
@@ -5346,7 +5349,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(masking(inst, op0, "11")){
-        constexpr op_range opc = {16, 18};
+        coprange opc = {16, 18};
         if(masking(inst, opc, "000")){
           return gii(op_type::SVE_Int_Unary_Arithmetic_Predicated_Bin_CLS, inst);
         }
@@ -5372,7 +5375,7 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx1xxxxx000>"))
     {
-      constexpr op_range opc = {10, 12};
+      coprange opc = {10, 12};
       if(masking(inst, opc, "000")){
         return gii(op_type::SVE_Int_AddSubVectors_UnPredicated_ADD, inst);
       }
@@ -5394,9 +5397,9 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx1xxxxx001>"))
     {
-      constexpr op_range op0 = {10, 12};
+      coprange op0 = {10, 12};
       if(masking(inst, op0, "100")){
-        constexpr op_range opc = {22, 23};
+        coprange opc = {22, 23};
         if(masking(inst, opc, "00")){
           return gii(op_type::SVE_Bistwise_Logical_UnPredicated_Operations_AND, inst);
         }
@@ -5414,8 +5417,8 @@ inst_info getOP_SVE(uint32_t inst)
         return gii(op_type::SVE_Bistwise_Logical_UnPredicated_XAR, inst);
       }
       if(masking(inst, op0, "11x")){
-        constexpr op_range opc = {22, 23};
-        constexpr int o2 = 10;
+        coprange opc = {22, 23};
+        copn o2 = 10;
         if(masking(inst, opc, "00") && isp(inst, o2, '0')){
           return gii(op_type::SVE_Bistwise_Logical_UnPredicated_TernaryOperations_EOR3, inst);
         }
@@ -5438,7 +5441,7 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx1xxxxx0100>"))
     {
-      constexpr op_range op0 = {10, 11};
+      coprange op0 = {10, 11};
       if(masking(inst, op0, "00")){
         return gii(op_type::SVE_IndexGeneration_Immediates_INDEX, inst);
       }
@@ -5454,10 +5457,10 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx1xxxxx0101>"))
     {
-      constexpr int op0 = 23;
-      constexpr int op1 = 11;
+      copn op0 = 23;
+      copn op1 = 11;
       if(isp(inst, op0, '0') && isp(inst, op1, '0')){
-        constexpr int op = 22;
+        copn op = 22;
         if(isp(inst, op, '0')){
           return gii(op_type::SVE_StackAllocation_FrameAdjustment_ADDVL, inst);
         }
@@ -5466,7 +5469,7 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(isp(inst, op0, '0') && isp(inst, op1, '1')){
-        constexpr int op = 22;
+        copn op = 22;
         if(isp(inst, op, '0')){
           return gii(op_type::SVE_StackAllocation_StreamingFrameAdjustment_ADDSVL, inst);
         }
@@ -5487,10 +5490,10 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx1xxxxx011>"))
     {
-      constexpr op_range op0 = {11, 12};
+      coprange op0 = {11, 12};
       if(masking(inst, op0, "0x")){
-        constexpr op_range size = {22, 23};
-        constexpr op_range opc = {10, 11};
+        coprange size = {22, 23};
+        coprange opc = {10, 11};
         if(masking(inst, opc, "00")){
           return gii(op_type::SVE_2_Int_Multiply_UnPredicated_Vectors_MUL, inst);
         }
@@ -5515,12 +5518,53 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "0xx1xxxxx100>"))
     {
+      copn op0 = 12;
+      if(isp(inst, op0, '0')){
+        coprange opc = {10, 11};
+        if(masking(inst, opc, "00")){
+          return gii(op_type::SVE_Bitwise_Shift_UnPredicated_WideElement_ASR, inst);
+        }
+        if(masking(inst, opc, "01")){
+          return gii(op_type::SVE_Bitwise_Shift_UnPredicated_WideElement_LSR, inst);
+        }
+        if(masking(inst, opc, "11")){
+          return gii(op_type::SVE_Bitwise_Shift_UnPredicated_WideElement_LSL, inst);
+        }
+      }
+      if(isp(inst, op0, '1')){
+        coprange opc = {10, 11};
+        if(masking(inst, opc, "00")){
+          return gii(op_type::SVE_Bitwise_Shift_UnPredicated_Immediate_ASR, inst);
+        }
+        if(masking(inst, opc, "01")){
+          return gii(op_type::SVE_Bitwise_Shift_UnPredicated_Immediate_LSR, inst);
+        }
+        if(masking(inst, opc, "11")){
+          return gii(op_type::SVE_Bitwise_Shift_UnPredicated_Immediate_LSL, inst);
+        }
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx1010>"))
     {
+      return gii(op_type::SVE_AddressGenration_ADR, inst);
     }
     if (masking(inst, o1, "0xx1xxxxx1011>"))
     {
+      coprange op0 = {10, 11};
+      if(masking(inst, op0, "0x") && isp(inst, 10, '0')){
+        return gii(op_type::SVE_Int_Misc_UnPredicated_FloatingPointTrigSelectCoefficient_FTSSEL, inst);
+      }
+      if(masking(inst, op0, "10")){
+        coprange opc = {16, 20};
+        if(masking(inst, opc, "00000")){
+          return gii(op_type::SVE_Int_Misc_UnPredicated_FloatingPointExponentialAccelerator_FEXPA, inst);
+        }
+      }
+      if(masking(inst, op0, "11")){
+        coprange opc = {22, 23};
+        coprange opc2 = {16, 20};
+        if(masking(inst, opc, "00") &&)
+      }
     }
     if (masking(inst, o1, "0xx1xxxxx11>"))
     {
