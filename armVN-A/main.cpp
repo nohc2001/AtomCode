@@ -2,14 +2,15 @@
 #include <string.h>
 using namespace std;
 
-enum class op_type{
-  //undefined
+enum class op_type
+{
+  // undefined
   Undefine,
 
-  //Reserved
+  // Reserved
   Reserved_UDF,
 
-  //SME
+  // SME
   SME_OuterProduct_64bit_FP64_FMOPA,
   SME_OuterProduct_64bit_FP64_FMOPS,
 
@@ -359,7 +360,7 @@ enum class op_type{
   SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTP,
   SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTM,
   SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTA,
-  
+
   SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMAX,
   SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMAX,
   SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMIN,
@@ -533,7 +534,7 @@ enum class op_type{
   SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_FP_FMLS,
   SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_Int_ADD,
   SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_Int_SUB,
-  
+
   SME_Memory_Load_ArrayVector_LD1B,
   SME_Memory_Load_ArrayVector_LD1H,
   SME_Memory_Load_ArrayVector_LD1W,
@@ -548,8 +549,8 @@ enum class op_type{
   SME_Memory_LookupTable_LoadOrStore_STR,
   SME_Memory_LD1Q,
   SME_Memory_ST1Q,
-  
-  //SVE 83
+
+  // SVE 83
   SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend_MLA,
   SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend_MLS,
   SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand_MAD,
@@ -768,7 +769,7 @@ enum class op_type{
   SVE_Int_Compare_UnsignedImmediate_Immediate_CMPcc,
 
   SVE_Int_Compare_SignedImmediate_Immediate_CMPcc,
-  
+
   SVE_Predicate_LogicalOperation_AND,
   SVE_Predicate_LogicalOperation_BIC,
   SVE_Predicate_LogicalOperation_EOR,
@@ -1093,9 +1094,9 @@ enum class op_type{
   SVE_2_Crypto_Extensions_ConstructiveBinaryOperations_RAX1,
 
   SVE_Vectors_FCMLA,
-  
+
   SVE_FCADD,
-  
+
   SVE_FloatingPoint_ConvertPrecisionOddElement_FCVTXNT,
   SVE_FloatingPoint_ConvertPrecisionOddElement_FCVTNT,
   SVE_FloatingPoint_ConvertPrecisionOddElement_FCVTLT,
@@ -1505,7 +1506,7 @@ enum class op_type{
   SVE_Memory_ContinguousStoreWithImmediateOffset_Contiguous_ScalarPlusImmediate_ST1W,
   SVE_Memory_ContinguousStoreWithImmediateOffset_Contiguous_ScalarPlusImmediate_ST1D,
 
-  //DataProcessing_Immidate
+  // DataProcessing_Immidate
   DataProcessing_Immidate_PCrel_Addressing_ADR,
   DataProcessing_Immidate_PCrel_Addressing_ADRP,
 
@@ -1539,7 +1540,7 @@ enum class op_type{
   DataProcessing_Immidate_Extract_32bitVariant_EXTR,
   DataProcessing_Immidate_Extract_64bitVariant_EXTR,
 
-  //Branch or ExeptionSystemInstruction
+  // Branch or ExeptionSystemInstruction
   Branch_or_ExeptionSystemInstruction_ConditionalBranch_Immediate_Bcond,
   Branch_or_ExeptionSystemInstruction_ConditionalBranch_Immediate_BCcond,
 
@@ -1622,7 +1623,7 @@ enum class op_type{
   Branch_or_ExeptionSystemInstruction_TestAndBranch_Immediate_TBZ,
   Branch_or_ExeptionSystemInstruction_TestAndBranch_Immediate_TBNZ,
 
-  //Load and Store
+  // Load and Store
   Load_or_Store_CompareAndSwapPair_32bit_CASPv_CASP_series,
   Load_or_Store_CompareAndSwapPair_32bit_CASPLv_CASP_series,
   Load_or_Store_CompareAndSwapPair_32bit_CASPAv_CASP_series,
@@ -1675,7 +1676,7 @@ enum class op_type{
   Load_or_Store_AdvancedSIMD_MultipleStructures_PostIndexed_1Register_ImmediateOffsetVariant_LD1,
   Load_or_Store_AdvancedSIMD_MultipleStructures_PostIndexed_ImmediateOffsetVariant_LD2,
   Load_or_Store_AdvancedSIMD_MultipleStructures_PostIndexed_2Register_ImmediateOffsetVariant_LD1,
-  
+
   Load_or_Store_AdvancedSIMD_SingleStructure_8bitVariant_ST1,
   Load_or_Store_AdvancedSIMD_SingleStructure_8bitVariant_ST3,
   Load_or_Store_AdvancedSIMD_SingleStructure_16bitVariant_ST1,
@@ -2109,83 +2110,426 @@ enum class op_type{
   Load_or_Store_Register_ImmediatePreIndexed_32bitVariant_LDRSH,
   Load_or_Store_Register_ImmediatePreIndexed_16bitVariant_immSIMDFP_STR,
   Load_or_Store_Register_ImmediatePreIndexed_16bitVariant_immSIMDFP_LDR,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
-  Load_or_Store_Register_ImmediatePreIndexed,
+  Load_or_Store_Register_ImmediatePreIndexed_32bitVariant_imm_STR,
+  Load_or_Store_Register_ImmediatePreIndexed_32bitVariant_imm_LDR,
+  Load_or_Store_Register_ImmediatePreIndexed_imm_LDRSW,
+  Load_or_Store_Register_ImmediatePreIndexed_32bitVariant_immSIMDFP_STR,
+  Load_or_Store_Register_ImmediatePreIndexed_32bitVariant_immSIMDFP_LDR,
+  Load_or_Store_Register_ImmediatePreIndexed_64bitVariant_imm_STR,
+  Load_or_Store_Register_ImmediatePreIndexed_64bitVariant_imm_LDR,
+  Load_or_Store_Register_ImmediatePreIndexed_64bitVariant_immSIMDFP_STR,
+  Load_or_Store_Register_ImmediatePreIndexed_64bitVariant_immSIMDFP_LDR,
 
-  Load_or_Store_AtomicMemoryOperations,
-  Load_or_Store_Register_RegisterOffset,
-  Load_or_Store_Register_Pac,
-  Load_or_Store_Register_UnsignedImmediate,
+  Load_or_Store_AtomicMemoryOperations_LDADDB,
+  Load_or_Store_AtomicMemoryOperations_LDCLRB,
+  Load_or_Store_AtomicMemoryOperations_LDEORB,
+  Load_or_Store_AtomicMemoryOperations_LDSETB,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXB,
+  Load_or_Store_AtomicMemoryOperations_LDSMINB,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXB,
+  Load_or_Store_AtomicMemoryOperations_LDUMINB,
+  Load_or_Store_AtomicMemoryOperations_SWPB,
+  Load_or_Store_AtomicMemoryOperations_LDADDLB,
+  Load_or_Store_AtomicMemoryOperations_LDCLRLB,
+  Load_or_Store_AtomicMemoryOperations_LDEORLB,
+  Load_or_Store_AtomicMemoryOperations_LDSETLB,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXLB,
+  Load_or_Store_AtomicMemoryOperations_LDSMINLB,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXLB,
+  Load_or_Store_AtomicMemoryOperations_LDUMINLB,
+  Load_or_Store_AtomicMemoryOperations_SWPLB,
+  Load_or_Store_AtomicMemoryOperations_LDADDAB,
+  Load_or_Store_AtomicMemoryOperations_LDCLRAB,
+  Load_or_Store_AtomicMemoryOperations_LDEORAB,
+  Load_or_Store_AtomicMemoryOperations_LDSETAB,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXLB,
+  Load_or_Store_AtomicMemoryOperations_LDSMINLB,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXLB,
+  Load_or_Store_AtomicMemoryOperations_LDUMINLB,
+  Load_or_Store_AtomicMemoryOperations_SWPAB,
+  Load_or_Store_AtomicMemoryOperations_LDADDALB,
+  Load_or_Store_AtomicMemoryOperations_LDCLRALB,
+  Load_or_Store_AtomicMemoryOperations_LDEORALB,
+  Load_or_Store_AtomicMemoryOperations_LDSETALB,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXALB,
+  Load_or_Store_AtomicMemoryOperations_LDSMINALB,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXALB,
+  Load_or_Store_AtomicMemoryOperations_LDUMINALB,
+  Load_or_Store_AtomicMemoryOperations_SWPALB,
+  Load_or_Store_AtomicMemoryOperations_LDADDH,
+  Load_or_Store_AtomicMemoryOperations_LDCLRH,
+  Load_or_Store_AtomicMemoryOperations_LDEORH,
+  Load_or_Store_AtomicMemoryOperations_LDSETH,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXH,
+  Load_or_Store_AtomicMemoryOperations_LDSMINH,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXH,
+  Load_or_Store_AtomicMemoryOperations_LDUMINH,
+  Load_or_Store_AtomicMemoryOperations_SWPH,
+  Load_or_Store_AtomicMemoryOperations_LDADDLH,
+  Load_or_Store_AtomicMemoryOperations_LDCLRLH,
+  Load_or_Store_AtomicMemoryOperations_LDEORLH,
+  Load_or_Store_AtomicMemoryOperations_LDSETLH,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXLH,
+  Load_or_Store_AtomicMemoryOperations_LDSMINLH,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXLH,
+  Load_or_Store_AtomicMemoryOperations_LDUMINLH,
+  Load_or_Store_AtomicMemoryOperations_SWPLH,
+  Load_or_Store_AtomicMemoryOperations_LDADDAH,
+  Load_or_Store_AtomicMemoryOperations_LDCLRAH,
+  Load_or_Store_AtomicMemoryOperations_LDEORAH,
+  Load_or_Store_AtomicMemoryOperations_LDSETAH,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXAH,
+  Load_or_Store_AtomicMemoryOperations_LDSMINAH,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXAH,
+  Load_or_Store_AtomicMemoryOperations_LDUMINAH,
+  Load_or_Store_AtomicMemoryOperations_SWPAH,
+  Load_or_Store_AtomicMemoryOperations_LDAPRH,
+  Load_or_Store_AtomicMemoryOperations_LDADDALH,
+  Load_or_Store_AtomicMemoryOperations_LDCLRALH,
+  Load_or_Store_AtomicMemoryOperations_LDEORALH,
+  Load_or_Store_AtomicMemoryOperations_LDSETALH,
+  Load_or_Store_AtomicMemoryOperations_LDSMAXALH,
+  Load_or_Store_AtomicMemoryOperations_LDSMINALH,
+  Load_or_Store_AtomicMemoryOperations_LDUMAXALH,
+  Load_or_Store_AtomicMemoryOperations_LDUMINALH,
+  Load_or_Store_AtomicMemoryOperations_SWPALH,
+  Load_or_Store_AtomicMemoryOperations_LDADD,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDADD,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDCLR,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDEOR,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSET,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMAX,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMIN,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMAX,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMIN,
+  Load_or_Store_AtomicMemoryOperations_32bit_SWP,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDADDL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDCLRL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDEORL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSETL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMAXL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMINL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMAXL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMINL,
+  Load_or_Store_AtomicMemoryOperations_32bit_SWPL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDADDA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDCLRA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDEORA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSETA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMAXA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMINA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMAXA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMINA,
+  Load_or_Store_AtomicMemoryOperations_32bit_SWPA,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDADDAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDCLRAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDEORAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSETAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMAXAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDSMINAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMAXAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_LDUMINAL,
+  Load_or_Store_AtomicMemoryOperations_32bit_SWPAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDADD,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDCLR,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDEOR,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSET,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMAX,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMIN,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMAX,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMIN,
+  Load_or_Store_AtomicMemoryOperations_64bit_SWP,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDADDL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDCLRL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDEORL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSETL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMAXL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMINL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMAXL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMINL,
+  Load_or_Store_AtomicMemoryOperations_64bit_SWPL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDADDA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDCLRA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDEORA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSETA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMAXA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMINA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMAXA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMINA,
+  Load_or_Store_AtomicMemoryOperations_64bit_SWPA,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDADDAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDCLRAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDEORAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSETAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMAXAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDSMINAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMAXAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_LDUMINAL,
+  Load_or_Store_AtomicMemoryOperations_64bit_SWPAL,
 
-  //DataProcessing_Register
-  DataProcessing_Register,
+  Load_or_Store_Register_RegisterOffset_ExtendRegisterVariant_STRB,
+  Load_or_Store_Register_RegisterOffset_ShiftedReigherVariant_STRB,
+  Load_or_Store_Register_RegisterOffset_ExtendedRegisterVariant_LDRB,
+  Load_or_Store_Register_RegisterOffset_ShiftedRegisterVariant_LDRB,
+  Load_or_Store_Register_RegisterOffset_64bit_ExtendedRegisterOffsetVariant_LDRSB,
+  Load_or_Store_Register_RegisterOffset_64bit_ShiftedRegisterOffsetVariant_LDRSB,
+  Load_or_Store_Register_RegisterOffset_32bit_ExtendedRegisterOffsetVariant_LDRSB,
+  Load_or_Store_Register_RegisterOffset_32bit_ShiftedRegisterOffsetVariant_LDRSB,
+  Load_or_Store_Register_RegisterOffset_SIMDFP_STR,
+  Load_or_Store_Register_RegisterOffset_SIMDFP_LDR,
+  Load_or_Store_Register_RegisterOffset_STRH,
+  Load_or_Store_Register_RegisterOffset_LDRH,
+  Load_or_Store_Register_RegisterOffset_64bit_LDRSH,
+  Load_or_Store_Register_RegisterOffset_32bit_LDRSH,
+  Load_or_Store_Register_RegisterOffset_32bit_STR,
+  Load_or_Store_Register_RegisterOffset_32bit_LDR,
+  Load_or_Store_Register_RegisterOffset_LDRSW,
+  Load_or_Store_Register_RegisterOffset_64bit_STR,
+  Load_or_Store_Register_RegisterOffset_64bit_LDR,
+  Load_or_Store_Register_RegisterOffset_PRFM,
 
-  //DataProcessing_ScalarFloat and SIMD
-  DataProcessing_ScalarFloat_or_SIMD
+  Load_or_Store_Register_Pac_KeyA_OffsetVariant_LDRAx,
+  Load_or_Store_Register_Pac_KeyA_PreIndexedVariant_LDRAx,
+  Load_or_Store_Register_Pac_KeyB_OffsetVaraint_LDRAx,
+  Load_or_Store_Register_Pac_KeyB_PreIndexedVariant_LDRAx,
+
+  Load_or_Store_Register_UnsignedImmediate_STRB,
+  Load_or_Store_Register_UnsignedImmediate_LDRB,
+  Load_or_Store_Register_UnsignedImmediate_64bitVariant_LDRSB,
+  Load_or_Store_Register_UnsignedImmediate_32bitVariant_LDRSB,
+  Load_or_Store_Register_UnsignedImmediate_8bitVariant_STR,
+  Load_or_Store_Register_UnsignedImmediate_8bitVariant_LDR,
+  Load_or_Store_Register_UnsignedImmediate_128bitVariant_STR,
+  Load_or_Store_Register_UnsignedImmediate_128bitVariant_LDR,
+  Load_or_Store_Register_UnsignedImmediate_STRH,
+  Load_or_Store_Register_UnsignedImmediate_LDRH,
+  Load_or_Store_Register_UnsignedImmediate_32bitVariant_STR,
+  Load_or_Store_Register_UnsignedImmediate_32bitVariant_LDR,
+  Load_or_Store_Register_UnsignedImmediate_LDRSW,
+  Load_or_Store_Register_UnsignedImmediate_32bitVariant_SIMDFP_STR,
+  Load_or_Store_Register_UnsignedImmediate_32bitVariant_SIMDFP_LDR,
+  Load_or_Store_Register_UnsignedImmediate_64bitVariant_STR,
+  Load_or_Store_Register_UnsignedImmediate_64bitVariant_LDR,
+  Load_or_Store_Register_UnsignedImmediate_PRFM,
+  Load_or_Store_Register_UnsignedImmediate_64bitVariant_SIMDFP_STR,
+  Load_or_Store_Register_UnsignedImmediate_64bitVariant_SIMDFP_LDR,
+
+  // DataProcessing_Register
+  DataProcessing_Register_DataProccessing_2s_32bit_UDIV,
+  DataProcessing_Register_DataProccessing_2s_32bit_SDIV,
+  DataProcessing_Register_DataProccessing_2s_32bit_LSLV,
+  DataProcessing_Register_DataProccessing_2s_32bit_LSRV,
+  DataProcessing_Register_DataProccessing_2s_32bit_ASRV,
+  DataProcessing_Register_DataProccessing_2s_32bit_RORV,
+  DataProcessing_Register_DataProccessing_2s_CRC32B,
+  DataProcessing_Register_DataProccessing_2s_CRC32H,
+  DataProcessing_Register_DataProccessing_2s_CRC32W,
+  DataProcessing_Register_DataProccessing_2s_CRC32CB,
+  DataProcessing_Register_DataProccessing_2s_CRC32CH,
+  DataProcessing_Register_DataProccessing_2s_CRC32CW,
+  DataProcessing_Register_DataProccessing_2s_SUBP,
+  DataProcessing_Register_DataProccessing_2s_64bit_UDIV,
+  DataProcessing_Register_DataProccessing_2s_64bit_SDIV,
+  DataProcessing_Register_DataProccessing_2s_IRG,
+  DataProcessing_Register_DataProccessing_2s_GMI,
+  DataProcessing_Register_DataProccessing_2s_64bit_LSLV,
+  DataProcessing_Register_DataProccessing_2s_64bit_LSRV,
+  DataProcessing_Register_DataProccessing_2s_64bit_ASRV,
+  DataProcessing_Register_DataProccessing_2s_64bit_RORV,
+  DataProcessing_Register_DataProccessing_2s_PACGA,
+  DataProcessing_Register_DataProccessing_2s_CRC32X,
+  DataProcessing_Register_DataProccessing_2s_CRC32CX,
+  DataProcessing_Register_DataProccessing_2s_SUBPS,
+
+  DataProcessing_Register_DataProccessing_1s_32bit_RBIT,
+  DataProcessing_Register_DataProccessing_1s_32bit_REV16,
+  DataProcessing_Register_DataProccessing_1s_32bit_REV,
+  DataProcessing_Register_DataProccessing_1s_32bit_CLZ,
+  DataProcessing_Register_DataProccessing_1s_32bit_CLS,
+  DataProcessing_Register_DataProccessing_1s_32bit_RBIT,
+  DataProcessing_Register_DataProccessing_1s_32bit_REV16,
+  DataProcessing_Register_DataProccessing_1s_REV32,
+  DataProcessing_Register_DataProccessing_1s_32bit_REV,
+  DataProcessing_Register_DataProccessing_1s_32bit_CLZ,
+  DataProcessing_Register_DataProccessing_1s_32bit_CLS,
+  DataProcessing_Register_DataProccessing_1s_PACIA,
+  DataProcessing_Register_DataProccessing_1s_PACIB,
+  DataProcessing_Register_DataProccessing_1s_PACDA,
+  DataProcessing_Register_DataProccessing_1s_AUTIA,
+  DataProcessing_Register_DataProccessing_1s_AUTIB,
+  DataProcessing_Register_DataProccessing_1s_AUTDA,
+  DataProcessing_Register_DataProccessing_1s_AUTDB,
+  DataProcessing_Register_DataProccessing_1s_PACIZA,
+  DataProcessing_Register_DataProccessing_1s_PICIZB,
+  DataProcessing_Register_DataProccessing_1s_PACDZA,
+  DataProcessing_Register_DataProccessing_1s_PACDZB,
+  DataProcessing_Register_DataProccessing_1s_AUTIZA,
+  DataProcessing_Register_DataProccessing_1s_AUTIZB,
+  DataProcessing_Register_DataProccessing_1s_AUTDZA,
+  DataProcessing_Register_DataProccessing_1s_AUTDZB,
+  DataProcessing_Register_DataProccessing_1s_XPACI,
+  DataProcessing_Register_DataProccessing_1s_XPACD,
+
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_AND,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_BIC,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_ORR,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_ORN,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_EOR,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_EON,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_ANDS,
+  DataProcessing_Register_logic_ShiftesdRegister_32bit_BICS,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_AND,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_BIC,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_ORR,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_ORN,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_EOR,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_EON,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_ANDS,
+  DataProcessing_Register_logic_ShiftesdRegister_64bit_BICS,
+
+  DataProcessing_Register_AddSub_ShiftedRegister_32bit_ADD,
+  DataProcessing_Register_AddSub_ShiftedRegister_32bit_ADDS,
+  DataProcessing_Register_AddSub_ShiftedRegister_32bit_SUB,
+  DataProcessing_Register_AddSub_ShiftedRegister_32bit_SUBS,
+  DataProcessing_Register_AddSub_ShiftedRegister_64bit_ADD,
+  DataProcessing_Register_AddSub_ShiftedRegister_64bit_ADDS,
+  DataProcessing_Register_AddSub_ShiftedRegister_64bit_SUB,
+  DataProcessing_Register_AddSub_ShiftedRegister_64bit_SUBS,
+
+  DataProcessing_Register_AddSub_ExtendedRegister_32bit_ADD,
+  DataProcessing_Register_AddSub_ExtendedRegister_32bit_ADDS,
+  DataProcessing_Register_AddSub_ExtendedRegister_32bit_SUB,
+  DataProcessing_Register_AddSub_ExtendedRegister_32bit_SUBS,
+  DataProcessing_Register_AddSub_ExtendedRegister_64bit_ADD,
+  DataProcessing_Register_AddSub_ExtendedRegister_64bit_ADDS,
+  DataProcessing_Register_AddSub_ExtendedRegister_64bit_SUB,
+  DataProcessing_Register_AddSub_ExtendedRegister_64bit_SUBS,
+
+  DataProcessing_Register_AddSub_WithCarry_32bit_ADC,
+  DataProcessing_Register_AddSub_WithCarry_32bit_ADCS,
+  DataProcessing_Register_AddSub_WithCarry_32bit_SBC,
+  DataProcessing_Register_AddSub_WithCarry_32bit_SBCS,
+  DataProcessing_Register_AddSub_WithCarry_64bit_ADC,
+  DataProcessing_Register_AddSub_WithCarry_64bit_ADCS,
+  DataProcessing_Register_AddSub_WithCarry_64bit_SBC,
+  DataProcessing_Register_AddSub_WithCarry_64bit_SBCS,
+
+  DataProcessing_Register_RotateRightIntoFlags_RMIF,
+
+  DataProcessing_Register_EvaluateIntoFlag_SETF8,
+  DataProcessing_Register_EvaluateIntoFlag_SETF16,
+
+  DataProcessing_Register_ConditionalCompare_Register_32bit_CCMN,
+  DataProcessing_Register_ConditionalCompare_Register_32bit_CCMP,
+  DataProcessing_Register_ConditionalCompare_Register_64bit_CCMN,
+  DataProcessing_Register_ConditionalCompare_Register_64bit_CCMP,
+
+  DataProcessing_Register_ConfitionalCompare_Immediate,
+
+  DataProcessing_Register_ConditionalCompare_Immediate_32bit_CCMN,
+  DataProcessing_Register_ConditionalCompare_Immediate_32bit_CCMP,
+  DataProcessing_Register_ConditionalCompare_Immediate_64bit_CCMN,
+  DataProcessing_Register_ConditionalCompare_Immediate_64bit_CCMP,
+
+  DataProcessing_Register_ConditionalSelect_32bit_CSEL,
+  DataProcessing_Register_ConditionalSelect_32bit_CSINC,
+  DataProcessing_Register_ConditionalSelect_32bit_CSINV,
+  DataProcessing_Register_ConditionalSelect_32bit_CSNEG,
+  DataProcessing_Register_ConditionalSelect_64bit_CSEL,
+  DataProcessing_Register_ConditionalSelect_64bit_CSINC,
+  DataProcessing_Register_ConditionalSelect_64bit_CSINV,
+  DataProcessing_Register_ConditionalSelect_64bit_CSNEG,
+
+  DataProcessing_Register_DataProccessing_3s_32bit_MADD,
+  DataProcessing_Register_DataProccessing_3s_32bit_MSUB,
+  DataProcessing_Register_DataProccessing_3s_64bit_MADD,
+  DataProcessing_Register_DataProccessing_3s_64bit_MSUB,
+  DataProcessing_Register_DataProccessing_3s_SMADDL,
+  DataProcessing_Register_DataProccessing_3s_SMSUBL,
+  DataProcessing_Register_DataProccessing_3s_SMULH,
+  DataProcessing_Register_DataProccessing_3s_UMADDL,
+  DataProcessing_Register_DataProccessing_3s_UMSUBL,
+  DataProcessing_Register_DataProccessing_3s_UMULH,
+
+  // DataProcessing_ScalarFloat and SIMD
+  DataProcessing_ScalarFloat_or_SIMD,
+  LAST
 };
 
-inline bool is1(uint32_t inst, uint32_t loc){
+inline bool is1(uint32_t inst, uint32_t loc)
+{
   return inst & (1 << loc);
 }
 
-struct op_range{
+struct op_range
+{
   int start = 0;
   int end = 0;
 };
 
-inline int gr(op_range r, int index){
+inline int gr(op_range r, int index)
+{
   return r.end - index;
 }
 
-bool masking(uint32_t inst, op_range r, const char* mask){
+bool masking(uint32_t inst, op_range r, const char *mask)
+{
   int len = 1 + r.end - r.start;
   bool b = true;
-  for(int i=0;i<len;++i){
-    switch(mask[i]){
-      case '1':
+  for (int i = 0; i < len; ++i)
+  {
+    switch (mask[i])
+    {
+    case '1':
       b = b && is1(inst, gr(r, i));
       break;
-      case '0':
+    case '0':
       b = b && !is1(inst, gr(r, i));
       break;
-      case '>':
+    case '>':
       return b;
     }
-    
-    if(b == false) return false;
+
+    if (b == false)
+      return false;
   }
 
   return true;
 }
 
-struct ccstr{
+bool isp(uint32_T inst, int loc, char bit)
+{
+  switch (bit)
+  {
+  case '1':
+    return is1(inst, loc);
+  }
+  return !is1(inst, loc);
+}
+
+struct ccstr
+{
   char text[124] = {};
   int up = 0;
 };
 
-void push_text(ccstr* str, const char* text){
+void push_text(ccstr *str, const char *text)
+{
   int len = strlen(text);
-  for(int i=0;i<len;++i){
+  for (int i = 0; i < len; ++i)
+  {
     str->text[str->up] = text[i];
     str->up += 1;
   }
   str->text[str->up] = 0;
 }
 
-struct inst_info{
-  //mnimonic
+struct inst_info
+{
+  // mnimonic
   char mnimonic[16] = {};
 
-  //param_array
+  // param_array
   int param_len = 0;
   uint32_t params[16] = {};
 
@@ -2193,51 +2537,56 @@ struct inst_info{
   ccstr asm_text;
 
   // emulate execute function pointer(uint32* param, int mod)
-  // mod - 
+  // mod -
   // 0 : emulate / 1 : to machine code / 2 : to assembly
-  void (*func)(inst_info*, int);
+  void (*func)(inst_info *, int);
 
-  //inst type
+  // inst type
   op_type inst_type;
 
-  //machine code
+  // machine code
   uint32_t inst_data;
 };
 
-void Reserved_UDF_func(inst_info* ii, int mod){
-  switch(mod){
-    case 0:
+void Reserved_UDF_func(inst_info *ii, int mod)
+{
+  switch (mod)
+  {
+  case 0:
     break;
-    case 1:
+  case 1:
     break;
-    case 2:
-    {
-      strcpy(ii->mnimonic, "UDF");
-      ii->param_len = 1;
-      ii->params[0] = getParam(ii->inst_data, {0, 15});
-      push_text(&ii->asm_text, ii->mnimonic);
-      push_text(&ii->asm_text, " #");
-      push_text(&ii->asm_text, to_string(ii->params[0]).c_str());
-    }
-    break;
+  case 2:
+  {
+    strcpy(ii->mnimonic, "UDF");
+    ii->param_len = 1;
+    ii->params[0] = getParam(ii->inst_data, {0, 15});
+    push_text(&ii->asm_text, ii->mnimonic);
+    push_text(&ii->asm_text, " #");
+    push_text(&ii->asm_text, to_string(ii->params[0]).c_str());
+  }
+  break;
   }
 }
 
-uint32_t getParam(uint32_t inst, op_range r){
+uint32_t getParam(uint32_t inst, op_range r)
+{
   uint32_t out = inst;
-  int en = (31-r.end);
+  int en = (31 - r.end);
   out = out << en;
   out = out >> en;
   out = out >> r.start;
   return out;
 }
 
-inst_info gii(op_type type, uint32_t inst){
+inst_info gii(op_type type, uint32_t inst)
+{
   inst_info ii;
   ii.inst_type = type;
   ii.inst_data = inst;
-  switch(ii.inst_type){
-    case op_type::Reserved_UDF:
+  switch (ii.inst_type)
+  {
+  case op_type::Reserved_UDF:
     ii.func = Reserved_UDF_func;
     break;
   }
@@ -2250,133 +2599,151 @@ inst_info gii(op_type type, uint32_t inst){
 constexpr int op0 = 31;
 constexpr op_range op1 = {25, 28};
 
-inst_info getOP_Reserved(uint32_t inst){
+inst_info getOP_Reserved(uint32_t inst)
+{
   static constexpr op_range sop0 = {29, 30};
   static constexpr op_range sop1 = {16, 24};
-  if(masking(inst, sop0, "00") && masking(inst, sop1, "000000000")){
+  if (masking(inst, sop0, "00") && masking(inst, sop1, "000000000"))
+  {
     return gii(op_type::Reserved_UDF, inst);
   }
 
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_SME(uint32_t inst){
+inst_info getOP_SME(uint32_t inst)
+{
   static constexpr op_range sop0 = {29, 30};
   static constexpr op_range sop1 = {10, 24};
   static constexpr op_range sop2 = {2, 4};
 
-  if(masking(inst, sop0, "00")){
-    if(masking(inst, sop1, "x10>") && masking(inst, sop2, "x00")){
+  if (masking(inst, sop0, "00"))
+  {
+    if (masking(inst, sop1, "x10>") && masking(inst, sop2, "x00"))
+    {
       constexpr int ssop0 = 24;
       constexpr int ssop1 = 21;
       constexpr int S = 4;
-      if(!is1(inst, ssop0) && !is1(inst, ssop1)){
-        if(!is1(inst, S)){
+      if (!is1(inst, ssop0) && !is1(inst, ssop1))
+      {
+        if (!is1(inst, S))
+        {
           return gii(op_type::SME_FP_OuterProduct_32bit_FP32_FMOPA, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_FP_OuterProduct_32bit_FP32_FMOPS, inst);
         }
       }
-      if(is1(inst, ssop0)){
-        if(!is1(inst, ssop1)){
-          if(!is1(inst, S)){
+      if (is1(inst, ssop0))
+      {
+        if (!is1(inst, ssop1))
+        {
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_FP_OuterProduct_32bit_Widning_BF16_BFMOPA, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_FP_OuterProduct_32bit_Widning_BF16_BFMOPS, inst);
           }
         }
-        else{
-          if(!is1(inst, S)){
+        else
+        {
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_FP_OuterProduct_32bit_FP16_Widning_FMOPA, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_FP_OuterProduct_32bit_FP16_Widning_FMOPS, inst);
           }
         }
       }
     }
-    if(masking(inst, sop1, "010>") && masking(inst, sop2, "x10")){
-      //return gii(op_type::SME_2_Binary_OuterProduct_32bit, inst);
+    if (masking(inst, sop1, "010>") && masking(inst, sop2, "x10"))
+    {
+      // return gii(op_type::SME_2_Binary_OuterProduct_32bit, inst);
       constexpr int ssop0 = 21;
       constexpr int S = 4;
-      if(!is1(inst, ssop0)){
-        if(!is1(inst, S)){
+      if (!is1(inst, ssop0))
+      {
+        if (!is1(inst, S))
+        {
           return gii(op_type::SME_2_Binary_OuterProduct_32bit_BMOPA, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_Binary_OuterProduct_32bit_BMOPA, inst);
         }
       }
     }
   }
-  else if(masking(inst, sop0, "01")){
-    if(masking(inst, sop1, "x10>") && masking(inst, sop2, "xx1")){
-      //return gii(op_type::SME_Integer_Outer_Product_32bit, inst);
+  else if (masking(inst, sop0, "01"))
+  {
+    if (masking(inst, sop1, "x10>") && masking(inst, sop2, "xx1"))
+    {
+      // return gii(op_type::SME_Integer_Outer_Product_32bit, inst);
       constexpr int ssop0 = 21;
       constexpr int ssop1 = 3;
       constexpr int S = 4;
-      if(!is1(inst, ssop0) && is1(inst, ssop1)){
+      if (!is1(inst, ssop0) && is1(inst, ssop1))
+      {
         constexpr int u0 = 24;
-        if(!is1(inst, u0)){
-          if(!is1(inst, S)){
+        if (!is1(inst, u0))
+        {
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_Integer_Outer_Product_32bit_Int16_2Way_SMOPA, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_Integer_Outer_Product_32bit_Int16_2Way_SMOPS, inst);
           }
         }
-        else{
-          if(!is1(inst, S)){
+        else
+        {
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_Integer_Outer_Product_32bit_Int16_2Way_UMOPA, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_Integer_Outer_Product_32bit_Int16_2Way_UMOPS, inst);
           }
         }
       }
-      if(!is1(inst, ssop1)){
+      if (!is1(inst, ssop1))
+      {
         constexpr int u0 = 24;
         constexpr int u1 = 21;
-        constexpr op_type oparr[2][2][2] = 
-        {
-          {
+        constexpr op_type oparr[2][2][2] =
             {
-              op_type::SME_Integer_Outer_Product_32bit_Int8_SMOPA,
-              op_type::SME_Integer_Outer_Product_32bit_Int8_SMOPS
-            },
-            {
-              op_type::SME_Integer_Outer_Product_32bit_Int8_SUMOPA,
-              op_type::SME_Integer_Outer_Product_32bit_Int8_SUMOPS
-            }
-          },
-          {
-            {
-              op_type::SME_Integer_Outer_Product_32bit_Int8_USMOPA,
-              op_type::SME_Integer_Outer_Product_32bit_Int8_USMOPS
-            },
-            {
-              op_type::SME_Integer_Outer_Product_32bit_Int8_UMOPA,
-              op_type::SME_Integer_Outer_Product_32bit_Int8_UMOPS
-            }
-          }
-        };
+                {{op_type::SME_Integer_Outer_Product_32bit_Int8_SMOPA,
+                  op_type::SME_Integer_Outer_Product_32bit_Int8_SMOPS},
+                 {op_type::SME_Integer_Outer_Product_32bit_Int8_SUMOPA,
+                  op_type::SME_Integer_Outer_Product_32bit_Int8_SUMOPS}},
+                {{op_type::SME_Integer_Outer_Product_32bit_Int8_USMOPA,
+                  op_type::SME_Integer_Outer_Product_32bit_Int8_USMOPS},
+                 {op_type::SME_Integer_Outer_Product_32bit_Int8_UMOPA,
+                  op_type::SME_Integer_Outer_Product_32bit_Int8_UMOPS}}};
         int ind[3] = {
-          is1(inst, u0) ? 1 : 0, 
-          is1(inst, u1) ? 1 : 0, 
-          is1(inst, S) ? 1 : 0
-        };
+            is1(inst, u0) ? 1 : 0,
+            is1(inst, u1) ? 1 : 0,
+            is1(inst, S) ? 1 : 0};
         return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
       }
     }
-    if(masking(inst, sop1, "00>")){
-      //return gii(op_type::SME_2_MultiVector_Memory_Continguous, inst);
+    if (masking(inst, sop1, "00>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Memory_Continguous, inst);
       constexpr op_range ssop0 = {20, 22};
       constexpr int ssop1 = 15;
       constexpr int ssop2 = 1;
-      if(masking(inst, ssop0, "00x")){
-        if(!is1(inst, ssop1)){
+      if (masking(inst, ssop0, "00x"))
+      {
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2392,12 +2759,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_2Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2413,14 +2781,15 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
       if (masking(inst, ssop0, "01x"))
       {
-        if(!is1(inst, ssop1)){
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2436,12 +2805,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_2Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2457,13 +2827,15 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Store_sps_4Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
-      if(masking(inst, ssop0, "100")){
-        if(!is1(inst, ssop1)){
+      if (masking(inst, ssop0, "100"))
+      {
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2479,12 +2851,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Load_spi_2Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2500,13 +2873,15 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Load_sps_4Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
-      if(masking(inst, ssop0, "110")){
-        if(!is1(inst, ssop1)){
+      if (masking(inst, ssop0, "110"))
+      {
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2522,12 +2897,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_2Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2543,19 +2919,22 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Continguous_Store_spi_4Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
     }
-    if(masking(inst, sop1, "10>")){
-      //return gii(op_type::SME_2_MultiVector_Memory_Strided, inst);
+    if (masking(inst, sop1, "10>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Memory_Strided, inst);
       constexpr op_range ssop0 = {20, 22};
       constexpr int ssop1 = 15;
       constexpr int ssop2 = 2;
-      if(masking(inst, ssop0, "00x")){
-        if(!is1(inst, ssop1)){
+      if (masking(inst, ssop0, "00x"))
+      {
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 3;
@@ -2571,12 +2950,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Load_sps_2Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 3;
@@ -2592,14 +2972,15 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
       if (masking(inst, ssop0, "01x"))
       {
-        if(!is1(inst, ssop1)){
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 3;
@@ -2615,12 +2996,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Store_sps_2Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 3;
@@ -2636,13 +3018,15 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Store_sps_4Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
-      if(masking(inst, ssop0, "100")){
-        if(!is1(inst, ssop1)){
+      if (masking(inst, ssop0, "100"))
+      {
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 3;
@@ -2658,12 +3042,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Load_spi_2Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 3;
@@ -2679,13 +3064,15 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Load_sps_4Register_LDNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
-      if(masking(inst, ssop0, "110")){
-        if(!is1(inst, ssop1)){
+      if (masking(inst, ssop0, "110"))
+      {
+        if (!is1(inst, ssop1))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2701,12 +3088,13 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Store_spi_2Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
 
-        if(is1(inst, ssop1) && !is1(inst, ssop2)){
+        if (is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr int msz0 = 14;
           constexpr int msz1 = 13;
           constexpr int N = 0;
@@ -2722,93 +3110,116 @@ inst_info getOP_SME(uint32_t inst){
                     op_type::SME_2_MultiVector_Memory_Strided_Store_spi_4Register_STNT1D}}};
           int ind[3] = {
               is1(inst, msz0) ? 1 : 0,
-              is1(inst,msz1) ? 1 : 0,
+              is1(inst, msz1) ? 1 : 0,
               is1(inst, N) ? 1 : 0};
           return gii(oparr[ind[0]][ind[1]][ind[2]], inst);
         }
       }
     }
   }
-  else if(masking(inst, sop0, "10")){
-    if(masking(inst, sop1, "0xx000x0>") && masking(inst, sop2, "0xx")){
-      //return gii(op_type::SME_MoveIntoArray, inst);
+  else if (masking(inst, sop0, "10"))
+  {
+    if (masking(inst, sop1, "0xx000x0>") && masking(inst, sop2, "0xx"))
+    {
+      // return gii(op_type::SME_MoveIntoArray, inst);
       constexpr op_range ssop0 = {22, 23};
       constexpr int ssop1 = 18;
       constexpr op_range ssop2 = {15, 16};
       constexpr op_range ssop3 = {10, 12};
       constexpr op_range ssop4 = {5, 6};
       constexpr int ssop5 = 3;
-      if((masking(inst, ssop0, "00") && is1(inst, ssop1)) && masking(inst, ssop2, "00")){
-        if((masking(inst, ssop3, "010") && masking(inst, ssop4, "x0")) && !is1(inst, ssop5)){
+      if ((masking(inst, ssop0, "00") && is1(inst, ssop1)) && masking(inst, ssop2, "00"))
+      {
+        if ((masking(inst, ssop3, "010") && masking(inst, ssop4, "x0")) && !is1(inst, ssop5))
+        {
           return gii(op_type::SME_MoveIntoArray_MOVA_2Register, inst);
         }
-        if((masking(inst, ssop3, "011") && masking(inst, ssop4, "00")) && !is1(inst, ssop5)){
+        if ((masking(inst, ssop3, "011") && masking(inst, ssop4, "00")) && !is1(inst, ssop5))
+        {
           return gii(op_type::SME_MoveIntoArray_MOVA_4Register, inst);
         }
       }
 
-      if(!is1(inst, ssop1)){
+      if (!is1(inst, ssop1))
+      {
         constexpr op_range size = {22, 23};
         constexpr int Q = 16;
-        if(is1(inst, Q)){
-          if(masking(inst, size, "11")){
+        if (is1(inst, Q))
+        {
+          if (masking(inst, size, "11"))
+          {
             return gii(op_type::SME_MoveIntoArray_MoveVectorToArray, inst);
           }
         }
-        else{
+        else
+        {
           return gii(op_type::SME_MoveIntoArray_MoveVectorToArray, inst);
         }
       }
-      else{
-        if(masking(inst, ssop2, "0x") && !is1(inst, ssop5)){
-          if(masking(inst, ssop3, "000") && masking(inst, ssop4, "x0")){
+      else
+      {
+        if (masking(inst, ssop2, "0x") && !is1(inst, ssop5))
+        {
+          if (masking(inst, ssop3, "000") && masking(inst, ssop4, "x0"))
+          {
             return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_2Register, inst);
           }
-          if(masking(inst, ssop3, "001") && masking(inst, ssop4, "00")){
+          if (masking(inst, ssop3, "001") && masking(inst, ssop4, "00"))
+          {
             constexpr op_range size = {22, 23};
             constexpr int opec = 2;
-            if(is1(inst, opec)){
-              if(masking(inst, size, "11")){
+            if (is1(inst, opec))
+            {
+              if (masking(inst, size, "11"))
+              {
                 return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_4Register, inst);
               }
             }
-            else{
+            else
+            {
               return gii(op_type::SME_MoveIntoArray_2_MoveVectorToTitle_4Register, inst);
             }
           }
         }
       }
     }
-    if(masking(inst, sop1, "0xx000x1>")){
-      //return gii(op_type::SME_MoveFromArray, inst);
+    if (masking(inst, sop1, "0xx000x1>"))
+    {
+      // return gii(op_type::SME_MoveFromArray, inst);
       constexpr op_range ssop0 = {22, 23};
       constexpr int ssop1 = 18;
       constexpr op_range ssop2 = {15, 16};
       constexpr op_range ssop3 = {10, 12};
       constexpr op_range ssop4 = {8, 9};
       constexpr op_range ssop5 = {0, 1};
-      if((masking(inst, ssop0, "00") && is1(inst, ssop1)) && (masking(inst, ssop2, "00") && masking(inst, ssop4, "00")))
+      if ((masking(inst, ssop0, "00") && is1(inst, ssop1)) && (masking(inst, ssop2, "00") && masking(inst, ssop4, "00")))
       {
-        if(masking(inst, ssop3, "010") && masking(inst, ssop5, "x0")){
+        if (masking(inst, ssop3, "010") && masking(inst, ssop5, "x0"))
+        {
           return gii(op_type::SME_MoveFromArray_MOVA_2Register, inst);
         }
-        if(masking(inst, ssop3, "011") && masking(inst, ssop5, "00")){
+        if (masking(inst, ssop3, "011") && masking(inst, ssop5, "00"))
+        {
           return gii(op_type::SME_MoveFromArray_MOVA_4Register, inst);
         }
       }
-      if(!is1(inst, ssop1) && masking(inst, ssop4, "0x")){
+      if (!is1(inst, ssop1) && masking(inst, ssop4, "0x"))
+      {
         constexpr op_range size = {22, 23};
         constexpr int Q = 16;
-        if(is1(inst, Q)){
-          if(masking(inst, size, "11")){
+        if (is1(inst, Q))
+        {
+          if (masking(inst, size, "11"))
+          {
             return gii(op_type::SME_MoveFromArray_MoveArrayToVector, inst);
           }
         }
-        else{
+        else
+        {
           return gii(op_type::SME_MoveFromArray_MoveArrayToVector, inst);
         }
       }
-      if((is1(inst, ssop1) && masking(inst, ssop2, "0x")) && masking(inst, ssop4, "00"))
+      if ((is1(inst, ssop1) && masking(inst, ssop2, "0x")) && masking(inst, ssop4, "00"))
       {
         if (masking(inst, ssop3, "000") && masking(inst, ssop5, "x0"))
         {
@@ -2832,1258 +3243,1529 @@ inst_info getOP_SME(uint32_t inst){
         }
       }
     }
-    if(masking(inst, sop1, "0xx010>") && masking(inst, sop2, "x0x")){
-      //return gii(op_type::SME_AddVectorToArray, inst);
+    if (masking(inst, sop1, "0xx010>") && masking(inst, sop2, "x0x"))
+    {
+      // return gii(op_type::SME_AddVectorToArray, inst);
       constexpr int ssop0 = 23;
       constexpr op_range ssop1 = {17, 18};
       constexpr int ssop2 = 4;
-      if((is1(inst, ssop0) && masking(inst, ssop1, "00")) && !is1(inst, ssop2)){
+      if ((is1(inst, ssop0) && masking(inst, ssop1, "00")) && !is1(inst, ssop2))
+      {
         constexpr int _op = 22;
         constexpr int V = 16;
         constexpr op_range opc2 = {0, 2};
-        if(!is1(inst, _op) && masking(inst, opc2, "0xx")){
-          if(!is1(inst, V)){
+        if (!is1(inst, _op) && masking(inst, opc2, "0xx"))
+        {
+          if (!is1(inst, V))
+          {
             return gii(op_type::SME_AddVectorToArray_ADDHA_FEAT_SME, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_AddVectorToArray_ADDVA_FEAT_SME, inst);
           }
         }
-        else{
-          if(!is1(inst, V)){
+        else
+        {
+          if (!is1(inst, V))
+          {
             return gii(op_type::SME_AddVectorToArray_ADDHA_FEAT_SME_I16I64, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_AddVectorToArray_ADDVA_FEAT_SME_I16I64, inst);
           }
         }
       }
     }
-    if(masking(inst, sop1, "0000010>")){
+    if (masking(inst, sop1, "0000010>"))
+    {
       constexpr op_range ssop0 = {8, 17};
-      if(masking(inst, ssop0, "0000000000")){
+      if (masking(inst, ssop0, "0000000000"))
+      {
         return gii(op_type::SME_Zero, inst);
       }
     }
-    if(masking(inst, sop1, "0010010>")){
+    if (masking(inst, sop1, "0010010>"))
+    {
       constexpr op_range ssop0 = {4, 17};
       constexpr op_range opc = {0, 3};
-      if(masking(inst, ssop0, "0000000000000") && masking(inst, opc, "0001")){
+      if (masking(inst, ssop0, "0000000000000") && masking(inst, opc, "0001"))
+      {
         return gii(op_type::SME_2_Zero_LookupTable, inst);
       }
     }
-    if(masking(inst, sop1, "0010011>")){
+    if (masking(inst, sop1, "0010011>"))
+    {
       constexpr int ssop0 = 17;
       constexpr op_range ssop1 = {15, 16};
       constexpr op_range opc = {5, 11};
-      if(masking(inst, ssop1, "00") && masking(inst, opc, "0011111")){
-        if(!is1(inst, ssop0)){
+      if (masking(inst, ssop1, "00") && masking(inst, opc, "0011111"))
+      {
+        if (!is1(inst, ssop0))
+        {
           return gii(op_type::SME_2_Move_LookupTable_From_MOVT, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_Move_LookupTable_Into_MOVT, inst);
         }
       }
     }
-    if(masking(inst, sop1, "01x001>")){
-      //return gii(op_type::SME_2_Expand_LookupTable_Continguous, inst);
+    if (masking(inst, sop1, "01x001>"))
+    {
+      // return gii(op_type::SME_2_Expand_LookupTable_Continguous, inst);
       constexpr int ssop0 = 22;
       constexpr op_range ssop1 = {14, 15};
       constexpr op_range ssop2 = {0, 1};
-      if((!is1(inst, ssop0) && masking(inst, ssop1, "10")) && masking(inst, ssop2, "00")){
+      if ((!is1(inst, ssop0) && masking(inst, ssop1, "10")) && masking(inst, ssop2, "00"))
+      {
         constexpr op_range opc = {16, 18};
         constexpr op_range opc2 = {10, 11};
-        if(masking(inst, opc, "01x") && masking(inst, opc2, "00")){
+        if (masking(inst, opc, "01x") && masking(inst, opc2, "00"))
+        {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_4Register_LUTI4, inst);
         }
-        if(masking(inst, opc, "1xx") && masking(inst, opc2, "00")){
+        if (masking(inst, opc, "1xx") && masking(inst, opc2, "00"))
+        {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_4Register_LUTI2, inst);
         }
       }
-      if((!is1(inst, ssop0) && masking(inst, ssop1, "x1")) && masking(inst, ssop2, "x0")){
+      if ((!is1(inst, ssop0) && masking(inst, ssop1, "x1")) && masking(inst, ssop2, "x0"))
+      {
         constexpr op_range opc = {15, 18};
         constexpr op_range opc2 = {10, 11};
-        if(masking(inst, opc, "01xx") && masking(inst, opc2, "00")){
+        if (masking(inst, opc, "01xx") && masking(inst, opc2, "00"))
+        {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_2Register_LUTI4, inst);
         }
-        if(masking(inst, opc, "1xxx") && masking(inst, opc2, "00")){
+        if (masking(inst, opc, "1xxx") && masking(inst, opc2, "00"))
+        {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_2Register_LUTI2, inst);
         }
       }
-      if(is1(inst, ssop0)){
+      if (is1(inst, ssop0))
+      {
         constexpr op_range opc = {14, 18};
         constexpr op_range opc2 = {10, 11};
-        if(masking(inst, opc, "01xxx") && masking(inst, opc2, "00")){
+        if (masking(inst, opc, "01xxx") && masking(inst, opc2, "00"))
+        {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_1Register_LUTI4, inst);
         }
-        if(masking(inst, opc, "1xxxx") && masking(inst, opc2, "00")){
+        if (masking(inst, opc, "1xxxx") && masking(inst, opc2, "00"))
+        {
           return gii(op_type::SME_2_Expand_LookupTable_Continguous_1Register_LUTI2, inst);
         }
       }
     }
-    if(masking(inst, sop1, "1xx00>")){
-      //return gii(op_type::SME_2_MultiVector_Indexed_1Register, inst);
+    if (masking(inst, sop1, "1xx00>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Indexed_1Register, inst);
       constexpr op_range ssop0 = {22, 23};
       constexpr int ssop1 = 12;
       constexpr int ssop2 = 2;
-      if(masking(inst, ssop0, "00")){
+      if (masking(inst, ssop0, "00"))
+      {
         constexpr op_range USop = {2, 4};
-        if(masking(inst, USop, "000")){
+        if (masking(inst, USop, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_SMLALL, inst);
         }
-        if(masking(inst, USop, "001")){
+        if (masking(inst, USop, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_USMLALL, inst);
         }
-        if(masking(inst, USop, "010")){
+        if (masking(inst, USop, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_SMLSLL, inst);
         }
-        if(masking(inst, USop, "100")){
+        if (masking(inst, USop, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_UMLALL, inst);
         }
-        if(masking(inst, USop, "101")){
+        if (masking(inst, USop, "101"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_SUMLALL, inst);
         }
-        if(masking(inst, USop, "110")){
+        if (masking(inst, USop, "110"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_1Register_longMLA_32bit_UMLSLL, inst);
         }
       }
-      if(masking(inst, ssop0, "10")){
-        if(!is1(inst, ssop1) && !is1(inst, ssop2)){
+      if (masking(inst, ssop0, "10"))
+      {
+        if (!is1(inst, ssop1) && !is1(inst, ssop2))
+        {
           constexpr op_type oarr[2][2] = {
-            {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_SMLALL,
-            op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_SMLSLL}, 
-            {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_UMLALL,
-            op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_UMLSLL}};
+              {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_SMLALL,
+               op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_SMLSLL},
+              {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_UMLALL,
+               op_type::SME_2_MultiVector_Indexed_1Register_longMLA_64bit_UMLSLL}};
           constexpr int U = 4;
           constexpr int S = 3;
           return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(is1(inst, ssop1)){
+        if (is1(inst, ssop1))
+        {
           constexpr op_type oarr[2][2] = {
-            {op_type::SME_2_MultiVector_Indexed_1Register_longFMA_FMLAL,
-            op_type::SME_2_MultiVector_Indexed_1Register_longFMA_FMLSL}, 
-            {op_type::SME_2_MultiVector_Indexed_1Register_longFMA_BFMLAL,
-            op_type::SME_2_MultiVector_Indexed_1Register_longFMA_BFMLSL}};
+              {op_type::SME_2_MultiVector_Indexed_1Register_longFMA_FMLAL,
+               op_type::SME_2_MultiVector_Indexed_1Register_longFMA_FMLSL},
+              {op_type::SME_2_MultiVector_Indexed_1Register_longFMA_BFMLAL,
+               op_type::SME_2_MultiVector_Indexed_1Register_longFMA_BFMLSL}};
           constexpr int U = 4;
           constexpr int S = 3;
           return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
       }
-      if(masking(inst, ssop0, "11") && is1(inst, ssop1)){
+      if (masking(inst, ssop0, "11") && is1(inst, ssop1))
+      {
         constexpr op_type oarr[2][2] = {
             {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_SMLAL,
-            op_type::SME_2_MultiVector_Indexed_1Register_longMLA_SMLSL}, 
+             op_type::SME_2_MultiVector_Indexed_1Register_longMLA_SMLSL},
             {op_type::SME_2_MultiVector_Indexed_1Register_longMLA_UMLAL,
-            op_type::SME_2_MultiVector_Indexed_1Register_longMLA_UMLSL}};
+             op_type::SME_2_MultiVector_Indexed_1Register_longMLA_UMLSL}};
         constexpr int U = 4;
         constexpr int S = 3;
         return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
     }
-    if(masking(inst, sop1, "1xx01xxxx0>")){
-      //return gii(op_type::SME_2_MultiVector_Indexed_2Register, inst);
+    if (masking(inst, sop1, "1xx01xxxx0>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Indexed_2Register, inst);
       constexpr op_range ssop0 = {20, 21};
       constexpr op_range ssop1 = {11, 12};
       constexpr int ssop2 = 5;
-      if(masking(inst, ssop0, "00") && masking(inst, ssop1, "0x")){
+      if (masking(inst, ssop0, "00") && masking(inst, ssop1, "0x"))
+      {
         constexpr op_range opus = {3, 5};
-        if(masking(inst, opus, "000")){
+        if (masking(inst, opus, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SMLALL, inst);
         }
-        if(masking(inst, opus, "001")){
+        if (masking(inst, opus, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SMLSLL, inst);
         }
-        if(masking(inst, opus, "010")){
+        if (masking(inst, opus, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_UMLALL, inst);
         }
-        if(masking(inst, opus, "011")){
+        if (masking(inst, opus, "011"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_UMLSLL, inst);
         }
-        if(masking(inst, opus, "100")){
+        if (masking(inst, opus, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_USMLALL, inst);
         }
-        if(masking(inst, opus, "110")){
+        if (masking(inst, opus, "110"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SUMLALL, inst);
         }
       }
-      if(masking(inst, ssop0, "01")){
+      if (masking(inst, ssop0, "01"))
+      {
         constexpr int op = 12;
         constexpr op_range opc2 = {3, 5};
-        if(!is1(inst, op)){
-          if(masking(inst, opc2, "000")){
+        if (!is1(inst, op))
+        {
+          if (masking(inst, opc2, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_FMLA, inst);
           }
-          if(masking(inst, opc2, "001")){
+          if (masking(inst, opc2, "001"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_FVDOT, inst);
           }
-          if(masking(inst, opc2, "010")){
+          if (masking(inst, opc2, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_FMLS, inst);
           }
-          if(masking(inst, opc2, "011")){
+          if (masking(inst, opc2, "011"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_BFVDOT, inst);
           }
-          if(masking(inst, opc2, "100")){
+          if (masking(inst, opc2, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_SVDOT, inst);
           }
-          if(masking(inst, opc2, "110")){
+          if (masking(inst, opc2, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_UVDOT, inst);
           }
         }
-        else{
-          if(masking(inst, opc2, "000")){
+        else
+        {
+          if (masking(inst, opc2, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_SDOT2, inst);
           }
-          if(masking(inst, opc2, "001")){
+          if (masking(inst, opc2, "001"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_FDOT, inst);
           }
-          if(masking(inst, opc2, "010")){
+          if (masking(inst, opc2, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_UDOT, inst);
           }
-          if(masking(inst, opc2, "011")){
+          if (masking(inst, opc2, "011"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_BFDOT, inst);
           }
-          if(masking(inst, opc2, "100")){
+          if (masking(inst, opc2, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_SDOT4, inst);
           }
-          if(masking(inst, opc2, "101")){
+          if (masking(inst, opc2, "101"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_USDOT, inst);
           }
-          if(masking(inst, opc2, "110")){
+          if (masking(inst, opc2, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_UDOT, inst);
           }
-          if(masking(inst, opc2, "111")){
+          if (masking(inst, opc2, "111"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_32bit_SUDOT, inst);
           }
         }
       }
-      if(masking(inst, ssop0, "10") && masking(inst, ssop1, "00") && !is1(inst, ssop2)){
+      if (masking(inst, ssop0, "10") && masking(inst, ssop1, "00") && !is1(inst, ssop2))
+      {
         constexpr op_range us = {3, 4};
-        if(masking(inst, us, "00")){
+        if (masking(inst, us, "00"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SMLALL, inst);
         }
-        if(masking(inst, us, "01")){
+        if (masking(inst, us, "01"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_SMLSLL, inst);
         }
-        if(masking(inst, us, "10")){
+        if (masking(inst, us, "10"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_UMLALL, inst);
         }
-        if(masking(inst, us, "11")){
+        if (masking(inst, us, "11"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_llongMLA_ts_32bit_UMLSLL, inst);
         }
       }
-      if(masking(inst, ssop0, "10") && masking(inst, ssop1, "1x") && !is1(inst, ssop2)){
+      if (masking(inst, ssop0, "10") && masking(inst, ssop1, "1x") && !is1(inst, ssop2))
+      {
         constexpr op_range us = {3, 4};
-        if(masking(inst, us, "00")){
+        if (masking(inst, us, "00"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longFMA_ts_FMLAL, inst);
         }
-        if(masking(inst, us, "01")){
+        if (masking(inst, us, "01"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longFMA_ts_FMLSL, inst);
         }
-        if(masking(inst, us, "10")){
+        if (masking(inst, us, "10"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longFMA_ts_BFMLAL, inst);
         }
-        if(masking(inst, us, "11")){
+        if (masking(inst, us, "11"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longFMA_ts_BFMLSL, inst);
         }
       }
-      if(masking(inst, ssop0, "11") && masking(inst, ssop1, "00") && !is1(inst, ssop2)){
+      if (masking(inst, ssop0, "11") && masking(inst, ssop1, "00") && !is1(inst, ssop2))
+      {
         constexpr op_range us = {3, 4};
-        if(masking(inst, us, "00")){
+        if (masking(inst, us, "00"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_64bit_FMLA, inst);
         }
-        if(masking(inst, us, "01")){
+        if (masking(inst, us, "01"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_64bit_SDOT, inst);
         }
-        if(masking(inst, us, "10")){
+        if (masking(inst, us, "10"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_64bit_FMLS, inst);
         }
-        if(masking(inst, us, "11")){
+        if (masking(inst, us, "11"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_Ternary_64bit_UDOT, inst);
         }
       }
-      if(masking(inst, ssop0, "11") && masking(inst, ssop1, "1x") && !is1(inst, ssop2)){
+      if (masking(inst, ssop0, "11") && masking(inst, ssop1, "1x") && !is1(inst, ssop2))
+      {
         constexpr op_range us = {3, 4};
-        if(masking(inst, us, "00")){
+        if (masking(inst, us, "00"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longMLA_ts_SMLAL, inst);
         }
-        if(masking(inst, us, "01")){
+        if (masking(inst, us, "01"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longMLA_ts_SMLSL, inst);
         }
-        if(masking(inst, us, "10")){
+        if (masking(inst, us, "10"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longMLA_ts_UMLAL, inst);
         }
-        if(masking(inst, us, "11")){
+        if (masking(inst, us, "11"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_2Register_longMLA_ts_UMLSL, inst);
         }
       }
     }
-    if(masking(inst, sop1, "1xx01xxxx1>")){
-      //return gii(op_type::SME_2_MultiVector_Indexed_4Register, inst);
+    if (masking(inst, sop1, "1xx01xxxx1>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Indexed_4Register, inst);
       constexpr op_range ssop0 = {22, 23};
       constexpr op_range ssop1 = {11, 12};
       constexpr op_range ssop2 = {5, 6};
-      if((masking(inst, ssop0, "00") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "0x")){
+      if ((masking(inst, ssop0, "00") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "0x"))
+      {
         constexpr op_range opus = {3, 5};
-        if(masking(inst, opus, "000")){
+        if (masking(inst, opus, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SMLALL, inst);
         }
-        if(masking(inst, opus, "001")){
+        if (masking(inst, opus, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SMLSLL, inst);
         }
-        if(masking(inst, opus, "010")){
+        if (masking(inst, opus, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_UMLALL, inst);
         }
-        if(masking(inst, opus, "011")){
+        if (masking(inst, opus, "011"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_UMLSLL, inst);
         }
-        if(masking(inst, opus, "100")){
+        if (masking(inst, opus, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_USMLALL, inst);
         }
-        if(masking(inst, opus, "110")){
+        if (masking(inst, opus, "110"))
+        {
           return gii(op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_32bit_SUMLALL, inst);
         }
       }
-      if((masking(inst, ssop0, "01")) && masking(inst, ssop2, "0x")){
+      if ((masking(inst, ssop0, "01")) && masking(inst, ssop2, "0x"))
+      {
         constexpr int _op = 12;
         constexpr op_range opc2 = {3, 5};
-        if(!is1(inst, _op)){
-          if(masking(inst, opc2, "000")){
+        if (!is1(inst, _op))
+        {
+          if (masking(inst, opc2, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FMLA, inst);
           }
-          if(masking(inst, opc2, "010")){
+          if (masking(inst, opc2, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FMLS, inst);
           }
-          if(masking(inst, opc2, "100")){
+          if (masking(inst, opc2, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SVDOT, inst);
           }
-          if(masking(inst, opc2, "101")){
+          if (masking(inst, opc2, "101"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_USVDOT, inst);
           }
-          if(masking(inst, opc2, "110")){
+          if (masking(inst, opc2, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UVDOT, inst);
           }
-          if(masking(inst, opc2, "111")){
+          if (masking(inst, opc2, "111"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SUVDOT, inst);
           }
         }
-        else{
-          if(masking(inst, opc2, "000")){
+        else
+        {
+          if (masking(inst, opc2, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SDOT2, inst);
           }
-          if(masking(inst, opc2, "001")){
+          if (masking(inst, opc2, "001"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_FDOT, inst);
           }
-          if(masking(inst, opc2, "010")){
+          if (masking(inst, opc2, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT2, inst);
           }
-          if(masking(inst, opc2, "011")){
+          if (masking(inst, opc2, "011"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_BFDOT, inst);
           }
-          if(masking(inst, opc2, "100")){
+          if (masking(inst, opc2, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SDOT4, inst);
           }
-          if(masking(inst, opc2, "101")){
+          if (masking(inst, opc2, "101"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_USDOT, inst);
           }
-          if(masking(inst, opc2, "110")){
+          if (masking(inst, opc2, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_UDOT4, inst);
           }
-          if(masking(inst, opc2, "111")){
+          if (masking(inst, opc2, "111"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_32bit_SUDOT, inst);
           }
         }
       }
-      if((masking(inst, ssop0, "10") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLALL,
-          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLSLL
-        }, {
-          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLALL,
-          op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLSLL
-        }};
+      if ((masking(inst, ssop0, "10") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLALL,
+                                         op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_SMLSLL},
+                                        {op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLALL,
+                                         op_type::SME_2_MultiVector_Indexed_4Register_llongMLA_fs_64bit_UMLSLL}};
         constexpr int U = 4;
         constexpr int S = 3;
-        return gii(oarr[is1(inst, U) ? 1:0][is1(inst, S) ? 1:0], inst);
+        return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
-      if((masking(inst, ssop0, "10") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLAL,
-          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLSL
-        }, {
-          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLAL,
-          op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLSL
-        }};
+      if ((masking(inst, ssop0, "10") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLAL,
+                                         op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_FMLSL},
+                                        {op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLAL,
+                                         op_type::SME_2_MultiVector_Indexed_4Register_longFMA_fs_BFMLSL}};
         constexpr int U = 4;
         constexpr int S = 3;
-        return gii(oarr[is1(inst, U) ? 1:0][is1(inst, S) ? 1:0], inst);
+        return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
-      if((masking(inst, ssop0, "11") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "00")){
+      if ((masking(inst, ssop0, "11") && masking(inst, ssop1, "0x")) && masking(inst, ssop2, "00"))
+      {
         constexpr int _op = 11;
         constexpr op_range opc2 = {3, 4};
-        if(!is1(inst, _op)){
-          if(masking(inst, opc2, "00")){
+        if (!is1(inst, _op))
+        {
+          if (masking(inst, opc2, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_FMLA, inst);
           }
-          if(masking(inst, opc2, "01")){
+          if (masking(inst, opc2, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_SDOT, inst);
           }
-          if(masking(inst, opc2, "10")){
+          if (masking(inst, opc2, "10"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_FMLS, inst);
           }
-          if(masking(inst, opc2, "11")){
+          if (masking(inst, opc2, "11"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_UDOT, inst);
           }
         }
-        else{
-          if(masking(inst, opc2, "01")){
+        else
+        {
+          if (masking(inst, opc2, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_SVDOT, inst);
           }
-          if(masking(inst, opc2, "11")){
+          if (masking(inst, opc2, "11"))
+          {
             return gii(op_type::SME_2_MultiVector_Indexed_4Register_Ternary_64bit_UVDOT, inst);
           }
         }
       }
-      if((masking(inst, ssop0, "11") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLAL,
-          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLSL
-        }, {
-          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLAL,
-          op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLSL
-        }};
+      if ((masking(inst, ssop0, "11") && masking(inst, ssop1, "1x")) && masking(inst, ssop2, "00"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLAL,
+                                         op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_SMLSL},
+                                        {op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLAL,
+                                         op_type::SME_2_MultiVector_Indexed_4Register_longMLA_fs_UMLSL}};
         constexpr int U = 4;
         constexpr int S = 3;
-        return gii(oarr[is1(inst, U) ? 1:0][is1(inst, S) ? 1:0], inst);
+        return gii(oarr[is1(inst, U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
       }
     }
-    if(masking(inst, sop1, "1xx1xxxxx100>")){
+    if (masking(inst, sop1, "1xx1xxxxx100>"))
+    {
       constexpr op_range ssop0 = {16, 17};
       constexpr op_range ssop1 = {5, 6};
       constexpr op_range ssop2 = {0, 1};
-      if((masking(inst, ssop0, "01") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00")){
+      if ((masking(inst, ssop0, "01") && masking(inst, ssop1, "00")) && masking(inst, ssop2, "00"))
+      {
         return gii(op_type::SME_2_MultiVector_SVE_Select_SEL, inst);
       }
-      if((masking(inst, ssop0, "x0") && masking(inst, ssop1, "x0")) && masking(inst, ssop2, "x0")){
+      if ((masking(inst, ssop0, "x0") && masking(inst, ssop1, "x0")) && masking(inst, ssop2, "x0"))
+      {
         return gii(op_type::SME_2_MultiVector_SVE_Select_SEL, inst);
       }
     }
-    if(masking(inst, sop1, "1xx1xxxxx110>")){
-      //return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary, inst);
+    if (masking(inst, sop1, "1xx1xxxxx110>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary, inst);
       constexpr op_range _op0 = {22, 23};
       constexpr op_range _op1 = {10, 12};
       constexpr op_range _op2 = {0, 1};
-      if(masking(inst, _op0, "00") && masking(inst, _op1, "101")){
-        if(!is1(inst, 0)){
+      if (masking(inst, _op0, "00") && masking(inst, _op1, "101"))
+      {
+        if (!is1(inst, 0))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_QuadwordsZIP_2Register_ZIP, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_QuadwordsZIP_2Register_UZP, inst);
         }
       }
-      if(masking(inst, _op0, "11") && masking(inst, _op1, "101")){
+      if (masking(inst, _op0, "11") && masking(inst, _op1, "101"))
+      {
         constexpr int _op = 20;
         constexpr int U = 5;
-        if(!is1(inst, _op)){
-          if(!is1(inst, U)){
+        if (!is1(inst, _op))
+        {
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_SQRSHR, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_UQRSHR, inst);
           }
         }
-        else{
-          if(!is1(inst, U)){
+        else
+        {
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_2Register_SQRSHRU, inst);
           }
         }
       }
-      if((masking(inst, _op2, "x0") && masking(inst, _op1, "000")) || (masking(inst, _op2, "00") && masking(inst, _op1, "010"))){
+      if ((masking(inst, _op2, "x0") && masking(inst, _op1, "000")) || (masking(inst, _op2, "00") && masking(inst, _op1, "010")))
+      {
         return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_FCLAMP, inst);
       }
-      if(masking(inst, _op1, "001")){
-        if(!is1(inst, 0)){
+      if (masking(inst, _op1, "001"))
+      {
+        if (!is1(inst, 0))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_2Register_SCLAMP, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_2Register_UCLAMP, inst);
         }
       }
-      if(masking(inst, _op1, "011") && masking(inst, _op2, "0x")){
-        if(!is1(inst, 0)){
+      if (masking(inst, _op1, "011") && masking(inst, _op2, "0x"))
+      {
+        if (!is1(inst, 0))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_4Register_SCLAMP, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_CLAMP_4Register_UCLAMP, inst);
         }
       }
-      if(masking(inst, _op1, "100")){
-        if(!is1(inst, 0)){
+      if (masking(inst, _op1, "100"))
+      {
+        if (!is1(inst, 0))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_ZIP_2Register_ZIP, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_ZIP_2Register_UZP, inst);
         }
       }
-      if(masking(inst, _op1, "11x")){
+      if (masking(inst, _op1, "11x"))
+      {
         constexpr int N = 10;
         constexpr op_range opU = {5, 6};
-        if(!is1(inst, N)){
-          if(masking(inst, opU, "00")){
+        if (!is1(inst, N))
+        {
+          if (masking(inst, opU, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHR, inst);
           }
-          if(masking(inst, opU, "01")){
+          if (masking(inst, opU, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_UQRSHR, inst);
           }
-          if(masking(inst, opU, "10")){
+          if (masking(inst, opU, "10"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRU, inst);
           }
         }
-        else{
-          if(masking(inst, opU, "00")){
+        else
+        {
+          if (masking(inst, opU, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRN, inst);
           }
-          if(masking(inst, opU, "01")){
+          if (masking(inst, opU, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_UQRSHRN, inst);
           }
-          if(masking(inst, opU, "10")){
+          if (masking(inst, opU, "10"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Binary_SaturatingShiftRight_4Register_SQRSHRUN, inst);
           }
         }
       }
     }
-    if(masking(inst, sop1, "1xx1xxxxx111000")){
-      //return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary, inst);
+    if (masking(inst, sop1, "1xx1xxxxx111000"))
+    {
+      // return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary, inst);
       constexpr op_range _op0 = {22, 23};
       constexpr op_range _op1 = {16, 20};
       constexpr op_range _op2 = {5, 6};
       constexpr op_range _op3 = {0, 1};
       constexpr int U = 5;
-      if((masking(inst, _op0, "00") && masking(inst, _op1, "00001")) && (masking(inst, _op3, "x0"))){
-        if(!is1(inst, U)){
+      if ((masking(inst, _op0, "00") && masking(inst, _op1, "00001")) && (masking(inst, _op3, "x0")))
+      {
+        if (!is1(inst, U))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_2Register_FCVTZS, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_2Register_FCVTZU, inst);
         }
       }
-      if((masking(inst, _op0, "00") && masking(inst, _op1, "00010")) && (masking(inst, _op3, "x0"))){
-        if(!is1(inst, U)){
+      if ((masking(inst, _op0, "00") && masking(inst, _op1, "00010")) && (masking(inst, _op3, "x0")))
+      {
+        if (!is1(inst, U))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_2Register_SCVTF, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_2Register_UCVTF, inst);
         }
       }
-      if((masking(inst, _op0, "00") && masking(inst, _op1, "10001")) && (masking(inst, _op2, "0x") && masking(inst, _op3, "00"))){
-        if(!is1(inst, U)){
+      if ((masking(inst, _op0, "00") && masking(inst, _op1, "10001")) && (masking(inst, _op2, "0x") && masking(inst, _op3, "00")))
+      {
+        if (!is1(inst, U))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_4Register_FCVTZS, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPToIntConvert_4Register_FCVTZU, inst);
         }
       }
-      if((masking(inst, _op0, "00") && masking(inst, _op1, "10010")) && (masking(inst, _op2, "0x") && masking(inst, _op3, "00"))){
-        if(!is1(inst, U)){
+      if ((masking(inst, _op0, "00") && masking(inst, _op1, "10010")) && (masking(inst, _op2, "0x") && masking(inst, _op3, "00")))
+      {
+        if (!is1(inst, U))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_4Register_SCVTF, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntToFP_4Register_UCVTF, inst);
         }
       }
-      if((masking(inst, _op0, "00") && masking(inst, _op1, "10111")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0"))){
+      if ((masking(inst, _op0, "00") && masking(inst, _op1, "10111")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0")))
+      {
         constexpr int _op = 1;
-        if(!is1(inst, _op)){
+        if (!is1(inst, _op))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_UZP, inst);
         }
       }
-      if(masking(inst, _op0, "0x") && masking(inst, _op1, "00000")){
+      if (masking(inst, _op0, "0x") && masking(inst, _op1, "00000"))
+      {
         constexpr int _op = 22;
         constexpr int N = 5;
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN
-        }, {
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVTN
-        }};
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, N)?1:0], inst);
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
+                                         op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN},
+                                        {op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
+                                         op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVTN}};
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, N) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0, "0x") && masking(inst, _op1, "00011")){
+      if (masking(inst, _op0, "0x") && masking(inst, _op1, "00011"))
+      {
         constexpr int _op = 22;
         constexpr int _U = 0;
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN
-        }, {
-          op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
-          op_type::Undefine
-        }};
-        op_type ot = oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0];
-        if(ot != op_type::Undefine){
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVT,
+                                         op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_FCVTN},
+                                        {op_type::SME_2_MultiVector_SVE_Constructive_Unary_FPdownConvert_2Register_BFCVT,
+                                         op_type::Undefine}};
+        op_type ot = oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0];
+        if (ot != op_type::Undefine)
+        {
           return gii(ot, inst);
         }
       }
-      if(masking(inst, _op1, "00101")){
+      if (masking(inst, _op1, "00101"))
+      {
         constexpr int _U = 0;
         op_type ot = (!is1(inst, _U)) ? op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_SUNPK : op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_2Register_UUNPK;
         return gii(ot, inst);
       }
-      if((masking(inst, _op1, "01xxx")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "x0"))){
+      if ((masking(inst, _op1, "01xxx")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "x0")))
+      {
         constexpr op_range size = {22, 23};
         constexpr op_range opc = {16, 18};
-        if(masking(inst, size, "10") && masking(inst, opc, "000")){
+        if (masking(inst, size, "10") && masking(inst, opc, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTN, inst);
         }
-        if(masking(inst, size, "10") && masking(inst, opc, "001")){
+        if (masking(inst, size, "10") && masking(inst, opc, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTP, inst);
         }
-        if(masking(inst, size, "10") && masking(inst, opc, "010")){
+        if (masking(inst, size, "10") && masking(inst, opc, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTM, inst);
         }
-        if(masking(inst, size, "10") && masking(inst, opc, "100")){
+        if (masking(inst, size, "10") && masking(inst, opc, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_2Register_FRINTA, inst);
         }
       }
-      if(masking(inst, _op1, "10011")){
+      if (masking(inst, _op1, "10011"))
+      {
         constexpr int _op = 22;
         constexpr op_range nu = {5, 6};
-        if(!is1(inst, _op)){
-          if(masking(inst, nu, "00")){
+        if (!is1(inst, _op))
+        {
+          if (masking(inst, nu, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVT, inst);
           }
-          if(masking(inst, nu, "01")){
+          if (masking(inst, nu, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_UQCVT, inst);
           }
-          if(masking(inst, nu, "10")){
+          if (masking(inst, nu, "10"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTN, inst);
           }
-          if(masking(inst, nu, "11")){
+          if (masking(inst, nu, "11"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_UQCVTN, inst);
           }
         }
-        else{
-          if(masking(inst, nu, "00")){
+        else
+        {
+          if (masking(inst, nu, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTU, inst);
           }
-          if(masking(inst, nu, "10")){
+          if (masking(inst, nu, "10"))
+          {
             return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_IntDownConvert_4Register_SQCVTUN, inst);
           }
         }
       }
-      if((masking(inst, _op1, "10101")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "0x"))){
+      if ((masking(inst, _op1, "10101")) && (masking(inst, _op2, "x0") && masking(inst, _op3, "0x")))
+      {
         constexpr int _U = 0;
-        if(!is1(inst, _U)){
+        if (!is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_SUNPK, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_Unpack_4Register_UUNPK, inst);
         }
       }
-      if((masking(inst, _op1, "10110")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0"))){
+      if ((masking(inst, _op1, "10110")) && (masking(inst, _op2, "00") && masking(inst, _op3, "x0")))
+      {
         constexpr int _op = 1;
-        if(!is1(inst, _op)){
+        if (!is1(inst, _op))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_ZIP, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_ZIP_4Register_UZP, inst);
         }
       }
-      if((masking(inst, _op1, "11xxx")) && (masking(inst, _op2, "00") && masking(inst, _op3, "00"))){
+      if ((masking(inst, _op1, "11xxx")) && (masking(inst, _op2, "00") && masking(inst, _op3, "00")))
+      {
         constexpr op_range size = {22, 23};
         constexpr op_range opc = {16, 18};
-        if(masking(inst, size, "10") && masking(inst, opc, "000")){
+        if (masking(inst, size, "10") && masking(inst, opc, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTN, inst);
         }
-        if(masking(inst, size, "10") && masking(inst, opc, "001")){
+        if (masking(inst, size, "10") && masking(inst, opc, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTP, inst);
         }
-        if(masking(inst, size, "10") && masking(inst, opc, "010")){
+        if (masking(inst, size, "10") && masking(inst, opc, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTM, inst);
         }
-        if(masking(inst, size, "10") && masking(inst, opc, "100")){
+        if (masking(inst, size, "10") && masking(inst, opc, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_SVE_Constructive_Unary_FRINT_4Register_FRINTA, inst);
         }
       }
     }
-    if(masking(inst, sop1, "1xx1xxxx010110x")){
-      //return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register, inst);
+    if (masking(inst, sop1, "1xx1xxxx010110x"))
+    {
+      // return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register, inst);
       constexpr op_range _op0op1 = {5, 10};
       constexpr int _op2 = 0;
-      if(masking(inst, _op0op1, "00000x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMAX,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMAX
-        }, {
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMIN,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMIN
-        }};
+      if (masking(inst, _op0op1, "00000x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMAX,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMAX},
+                                        {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_SMIN,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_IntMinMax_UMIN}};
         constexpr int _op = 5;
         constexpr int _U = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "00100x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAX,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMIN
-        }, {
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMINNM
-        }};
+      if (masking(inst, _op0op1, "00100x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAX,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMIN},
+                                        {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_FPMinMax_FMINNM}};
         constexpr int _op = 5;
         constexpr int _o2 = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "010xxx")){
+      if (masking(inst, _op0op1, "010xxx"))
+      {
         constexpr op_range opc = {5, 7};
         constexpr int _U = 0;
-        if(masking(inst, opc, "001") && !is1(inst, _U)){
+        if (masking(inst, opc, "001") && !is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_SRSHL, inst);
         }
-        if(masking(inst, opc, "001") && is1(inst, _U)){
+        if (masking(inst, opc, "001") && is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_Shift_URSHL, inst);
         }
       }
-      if(masking(inst, _op0op1, "10000x") && is1(inst, _op2)){
+      if (masking(inst, _op0op1, "10000x") && is1(inst, _op2))
+      {
         return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_2Register_SQDMULH, inst);
       }
     }
-    if(masking(inst, sop1, "1xx1xxxx010111x")){
-      //return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register,inst);
+    if (masking(inst, sop1, "1xx1xxxx010111x"))
+    {
+      // return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register,inst);
       constexpr op_range _op0op1 = {5, 10};
       constexpr int _op2 = 0;
-      if(masking(inst, _op0op1, "00000x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMAX,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMAX
-        }, {
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMIN,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMIN
-        }};
+      if (masking(inst, _op0op1, "00000x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMAX,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMAX},
+                                        {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_SMIN,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_IntMinMax_UMIN}};
         constexpr int _op = 5;
         constexpr int _U = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "00100x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAX,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMIN
-        }, {
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
-          op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMINNM
-        }};
+      if (masking(inst, _op0op1, "00100x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAX,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMIN},
+                                        {op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
+                                         op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_FPMinMax_FMINNM}};
         constexpr int _op = 5;
         constexpr int _o2 = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "010xxx")){
+      if (masking(inst, _op0op1, "010xxx"))
+      {
         constexpr op_range opc = {5, 7};
         constexpr int _U = 0;
-        if(masking(inst, opc, "001") && !is1(inst, _U)){
+        if (masking(inst, opc, "001") && !is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_SRSHL, inst);
         }
-        if(masking(inst, opc, "001") && is1(inst, _U)){
+        if (masking(inst, opc, "001") && is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_Shift_URSHL, inst);
         }
       }
-      if(masking(inst, _op0op1, "10000x") && is1(inst, _op2)){
+      if (masking(inst, _op0op1, "10000x") && is1(inst, _op2))
+      {
         return gii(op_type::SME_2_MultiVector_MultiVector_SVE_Destructive_4Register_SQDMULH, inst);
       }
     }
-    if(masking(inst, sop1, "1xx10xxx010100x")){
-      //return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
+    if (masking(inst, sop1, "1xx10xxx010100x"))
+    {
+      // return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register, inst);
       constexpr op_range _op0op1 = {5, 10};
       constexpr int _op2 = 0;
-      if(masking(inst, _op0op1, "00000x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMAX,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMIN
-        }, {
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMAX,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMIN
-        }};
+      if (masking(inst, _op0op1, "00000x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMAX,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_SMIN},
+                                        {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMAX,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_IntMinMax_UMIN}};
         constexpr int _op = 5;
         constexpr int _U = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "00100x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAX,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMIN
-        }, {
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMINNM
-        }};
+      if (masking(inst, _op0op1, "00100x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAX,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMIN},
+                                        {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMAXNM,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_FPMinMax_FMINNM}};
         constexpr int _op = 5;
         constexpr int _o2 = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "010xxx")){
+      if (masking(inst, _op0op1, "010xxx"))
+      {
         constexpr op_range opc = {5, 7};
         constexpr int _U = 0;
-        if(masking(inst, opc, "001") && !is1(inst, _U)){
+        if (masking(inst, opc, "001") && !is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_SRSHL, inst);
         }
-        if(masking(inst, opc, "001") && is1(inst, _U)){
+        if (masking(inst, opc, "001") && is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_Shift_URSHL, inst);
         }
       }
-      if(masking(inst, _op0op1, "011000")){
+      if (masking(inst, _op0op1, "011000"))
+      {
         return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_ADD, inst);
       }
-      if(masking(inst, _op0op1, "100000") && !is1(inst, _op2)){
+      if (masking(inst, _op0op1, "100000") && !is1(inst, _op2))
+      {
         return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_2Register_SQDMULH, inst);
       }
     }
-    if(masking(inst, sop1, "1xx10xxx010101x")){
-      //return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
+    if (masking(inst, sop1, "1xx10xxx010101x"))
+    {
+      // return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register, inst);
       constexpr op_range _op0op1 = {5, 10};
       constexpr int _op2 = 0;
-      if(masking(inst, _op0op1, "00000x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMAX,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMIN
-        }, {
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMAX,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMIN
-        }};
+      if (masking(inst, _op0op1, "00000x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMAX,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_SMIN},
+                                        {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMAX,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_IntMinMax_UMIN}};
         constexpr int _op = 5;
         constexpr int _U = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _U)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _U) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "00100x")){
-        constexpr op_type oarr[2][2] = {{
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAX,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMIN
-        }, {
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
-          op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMINNM
-        }};
+      if (masking(inst, _op0op1, "00100x"))
+      {
+        constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAX,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMIN},
+                                        {op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMAXNM,
+                                         op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_FPMinMax_FMINNM}};
         constexpr int _op = 5;
         constexpr int _o2 = 0;
-        return gii(oarr[is1(inst, _op)?1:0][is1(inst, _o2)?1:0], inst);
+        return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, _o2) ? 1 : 0], inst);
       }
-      if(masking(inst, _op0op1, "010xxx")){
+      if (masking(inst, _op0op1, "010xxx"))
+      {
         constexpr op_range opc = {5, 7};
         constexpr int _U = 0;
-        if(masking(inst, opc, "001") && !is1(inst, _U)){
+        if (masking(inst, opc, "001") && !is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_SRSHL, inst);
         }
-        if(masking(inst, opc, "001") && is1(inst, _U)){
+        if (masking(inst, opc, "001") && is1(inst, _U))
+        {
           return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_Shift_URSHL, inst);
         }
       }
-      if(masking(inst, _op0op1, "011000")){
+      if (masking(inst, _op0op1, "011000"))
+      {
         return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_ADD, inst);
       }
-      if(masking(inst, _op0op1, "100000") && !is1(inst, _op2)){
+      if (masking(inst, _op0op1, "100000") && !is1(inst, _op2))
+      {
         return gii(op_type::SME_2_MultiVector_MultiAndSingleVector_SVE_Destructive_4Register_SQDMULH, inst);
       }
     }
-    if(masking(inst, sop1, "10x1xxxxx0>")){
-      //return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);
+    if (masking(inst, sop1, "10x1xxxxx0>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors, inst);
       constexpr int _op0 = 22;
       constexpr int _op1 = 20;
       constexpr op_range _op2 = {10, 12};
       constexpr op_range _op3 = {1, 4};
-      if(!is1(inst, _op0) && !is1(inst, _op1)){
-        //00
-        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+      if (!is1(inst, _op0) && !is1(inst, _op1))
+      {
+        // 00
+        if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLSL
-          }, {
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_FMLSL},
+                                          {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_ts_BFMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "011")){
+        if (masking(inst, _op2, "011"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLSL
-          }, {
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_FMLSL},
+                                          {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longFMA_os_BFMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_USDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_2Register_SUDOT, inst);
           }
         }
       }
-      if(!is1(inst, _op0) && is1(inst, _op1)){
-        //01
-        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+      if (!is1(inst, _op0) && is1(inst, _op1))
+      {
+        // 01
+        if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLSL
-          }, {
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_FMLSL},
+                                          {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longFMA_fs_BFMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_USDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smm_DotProduct_4Register_SUDOT, inst);
           }
         }
       }
-      if(is1(inst, _op0) && !is1(inst, _op1)){
-        //10
-        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+      if (is1(inst, _op0) && !is1(inst, _op1))
+      {
+        // 10
+        if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLSL
-          }, {
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_SMLSL},
+                                          {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_ts_UMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "011")){
+        if (masking(inst, _op2, "011"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLSL
-          }, {
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_SMLSL},
+                                          {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_longMLA_os_UMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_SDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_2Register_UDOT, inst);
           }
         }
       }
-      if(is1(inst, _op0) && is1(inst, _op1)){
-        //11
-        if(masking(inst, _op2, "010") && masking(inst, _op3, "xx0x")){
+      if (is1(inst, _op0) && is1(inst, _op1))
+      {
+        // 11
+        if (masking(inst, _op2, "010") && masking(inst, _op3, "xx0x"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLSL
-          }, {
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLAL,
-            op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_SMLSL},
+                                          {op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLAL,
+                                           op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_longMLA_fs_UMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "x1xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "x1xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_SDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smtw_DotProduct_4Register_UDOT, inst);
           }
         }
       }
 
-      if(!is1(inst, _op1)){
-        if(masking(inst, _op2, "000") && masking(inst, _op3, "xxx0")){
+      if (!is1(inst, _op1))
+      {
+        if (masking(inst, _op2, "000") && masking(inst, _op3, "xxx0"))
+        {
           constexpr int sz = 22;
           constexpr op_range usop = {2, 4};
-          if(masking(inst, usop, "000")){
+          if (masking(inst, usop, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLALL, inst);
           }
-          if(masking(inst, usop, "010")){
+          if (masking(inst, usop, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SMLSLL, inst);
           }
-          if(masking(inst, usop, "100")){
+          if (masking(inst, usop, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_UMLALL, inst);
           }
-          if(masking(inst, usop, "110")){
+          if (masking(inst, usop, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_UMLSLL, inst);
           }
-          if(!is1(inst, sz) && masking(inst, usop, "001")){
+          if (!is1(inst, sz) && masking(inst, usop, "001"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_USMLALL, inst);
           }
-          if(!is1(inst, sz) && masking(inst, usop, "101")){
+          if (!is1(inst, sz) && masking(inst, usop, "101"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_ts_SUMLALL, inst);
           }
         }
-        if(masking(inst, _op2, "001")){
+        if (masking(inst, _op2, "001"))
+        {
           constexpr int sz = 22;
           constexpr op_range usop = {2, 4};
-          if(masking(inst, usop, "000")){
+          if (masking(inst, usop, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLALL, inst);
           }
-          if(masking(inst, usop, "010")){
+          if (masking(inst, usop, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_SMLSLL, inst);
           }
-          if(masking(inst, usop, "100")){
+          if (masking(inst, usop, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_UMLALL, inst);
           }
-          if(masking(inst, usop, "110")){
+          if (masking(inst, usop, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_UMLSLL, inst);
           }
-          if(!is1(inst, sz) && masking(inst, usop, "001")){
+          if (!is1(inst, sz) && masking(inst, usop, "001"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_masv_llongFMA_os_USMLALL, inst);
           }
         }
-        if(masking(inst, _op2, "100")){
+        if (masking(inst, _op2, "100"))
+        {
           constexpr int _op = 22;
           constexpr op_range opc2 = {3, 4};
-          if(!is1(inst, _op)){
-            if(masking(inst, opc2, "00")){
+          if (!is1(inst, _op))
+          {
+            if (masking(inst, opc2, "00"))
+            {
               return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register_FDOT, inst);
             }
-            if(masking(inst, opc2, "01")){
+            if (masking(inst, opc2, "01"))
+            {
               return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_2Register_BFDOT, inst);
             }
           }
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "x0xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "x0xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_SDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_2Register_UDOT, inst);
           }
         }
-        if(masking(inst, _op2, "110") && masking(inst, _op3, "0xxx")){
+        if (masking(inst, _op2, "110") && masking(inst, _op3, "0xxx"))
+        {
           constexpr int S = 3;
-          if(!is1(inst, S)){
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLA, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_2Register_FMLS, inst);
           }
         }
-        if(masking(inst, _op2, "110") && masking(inst, _op3, "1xxx")){
+        if (masking(inst, _op2, "110") && masking(inst, _op3, "1xxx"))
+        {
           constexpr int S = 3;
-          if(!is1(inst, S)){
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_ADD, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_2Register_SUB, inst);
           }
         }
       }
-      else{
-        if(masking(inst, _op2, "000") && masking(inst, _op3, "xxx0")){
+      else
+      {
+        if (masking(inst, _op2, "000") && masking(inst, _op3, "xxx0"))
+        {
           constexpr int sz = 22;
           constexpr op_range usop = {2, 4};
-          if(masking(inst, usop, "000")){
+          if (masking(inst, usop, "000"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLALL, inst);
           }
-          if(masking(inst, usop, "010")){
+          if (masking(inst, usop, "010"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SMLSLL, inst);
           }
-          if(masking(inst, usop, "100")){
+          if (masking(inst, usop, "100"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLALL, inst);
           }
-          if(masking(inst, usop, "110")){
+          if (masking(inst, usop, "110"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_UMLSLL, inst);
           }
-          if(!is1(inst, sz) && masking(inst, usop, "001")){
+          if (!is1(inst, sz) && masking(inst, usop, "001"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_USMLALL, inst);
           }
-          if(!is1(inst, sz) && masking(inst, usop, "101")){
+          if (!is1(inst, sz) && masking(inst, usop, "101"))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_llongMLA_fs_SUMLALL, inst);
           }
         }
-        if(masking(inst, _op2, "100")){
+        if (masking(inst, _op2, "100"))
+        {
           constexpr int _op = 22;
           constexpr op_range opc2 = {3, 4};
-          if(!is1(inst, _op)){
-            if(masking(inst, opc2, "00")){
+          if (!is1(inst, _op))
+          {
+            if (masking(inst, opc2, "00"))
+            {
               return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_FDOT, inst);
             }
-            if(masking(inst, opc2, "01")){
+            if (masking(inst, opc2, "01"))
+            {
               return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_FP_DotProduct_4Register_BFDOT, inst);
             }
           }
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "x0xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "x0xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_SDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_smfw_DotProduct_4Register_UDOT, inst);
           }
         }
-        if(masking(inst, _op2, "110") && masking(inst, _op3, "0xxx")){
+        if (masking(inst, _op2, "110") && masking(inst, _op3, "0xxx"))
+        {
           constexpr int S = 3;
-          if(!is1(inst, S)){
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLA, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_FP_4Register_FMLS, inst);
           }
         }
-        if(masking(inst, _op2, "110") && masking(inst, _op3, "1xxx")){
+        if (masking(inst, _op2, "110") && masking(inst, _op3, "1xxx"))
+        {
           constexpr int S = 3;
-          if(!is1(inst, S)){
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_ADD, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_MultiAndSingle_ArrayVectors_sm_Ternary_Int_4Register_SUB, inst);
           }
         }
       }
     }
-    if(masking(inst, sop1, "11x1xxxx00>")){
-      //return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register, inst);
+    if (masking(inst, sop1, "11x1xxxx00>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register, inst);
       constexpr int _op0 = 22;
       constexpr op_range _op1 = {17, 20};
       constexpr op_range _op2 = {10, 12};
       constexpr op_range _op3 = {1, 5};
-      if(!is1(inst, _op0)){
-        if(masking(inst, _op2, "010") && masking(inst, _op3, "0xx0x")){
+      if (!is1(inst, _op0))
+      {
+        if (masking(inst, _op2, "010") && masking(inst, _op3, "0xx0x"))
+        {
           constexpr int _op = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_FMLAL,
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_FMLSL
-          }, {
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_BFMLAL,
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_BFMLSL
-          }};
-          return gii(oarr[is1(inst, _op)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_FMLAL,
+                                           op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_FMLSL},
+                                          {op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_BFMLAL,
+                                           op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longFMA_ts_BFMLSL}};
+          return gii(oarr[is1(inst, _op) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "001xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "001xx"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_USDOT, inst);
         }
       }
-      else{
-        if(masking(inst, _op2, "010") && masking(inst, _op3, "0xx0x")){
+      else
+      {
+        if (masking(inst, _op2, "010") && masking(inst, _op3, "0xx0x"))
+        {
           constexpr int _U = 4;
           constexpr int S = 3;
-          constexpr op_type oarr[2][2] = {{
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_SMLAL,
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_SMLSL
-          }, {
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_UMLAL,
-            op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_UMLSL
-          }};
-          return gii(oarr[is1(inst, _U)?1:0][is1(inst, S)?1:0], inst);
+          constexpr op_type oarr[2][2] = {{op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_SMLAL,
+                                           op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_SMLSL},
+                                          {op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_UMLAL,
+                                           op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_longMLA_ts_UMLSL}};
+          return gii(oarr[is1(inst, _U) ? 1 : 0][is1(inst, S) ? 1 : 0], inst);
         }
-        if(masking(inst, _op2, "101") && masking(inst, _op3, "0x1xx")){
+        if (masking(inst, _op2, "101") && masking(inst, _op3, "0x1xx"))
+        {
           constexpr int U = 4;
-          if(!is1(inst, U)){
+          if (!is1(inst, U))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvtw_DotProduct_SDOT, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvtw_DotProduct_UDOT, inst);
           }
         }
       }
 
-      if(masking(inst, _op1, "0000")){
-        if(masking(inst, _op2, "111") && masking(inst, _op3, "00xxx")){
+      if (masking(inst, _op1, "0000"))
+      {
+        if (masking(inst, _op2, "111") && masking(inst, _op3, "00xxx"))
+        {
           constexpr int S = 3;
-          if(!is1(inst, S)){
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvb_FP_FADD, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvb_FP_FSUB, inst);
           }
         }
-        if(masking(inst, _op2, "111") && masking(inst, _op3, "01xxx")){
+        if (masking(inst, _op2, "111") && masking(inst, _op3, "01xxx"))
+        {
           constexpr int S = 3;
-          if(!is1(inst, S)){
+          if (!is1(inst, S))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvb_Int_ADD, inst);
           }
-          else{
+          else
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvb_Int_SUB, inst);
           }
         }
       }
 
-      if(masking(inst, _op2, "000") && masking(inst, _op3, "0xxx0")){
+      if (masking(inst, _op2, "000") && masking(inst, _op3, "0xxx0"))
+      {
         constexpr int sz = 22;
         constexpr op_range usop = {2, 4};
-        if(masking(inst, usop, "000")){
+        if (masking(inst, usop, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_llongMLA_ts_SMLALL, inst);
         }
-        if(masking(inst, usop, "010")){
+        if (masking(inst, usop, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_llongMLA_ts_SMLSLL, inst);
         }
-        if(masking(inst, usop, "100")){
+        if (masking(inst, usop, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_llongMLA_ts_UMLALL, inst);
         }
-        if(masking(inst, usop, "110")){
+        if (masking(inst, usop, "110"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_llongMLA_ts_UMLSLL, inst);
         }
-        if(!is1(inst, sz) && masking(inst, usop, "001")){
+        if (!is1(inst, sz) && masking(inst, usop, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_llongMLA_ts_USMLALL, inst);
         }
       }
-      if(masking(inst, _op2, "100") && masking(inst, _op3, "xx0xx")){
+      if (masking(inst, _op2, "100") && masking(inst, _op3, "xx0xx"))
+      {
         constexpr int _op = 22;
         constexpr op_range opc2 = {4, 5};
-        if(!is1(inst, _op)){
-          if(masking(inst, opc2, "00")){
+        if (!is1(inst, _op))
+        {
+          if (masking(inst, opc2, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_FP_DotProduct_FDOT, inst);
           }
-          if(masking(inst, opc2, "01")){
+          if (masking(inst, opc2, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_FP_DotProduct_BFDOT, inst);
           }
         }
       }
-      if(masking(inst, _op2, "101") && masking(inst, _op3, "0x0xx")){
+      if (masking(inst, _op2, "101") && masking(inst, _op3, "0x0xx"))
+      {
         constexpr int U = 4;
-        if(!is1(inst, U)){
+        if (!is1(inst, U))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvfw_DotProduct_SDOT, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mvfw_DotProduct_UDOT, inst);
         }
       }
-      if(masking(inst, _op2, "110") && masking(inst, _op3, "00xxx")){
+      if (masking(inst, _op2, "110") && masking(inst, _op3, "00xxx"))
+      {
         constexpr int S = 3;
-        if(!is1(inst, S)){
+        if (!is1(inst, S))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_Ternary_FP_FMLA, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_Ternary_FP_FMLS, inst);
         }
       }
-      if(masking(inst, _op2, "110") && masking(inst, _op3, "01xxx")){
+      if (masking(inst, _op2, "110") && masking(inst, _op3, "01xxx"))
+      {
         constexpr int S = 3;
-        if(!is1(inst, S)){
+        if (!is1(inst, S))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_Ternary_Int_ADD, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_2Register_mv_Ternary_Int_SUB, inst);
         }
       }
     }
-    if(masking(inst, sop1, "11x1xxxx10>")){
-      //return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register, inst);
+    if (masking(inst, sop1, "11x1xxxx10>"))
+    {
+      // return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register, inst);
       constexpr int _op0 = 22;
       constexpr op_range _op1 = {18, 20};
       constexpr int _op2 = 17;
@@ -4112,7 +4794,8 @@ inst_info getOP_SME(uint32_t inst){
           }
         }
       }
-      else{
+      else
+      {
         if (!is1(inst, _op2))
         {
           if ((masking(inst, _op3, "010") && masking(inst, _op4, "00")) && masking(inst, _op5, "xx0x"))
@@ -4166,177 +4849,235 @@ inst_info getOP_SME(uint32_t inst){
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvb_Int_SUB, inst);
         }
       }
-      if((!is1(inst, _op2)) && ((masking(inst, _op3, "000") && masking(inst, _op4, "00")) && masking(inst, _op5, "xxx0"))){
+      if ((!is1(inst, _op2)) && ((masking(inst, _op3, "000") && masking(inst, _op4, "00")) && masking(inst, _op5, "xxx0")))
+      {
         constexpr int sz = 22;
         constexpr op_range usop = {2, 4};
-        if(masking(inst, usop, "000")){
+        if (masking(inst, usop, "000"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_llongMLA_fs_SMLALL, inst);
         }
-        if(masking(inst, usop, "010")){
+        if (masking(inst, usop, "010"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_llongMLA_fs_SMLSLL, inst);
         }
-        if(masking(inst, usop, "100")){
+        if (masking(inst, usop, "100"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_llongMLA_fs_UMLALL, inst);
         }
-        if(masking(inst, usop, "110")){
+        if (masking(inst, usop, "110"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_llongMLA_fs_UMLSLL, inst);
         }
-        if(!is1(inst, sz) && masking(inst, usop, "001")){
+        if (!is1(inst, sz) && masking(inst, usop, "001"))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_llongMLA_fs_USMLALL, inst);
         }
       }
-      if((!is1(inst, _op2)) && ((masking(inst, _op3, "100") && masking(inst, _op4, "0x")) && masking(inst, _op5, "x0xx"))){
+      if ((!is1(inst, _op2)) && ((masking(inst, _op3, "100") && masking(inst, _op4, "0x")) && masking(inst, _op5, "x0xx")))
+      {
         constexpr int _op = 22;
         constexpr op_range opc2 = {4, 5};
-        if(!is1(inst, _op)){
-          if(masking(inst, opc2, "00")){
+        if (!is1(inst, _op))
+        {
+          if (masking(inst, opc2, "00"))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_FP_DotProduct_FDOT, inst);
           }
-          if(masking(inst, opc2, "01")){
+          if (masking(inst, opc2, "01"))
+          {
             return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_FP_DotProduct_BFDOT, inst);
           }
         }
       }
-      if((!is1(inst, _op2)) && ((masking(inst, _op3, "101") && masking(inst, _op4, "00")) && masking(inst, _op5, "x0xx"))){
+      if ((!is1(inst, _op2)) && ((masking(inst, _op3, "101") && masking(inst, _op4, "00")) && masking(inst, _op5, "x0xx")))
+      {
         constexpr int U = 4;
-        if(!is1(inst, U)){
+        if (!is1(inst, U))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvfw_DotProduct_SDOT, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mvfw_DotProduct_UDOT, inst);
         }
       }
-      if((!is1(inst, _op2)) && ((masking(inst, _op3, "110") && masking(inst, _op4, "00")) && masking(inst, _op5, "0xxx"))){
+      if ((!is1(inst, _op2)) && ((masking(inst, _op3, "110") && masking(inst, _op4, "00")) && masking(inst, _op5, "0xxx")))
+      {
         constexpr int S = 3;
-        if(!is1(inst, S)){
+        if (!is1(inst, S))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_FP_FMLA, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_FP_FMLS, inst);
         }
       }
-      if((!is1(inst, _op2)) && ((masking(inst, _op3, "110") && masking(inst, _op4, "00")) && masking(inst, _op5, "1xxx"))){
+      if ((!is1(inst, _op2)) && ((masking(inst, _op3, "110") && masking(inst, _op4, "00")) && masking(inst, _op5, "1xxx")))
+      {
         constexpr int S = 3;
-        if(!is1(inst, S)){
+        if (!is1(inst, S))
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_Int_ADD, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_2_MultiVector_Multiple_ArrayVectors_4Register_mv_Ternary_Int_SUB, inst);
         }
       }
     }
   }
-  else if(masking(inst, sop0, "11")){
-    //return gii(op_type::SME_Memory, inst);
+  else if (masking(inst, sop0, "11"))
+  {
+    // return gii(op_type::SME_Memory, inst);
     constexpr op_range _op0123 = {10, 24};
     constexpr op_range _op4 = {2, 4};
-    if(masking(inst, _op0123, "0xx0>") && masking(inst, _op4, "0xx")){
+    if (masking(inst, _op0123, "0xx0>") && masking(inst, _op4, "0xx"))
+    {
       constexpr op_range msz = {22, 23};
-      if(masking(inst, msz, "00")){
+      if (masking(inst, msz, "00"))
+      {
         return gii(op_type::SME_Memory_Load_ArrayVector_LD1B, inst);
       }
-      if(masking(inst, msz, "01")){
+      if (masking(inst, msz, "01"))
+      {
         return gii(op_type::SME_Memory_Load_ArrayVector_LD1H, inst);
       }
-      if(masking(inst, msz, "10")){
+      if (masking(inst, msz, "10"))
+      {
         return gii(op_type::SME_Memory_Load_ArrayVector_LD1W, inst);
       }
-      if(masking(inst, msz, "11")){
+      if (masking(inst, msz, "11"))
+      {
         return gii(op_type::SME_Memory_Load_ArrayVector_LD1D, inst);
       }
     }
-    if(masking(inst, _op0123, "0xx1>") && masking(inst, _op4, "0xx")){
+    if (masking(inst, _op0123, "0xx1>") && masking(inst, _op4, "0xx"))
+    {
       constexpr op_range msz = {22, 23};
-      if(masking(inst, msz, "00")){
+      if (masking(inst, msz, "00"))
+      {
         return gii(op_type::SME_Memory_Store_ArrayVector_ST1B, inst);
       }
-      if(masking(inst, msz, "01")){
+      if (masking(inst, msz, "01"))
+      {
         return gii(op_type::SME_Memory_Store_ArrayVector_ST1H, inst);
       }
-      if(masking(inst, msz, "10")){
+      if (masking(inst, msz, "10"))
+      {
         return gii(op_type::SME_Memory_Store_ArrayVector_ST1W, inst);
       }
-      if(masking(inst, msz, "11")){
+      if (masking(inst, msz, "11"))
+      {
         return gii(op_type::SME_Memory_Store_ArrayVector_ST1D, inst);
       }
     }
-    if(masking(inst, _op0123, "100x000000xx000") && masking(inst, _op4, "0xx")){
+    if (masking(inst, _op0123, "100x000000xx000") && masking(inst, _op4, "0xx"))
+    {
       constexpr int _op = 22;
-      if(!is1(inst, _op)){
+      if (!is1(inst, _op))
+      {
         return gii(op_type::SME_Memory_SaveAndRestoreArray_LDR, inst);
       }
-      else{
+      else
+      {
         return gii(op_type::SME_Memory_SaveAndRestoreArray_STR, inst);
       }
     }
-    if(masking(inst, _op0123, "100xxxxxx100000") && masking(inst, _op4, "000")){
+    if (masking(inst, _op0123, "100xxxxxx100000") && masking(inst, _op4, "000"))
+    {
       constexpr op_range opc = {16, 21};
       constexpr op_range opc2 = {0, 1};
-      if(masking(inst, opc, "011111") && masking(inst, opc2, "00")){
+      if (masking(inst, opc, "011111") && masking(inst, opc2, "00"))
+      {
         return gii(op_type::SME_Memory_LookupTable_LoadOrStore_LDR, inst);
       }
-      if(masking(inst, opc, "111111") && masking(inst, opc2, "00")){
+      if (masking(inst, opc, "111111") && masking(inst, opc2, "00"))
+      {
         return gii(op_type::SME_Memory_LookupTable_LoadOrStore_STR, inst);
       }
     }
-    if(masking(inst, _op0123, "1110>") && masking(inst, _op4, "0xx")){
+    if (masking(inst, _op0123, "1110>") && masking(inst, _op4, "0xx"))
+    {
       return gii(op_type::SME_Memory_LD1Q, inst);
     }
-    if(masking(inst, _op0123, "1111>") && masking(inst, _op4, "0xx")){
+    if (masking(inst, _op0123, "1111>") && masking(inst, _op4, "0xx"))
+    {
       return gii(op_type::SME_Memory_ST1Q, inst);
     }
   }
 
-  if(masking(inst, sop0, "0x")){
-    if(masking(inst, sop1, "x11>")){
+  if (masking(inst, sop0, "0x"))
+  {
+    if (masking(inst, sop1, "x11>"))
+    {
       constexpr int ssop0 = 29;
       constexpr int ssop1 = 24;
       constexpr int ssop2 = 21;
-      if(is1(inst, ssop0)){
+      if (is1(inst, ssop0))
+      {
         constexpr int sssop0 = 4;
-        if(is1(inst, sssop0)){
+        if (is1(inst, sssop0))
+        {
           return gii(op_type::SME_OuterProduct_64bit_FP64_FMOPA, inst);
         }
-        else{
+        else
+        {
           return gii(op_type::SME_OuterProduct_64bit_FP64_FMOPS, inst);
         }
       }
-      if((!is1(inst, ssop0) && !is1(inst, ssop1)) && !is1(inst, ssop2)){
+      if ((!is1(inst, ssop0) && !is1(inst, ssop1)) && !is1(inst, ssop2))
+      {
         constexpr int u0 = 24;
         constexpr int u1 = 21;
         constexpr int S = 4;
-        if(!is1(inst, u0)){
-          if(!is1(inst, u1)){
-            if(!is1(inst, S)){
+        if (!is1(inst, u0))
+        {
+          if (!is1(inst, u1))
+          {
+            if (!is1(inst, S))
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_FMOPA, inst);
             }
-            else{
+            else
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_FMOPS, inst);
             }
           }
-          else{
-            if(!is1(inst, S)){
+          else
+          {
+            if (!is1(inst, S))
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_SUMOPA, inst);
             }
-            else{
+            else
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_SUMOPS, inst);
             }
           }
         }
-        else{
-          if(!is1(inst, u1)){
-            if(!is1(inst, S)){
+        else
+        {
+          if (!is1(inst, u1))
+          {
+            if (!is1(inst, S))
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_USMOPA, inst);
             }
-            else{
+            else
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_USMOPS, inst);
             }
           }
-          else{
-            if(!is1(inst, S)){
+          else
+          {
+            if (!is1(inst, S))
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_UMOPA, inst);
             }
-            else{
+            else
+            {
               return gii(op_type::SME_OuterProduct_64bit_Int16_UMOPS, inst);
             }
           }
@@ -4347,416 +5088,611 @@ inst_info getOP_SME(uint32_t inst){
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_SVE(uint32_t inst){
+inst_info getOP_SVE(uint32_t inst)
+{
   constexpr op_range o0 = {29, 31};
   constexpr op_range o1 = {10, 24};
   constexpr int o2 = 4;
 
-  if(masking(inst, o0, "000")){
-    if(masking(inst, o1, "0xx0xxxxxx1>")){
+  if (masking(inst, o0, "000"))
+  {
+    if (masking(inst, o1, "0xx0xxxxxx1>"))
+    {
       constexpr int op0 = 15;
       constexpr int op = 13;
+      if (isp(inst, op0, '0'))
+      {
+        if (isp(inst, op0, '0'))
+        {
+          return gii(optype::SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend_MLA, inst);
+        }
+        else
+        {
+          return gii(optype::SVE_Int_MultiAdd_Predicated_MAccumulateWritingAddressAddend_MLS, inst);
+        }
+      }
+      else
+      {
+        if (isp(inst, op0, '0'))
+        {
+          return gii(optype::SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand_MAD, inst);
+        }
+        else
+        {
+          return gii(optype::SVE_Int_MultiAdd_Predicated_MAddWritingMultiplicand_MSB, inst);
+        }
+      }
     }
-    if(masking(inst, o1, "0xx0xxxxx000>")){
+    if (masking(inst, o1, "0xx0xxxxx000>"))
+    {
+      constexpr op_range op0 = {18, 20};
+      if(masking(inst, op0, "00x")){
+        constexpr op_range opc = {16, 18};
+        if(masking(inst, opc, "000")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_ADD, inst);
+        }
+        if(masking(inst, opc, "001")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_SUB, inst);
+        }
+        if(masking(inst, opc, "011")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_AddSubVectors_SUBR, inst);
+        }
+      }
+      if(masking(inst, op0, "01x")){
+        constexpr op_range opcu = {16, 18};
+        if(masking(inst, opcu, "000")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SMAX, inst);
+        }
+        if(masking(inst, opcu, "001")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_UMAX, inst);
+        }
+        if(masking(inst, opcu, "010")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SMIN, inst);
+        }
+        if(masking(inst, opcu, "011")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_UMIN, inst);
+        }
+        if(masking(inst, opcu, "100")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_SABD, inst);
+        }
+        if(masking(inst, opcu, "101")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MinMaxDifference_UABD, inst);
+        }
+      }
+      if(masking(inst, op0, "100")){
+        constexpr op_range hu = {16, 17};
+        if(masking(inst, hu, "00")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_MUL, inst);
+        }
+        if(masking(inst, hu, "10")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_SMULH, inst);
+        }
+        if(masking(inst, hu, "11")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_MultiplyVectors_UMULH, inst);
+        }
+      }
+      if(masking(inst, op0, "101")){
+        constexpr op_range hu = {16, 17};
+        if(masking(inst, hu, "00")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_SDIV, inst);
+        }
+        if(masking(inst, hu, "01")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_UDIV, inst);
+        }
+        if(masking(inst, hu, "10")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_SDIVR, inst);
+        }
+        if(masking(inst, hu, "11")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Int_DivideVectors_UDIVR, inst);
+        }
+      }
+      if(masking(inst, op0, "11x")){
+        constexpr op_range opcu = {16, 18};
+        if(masking(inst, opcu, "000")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_ORR, inst);
+        }
+        if(masking(inst, opcu, "001")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_EOR, inst);
+        }
+        if(masking(inst, opcu, "010")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_AND, inst);
+        }
+        if(masking(inst, opcu, "011")){
+          return gii(optype::SVE_Int_Binary_Arithmetic_Predicated_Bin_BitwiseLogicalOperations_BIC, inst);
+        }
+      }
+    }
+    if (masking(inst, o1, "0xx0xxxxx001>"))
+    {
+      constexpr op_range op0 = {18, 20};
+      if(masking(inst, op0, "000")){
+        constexpr op_range opu = {16, 17};
+        if(masking(inst, opu, "00")){
+          return gii(optype::SVE_Int_Reduction_Int_AddReduction_SADDV, inst);
+        }
+        if(masking(inst, opu, "01")){
+          return gii(optype::SVE_Int_Reduction_Int_AddReduction_UADDV, inst);
+        }
+      }
+      if(masking(inst, op0, "010")){
+        constexpr op_range opu = {16, 17};
+        if(masking(inst, opu, "00")){
+          return gii(optype::SVE_Int_Reduction_Int_MinMaxReduction_SMAXV, inst);
+        }
+        if(masking(inst, opu, "01")){
+          return gii(optype::SVE_Int_Reduction_Int_MinMaxReduction_UMAXV, inst);
+        }
+        if(masking(inst, opu, "10")){
+          return gii(optype::SVE_Int_Reduction_Int_MinMaxReduction_SMINV, inst);
+        }
+        if(masking(inst, opu, "11")){
+          return gii(optype::SVE_Int_Reduction_Int_MinMaxReduction_UMINV, inst);
+        }
+      }
+      if(masking(inst, op0, "10x")){
+        constexpr op_range opc = {17, 18};
+        if(masking(inst, opc, "00")){
+          return gii(optype::SVE_Int_Reduction_ConstructivePrefix_MOVPREFX, inst);
+        }
+      }
+      if(masking(inst, op0, "110")){
+        constexpr op_range opc = {16, 17};
+        if(masking(inst, opc, "00")){
+          return gii(optype::SVE_Int_Reduction_BitwiseLogicalOperation_ORV, inst);
+        }
+        if(masking(inst, opc, "01")){
+          return gii(optype::SVE_Int_Reduction_BitwiseLogicalOperation_EORV, inst);
+        }
+        if(masking(inst, opc, "10")){
+          return gii(optype::SVE_Int_Reduction_BitwiseLogicalOperation_ANDV, inst);
+        }
+      }
+    }
+    if (masking(inst, o1, "0xx0xxxxx100>"))
+    {
       
     }
-    if(masking(inst, o1, "0xx0xxxxx001>")){
-      
+    if (masking(inst, o1, "0xx0xxxxx101>"))
+    {
     }
-    if(masking(inst, o1, "0xx0xxxxx100>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx000>"))
+    {
     }
-    if(masking(inst, o1, "0xx0xxxxx101>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx001>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx000>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx0100>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx001>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx0101>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx0100>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx011>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx0101>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx100>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx011>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx1010>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx100>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx1011>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx1010>")){
-      
+    if (masking(inst, o1, "0xx1xxxxx11>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx1011>")){
-      
+    if (masking(inst, o1, "1xx00>"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx11>")){
-      
+    if (masking(inst, o1, "1xx01>"))
+    {
     }
-    if(masking(inst, o1, "1xx00>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx001000"))
+    {
     }
-    if(masking(inst, o1, "1xx01>")){
-      
-    }
-    if(masking(inst, o1, "1xx1xxxxx001000")){
-      
-    }
-    if(masking(inst, o1, "1xx1xxxxx001001")){
+    if (masking(inst, o1, "1xx1xxxxx001001"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "1xx1xxxxx00101x")){
-      
+    if (masking(inst, o1, "1xx1xxxxx00101x"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx0011x1")){
+    if (masking(inst, o1, "1xx1xxxxx0011x1"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "1xx1xxxxx001100")){
-      
+    if (masking(inst, o1, "1xx1xxxxx001100"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx001110")){
-      
+    if (masking(inst, o1, "1xx1xxxxx001110"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx010>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx010>"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx011>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx011>"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx10>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx10>"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx11>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx11>"))
+    {
     }
-    if(masking(inst, o1, "10x1xxxxx000>")){
-      
+    if (masking(inst, o1, "10x1xxxxx000>"))
+    {
     }
-    if(masking(inst, o1, "11x1xxxxx000>")){
-      
+    if (masking(inst, o1, "11x1xxxxx000>"))
+    {
     }
   }
-  if(masking(inst, o0, "001")){
-    if(masking(inst, o1, "0xx0>")){
-      
+  if (masking(inst, o0, "001"))
+  {
+    if (masking(inst, o1, "0xx0>"))
+    {
     }
-    if(masking(inst, o1, "0xx1>")){
-      
+    if (masking(inst, o1, "0xx1>"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxxx0>")){
-      
+    if (masking(inst, o1, "1xx0xxxxxx0>"))
+    {
     }
-    if(masking(inst, o1, "1xx00xxxx01>")){
-      
+    if (masking(inst, o1, "1xx00xxxx01>"))
+    {
     }
-    if(masking(inst, o1, "1xx00xxxx11>")){
-      
+    if (masking(inst, o1, "1xx00xxxx11>"))
+    {
     }
-    if(masking(inst, o1, "1xx01xxxx01>")){
-      
+    if (masking(inst, o1, "1xx01xxxx01>"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx00>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx00>"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx01>") && !is1(inst, o2)){
-      
+    if (masking(inst, o1, "1xx1xxxxx01>") && !is1(inst, o2))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx01>") && is1(inst, o2)){
-      
+    if (masking(inst, o1, "1xx1xxxxx01>") && is1(inst, o2))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx11>")){
-      
+    if (masking(inst, o1, "1xx1xxxxx11>"))
+    {
     }
-    if(masking(inst, o1, "1xx100xxx10>")){
-      
+    if (masking(inst, o1, "1xx100xxx10>"))
+    {
     }
-    if(masking(inst, o1, "1xx101xxx1000>")){
-      
+    if (masking(inst, o1, "1xx101xxx1000>"))
+    {
     }
-    if(masking(inst, o1, "1xx101xxx1001>")){
-      
+    if (masking(inst, o1, "1xx101xxx1001>"))
+    {
     }
-    if(masking(inst, o1, "1xx101xxx101>")){
+    if (masking(inst, o1, "1xx101xxx101>"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "1xx11xxxx10>")){
+    if (masking(inst, o1, "1xx11xxxx10>"))
+    {
       return gii(op_type::Undefine, inst);
     }
   }
-  if(masking(inst, o0, "010")){
-    if(masking(inst, o1, "0xx0xxxxx0>")){
-      
+  if (masking(inst, o0, "010"))
+  {
+    if (masking(inst, o1, "0xx0xxxxx0>"))
+    {
     }
-    if(masking(inst, o1, "0xx0xxxxx10>")){
-      
+    if (masking(inst, o1, "0xx0xxxxx10>"))
+    {
     }
-    if(masking(inst, o1, "0xx0xxxxx11000x")){
-      
+    if (masking(inst, o1, "0xx0xxxxx11000x"))
+    {
     }
-    if(masking(inst, o1, "0xx0xxxxx1101xx")){
+    if (masking(inst, o1, "0xx0xxxxx1101xx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx0xxxxx111xxx")){
+    if (masking(inst, o1, "0xx0xxxxx111xxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxxxxxxxx")){
-      
+    if (masking(inst, o1, "0xx1xxxxxxxxxxx"))
+    {
     }
-    if(masking(inst, o1, "0x10xxxxx11001x")){
+    if (masking(inst, o1, "0x10xxxxx11001x"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0000xxxxx11001x")){
-
+    if (masking(inst, o1, "0000xxxxx11001x"))
+    {
     }
-    if(masking(inst, o1, "0100xxxxx11001x")){
-      
+    if (masking(inst, o1, "0100xxxxx11001x"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxx0xxxxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxx0xxxxx"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxx10xxxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxx10xxxx"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxx11xxxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxx11xxxx"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx0xxxxx")){
-      
+    if (masking(inst, o1, "1xx1xxxxx0xxxxx"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx100xxx")){
-      
+    if (masking(inst, o1, "1xx1xxxxx100xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx110xxx")){
-      
+    if (masking(inst, o1, "1xx1xxxxx110xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxx111xxx")){
-      
+    if (masking(inst, o1, "1xx1xxxxx111xxx"))
+    {
     }
   }
-  if(masking(inst, o0, "011")){
-    if(masking(inst, o1, "0xx0xxxxx0xxxxx")){
-      
+  if (masking(inst, o0, "011"))
+  {
+    if (masking(inst, o1, "0xx0xxxxx0xxxxx"))
+    {
     }
-    if(masking(inst, o1, "0xx00000x100xxx")){
-      
+    if (masking(inst, o1, "0xx00000x100xxx"))
+    {
     }
-    if(masking(inst, o1, "0xx00000x101xxx")){
+    if (masking(inst, o1, "0xx00000x101xxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx00000x11xxxx")){
+    if (masking(inst, o1, "0xx00000x11xxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx00001x1xxxxx")){
+    if (masking(inst, o1, "0xx00001x1xxxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx0001xx1xxxxx")){
+    if (masking(inst, o1, "0xx0001xx1xxxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx0010xx100xxx")){
+    if (masking(inst, o1, "0xx0010xx100xxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx0010xx101xxx")){
-      
+    if (masking(inst, o1, "0xx0010xx101xxx"))
+    {
     }
-    if(masking(inst, o1, "0xx0010xx11xxxx")){
+    if (masking(inst, o1, "0xx0010xx11xxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx001100100xxx")){
+    if (masking(inst, o1, "0xx001100100xxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx00110011xxxx")){
+    if (masking(inst, o1, "0xx00110011xxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx0011011xxxxx")){
+    if (masking(inst, o1, "0xx0011011xxxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx00111x1xxxxx")){
+    if (masking(inst, o1, "0xx00111x1xxxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx010xxx100xxx")){
-      
+    if (masking(inst, o1, "0xx010xxx100xxx"))
+    {
     }
-    if(masking(inst, o1, "0xx010xxx101xxx")){
+    if (masking(inst, o1, "0xx010xxx101xxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx010xxx11xxxx")){
+    if (masking(inst, o1, "0xx010xxx11xxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx011xxx1xxxxx")){
+    if (masking(inst, o1, "0xx011xxx1xxxxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx0000xx")){
-      
+    if (masking(inst, o1, "0xx1xxxxx0000xx"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx0001xx")){
-      
+    if (masking(inst, o1, "0xx1xxxxx0001xx"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx0010x0")){
-      
+    if (masking(inst, o1, "0xx1xxxxx0010x0"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx001001")){
-      
+    if (masking(inst, o1, "0xx1xxxxx001001"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx001011")){
+    if (masking(inst, o1, "0xx1xxxxx001011"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx0011xx")){
+    if (masking(inst, o1, "0xx1xxxxx0011xx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx01x0xx")){
-      
+    if (masking(inst, o1, "0xx1xxxxx01x0xx"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx01x1xx")){
-      
+    if (masking(inst, o1, "0xx1xxxxx01x1xx"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx10x00x")){
-      
+    if (masking(inst, o1, "0xx1xxxxx10x00x"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx10x01x")){
+    if (masking(inst, o1, "0xx1xxxxx10x01x"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx10x1xx")){
+    if (masking(inst, o1, "0xx1xxxxx10x1xx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx110xxx")){
+    if (masking(inst, o1, "0xx1xxxxx110xxx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx111000")){
+    if (masking(inst, o1, "0xx1xxxxx111000"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx111001")){
-      
+    if (masking(inst, o1, "0xx1xxxxx111001"))
+    {
     }
-    if(masking(inst, o1, "0xx1xxxxx11101x")){
+    if (masking(inst, o1, "0xx1xxxxx11101x"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "0xx1xxxxx1111xx")){
+    if (masking(inst, o1, "0xx1xxxxx1111xx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "1xx0xxxxxx1xxxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxxx1xxxx"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxx000xxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxx000xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxx100xxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxx100xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx0xxxxx101xxx")){
-      
+    if (masking(inst, o1, "1xx0xxxxx101xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx000xxx001xxx")){
-      
+    if (masking(inst, o1, "1xx000xxx001xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx001xxx0010xx")){
+    if (masking(inst, o1, "1xx001xxx0010xx"))
+    {
       return gii(op_type::Undefine, inst);
     }
-    if(masking(inst, o1, "1xx001xxx0011xx")){
-      
+    if (masking(inst, o1, "1xx001xxx0011xx"))
+    {
     }
-    if(masking(inst, o1, "1xx010xxx001xxx")){
-      
+    if (masking(inst, o1, "1xx010xxx001xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx011xxx001xxx")){
-      
+    if (masking(inst, o1, "1xx011xxx001xxx"))
+    {
     }
-    if(masking(inst, o1, "1xx1xxxxxxxxxxx")){
-      
+    if (masking(inst, o1, "1xx1xxxxxxxxxxx"))
+    {
     }
   }
-  if(masking(inst, o0, "100")){
-    
+  if (masking(inst, o0, "100"))
+  {
   }
-  if(masking(inst, o0, "101")){
-    
+  if (masking(inst, o0, "101"))
+  {
   }
-  if(masking(inst, o0, "110")){
-    
+  if (masking(inst, o0, "110"))
+  {
   }
-  if(masking(inst, o0, "111")){
-    if(masking(inst, o1, "xxxxxxxxx0x0xxx")){
-      
+  if (masking(inst, o0, "111"))
+  {
+    if (masking(inst, o1, "xxxxxxxxx0x0xxx"))
+    {
     }
-    if(masking(inst, o1, "xxxxxxxxx001xxx")){
-      
+    if (masking(inst, o1, "xxxxxxxxx001xxx"))
+    {
     }
-    if(masking(inst, o1, "xxxxxxxxx011xxx")){
-      
+    if (masking(inst, o1, "xxxxxxxxx011xxx"))
+    {
     }
-    if(masking(inst, o1, "xxxxxxxxx1x0xxx")){
-      
+    if (masking(inst, o1, "xxxxxxxxx1x0xxx"))
+    {
     }
-    if(masking(inst, o1, "xxxxxxxxx101xxx")){
-      
+    if (masking(inst, o1, "xxxxxxxxx101xxx"))
+    {
     }
-    if(masking(inst, o1, "xxxxxxxxx111xxx")){
-      
+    if (masking(inst, o1, "xxxxxxxxx111xxx"))
+    {
     }
   }
 
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_DataProcessing_Immediate(uint32_t inst){
+inst_info getOP_DataProcessing_Immediate(uint32_t inst)
+{
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_Branch_or_ExecptionSystemInstruction(uint32_t inst){
+inst_info getOP_Branch_or_ExecptionSystemInstruction(uint32_t inst)
+{
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_Load_Store(uint32_t inst){
+inst_info getOP_Load_Store(uint32_t inst)
+{
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_DataProcessing_Register(uint32_t inst){
+inst_info getOP_DataProcessing_Register(uint32_t inst)
+{
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP_DataProcessing_ScalarFloat_or_SIMD(uint32_t inst){
+inst_info getOP_DataProcessing_ScalarFloat_or_SIMD(uint32_t inst)
+{
   return gii(op_type::Undefine, inst);
 }
 
-inst_info getOP(uint32_t inst){
-  if(!is1(inst, op0)){
-    //inst[31] = 0
-    if(masking(inst, op1, "0000")){
+inst_info getOP(uint32_t inst)
+{
+  if (!is1(inst, op0))
+  {
+    // inst[31] = 0
+    if (masking(inst, op1, "0000"))
+    {
       return getOP_Reserved(inst);
     }
   }
-  else{
-    //inst[31] = 1
-    if(masking(inst, op1, "0000")){
+  else
+  {
+    // inst[31] = 1
+    if (masking(inst, op1, "0000"))
+    {
       return getOP_SME(inst);
     }
   }
 
-  if(masking(inst, op1, "0010")){
+  if (masking(inst, op1, "0010"))
+  {
     return getOP_SVE(inst);
   }
-  if(masking(inst, op1, "100x")){
+  if (masking(inst, op1, "100x"))
+  {
     return getOP_DataProcessing_Immediate(inst);
   }
-  if(masking(inst, op1, "101x")){
+  if (masking(inst, op1, "101x"))
+  {
     return getOP_Branch_or_ExecptionSystemInstruction(inst);
   }
-  if(masking(inst, op1, "x1x0")){
+  if (masking(inst, op1, "x1x0"))
+  {
     return getOP_Load_Store(inst);
   }
-  if(masking(inst, op1, "x101")){
+  if (masking(inst, op1, "x101"))
+  {
     return getOP_DataProcessing_Register(inst);
   }
-  if(masking(inst, op1, "x111")){
+  if (masking(inst, op1, "x111"))
+  {
     return getOP_DataProcessing_ScalarFloat_or_SIMD(inst);
   }
 
   return gii(op_type::Undefine, inst);
 }
 
-int main(){
+int main()
+{
   cout << "testing for codespaces" << endl;
   return 0;
 }
