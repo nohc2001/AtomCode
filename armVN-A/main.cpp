@@ -687,9 +687,9 @@ enum class op_type
   SVE_ElementCount_Saturating_IncDec_Vector_byElementCount_UQDECD,
   SVE_ElementCount_ElementCount_CNTx_BHWD,
   SVE_ElementCount_IncDec_Vector_byElementCount_INCx_HWD,
-  SVE_ElementCount_IncDec_Vector_byElementCount_DEXx_HWD,
+  SVE_ElementCount_IncDec_Vector_byElementCount_DECx_HWD,
   SVE_ElementCount_IncDev_Register_byElementCount_INCx_BHWD,
-  SVE_ElementCount_IncDev_Register_byElementCount_INCx_BHWD,
+  SVE_ElementCount_IncDev_Register_byElementCount_DECx_BHWD,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCB,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCB,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECB,
@@ -697,7 +697,7 @@ enum class op_type
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCH,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCH,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECH,
-  SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECH,
+  SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQDECH,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCW,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCW,
   SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECW,
@@ -5618,23 +5618,115 @@ inst_info getOP_SVE(uint32_t inst)
         }
       }
       if(isp(inst, op0, '1') && masking(inst, op1, "000")){
-        
+        if(isp(inst, 10, '0')){
+          return gii(op_type::SVE_ElementCount_IncDec_Vector_byElementCount_INCx_HWD, inst);
+        }
+        else{
+          return gii(op_type::SVE_ElementCount_IncDec_Vector_byElementCount_DECx_HWD, inst);
+        }
       }
       if(isp(inst, op0, '1') && masking(inst, op1, "100")){
-        
+        if(isp(inst, 10, '0')){
+          return gii(op_type::SVE_ElementCount_IncDev_Register_byElementCount_INCx_BHWD, inst);
+        }
+        else{
+          return gii(op_type::SVE_ElementCount_IncDev_Register_byElementCount_DECx_BHWD, inst);
+        }
       }
       if(masking(inst, op1, "11x")){
-        
+        coprange size = {22, 23};
+        copn sf = 20;
+        coprange du = {10, 11};
+        if(masking(inst, size, "00") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCB, inst);
+        }
+        if(masking(inst, size, "00") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCB, inst);
+        }
+        if(masking(inst, size, "00") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECB, inst);
+        }
+        if(masking(inst, size, "00") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQDECB, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCH, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCH, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECH, inst);
+        }
+        if(masking(inst, size, "01") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQDECH, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCW, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCW, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECW, inst);
+        }
+        if(masking(inst, size, "10") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQDECW, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "00")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQINCD, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "01")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQINCD, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "10")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_SQDECD, inst);
+        }
+        if(masking(inst, size, "11") && masking(inst, du, "11")){
+          return gii(op_type::SVE_ElementCount_Saturating_IncDec_Register_byElementCount_UQDECD, inst);
+        }
       }
     }
     if (masking(inst, o1, "1xx00>"))
     {
+      coprange op0 = {22, 23};
+      coprange op1 = {18, 19};
+      if(masking(inst, op1, "00")){
+        if(masking(inst, op0, "11")){
+          return gii(op_type::SVE_Bitwise_Immediate_DUPM, inst);
+        }
+        else{
+          coprange opc = {22, 23};
+          if(masking(inst, opc, "00")){
+            return gii(op_type::SVE_Bitwise_Immediate_Logical_ORR, inst);
+          }
+          if(masking(inst, opc, "01")){
+            return gii(op_type::SVE_Bitwise_Immediate_Logical_EOR, inst);
+          }
+          if(masking(inst, opc, "10")){
+            return gii(op_type::SVE_Bitwise_Immediate_Logical_AND, inst);
+          }
+        }
+      }
     }
     if (masking(inst, o1, "1xx01>"))
     {
+      coprange op0 = {13, 15};
+      if(masking(inst, op0, "0xx")){
+        if(isp(inst, 14, '0')){
+          return gii(op_type::SVE_Int_Wide_Immediate_Predicated_CopyInteger_Zeroing_CPY, inst);
+        }
+        if(isp(inst, 14, '1')){
+          return gii(op_type::SVE_Int_Wide_Immediate_Predicated_CopyInteger_Merging_CPY, inst);
+        }
+      }
+      if(masking(inst, op0, "110")){
+        return gii(op_type::SVE_Int_Wide_Immediate_Predicated_FCPY, inst);
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx001000"))
     {
+      return gii(op_type::SVE_DUP_Indexed_DUP, inst);
     }
     if (masking(inst, o1, "1xx1xxxxx001001"))
     {
@@ -5642,6 +5734,12 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "1xx1xxxxx00101x"))
     {
+      if(isp(inst, 10, '0')){
+        return gii(op_type::SVE_TableLookup_3s_TBL, inst);
+      }
+      else{
+        return gii(op_type::SVE_TableLookup_3s_TBX, inst);
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx0011x1"))
     {
@@ -5649,18 +5747,140 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "1xx1xxxxx001100"))
     {
+      return gii(op_type::SVE_TBL, inst);
     }
     if (masking(inst, o1, "1xx1xxxxx001110"))
     {
+      coprange op01 = {16, 20};
+      if(masking(inst, op01, "00000")){
+        return gii(op_type::SVE_PermuteVector_UnPredicate_Scalar_DUP, inst);
+      }
+      if(masking(inst, op01, "00100")){
+        return gii(op_type::SVE_PermuteVector_UnPredicate_Scalar_INSR, inst);
+      }
+      if(masking(inst, op01, "100xx")){
+        copn u = 17;
+        if(isp(inst, u, '0')){
+          return gii(op_type::SVE_PermuteVector_UnPredicate_UnpackVectorElements_SUNPKHI, inst);
+        }
+        if(isp(inst, u, '1')){
+          return gii(op_type::SVE_PermuteVector_UnPredicate_UnpackVectorElements_UUNPKHI, inst);
+        }
+      }
+      if(masking(inst, op01, "10100")){
+        return gii(op_type::SVE_PermuteVector_UnPredicate_SIMD_FP_Scalar_INSR, inst);
+      }
+      if(masking(inst, op01, "11000")){
+        return gii(op_type::SVE_PermuteVector_UnPredicate_Vector_REV, inst);
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx010>"))
     {
+      coprange op0 = {22, 23};
+      coprange op1 = {16, 20};
+      coprange op2 = {9, 12};
+      copn op3 = 4;
+      if((masking(inst, op0, "00") && masking(inst, op1, "1000x")) && (masking(inst, op2, "0000") && isp(inst, op3, '0'))){
+        return gii(op_type::SVE_Permute_Predicate_UnpackElement_PUNPKxx_HI_LO, inst);
+      }
+      if((masking(inst, op0, "xx") && masking(inst, op1, "0xxxx")) && (masking(inst, op2, "xxx0") && isp(inst, op3, '0'))){
+        coprange opc = {11, 12};
+        if(masking(inst, opc, "00")){
+          return gii(op_type::SVE_Permute_Predicate_PremuteElement_ZIPx_12, inst);
+        }
+        if(masking(inst, opc, "01")){
+          return gii(op_type::SVE_Permute_Predicate_PremuteElement_UZPx_12, inst);
+        }
+        if(masking(inst, opc, "10")){
+          return gii(op_type::SVE_Permute_Predicate_PremuteElement_TRNx_12, inst);
+        }
+      }
+      if((masking(inst, op0, "xx") && masking(inst, op1, "10100")) && (masking(inst, op2, "0000") && isp(inst, op3, '0'))){
+        return gii(op_type::SVE_Permute_Predicate_REV, inst);
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx011>"))
     {
+      coprange opc = {10, 12};
+      if(masking(inst, opc, "00x")){
+        return gii(op_type::SVE_PermuteVectorElements_ZIPx_12, inst);
+      }
+      if(masking(inst, opc, "01x")){
+        return gii(op_type::SVE_PermuteVectorElements_UZPx_12, inst);
+      }
+      if(masking(inst, opc, "10x")){
+        return gii(op_type::SVE_PermuteVectorElements_TRNx_12, inst);
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx10>"))
     {
+      coprange op012 = {16, 20};
+      copn op3 = 13;
+      if(masking(inst, op012, "00000") && isp(inst, op3, '0')){
+        return gii(op_type::SVE_PermuteVector_Predicate_SIMD_FP_Scalar_CPY, inst);
+      }
+      if(masking(inst, op012, "00001") && isp(inst, op3, '0')){
+        return gii(op_type::SVE_PermuteVector_Predicate_COMPACT, inst);
+      }
+      if(masking(inst, op012, "0000x") && isp(inst, op3, '1')){
+        if(isp(inst, 16, '0')){
+          return gii(op_type::SVE_PermuteVector_Predicate_ExtractElementToGeneralRegister_LASTA, inst);
+        }
+        else{
+          return gii(op_type::SVE_PermuteVector_Predicate_ExtractElementToGeneralRegister_LASTB, inst);
+        }
+      }
+      if(masking(inst, op012, "0001x") && isp(inst, op3, '0')){
+        if(isp(inst, 16, '0')){
+          return gii(op_type::SVE_PermuteVector_Predicate_ExtractElementToSIMDandFPscalarRegister_LASTA, inst);
+        }
+        else{
+          return gii(op_type::SVE_PermuteVector_Predicate_ExtractElementToSIMDandFPscalarRegister_LASTB, inst);
+        }
+      }
+      if(masking(inst, op012, "001xx") && isp(inst, op3, '0')){
+        if(false == masking(inst, {16, 17}, "11")){
+          return gii(op_type::SVE_PermuteVector_Predicate_ReverseWithinElements_REVx_BHW, inst);
+        }
+        else{
+          return gii(op_type::SVE_PermuteVector_Predicate_ReverseWithinElements_RBIT, inst);
+        }
+      }
+      if(masking(inst, op012, "01000") && isp(inst, op3, '1')){
+        return gii(op_type::SVE_PermuteVector_Predicate_Scalar_CPY, inst);
+      }
+      if(masking(inst, op012, "0100x") && isp(inst, op3, '0')){
+        if(isp(inst, 16, '0')){
+          return gii(op_type::SVE_PermuteVector_Predicate_ConditionallyBroadCastElementToVector_CLASTA, inst);
+        }
+        else{
+          return gii(op_type::SVE_PermuteVector_Predicate_ConditionallyBroadCastElementToVector_CLASTB, inst);
+        }
+      }
+      if(masking(inst, op012, "0101x") && isp(inst, op3, '0')){
+        if(isp(inst, 16, '0')){
+          return gii(op_type::SVE_PermuteVector_Predicate_ConditionallyExtractElementToSIMDandFPscalar_CLASTA, inst);
+        }
+        else{
+          return gii(op_type::SVE_PermuteVector_Predicate_ConditionallyExtractElementToSIMDandFPscalar_CLASTB, inst);
+        }
+      }
+      if(masking(inst, op012, "0110x") && isp(inst, op3, '0')){
+        return gii(op_type::SVE_PermuteVector_Predicate_SPLICE, inst);
+      }
+      if(masking(inst, op012, "01110") && isp(inst, op3, '0')){
+        if(masking(inst, {22, 23}, "00")){
+          return gii(op_type::SVE_PermuteVector_Predicate_ReverseDoubleWord_REVD, inst);
+        }
+      }
+      if(masking(inst, op012, "1000x") && isp(inst, op3, '1')){
+        if(isp(inst, 16, '0')){
+          return gii(op_type::SVE_PermuteVector_Predicate_ConditionallyExtractElementToGeneralRegister_CLASTA, inst);
+        }
+        else{
+          return gii(op_type::SVE_PermuteVector_Predicate_ConditionallyExtractElementToGeneralRegister_CLASTB, inst);
+        }
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx11>"))
     {
