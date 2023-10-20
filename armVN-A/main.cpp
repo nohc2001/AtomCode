@@ -6110,11 +6110,94 @@ inst_info getOP_SVE()
     }
     if (masking(o1, "1xx1xxxxx01>") && is1(o2))
     {
-      
+      coprange op0 = {16, 20};
+      coprange op1op2 = {5, 13};
+      copn op3 = 3;
+      if(masking(op0, "00000") && (masking(op1op2, "110>"))){
+        coprange opc = {8, 10};
+        if(masking(opc, "0xx")){
+          return gii(op_type::SVE_ScalarInt_Compare_PredicateAsCounter_ExtractMaskPredicateFromPredicateAsCounter_PEXT);
+        }
+        if(masking(opc, "10x")){
+          return gii(op_type::SVE_ScalarInt_Compare_PredicateAsCounter_ExtractMaskPredicateFromPredicateAsCounter_Pair_PEXT);
+        }
+      }
+      if(masking(op0, "00000") && (masking(op1op2, "110>") && isp(op3, '0'))){
+        return gii(op_type::SVE_ScalarInt_Compare_PredicateAsCounter_PTRUE);
+      }
+      if(masking(op1op2, "01x>")){
+        copn ulteq[3] = {11, 10, 0};
+        constexpr op_type oparr[8] = {
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILEGE,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILEGT,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILELT,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILELE,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILEHS,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILEHI,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILELO,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicatePair_WHILELS
+        };
+        return gii(oparr[
+          ((isp(ulteq[0], '1'))? 4 : 0) + 
+          ((isp(ulteq[1], '1'))? 2 : 0) + 
+          ((isp(ulteq[2], '1'))? 1 : 0)
+          ]);
+      }
+      if(masking(op1op2, "x0x>")){
+        copn ulteq[3] = {11, 10, 3};
+        constexpr op_type oparr[8] = {
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILEGE,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILEGT,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILELT,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILELE,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILEHS,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILEHI,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILELO,
+          op_type::SVE_ScalarInt_Compare_PredicateAsCounter_CountAndLimit_PredicateAsCounter_WHILELS
+        };
+        return gii(oparr[
+          ((isp(ulteq[0], '1'))? 4 : 0) + 
+          ((isp(ulteq[1], '1'))? 2 : 0) + 
+          ((isp(ulteq[2], '1'))? 1 : 0)
+          ]);
+      }
     }
     if (masking(o1, "1xx1xxxxx11>"))
     {
+      coprange op0 = {19, 20};
+      copn op1 = 16;
+      if(masking(op0, "00")){
+        copn opc[3] = {18, 17, 16};
+        constexpr op_type oparr[8] = {
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_ADD,
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_SUB,
+          op_type::Undefine,
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_SUBR,
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_SQADD,
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_UQADD,
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_SQSUB,
+          op_type::SVE_Int_Wide_Immediate_UnPredicated_AddSub_UQSUB,
+        };
+        return gii(oparr[
+          ((isp(opc[0], '1'))? 4 : 0) + 
+          ((isp(opc[1], '1'))? 2 : 0) + 
+          ((isp(opc[2], '1'))? 1 : 0)
+          ]);
+      }
+      if(masking(op0, "01")){
+        
+      }
+      if(masking(op0, "10")){
+        
+      }
+      if(masking(op0, "11")){
+        if(isp(op1, '0')){
 
+        }
+        else{
+
+        }
+      }
     }
     if (masking(o1, "1xx100xxx10>"))
     {
