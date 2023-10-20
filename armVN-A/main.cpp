@@ -6012,8 +6012,7 @@ inst_info getOP_SVE()
         }
       }
     }
-    if (masking(o1, "1xx1xxxxx00>"))
-    {
+    if (masking(o1, "1xx01xxxx11>")){
       coprange op0 = {16, 19};
       coprange op1234 = {4, 13};
       if(masking(op0, "0000") && masking(op1234, "xxxx0xxxx0")){
@@ -6063,7 +6062,7 @@ inst_info getOP_SVE()
         }
       }
     }
-    if (masking(o1, "1xx1xxxxx01>") && !is1(o2))
+    if (masking(o1, "1xx1xxxxx00>"))
     {
       coprange op0op1 = {10, 13};
       coprange op2 = {0, 3};
@@ -6102,12 +6101,20 @@ inst_info getOP_SVE()
         }
       }
     }
+    if (masking(o1, "1xx1xxxxx01>") && !is1(o2))
+    {
+      copn S = 9;
+      if(isp(S, '0')){
+        return gii(op_type::SVE_BroadcastPredicatedElement_PSEL);
+      }
+    }
     if (masking(o1, "1xx1xxxxx01>") && is1(o2))
     {
       
     }
     if (masking(o1, "1xx1xxxxx11>"))
     {
+
     }
     if (masking(o1, "1xx100xxx10>"))
     {
