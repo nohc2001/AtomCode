@@ -6104,6 +6104,7 @@ inst_info getOP_SVE()
     }
     if (masking(o1, "1xx1xxxxx01>") && is1(o2))
     {
+      
     }
     if (masking(o1, "1xx1xxxxx11>"))
     {
