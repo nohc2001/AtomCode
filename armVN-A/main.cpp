@@ -2603,7 +2603,7 @@ inst_info gii(op_type type)
 copn op0 = 31;
 coprange op1 = {25, 28};
 
-inst_info getOP_Reserved(uint32_t inst)
+inst_info getOP_Reserved()
 {
   static coprange sop0 = {29, 30};
   static coprange sop1 = {16, 24};
@@ -2615,7 +2615,7 @@ inst_info getOP_Reserved(uint32_t inst)
   return gii(op_type::Undefine);
 }
 
-inst_info getOP_SME(uint32_t inst)
+inst_info getOP_SME()
 {
   static coprange sop0 = {29, 30};
   static coprange sop1 = {10, 24};
