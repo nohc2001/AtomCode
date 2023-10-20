@@ -5884,36 +5884,183 @@ inst_info getOP_SVE(uint32_t inst)
     }
     if (masking(inst, o1, "1xx1xxxxx11>"))
     {
+      return gii(op_type::SVE_Vector_SEL, inst);
     }
     if (masking(inst, o1, "10x1xxxxx000>"))
     {
+      return gii(op_type::SVE_PermuteVector_Extract_EXT, inst);
     }
     if (masking(inst, o1, "11x1xxxxx000>"))
     {
+      copn op0 = 22;
+      coprange opch = {10, 12};
+      if(isp(inst, op0, '0')){
+        if(masking(inst, opch, "00x")){
+          return gii(op_type::SVE_PermuteVector_Segments_Vector_ZIPx_12, inst);
+        }
+        if(masking(inst, opch, "01x")){
+          return gii(op_type::SVE_PermuteVector_Segments_Vector_UZPx_12, inst);
+        }
+        if(masking(inst, opch, "11x")){
+          return gii(op_type::SVE_PermuteVector_Segments_Vector_TRNx_12, inst);
+        }
+      }
     }
   }
   if (masking(inst, o0, "001"))
   {
     if (masking(inst, o1, "0xx0>"))
     {
+      copn op0 = 14;
+      if(isp(inst, op0, '0')){
+        coprange opo2 = {13, 15};
+        if(masking(inst, opo2, "001")){
+          return gii(op_type::SVE_Int_Compare_Vectors_CMPcc, inst);
+        }
+        else{
+          return gii(op_type::SVE_Int_Compare_Vectors_WithWideElement_CMPcc, inst);
+        }
+      }
+      else{
+
+      }
     }
     if (masking(inst, o1, "0xx1>"))
     {
+      return gii(op_type::SVE_Int_Compare_UnsignedImmediate_Immediate_CMPcc, inst);
     }
     if (masking(inst, o1, "1xx0xxxxxx0>"))
     {
+      return gii(op_type::SVE_Int_Compare_SignedImmediate_Immediate_CMPcc, inst);
     }
     if (masking(inst, o1, "1xx00xxxx01>"))
     {
+      copn opso2o3[4] = {23, 22, 9, 4};
+      constexpr op_type oparr[16] = {
+        op_type::SVE_Predicate_LogicalOperation_AND,
+        op_type::SVE_Predicate_LogicalOperation_BIC,
+        op_type::SVE_Predicate_LogicalOperation_EOR,
+        op_type::SVE_Predicate_LogicalOperation_SEL,
+        op_type::SVE_Predicate_LogicalOperation_ANDS,
+        op_type::SVE_Predicate_LogicalOperation_BICS,
+        op_type::SVE_Predicate_LogicalOperation_EORS,
+        op_type::Undefine,
+        op_type::SVE_Predicate_LogicalOperation_ORR,
+        op_type::SVE_Predicate_LogicalOperation_ORN,
+        op_type::SVE_Predicate_LogicalOperation_NOR,
+        op_type::SVE_Predicate_LogicalOperation_NAND,
+        op_type::SVE_Predicate_LogicalOperation_ORRS,
+        op_type::SVE_Predicate_LogicalOperation_ORNS,
+        op_type::SVE_Predicate_LogicalOperation_NORS,
+        op_type::SVE_Predicate_LogicalOperation_NANDS
+      };
+      return gii(oparr[
+        ((isp(inst, opso2o3[0], '1'))? 8 : 0) + 
+        ((isp(inst, opso2o3[1], '1'))? 4 : 0) + 
+        ((isp(inst, opso2o3[2], '1'))? 2 : 0) + 
+        ((isp(inst, opso2o3[3], '1'))? 1 : 0)
+        ], inst);
     }
     if (masking(inst, o1, "1xx00xxxx11>"))
     {
+      copn op0 = 9;
+      copn op = 23;
+      if(isp(inst, op0, '0') && isp(inst, op, '0')){
+        copn sb[2] = {22, 4};
+        constexpr op_type oparr[4] = {
+          op_type::SVE_PropagateBreak_FromPreviousPartition_BRKPA,
+          op_type::SVE_PropagateBreak_FromPreviousPartition_BRKPB,
+          op_type::SVE_PropagateBreak_FromPreviousPartition_BRKPAS,
+          op_type::SVE_PropagateBreak_FromPreviousPartition_BRKPBS,
+        };
+        return gii(oparr[
+        ((isp(inst, sb[0], '1'))? 2 : 0) + 
+        ((isp(inst, sb[1], '1'))? 1 : 0)
+        ], inst);
+      }
     }
     if (masking(inst, o1, "1xx01xxxx01>"))
     {
+      copn op0 = 23;
+      coprange op1 = {16, 19};
+      copn op2 = 9;
+      copn op3 = 4;
+      if((isp(inst, op0, '0')&&masking(inst, op1, "1000"))&&(isp(inst, op2, '0')&&isp(inst, op3, '0'))){
+        copn S = 22;
+        if(isp(inst, S, '0')){
+          return gii(op_type::SVE_PartitionBreak_PropagateBreakToNextPartition_BRKN, inst);
+        }
+        else{
+          return gii(op_type::SVE_PartitionBreak_PropagateBreakToNextPartition_BRKNS, inst);
+        }
+      }
+      if(masking(inst, op1, "1000")&&isp(inst, op2, '0')){
+        coprange BS = {22, 23};
+        copn M = 4;
+        if(masking(inst, BS, "00")){
+          return gii(op_type::SVE_PartitionBreak_Condition_BRKA, inst);
+        }
+        if(masking(inst, BS, "01") && isp(inst, M, '0')){
+          return gii(op_type::SVE_PartitionBreak_Condition_BRKAS, inst);
+        }
+        if(masking(inst, BS, "10")){
+          return gii(op_type::SVE_PartitionBreak_Condition_BRKB, inst);
+        }
+        if(masking(inst, BS, "11") && isp(inst, M, '0')){
+          return gii(op_type::SVE_PartitionBreak_Condition_BRKBS, inst);
+        }
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx00>"))
     {
+      coprange op0 = {16, 19};
+      coprange op1234 = {4, 13};
+      if(masking(inst, op0, "0000") && masking(inst, op1234, "xxxx0xxxx0")){
+        coprange opS = {22, 23};
+        coprange opc2 = {0, 3};
+        if(masking(inst, opS, "01") && masking(inst, opc2, "0000")){
+          return gii(op_type::SVE_PredicateMisc_PredicateTest_PTEST, inst);
+        }
+      }
+      if(masking(inst, op0, "1000") && masking(inst, op1234, "00000xxxx0")){
+        coprange opS = {22, 23};
+        if(masking(inst, opS, "01")){
+          return gii(op_type::SVE_PredicateMisc_PredicateFirstActive_PFIRST, inst);
+        }
+      }
+      if(masking(inst, op0, "1000") && masking(inst, op1234, "1001000000")){
+        coprange opS = {22, 23};
+        if(masking(inst, opS, "00")){
+          return gii(op_type::SVE_PredicateMisc_PredicateZero_PFALSE, inst);
+        }
+      }
+      if(masking(inst, op0, "1000") && masking(inst, op1234, "11000xxxx0")){
+        coprange opS = {22, 23};
+        if(masking(inst, opS, "00")){
+          return gii(op_type::SVE_PredicateMisc_PredicateReadFromFFR_Predicate_RDFFR, inst);
+        }
+        if(masking(inst, opS, "01")){
+          return gii(op_type::SVE_PredicateMisc_PredicateReadFromFFR_Predicate_RDFFRS, inst);
+        }
+      }
+      if(masking(inst, op0, "1001") && masking(inst, op1234, "00010xxxx0")){
+        return gii(op_type::SVE_PredicateMisc_PNEXT, inst);
+      }
+      if(masking(inst, op0, "1001") && masking(inst, op1234, "1100000000")){
+        coprange opS = {22, 23};
+        if(masking(inst, opS, "00")){
+          return gii(op_type::SVE_PredicateMisc_PredicateReadFromFFR_UnPredicate_RDFFR, inst);
+        }
+      }
+      if(masking(inst, op0, "100x") && masking(inst, op1234, "1000xxxxx0")){
+        copn S = 16;
+        if(isp(inst, S, '0')){
+          return gii(op_type::SVE_PredicateMisc_PredicateInitialize_PTRUE, inst);
+        }
+        else{
+          return gii(op_type::SVE_PredicateMisc_PredicateInitialize_PTRUES, inst);
+        }
+      }
     }
     if (masking(inst, o1, "1xx1xxxxx01>") && !is1(inst, o2))
     {
