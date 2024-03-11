@@ -3259,7 +3259,15 @@ inline int gr(op_range r, int index)
 
 bool masking(op_range r, const char *mask)
 {
+  if(mask[0] == '-') return true;
   int len = 1 + r.end - r.start;
+
+  if(len > 2 && (mask[0] == '!' && mask[1] == '='))
+  {
+    //diff mod.
+    return !masking(r, &mask[2]);
+  }
+
   bool b = true;
   for (int i = 0; i < len; ++i)
   {
