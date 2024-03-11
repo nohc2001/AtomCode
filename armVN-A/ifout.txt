@@ -1,0 +1,100 @@
+if(masking(op0, "0x00") &&(masking(op1, "0") &&(masking(op2, "00") &&(masking(op3, "1xxxxx") &&(masking(op4, "-"))))))
+{
+	// Compare and swap pair
+}
+if(masking(op0, "0x00") &&(masking(op1, "1") &&(masking(op2, "00") &&(masking(op3, "000000") &&(masking(op4, "-"))))))
+{
+	// Advanced SIMD load/store multiple structures
+}
+if(masking(op0, "0x00") &&(masking(op1, "1") &&(masking(op2, "01") &&(masking(op3, "0xxxxx") &&(masking(op4, "-"))))))
+{
+	// Advanced SIMD load/store multiple structures (post-indexed)
+}
+if(masking(op0, "0x00") &&(masking(op1, "1") &&(masking(op2, "10") &&(masking(op3, "x00000") &&(masking(op4, "-"))))))
+{
+	// Advanced SIMD load/store single structure
+}
+if(masking(op0, "0x00") &&(masking(op1, "1") &&(masking(op2, "11") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Advanced SIMD load/store single structure (post-indexed)
+}
+if(masking(op0, "1101") &&(masking(op1, "0") &&(masking(op2, "1x") &&(masking(op3, "1xxxxx") &&(masking(op4, "-"))))))
+{
+	// Load/store memory tags
+}
+if(masking(op0, "1x00") &&(masking(op1, "0") &&(masking(op2, "00") &&(masking(op3, "1xxxxx") &&(masking(op4, "-"))))))
+{
+	// Load/store exclusive pair
+}
+if(masking(op0, "xx00") &&(masking(op1, "0") &&(masking(op2, "00") &&(masking(op3, "0xxxxx") &&(masking(op4, "-"))))))
+{
+	// Load/store exclusive register
+}
+if(masking(op0, "xx00") &&(masking(op1, "0") &&(masking(op2, "01") &&(masking(op3, "0xxxxx") &&(masking(op4, "-"))))))
+{
+	// Load/store ordered
+}
+if(masking(op0, "xx00") &&(masking(op1, "0") &&(masking(op2, "01") &&(masking(op3, "1xxxxx") &&(masking(op4, "-"))))))
+{
+	// Compare and swap
+}
+if(masking(op0, "xx01") &&(masking(op1, "0") &&(masking(op2, "1x") &&(masking(op3, "0xxxxx") &&(masking(op4, "00"))))))
+{
+	// LDAPR/STLR (unscaled immediate)
+}
+if(masking(op0, "xx01") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Load register (literal)
+}
+if(masking(op0, "xx01") &&(masking(op1, "-") &&(masking(op2, "1x") &&(masking(op3, "0xxxxx") &&(masking(op4, "01"))))))
+{
+	// Memory Copy and Memory Set
+}
+if(masking(op0, "xx10") &&(masking(op1, "-") &&(masking(op2, "00") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Load/store no-allocate pair (offset)
+}
+if(masking(op0, "xx10") &&(masking(op1, "-") &&(masking(op2, "01") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Load/store register pair (post-indexed)
+}
+if(masking(op0, "xx10") &&(masking(op1, "-") &&(masking(op2, "10") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Load/store register pair (offset)
+}
+if(masking(op0, "xx10") &&(masking(op1, "-") &&(masking(op2, "11") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Load/store register pair (pre-indexed)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "0xxxxx") &&(masking(op4, "00"))))))
+{
+	// Load/store register (unscaled immediate)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "0xxxxx") &&(masking(op4, "01"))))))
+{
+	// Load/store register (immediate post-indexed)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "0xxxxx") &&(masking(op4, "10"))))))
+{
+	// Load/store register (unprivileged)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "0xxxxx") &&(masking(op4, "11"))))))
+{
+	// Load/store register (immediate pre-indexed)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "1xxxxx") &&(masking(op4, "00"))))))
+{
+	// Atomic memory operations
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "1xxxxx") &&(masking(op4, "10"))))))
+{
+	// Load/store register (register offset)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "0x") &&(masking(op3, "1xxxxx") &&(masking(op4, "x1"))))))
+{
+	// Load/store register (pac)
+}
+if(masking(op0, "xx11") &&(masking(op1, "-") &&(masking(op2, "1x") &&(masking(op3, "-") &&(masking(op4, "-"))))))
+{
+	// Load/store register (unsigned immediate)
+}

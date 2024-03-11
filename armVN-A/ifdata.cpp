@@ -23,16 +23,17 @@ int main(){
     }
     ifStruct* isarr = new ifStruct[linenum];
     for(int i=0;i<linenum;++i){
+        isarr[i].opvalues = new string[opbitN];
         for(int k=0;k<opbitN;++k){
             rs >> isarr[i].opvalues[k];
         }
 
         char c = rs.get();
-        while(c != '\n'){
+        while(c != '\n' && c != -1){
             isarr[i].comment.push_back(c);
             c = rs.get();
         }
-        isarr[i].comment.push_back(0);
+        //isarr[i].comment.push_back(0);
     }
     rs.close();
 
@@ -47,9 +48,10 @@ int main(){
         for(int k=0;k<opbitN;++k){
             out << ")";
         }
-        out << "\n{\n";
-        out << "//" << isarr[i].comment << "\n";
-        out << "}\n" << endl;
+        out << endl;
+        out << "{" << endl;
+        out << "\t//" << isarr[i].comment << endl;
+        out << "}" << endl;
     }
     return 0;
 }

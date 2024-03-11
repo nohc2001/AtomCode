@@ -7520,16 +7520,208 @@ inst_info getOP_SVE()
 
 inst_info getOP_DataProcessing_Immediate()
 {
+  coprange op0 = {23, 25};
+  if (masking(op0, "00x"))
+  {
+    // PC-rel. addressing
+  }
+  if (masking(op0, "010"))
+  {
+    // Add/subtract (immediate)
+  }
+  if (masking(op0, "011"))
+  {
+    // Add/subtract (immediate, with tags)
+  }
+  if (masking(op0, "100"))
+  {
+    // Logical (immediate)
+  }
+  if (masking(op0, "101"))
+  {
+    // Move wide (immediate)
+  }
+  if (masking(op0, "110"))
+  {
+    // Bitfield
+  }
+  if (masking(op0, "111"))
+  {
+    // Extract
+  }
+
   return gii(op_type::Undefine);
 }
 
 inst_info getOP_Branch_or_ExecptionSystemInstruction()
 {
+  coprange op0 = {29, 31};
+  coprange op1 = {12, 25};
+  coprange op2 = {0, 4};
+  if (masking(op0, "010") && (masking(op1, "0xxxxxxxxxxxxx") && (masking(op2, "-"))))
+  {
+    // Conditional branch (immediate)
+  }
+  if (masking(op0, "110") && (masking(op1, "00xxxxxxxxxxxx") && (masking(op2, "-"))))
+  {
+    // Exception generation
+  }
+  if (masking(op0, "110") && (masking(op1, "01000000110001") && (masking(op2, "-"))))
+  {
+    // System instructions with register argument
+  }
+  if (masking(op0, "110") && (masking(op1, "01000000110010") && (masking(op2, "11111"))))
+  {
+    // Hints
+  }
+  if (masking(op0, "110") && (masking(op1, "01000000110011") && (masking(op2, "-"))))
+  {
+    // Barriers
+  }
+  if (masking(op0, "110") && (masking(op1, "0100000xxx0100") && (masking(op2, "-"))))
+  {
+    // PSTATE
+  }
+  if (masking(op0, "110") && (masking(op1, "0100100xxxxxxx") && (masking(op2, "-"))))
+  {
+    // System with result
+  }
+  if (masking(op0, "110") && (masking(op1, "0100x01xxxxxxx") && (masking(op2, "-"))))
+  {
+    // System instructions
+  }
+  if (masking(op0, "110") && (masking(op1, "0100x1xxxxxxxx") && (masking(op2, "-"))))
+  {
+    // System register move
+  }
+  if (masking(op0, "110") && (masking(op1, "1xxxxxxxxxxxxx") && (masking(op2, "-"))))
+  {
+    // Unconditional branch (register)
+  }
+  if (masking(op0, "x00") && (masking(op1, "-") && (masking(op2, "-"))))
+  {
+    // Unconditional branch (immediate)
+  }
+  if (masking(op0, "x01") && (masking(op1, "0xxxxxxxxxxxxx") && (masking(op2, "-"))))
+  {
+    // Compare and branch (immediate)
+  }
+  if (masking(op0, "x01") && (masking(op1, "1xxxxxxxxxxxxx") && (masking(op2, "-"))))
+  {
+    // Test and branch (immediate)
+  }
+
   return gii(op_type::Undefine);
 }
 
 inst_info getOP_Load_Store()
 {
+  coprange op0 = {28, 31};
+  coprange op1 = {26, 26};
+  coprange op2 = {23, 24};
+  coprange op3 = {16, 21};
+  coprange op4 = {10, 11};
+  if (masking(op0, "0x00") && (masking(op1, "0") && (masking(op2, "00") && (masking(op3, "1xxxxx") && (masking(op4, "-"))))))
+  {
+    // Compare and swap pair
+  }
+  if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "00") && (masking(op3, "000000") && (masking(op4, "-"))))))
+  {
+    // Advanced SIMD load/store multiple structures
+  }
+  if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "01") && (masking(op3, "0xxxxx") && (masking(op4, "-"))))))
+  {
+    // Advanced SIMD load/store multiple structures (post-indexed)
+  }
+  if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "10") && (masking(op3, "x00000") && (masking(op4, "-"))))))
+  {
+    // Advanced SIMD load/store single structure
+  }
+  if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "11") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Advanced SIMD load/store single structure (post-indexed)
+  }
+  if (masking(op0, "1101") && (masking(op1, "0") && (masking(op2, "1x") && (masking(op3, "1xxxxx") && (masking(op4, "-"))))))
+  {
+    // Load/store memory tags
+  }
+  if (masking(op0, "1x00") && (masking(op1, "0") && (masking(op2, "00") && (masking(op3, "1xxxxx") && (masking(op4, "-"))))))
+  {
+    // Load/store exclusive pair
+  }
+  if (masking(op0, "xx00") && (masking(op1, "0") && (masking(op2, "00") && (masking(op3, "0xxxxx") && (masking(op4, "-"))))))
+  {
+    // Load/store exclusive register
+  }
+  if (masking(op0, "xx00") && (masking(op1, "0") && (masking(op2, "01") && (masking(op3, "0xxxxx") && (masking(op4, "-"))))))
+  {
+    // Load/store ordered
+  }
+  if (masking(op0, "xx00") && (masking(op1, "0") && (masking(op2, "01") && (masking(op3, "1xxxxx") && (masking(op4, "-"))))))
+  {
+    // Compare and swap
+  }
+  if (masking(op0, "xx01") && (masking(op1, "0") && (masking(op2, "1x") && (masking(op3, "0xxxxx") && (masking(op4, "00"))))))
+  {
+    // LDAPR/STLR (unscaled immediate)
+  }
+  if (masking(op0, "xx01") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Load register (literal)
+  }
+  if (masking(op0, "xx01") && (masking(op1, "-") && (masking(op2, "1x") && (masking(op3, "0xxxxx") && (masking(op4, "01"))))))
+  {
+    // Memory Copy and Memory Set
+  }
+  if (masking(op0, "xx10") && (masking(op1, "-") && (masking(op2, "00") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Load/store no-allocate pair (offset)
+  }
+  if (masking(op0, "xx10") && (masking(op1, "-") && (masking(op2, "01") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Load/store register pair (post-indexed)
+  }
+  if (masking(op0, "xx10") && (masking(op1, "-") && (masking(op2, "10") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Load/store register pair (offset)
+  }
+  if (masking(op0, "xx10") && (masking(op1, "-") && (masking(op2, "11") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Load/store register pair (pre-indexed)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "0xxxxx") && (masking(op4, "00"))))))
+  {
+    // Load/store register (unscaled immediate)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "0xxxxx") && (masking(op4, "01"))))))
+  {
+    // Load/store register (immediate post-indexed)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "0xxxxx") && (masking(op4, "10"))))))
+  {
+    // Load/store register (unprivileged)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "0xxxxx") && (masking(op4, "11"))))))
+  {
+    // Load/store register (immediate pre-indexed)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "1xxxxx") && (masking(op4, "00"))))))
+  {
+    // Atomic memory operations
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "1xxxxx") && (masking(op4, "10"))))))
+  {
+    // Load/store register (register offset)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "0x") && (masking(op3, "1xxxxx") && (masking(op4, "x1"))))))
+  {
+    // Load/store register (pac)
+  }
+  if (masking(op0, "xx11") && (masking(op1, "-") && (masking(op2, "1x") && (masking(op3, "-") && (masking(op4, "-"))))))
+  {
+    // Load/store register (unsigned immediate)
+  }
+
   return gii(op_type::Undefine);
 }
 
