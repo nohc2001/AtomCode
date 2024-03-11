@@ -1,35 +1,35 @@
-3
+3 109
 op0 op1 op2
-000 0xx0xxxxx000xxx - SVE Integer Binary Arithmetic - Predicated -
-000 0xx0xxxxx001xxx - SVE Integer Reduction -
-000 0xx0xxxxx100xxx - SVE Bitwise Shift - Predicated -
-000 0xx0xxxxx101xxx - SVE Integer Unary Arithmetic - Predicated -
-000 0xx1xxxxx000xxx - SVE integer add/subtract vectors (unpredicated) -
-000 0xx1xxxxx001xxx - SVE Bitwise Logical - Unpredicated -
-000 0xx1xxxxx0100xx - SVE Index Generation -
-000 0xx1xxxxx0101xx - SVE Stack Allocation -
-000 0xx1xxxxx011xxx - SVE2 Integer Multiply - Unpredicated -
-000 0xx1xxxxx100xxx - SVE Bitwise Shift - Unpredicated -
-000 0xx1xxxxx1010xx - SVE address generation -
-000 0xx1xxxxx1011xx - SVE Integer Misc - Unpredicated -
-000 0xx1xxxxx11xxxx - SVE Element Count -
-000 1xx00xxxxxxxxxx - SVE Bitwise Immediate -
-000 1xx01xxxxxxxxxx - SVE Integer Wide Immediate - Predicated -
-000 1xx1xxxxx001000 - DUP (indexed) -
-000 1xx1xxxxx001001 - Unallocated. -
-000 1xx1xxxxx00101x - SVE table lookup (three sources) -
-000 1xx1xxxxx0011x1 - Unallocated. -
-000 1xx1xxxxx001100 - TBL - Encoding -
-000 1xx1xxxxx001110 - SVE Permute Vector - Unpredicated -
-000 1xx1xxxxx010xxx - SVE Permute Predicate -
-000 1xx1xxxxx011xxx - SVE permute vector elements -
-000 1xx1xxxxx10xxxx - SVE Permute Vector - Predicated -
-000 1xx1xxxxx11xxxx - SEL (vectors) -
-000 10x1xxxxx000xxx - SVE Permute Vector - Extract -
-000 0xx0xxxxxxxxxxx - SVE Integer Compare - Vectors -
-001 0xx1xxxxxxxxxxx - SVE integer compare with unsigned immediate -
-001 1xx0xxxxxx0xxxx - SVE integer compare with signed immediate -
-001 1xx00xxxx01xxxx - SVE predicate logical operations -
+000 0xx0xxxxx000xxx - SVE_Integer_Binary_Arithmetic_-_Predicated_-
+000 0xx0xxxxx001xxx - SVE_Integer_Reduction_-
+000 0xx0xxxxx100xxx - SVE_Bitwise_Shift_-_Predicated_-
+000 0xx0xxxxx101xxx - SVE_Integer_Unary_Arithmetic_-_Predicated_-
+000 0xx1xxxxx000xxx - SVE_integer_add/subtract_vectors_(unpredicated)_-
+000 0xx1xxxxx001xxx - SVE_Bitwise_Logical_-_Unpredicated_-
+000 0xx1xxxxx0100xx - SVE_Index_Generation_-
+000 0xx1xxxxx0101xx - SVE_Stack_Allocation_-
+000 0xx1xxxxx011xxx - SVE2_Integer_Multiply_-_Unpredicated_-
+000 0xx1xxxxx100xxx - SVE_Bitwise_Shift_-_Unpredicated_-
+000 0xx1xxxxx1010xx - SVE_address_generation_-
+000 0xx1xxxxx1011xx - SVE_Integer_Misc_-_Unpredicated_-
+000 0xx1xxxxx11xxxx - SVE_Element_Count_-
+000 1xx00xxxxxxxxxx - SVE_Bitwise_Immediate_-
+000 1xx01xxxxxxxxxx - SVE_Integer_Wide_Immediate_-_Predicated_-
+000 1xx1xxxxx001000 - DUP_(indexed)_-
+000 1xx1xxxxx001001 - Unallocated._-
+000 1xx1xxxxx00101x - SVE_table_lookup_(three_sources)_-
+000 1xx1xxxxx0011x1 - Unallocated._-
+000 1xx1xxxxx001100 - TBL_-_Encoding_-
+000 1xx1xxxxx001110 - SVE_Permute_Vector_-_Unpredicated_-
+000 1xx1xxxxx010xxx - SVE_Permute_Predicate_-
+000 1xx1xxxxx011xxx - SVE_permute_vector_elements_-
+000 1xx1xxxxx10xxxx - SVE_Permute_Vector_-_Predicated_-
+000 1xx1xxxxx11xxxx - SEL_(vectors)_-
+000 10x1xxxxx000xxx - SVE_Permute_Vector_-_Extract_-
+000 0xx0xxxxxxxxxxx - SVE_Integer_Compare_-_Vectors_-
+001 0xx1xxxxxxxxxxx - SVE_integer_compare_with_unsigned_immediate_-
+001 1xx0xxxxxx0xxxx - SVE_integer_compare_with_signed_immediate_-
+001 1xx00xxxx01xxxx - SVE_predicate_logical_operations_-
 001 1xx00xxxx11xxxx - SVE Propagate Break -
 001 1xx01xxxx01xxxx - SVE Partition Break -
 001 1xx01xxxx11xxxx - SVE Predicate Misc -
@@ -103,12 +103,9 @@ op0 op1 op2
 100 - - SVE Memory - 32-bit Gather and Unsized Contiguous -
 101 - - SVE Memory - Contiguous Load -
 110 - - SVE Memory - 64-bit Gather -
-111 xxxxxxxxx0x0xxx - SVE Memory - Contiguous Store and Unsized
-Contiguous -
-111 xxxxxxxxx001xxx - SVE Memory - Non-temporal and Quadword Scatter
-Store -
-111 xxxxxxxxx011xxx - SVE Memory - Non-temporal and Multi-register
-Contiguous Store -
+111 xxxxxxxxx0x0xxx - SVE Memory - Contiguous Store and Unsized Contiguous -
+111 xxxxxxxxx001xxx - SVE Memory - Non-temporal and Quadword Scatter Store -
+111 xxxxxxxxx011xxx - SVE Memory - Non-temporal and Multi-register Contiguous Store -
 111 xxxxxxxxx1x0xxx - SVE Memory - Scatter with Optional Sign Extend -
 111 xxxxxxxxx101xxx - SVE Memory - Scatter -
 111 xxxxxxxxx111xxx - SVE Memory - Contiguous Store with Immediate Offset -
