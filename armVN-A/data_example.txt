@@ -1,27 +1,43 @@
-5 25
-op0 op1 op2 op3 op4 
-0x00 0 00 1xxxxx - Compare and swap pair
-0x00 1 00 000000 - Advanced SIMD load/store multiple structures
-0x00 1 01 0xxxxx - Advanced SIMD load/store multiple structures (post-indexed)
-0x00 1 10 x00000 - Advanced SIMD load/store single structure
-0x00 1 11 - - Advanced SIMD load/store single structure (post-indexed)
-1101 0 1x 1xxxxx - Load/store memory tags
-1x00 0 00 1xxxxx - Load/store exclusive pair
-xx00 0 00 0xxxxx - Load/store exclusive register
-xx00 0 01 0xxxxx - Load/store ordered
-xx00 0 01 1xxxxx - Compare and swap
-xx01 0 1x 0xxxxx 00 LDAPR/STLR (unscaled immediate)
-xx01 - 0x - - Load register (literal)
-xx01 - 1x 0xxxxx 01 Memory Copy and Memory Set
-xx10 - 00 - - Load/store no-allocate pair (offset)
-xx10 - 01 - - Load/store register pair (post-indexed)
-xx10 - 10 - - Load/store register pair (offset)
-xx10 - 11 - - Load/store register pair (pre-indexed)
-xx11 - 0x 0xxxxx 00 Load/store register (unscaled immediate)
-xx11 - 0x 0xxxxx 01 Load/store register (immediate post-indexed)
-xx11 - 0x 0xxxxx 10 Load/store register (unprivileged)
-xx11 - 0x 0xxxxx 11 Load/store register (immediate pre-indexed)
-xx11 - 0x 1xxxxx 00 Atomic memory operations
-xx11 - 0x 1xxxxx 10 Load/store register (register offset)
-xx11 - 0x 1xxxxx x1 Load/store register (pac)
-xx11 - 1x - - Load/store register (unsigned immediate)
+4 40
+op0 op1 op2 op3
+0010 0x x101 00xxxxx10 Cryptographic AES -
+0101 0x x0xx xxx0xxx00 Cryptographic three-register SHA -
+0101 0x x101 00xxxxx10 Cryptographic two-register SHA -
+01x1 00 00xx xxx0xxxx1 Advanced SIMD scalar copy -
+01x1 0x 10xx xxx00xxx1 Advanced SIMD scalar three same FP16 -
+01x1 0x 1111 00xxxxx10 Advanced SIMD scalar two-register miscellaneous FP16 -
+01x1 0x x0xx xxx1xxxx1 Advanced SIMD scalar three same extra -
+01x1 0x x100 00xxxxx10 Advanced SIMD scalar two-register miscellaneous -
+01x1 0x x110 00xxxxx10 Advanced SIMD scalar pairwise -
+01x1 0x x1xx xxxxxxx00 Advanced SIMD scalar three different -
+01x1 0x x1xx xxxxxxxx1 Advanced SIMD scalar three same -
+01x1 10 - xxxxxxxx1 Advanced SIMD scalar shift by immediate -
+01x1 1x - xxxxxxxx0 Advanced SIMD scalar x indexed element -
+0x00 0x x0xx xxx0xxx00 Advanced SIMD table lookup -
+0x00 0x x0xx xxx0xxx10 Advanced SIMD permute -
+0x10 0x x0xx xxx0xxxx0 Advanced SIMD extract -
+0xx0 00 00xx xxx0xxxx1 Advanced SIMD copy -
+0xx0 0x 10xx xxx00xxx1 Advanced SIMD three same (FP16) -
+0xx0 0x 1111 00xxxxx10 Advanced SIMD two-register miscellaneous (FP16) -
+0xx0 0x x0xx xxx1xxxx1 Advanced SIMD three-register extension -
+0xx0 0x x100 00xxxxx10 Advanced SIMD two-register miscellaneous -
+0xx0 0x x110 00xxxxx10 Advanced SIMD across lanes -
+0xx0 0x x1xx xxxxxxx00 Advanced SIMD three different -
+0xx0 0x x1xx xxxxxxxx1 Advanced SIMD three same -
+0xx0 10 0000 xxxxxxxx1 Advanced SIMD modified immediate -
+0xx0 10 !=0000 xxxxxxxx1 Advanced SIMD shift by immediate -
+0xx0 0x 01x1 xxxxxxxx0 Advanced SIMD vector x indexed element -
+1100 00 10xx xxx10xxxx Cryptographic three-register, imm2 -
+1100 00 11xx xxx1x00xx Cryptographic three-register SHA 512 -
+1100 00 - xxx0xxxxx Cryptographic four-register -
+1100 01 00xx - XAR FEAT_SHA3
+1100 01 1000 0001000xx Cryptographic two-register SHA 512 -
+x0x1 0x x0xx - Conversion between floating-point and fixed-point -
+x0x1 0x x1xx xxx000000 Conversion between floating-point and integer -
+x0x1 0x x1xx xxxx10000 Floating-point data-processing (1 source) -
+x0x1 0x x1xx xxxxx1000 Floating-point compare -
+x0x1 0x x1xx xxxxxx100 Floating-point immediate -
+x0x1 0x x1xx xxxxxxx01 Floating-point conditional compare -
+x0x1 0x x1xx xxxxxxx10 Floating-point data-processing (2 source) -
+x0x1 0x x1xx xxxxxxx11 Floating-point conditional select -
+x0x1 1x - - Floating-point data-processing (3 source)

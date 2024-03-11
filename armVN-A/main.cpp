@@ -7727,11 +7727,229 @@ inst_info getOP_Load_Store()
 
 inst_info getOP_DataProcessing_Register()
 {
+  coprange op0 = {30, 30};
+  coprange op1 = {28, 28};
+  coprange op2 = {21, 24};
+  coprange op3 = {10, 15};
+  if (masking(op0, "0") && (masking(op1, "1") && (masking(op2, "0110") && (masking(op3, "-")))))
+  {
+    // Data-processing (2 source)
+  }
+  if (masking(op0, "1") && (masking(op1, "1") && (masking(op2, "0110") && (masking(op3, "-")))))
+  {
+    // Data-processing (1 source)
+  }
+  if (masking(op0, "-") && (masking(op1, "0") && (masking(op2, "0xxx") && (masking(op3, "-")))))
+  {
+    // Logical (shifted register)
+  }
+  if (masking(op0, "-") && (masking(op1, "0") && (masking(op2, "1xx0") && (masking(op3, "-")))))
+  {
+    // Add/subtract (shifted register)
+  }
+  if (masking(op0, "-") && (masking(op1, "0") && (masking(op2, "1xx1") && (masking(op3, "-")))))
+  {
+    // Add/subtract (extended register)
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "0000") && (masking(op3, "000000")))))
+  {
+    // Add/subtract (with carry)
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "0000") && (masking(op3, "x00001")))))
+  {
+    // Rotate right into flags
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "0000") && (masking(op3, "xx0010")))))
+  {
+    // Evaluate into flags
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "0010") && (masking(op3, "xxxx0x")))))
+  {
+    // Conditional compare (register)
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "0010") && (masking(op3, "xxxx1x")))))
+  {
+    // Conditional compare (immediate)
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "0100") && (masking(op3, "-")))))
+  {
+    // Conditional select
+  }
+  if (masking(op0, "-") && (masking(op1, "1") && (masking(op2, "1xxx") && (masking(op3, "-")))))
+  {
+    // Data-processing (3 source)
+  }
+
   return gii(op_type::Undefine);
 }
 
 inst_info getOP_DataProcessing_ScalarFloat_or_SIMD()
 {
+  coprange op0 = {28, 31};
+  coprange op1 = {23, 24};
+  coprange op2 = {19, 22};
+  coprange op3 = {10, 18};
+  if (masking(op0, "0010") && (masking(op1, "0x") && (masking(op2, "x101") && (masking(op3, "00xxxxx10")))))
+  {
+    // Cryptographic AES -
+  }
+  if (masking(op0, "0101") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "xxx0xxx00")))))
+  {
+    // Cryptographic three-register SHA -
+  }
+  if (masking(op0, "0101") && (masking(op1, "0x") && (masking(op2, "x101") && (masking(op3, "00xxxxx10")))))
+  {
+    // Cryptographic two-register SHA -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "00") && (masking(op2, "00xx") && (masking(op3, "xxx0xxxx1")))))
+  {
+    // Advanced SIMD scalar copy -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "10xx") && (masking(op3, "xxx00xxx1")))))
+  {
+    // Advanced SIMD scalar three same FP16 -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "1111") && (masking(op3, "00xxxxx10")))))
+  {
+    // Advanced SIMD scalar two-register miscellaneous FP16 -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "xxx1xxxx1")))))
+  {
+    // Advanced SIMD scalar three same extra -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "x100") && (masking(op3, "00xxxxx10")))))
+  {
+    // Advanced SIMD scalar two-register miscellaneous -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "x110") && (masking(op3, "00xxxxx10")))))
+  {
+    // Advanced SIMD scalar pairwise -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxx00")))))
+  {
+    // Advanced SIMD scalar three different -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxxx1")))))
+  {
+    // Advanced SIMD scalar three same -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "10") && (masking(op2, "-") && (masking(op3, "xxxxxxxx1")))))
+  {
+    // Advanced SIMD scalar shift by immediate -
+  }
+  if (masking(op0, "01x1") && (masking(op1, "1x") && (masking(op2, "-") && (masking(op3, "xxxxxxxx0")))))
+  {
+    // Advanced SIMD scalar x indexed element -
+  }
+  if (masking(op0, "0x00") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "xxx0xxx00")))))
+  {
+    // Advanced SIMD table lookup -
+  }
+  if (masking(op0, "0x00") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "xxx0xxx10")))))
+  {
+    // Advanced SIMD permute -
+  }
+  if (masking(op0, "0x10") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "xxx0xxxx0")))))
+  {
+    // Advanced SIMD extract -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "00") && (masking(op2, "00xx") && (masking(op3, "xxx0xxxx1")))))
+  {
+    // Advanced SIMD copy -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "10xx") && (masking(op3, "xxx00xxx1")))))
+  {
+    // Advanced SIMD three same (FP16) -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "1111") && (masking(op3, "00xxxxx10")))))
+  {
+    // Advanced SIMD two-register miscellaneous (FP16) -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "xxx1xxxx1")))))
+  {
+    // Advanced SIMD three-register extension -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "x100") && (masking(op3, "00xxxxx10")))))
+  {
+    // Advanced SIMD two-register miscellaneous -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "x110") && (masking(op3, "00xxxxx10")))))
+  {
+    // Advanced SIMD across lanes -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxx00")))))
+  {
+    // Advanced SIMD three different -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxxx1")))))
+  {
+    // Advanced SIMD three same -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "10") && (masking(op2, "0000") && (masking(op3, "xxxxxxxx1")))))
+  {
+    // Advanced SIMD modified immediate -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "10") && (masking(op2, "!=0000") && (masking(op3, "xxxxxxxx1")))))
+  {
+    // Advanced SIMD shift by immediate -
+  }
+  if (masking(op0, "0xx0") && (masking(op1, "0x") && (masking(op2, "01x1") && (masking(op3, "xxxxxxxx0")))))
+  {
+    // Advanced SIMD vector x indexed element -
+  }
+  if (masking(op0, "1100") && (masking(op1, "00") && (masking(op2, "10xx") && (masking(op3, "xxx10xxxx")))))
+  {
+    // Cryptographic three-register, imm2 -
+  }
+  if (masking(op0, "1100") && (masking(op1, "00") && (masking(op2, "11xx") && (masking(op3, "xxx1x00xx")))))
+  {
+    // Cryptographic three-register SHA 512 -
+  }
+  if (masking(op0, "1100") && (masking(op1, "00") && (masking(op2, "-") && (masking(op3, "xxx0xxxxx")))))
+  {
+    // Cryptographic four-register -
+  }
+  if (masking(op0, "1100") && (masking(op1, "01") && (masking(op2, "00xx") && (masking(op3, "-")))))
+  {
+    // XAR FEAT_SHA3
+  }
+  if (masking(op0, "1100") && (masking(op1, "01") && (masking(op2, "1000") && (masking(op3, "0001000xx")))))
+  {
+    // Cryptographic two-register SHA 512 -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x0xx") && (masking(op3, "-")))))
+  {
+    // Conversion between floating-point and fixed-point -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxx000000")))))
+  {
+    // Conversion between floating-point and integer -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxx10000")))))
+  {
+    // Floating-point data-processing (1 source) -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxx1000")))))
+  {
+    // Floating-point compare -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxx100")))))
+  {
+    // Floating-point immediate -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxx01")))))
+  {
+    // Floating-point conditional compare -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxx10")))))
+  {
+    // Floating-point data-processing (2 source) -
+  }
+  if (masking(op0, "x0x1") && (masking(op1, "0x") && (masking(op2, "x1xx") && (masking(op3, "xxxxxxx11")))))
+  {
+    // Floating-point conditional select -
+  }
+
   return gii(op_type::Undefine);
 }
 
