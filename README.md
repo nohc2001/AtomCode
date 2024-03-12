@@ -5,3 +5,5 @@ Destination of this project
 1. machine code <--> asm (both side convert function)
 2. emulating machine code (testing)
 3. asm <--> InsideCode(bakecode) or C++
+
+4. https://www.felixcloutier.com/x86/
