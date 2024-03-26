@@ -2588,7 +2588,7 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_AdvSIMD_Scalar3Same_FABD,
   DataProcessing_ScalarOrSIMD_AdvSIMD_Scalar3Same_FCMGT,
   DataProcessing_ScalarOrSIMD_AdvSIMD_Scalar3Same_FACGT,
-  
+
   DataProcessing_ScalarOrSIMD_AdvSIMD_ScalarShiftByImmediate_SSHR,
   DataProcessing_ScalarOrSIMD_AdvSIMD_ScalarShiftByImmediate_SSRA,
   DataProcessing_ScalarOrSIMD_AdvSIMD_ScalarShiftByImmediate_SRSHR,
@@ -3011,12 +3011,12 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_Cry_4Reg_EOR3,
   DataProcessing_ScalarOrSIMD_Cry_4Reg_BCAX,
   DataProcessing_ScalarOrSIMD_Cry_4Reg_SM3SS1,
-  
+
   DataProcessing_ScalarOrSIMD_XAR,
-  
+
   DataProcessing_ScalarOrSIMD_Cry_2Reg_SHA512_SHA512SU0,
   DataProcessing_ScalarOrSIMD_Cry_2Reg_SHA512_SM4E,
-  
+
   DataProcessing_ScalarOrSIMD_Convert_FloatAndFixed_32bit1P_SCVTF,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndFixed_32bit1P_UCVTF,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndFixed_32bit1P_FCVTZS,
@@ -3041,7 +3041,7 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_Convert_FloatAndFixed_64bitHalfP_UCVTF,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndFixed_64bitHalfP_FCVTZS,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndFixed_64bitHalfP_FCVTZU,
-  
+
   DataProcessing_ScalarOrSIMD_Convert_FloatAndInt_1PTo32bit_FCVTNS,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndInt_1PTo32bit_FCVTNU,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndInt_32bitTo1P_SCVTF,
@@ -3126,7 +3126,7 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_Convert_FloatAndInt_HalfPTo64bit_FCVTMU,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndInt_HalfPTo64bit_FCVTZS,
   DataProcessing_ScalarOrSIMD_Convert_FloatAndInt_HalfPTo64bit_FCVTZU,
-  
+
   DataProcessing_ScalarOrSIMD_FPDataProcess_1s_1P_FMOV,
   DataProcessing_ScalarOrSIMD_FPDataProcess_1s_1P_FABS,
   DataProcessing_ScalarOrSIMD_FPDataProcess_1s_1P_FNEG,
@@ -3174,23 +3174,23 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_FPDataProcess_1s_HalfP_FRINTA,
   DataProcessing_ScalarOrSIMD_FPDataProcess_1s_HalfP_FRINTX,
   DataProcessing_ScalarOrSIMD_FPDataProcess_1s_HalfP_FRINTI,
-  
+
   DataProcessing_ScalarOrSIMD_FPCompare_FCMP,
   DataProcessing_ScalarOrSIMD_FPCompare_FCMPE,
   DataProcessing_ScalarOrSIMD_FPCompare_FP16_FCMP,
   DataProcessing_ScalarOrSIMD_FPCompare_FP16_FCMPE,
-  
+
   DataProcessing_ScalarOrSIMD_FPImmediate_1P_FMOV,
   DataProcessing_ScalarOrSIMD_FPImmediate_2P_FMOV,
   DataProcessing_ScalarOrSIMD_FPImmediate_HalfP_FMOV,
-  
+
   DataProcessing_ScalarOrSIMD_FPConditionalCompare_1P_FCCMP,
   DataProcessing_ScalarOrSIMD_FPConditionalCompare_1P_FCCMPE,
   DataProcessing_ScalarOrSIMD_FPConditionalCompare_2P_FCCMP,
   DataProcessing_ScalarOrSIMD_FPConditionalCompare_2P_FCCMPE,
   DataProcessing_ScalarOrSIMD_FPConditionalCompare_HalfP_FCCMP,
   DataProcessing_ScalarOrSIMD_FPConditionalCompare_HalfP_FCCMPE,
-  
+
   DataProcessing_ScalarOrSIMD_FPDataProcess_2s_1P_FMUL,
   DataProcessing_ScalarOrSIMD_FPDataProcess_2s_1P_FDIV,
   DataProcessing_ScalarOrSIMD_FPDataProcess_2s_1P_FADD,
@@ -3218,11 +3218,11 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_FPDataProcess_2s_HalfP_FMAXNM,
   DataProcessing_ScalarOrSIMD_FPDataProcess_2s_HalfP_FMINNM,
   DataProcessing_ScalarOrSIMD_FPDataProcess_2s_HalfP_FNMUL,
-  
+
   DataProcessing_ScalarOrSIMD_FPConditionalSelect_1P_FCSEL,
   DataProcessing_ScalarOrSIMD_FPConditionalSelect_2P_FCSEL,
   DataProcessing_ScalarOrSIMD_FPConditionalSelect_HalfP_FCSEL,
-  
+
   DataProcessing_ScalarOrSIMD_FPDataProcess_3s_1P_FMADD,
   DataProcessing_ScalarOrSIMD_FPDataProcess_3s_1P_FMSUB,
   DataProcessing_ScalarOrSIMD_FPDataProcess_3s_1P_FNMADD,
@@ -3235,7 +3235,7 @@ enum class op_type
   DataProcessing_ScalarOrSIMD_FPDataProcess_3s_HalfP_FMSUB,
   DataProcessing_ScalarOrSIMD_FPDataProcess_3s_HalfP_FNMADD,
   DataProcessing_ScalarOrSIMD_FPDataProcess_3s_HalfP_FNMSUB,
-  
+
   LAST
 };
 
@@ -3259,12 +3259,13 @@ inline int gr(op_range r, int index)
 
 bool masking(op_range r, const char *mask)
 {
-  if(mask[0] == '-') return true;
+  if (mask[0] == '-')
+    return true;
   int len = 1 + r.end - r.start;
 
-  if(len > 2 && (mask[0] == '!' && mask[1] == '='))
+  if (len > 2 && (mask[0] == '!' && mask[1] == '='))
   {
-    //diff mod.
+    // diff mod.
     return !masking(r, &mask[2]);
   }
 
@@ -7229,40 +7230,45 @@ inst_info getOP_SVE()
       {
         copn opc[3] = {16, 17, 18};
         copn o2 = 13;
-        if(isp(opc[0], '1') || isp(o2, '1')) return gii(op_type::Undefine);
-        else{
+        if (isp(opc[0], '1') || isp(o2, '1'))
+          return gii(op_type::Undefine);
+        else
+        {
           constexpr op_type oparr[4] = {
-            op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_SMAX,
-            op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_UMAX,
-            op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_SMIN,
-            op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_UMIN
-          };
+              op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_SMAX,
+              op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_UMAX,
+              op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_SMIN,
+              op_type::SVE_Int_Wide_Immediate_UnPredicated_MinMax_UMIN};
           return gii(oparr[((isp(opc[1], '1')) ? 2 : 0) +
-                         ((isp(opc[2], '1')) ? 1 : 0)]);
+                           ((isp(opc[2], '1')) ? 1 : 0)]);
         }
       }
       if (masking(op0, "10"))
       {
         coprange opc = {16, 18};
         copn o2 = 13;
-        if(masking(opc, "000") && isp(o2, '0')) return gii(op_type::SVE_Int_Wide_Immediate_UnPredicated_Multiply_Immediate_MUL);
-        else return gii(op_type::Undefine);
+        if (masking(opc, "000") && isp(o2, '0'))
+          return gii(op_type::SVE_Int_Wide_Immediate_UnPredicated_Multiply_Immediate_MUL);
+        else
+          return gii(op_type::Undefine);
       }
       if (masking(op0, "11"))
       {
         if (isp(op1, '0'))
         {
           coprange opc = {17, 18};
-          if(masking(opc, "00"))
+          if (masking(opc, "00"))
             return gii(op_type::SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Int_Immediate_DUP);
-          else return gii(op_type::Undefine);
+          else
+            return gii(op_type::Undefine);
         }
         else
         {
           coprange opc = {17, 18};
-          if(masking(opc, "00"))
+          if (masking(opc, "00"))
             return gii(op_type::SVE_Int_Wide_Immediate_UnPredicated_Broadcast_Float_FDUP);
-          else return gii(op_type::Undefine);
+          else
+            return gii(op_type::Undefine);
         }
       }
     }
@@ -7532,30 +7538,220 @@ inst_info getOP_DataProcessing_Immediate()
   if (masking(op0, "00x"))
   {
     // PC-rel. addressing
+    coprange op = {31, 31};
+    if (masking(op, "0"))
+    {
+      // ADR
+    }
+    if (masking(op, "1"))
+    {
+      // ADRP
+    }
   }
   if (masking(op0, "010"))
   {
     // Add/subtract (immediate)
+    coprange sf = {31, 31};
+    coprange op = {30, 30};
+    coprange S = {29, 29};
+    if (masking(sf, "0") && (masking(op, "0") && (masking(S, "0"))))
+    {
+      // ADD (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "0") && (masking(S, "1"))))
+    {
+      // ADDS (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "1") && (masking(S, "0"))))
+    {
+      // SUB (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "1") && (masking(S, "1"))))
+    {
+      // SUBS (immediate) - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "0") && (masking(S, "0"))))
+    {
+      // ADD (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "0") && (masking(S, "1"))))
+    {
+      // ADDS (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "1") && (masking(S, "0"))))
+    {
+      // SUB (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "1") && (masking(S, "1"))))
+    {
+      // SUBS (immediate) - 64-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "0") && (masking(S, "0"))))
+    {
+      // ADD (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "0") && (masking(S, "1"))))
+    {
+      // ADDS (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "1") && (masking(S, "0"))))
+    {
+      // SUB (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "1") && (masking(S, "1"))))
+    {
+      // SUBS (immediate) - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "0") && (masking(S, "0"))))
+    {
+      // ADD (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "0") && (masking(S, "1"))))
+    {
+      // ADDS (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "1") && (masking(S, "0"))))
+    {
+      // SUB (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "1") && (masking(S, "1"))))
+    {
+      // SUBS (immediate) - 64-bit variant
+    }
   }
   if (masking(op0, "011"))
   {
     // Add/subtract (immediate, with tags)
+    coprange sf = {31, 31};
+    coprange op = {30, 30};
+    coprange S = {29, 29};
+    coprange o2 = {22, 22};
+    if (masking(sf, "1") && (masking(op, "0") && (masking(S, "0") && (masking(o2, "0")))))
+    {
+      // ADDG_FEAT_MTE
+    }
+    if (masking(sf, "1") && (masking(op, "1") && (masking(S, "0") && (masking(o2, "0")))))
+    {
+      // SUBG_FEAT_MTE
+    }
   }
   if (masking(op0, "100"))
   {
     // Logical (immediate)
+    coprange sf = {31, 31};
+    coprange N = {22, 22};
+    coprange opc = {29, 30};
+    if (masking(sf, "0") && (masking(opc, "00") && (masking(N, "0"))))
+    {
+      // AND (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "01") && (masking(N, "0"))))
+    {
+      // ORR (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "10") && (masking(N, "0"))))
+    {
+      // EOR (immediate) - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "11") && (masking(N, "0"))))
+    {
+      // ANDS (immediate) - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "00") && (masking(N, "-"))))
+    {
+      // AND (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "01") && (masking(N, "-"))))
+    {
+      // ORR (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "10") && (masking(N, "-"))))
+    {
+      // EOR (immediate) - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "11") && (masking(N, "-"))))
+    {
+      // ANDS (immediate) - 64-bit variant
+    }
   }
   if (masking(op0, "101"))
   {
     // Move wide (immediate)
+    coprange sf = {31, 31};
+    coprange opc = {29, 30};
+    coprange hw = {21, 22};
+    if (masking(sf, "0") && (masking(opc, "00") && (masking(hw, "0x"))))
+    {
+      // MOVN - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "10") && (masking(hw, "0x"))))
+    {
+      // MOVZ - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "11") && (masking(hw, "0x"))))
+    {
+      // MOVK - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "00") && (masking(hw, "-"))))
+    {
+      // MOVN - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "10") && (masking(hw, "-"))))
+    {
+      // MOVZ - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "11") && (masking(hw, "-"))))
+    {
+      // MOVK - 64-bit variant
+    }
   }
   if (masking(op0, "110"))
   {
     // Bitfield
+    coprange sf = {31, 31};
+    coprange N = {22, 22};
+    coprange opc = {29, 30};
+    if (masking(sf, "0") && (masking(opc, "00") && (masking(N, "0"))))
+    {
+      // SBFM - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "01") && (masking(N, "0"))))
+    {
+      // BFM - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(opc, "10") && (masking(N, "0"))))
+    {
+      // UBFM - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "00") && (masking(N, "1"))))
+    {
+      // SBFM - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "01") && (masking(N, "1"))))
+    {
+      // BFM - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(opc, "10") && (masking(N, "1"))))
+    {
+      // UBFM - 64-bit variant
+    }
   }
   if (masking(op0, "111"))
   {
     // Extract
+    coprange sf = {31, 31};
+    coprange op21 = {29, 30};
+    coprange N = {22, 22};
+    coprange o0 = {21, 21};
+    coprange imms = {10, 15};
+    if (masking(sf, "0") && (masking(op21, "00") && (masking(N, "0") && (masking(o0, "0") && (masking(imms, "0xxxxx"))))))
+    {
+      // EXTR - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(op21, "00") && (masking(N, "1") && (masking(o0, "0") && (masking(imms, "-"))))))
+    {
+      // EXTR - 64-bit variant
+    }
   }
 
   return gii(op_type::Undefine);
@@ -7569,38 +7765,283 @@ inst_info getOP_Branch_or_ExecptionSystemInstruction()
   if (masking(op0, "010") && (masking(op1, "0xxxxxxxxxxxxx") && (masking(op2, "-"))))
   {
     // Conditional branch (immediate)
+    coprange o1 = {24, 24};
+    coprange o0 = {4, 4};
+    if (masking(o1, "0") && (masking(o0, "0")))
+    {
+      // B.cond -
+    }
+    if (masking(o1, "0") && (masking(o0, "1")))
+    {
+      // BC.cond FEAT_HBC
+    }
   }
   if (masking(op0, "110") && (masking(op1, "00xxxxxxxxxxxx") && (masking(op2, "-"))))
   {
     // Exception generation
+    coprange opc = {21, 23};
+    coprange op2 = {2, 4};
+    coprange LL = {0, 1};
+    if (masking(opc, "000") && (masking(op2, "000") && (masking(LL, "01"))))
+    {
+      // SVC -
+    }
+    if (masking(opc, "000") && (masking(op2, "000") && (masking(LL, "10"))))
+    {
+      // HVC -
+    }
+    if (masking(opc, "000") && (masking(op2, "000") && (masking(LL, "11"))))
+    {
+      // SMC -
+    }
+    if (masking(opc, "001") && (masking(op2, "000") && (masking(LL, "00"))))
+    {
+      // BRK -
+    }
+    if (masking(opc, "010") && (masking(op2, "000") && (masking(LL, "00"))))
+    {
+      // HLT -
+    }
+    if (masking(opc, "011") && (masking(op2, "000") && (masking(LL, "00"))))
+    {
+      // TCANCEL FEAT_TME
+    }
+    if (masking(opc, "101") && (masking(op2, "000") && (masking(LL, "01"))))
+    {
+      // DCPS1 -
+    }
+    if (masking(opc, "101") && (masking(op2, "000") && (masking(LL, "10"))))
+    {
+      // DCPS2 -
+    }
+    if (masking(opc, "101") && (masking(op2, "000") && (masking(LL, "11"))))
+    {
+      // DCPS3 -
+    }
   }
   if (masking(op0, "110") && (masking(op1, "01000000110001") && (masking(op2, "-"))))
   {
     // System instructions with register argument
+    coprange CRm = {8, 11};
+    coprange op2 = {5, 7};
+    if (masking(CRm, "0000") && (masking(op2, "000")))
+    {
+      // WFET_FEAT_WFxT
+    }
+    if (masking(CRm, "0000") && (masking(op2, "001")))
+    {
+      // WFIT_FEAT_WFxT
+    }
   }
   if (masking(op0, "110") && (masking(op1, "01000000110010") && (masking(op2, "11111"))))
   {
     // Hints
+    coprange CRm = {8, 11};
+    coprange op2 = {5, 7};
+    if (masking(CRm, "0000") && (masking(op2, "000")))
+    {
+      // NOP -
+    }
+    if (masking(CRm, "0000") && (masking(op2, "001")))
+    {
+      // YIELD -
+    }
+    if (masking(CRm, "0000") && (masking(op2, "010")))
+    {
+      // WFE -
+    }
+    if (masking(CRm, "0000") && (masking(op2, "011")))
+    {
+      // WFI -
+    }
+    if (masking(CRm, "0000") && (masking(op2, "100")))
+    {
+      // SEV -
+    }
+    if (masking(CRm, "0000") && (masking(op2, "101")))
+    {
+      // SEVL -
+    }
+    if (masking(CRm, "0000") && (masking(op2, "110")))
+    {
+      // DGH FEAT_DGH
+    }
+    if (masking(CRm, "0000") && (masking(op2, "111")))
+    {
+      // XPACD, XPACI, XPACLRI FEAT_PAuth
+    }
+    if (masking(CRm, "0001") && (masking(op2, "000")))
+    {
+      // PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIA1716 variant FEAT_PAuth
+    }
+    if (masking(CRm, "0001") && (masking(op2, "010")))
+    {
+      // PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIB1716 variant FEAT_PAuth
+    }
+    if (masking(CRm, "0001") && (masking(op2, "100")))
+    {
+      // AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIA1716 variant FEAT_PAuth
+    }
+    if (masking(CRm, "0001") && (masking(op2, "110")))
+    {
+      // AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIB1716 variant FEAT_PAuth
+    }
+    if (masking(CRm, "0010") && (masking(op2, "000")))
+    {
+      // ESB FEAT_RAS
+    }
+    if (masking(CRm, "0010") && (masking(op2, "001")))
+    {
+      // PSB CSYNC FEAT_SPE
+    }
+    if (masking(CRm, "0010") && (masking(op2, "010")))
+    {
+      // TSB CSYNC FEAT_TRF
+    }
+    if (masking(CRm, "0010") && (masking(op2, "100")))
+    {
+      // CSDB -
+    }
+    if (masking(CRm, "0011") && (masking(op2, "000")))
+    {
+      // PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIAZ variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "001")))
+    {
+      // PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIASP variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "010")))
+    {
+      // PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIBZ variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "011")))
+    {
+      // PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIBSP variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "100")))
+    {
+      // AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIAZ variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "101")))
+    {
+      // AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIASP variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "110")))
+    {
+      // AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIBZ variant FEAT_PAuth
+    }
+    if (masking(CRm, "0011") && (masking(op2, "111")))
+    {
+      // AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIBSP variant FEAT_PAuth
+    }
+    if (masking(CRm, "0100") && (masking(op2, "xx0")))
+    {
+      // BTI FEAT_BTI
+    }
+    if (masking(CRm, "-") && (masking(op2, "-")))
+    {
+      // HINT -
+    }
   }
   if (masking(op0, "110") && (masking(op1, "01000000110011") && (masking(op2, "-"))))
   {
     // Barriers
+    coprange CRm = {8, 11};
+    coprange op2 = {5, 7};
+    coprange Rt = {0, 4};
+    if (masking(CRm, "-") && (masking(op2, "010") && (masking(Rt, "11111"))))
+    {
+      // CLREX -
+    }
+    if (masking(CRm, "-") && (masking(op2, "100") && (masking(Rt, "11111"))))
+    {
+      // DSB - Encoding -
+    }
+    if (masking(CRm, "-") && (masking(op2, "101") && (masking(Rt, "11111"))))
+    {
+      // DMB -
+    }
+    if (masking(CRm, "-") && (masking(op2, "110") && (masking(Rt, "11111"))))
+    {
+      // ISB -
+    }
+    if (masking(CRm, "-") && (masking(op2, "111") && (masking(Rt, "11111"))))
+    {
+      // SB FEAT_SB
+    }
+    if (masking(CRm, "001") && (masking(op2, "11111") && (masking(Rt, "DSB"))))
+    {
+      // - Encoding FEAT_XS
+    }
+    if (masking(CRm, "0000") && (masking(op2, "011") && (masking(Rt, "11111"))))
+    {
+      // TCOMMIT FEAT_TME
+    }
   }
   if (masking(op0, "110") && (masking(op1, "0100000xxx0100") && (masking(op2, "-"))))
   {
     // PSTATE
+    coprange op1 = {16, 18};
+    coprange op2 = {5, 7};
+    coprange Rt = {0, 4};
+    if (masking(op1, "-") && (masking(op2, "-") && (masking(Rt, "11111"))))
+    {
+      // MSR (immediate) -
+    }
+    if (masking(op1, "000") && (masking(op2, "000") && (masking(Rt, "11111"))))
+    {
+      // CFINV FEAT_FlagM
+    }
+    if (masking(op1, "000") && (masking(op2, "001") && (masking(Rt, "11111"))))
+    {
+      // XAFLAG FEAT_FlagM2
+    }
+    if (masking(op1, "000") && (masking(op2, "010") && (masking(Rt, "11111"))))
+    {
+      // AXFLAG FEAT_FlagM2
+    }
   }
   if (masking(op0, "110") && (masking(op1, "0100100xxxxxxx") && (masking(op2, "-"))))
   {
     // System with result
+    coprange op1 = {16, 18};
+    coprange CRn = {12, 15};
+    coprange CRm = {8, 11};
+    coprange op2 = {5, 7};
+    if (masking(op1, "011") && (masking(CRn, "0011") && (masking(CRm, "0000") && (masking(op2, "011")))))
+    {
+      // TSTART FEAT_TME
+    }
+    if (masking(op1, "011") && (masking(CRn, "0011") && (masking(CRm, "0001") && (masking(op2, "011")))))
+    {
+      // TTEST FEAT_TME
+    }
   }
   if (masking(op0, "110") && (masking(op1, "0100x01xxxxxxx") && (masking(op2, "-"))))
   {
     // System instructions
+    coprange L = {21, 21};
+    if(masking(L, "0"))
+    {
+	    // SYS
+    }
+    if(masking(L, "1"))
+    {
+	    // SYSL
+    }
   }
   if (masking(op0, "110") && (masking(op1, "0100x1xxxxxxxx") && (masking(op2, "-"))))
   {
     // System register move
+    coprange L = {21, 21};
+    if(masking(L, "0"))
+    {
+	    // MSR (register)
+    }
+    if(masking(L, "1"))
+    {
+	    // MRS
+    }
   }
   if (masking(op0, "110") && (masking(op1, "1xxxxxxxxxxxxx") && (masking(op2, "-"))))
   {
