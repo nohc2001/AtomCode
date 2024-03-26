@@ -8046,18 +8046,127 @@ inst_info getOP_Branch_or_ExecptionSystemInstruction()
   if (masking(op0, "110") && (masking(op1, "1xxxxxxxxxxxxx") && (masking(op2, "-"))))
   {
     // Unconditional branch (register)
+    coprange opc = {21, 24};
+    coprange op2 = {16, 20};
+    coprange op3 = {10, 15};
+    coprange Rn = {5, 9};
+    coprange op4 = {0, 4};
+    if (masking(opc, "0000") && (masking(op2, "11111") && (masking(op3, "000000") && (masking(Rn, "-") && (masking(op4, "00000"))))))
+    {
+      // BR
+    }
+    if (masking(opc, "0000") && (masking(op2, "11111") && (masking(op3, "000010") && (masking(Rn, "-") && (masking(op4, "11111"))))))
+    {
+      // BRAA, BRAAZ, BRAB, BRABZ - Key A, zero modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "0000") && (masking(op2, "11111") && (masking(op3, "000011") && (masking(Rn, "-") && (masking(op4, "11111"))))))
+    {
+      // BRAA, BRAAZ, BRAB, BRABZ - Key B, zero modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "0001") && (masking(op2, "11111") && (masking(op3, "000000") && (masking(Rn, "-") && (masking(op4, "00000"))))))
+    {
+      // BLR -
+    }
+    if (masking(opc, "0001") && (masking(op2, "11111") && (masking(op3, "000010") && (masking(Rn, "-") && (masking(op4, "11111"))))))
+    {
+      // BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, zero modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "0001") && (masking(op2, "11111") && (masking(op3, "000011") && (masking(Rn, "-") && (masking(op4, "11111"))))))
+    {
+      // BLRAA, BLRAAZ, BLRAB, BLRABZ - Key B, zero modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "0010") && (masking(op2, "11111") && (masking(op3, "000000") && (masking(Rn, "-") && (masking(op4, "00000"))))))
+    {
+      // RET
+    }
+    if (masking(opc, "0010") && (masking(op2, "11111") && (masking(op3, "000010") && (masking(Rn, "11111") && (masking(op4, "11111"))))))
+    {
+      // RETAA, RETAB - RETAA variant FEAT_PAuth
+    }
+    if (masking(opc, "0010") && (masking(op2, "11111") && (masking(op3, "000011") && (masking(Rn, "11111") && (masking(op4, "11111"))))))
+    {
+      // RETAA, RETAB - RETAB variant FEAT_PAuth
+    }
+    if (masking(opc, "0100") && (masking(op2, "11111") && (masking(op3, "000000") && (masking(Rn, "11111") && (masking(op4, "00000"))))))
+    {
+      // ERET -
+    }
+    if (masking(opc, "0100") && (masking(op2, "11111") && (masking(op3, "000010") && (masking(Rn, "11111") && (masking(op4, "11111"))))))
+    {
+      // ERETAA, ERETAB - ERETAA variant FEAT_PAuth
+    }
+    if (masking(opc, "0100") && (masking(op2, "11111") && (masking(op3, "000011") && (masking(Rn, "11111") && (masking(op4, "11111"))))))
+    {
+      // ERETAA, ERETAB - ERETAB variant FEAT_PAuth
+    }
+    if (masking(opc, "0101") && (masking(op2, "11111") && (masking(op3, "000000") && (masking(Rn, "11111") && (masking(op4, "00000"))))))
+    {
+      // DRPS -
+    }
+    if (masking(opc, "1000") && (masking(op2, "11111") && (masking(op3, "000010") && (masking(Rn, "-") && (masking(op4, "-"))))))
+    {
+      // BRAA, BRAAZ, BRAB, BRABZ - Key A, register modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "1000") && (masking(op2, "11111") && (masking(op3, "000011") && (masking(Rn, "-") && (masking(op4, "-"))))))
+    {
+      // BRAA, BRAAZ, BRAB, BRABZ - Key B, register modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "1001") && (masking(op2, "11111") && (masking(op3, "000010") && (masking(Rn, "-") && (masking(op4, "-"))))))
+    {
+      // BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, register modifier variant FEAT_PAuth
+    }
+    if (masking(opc, "1001") && (masking(op2, "11111") && (masking(op3, "000011") && (masking(Rn, "-") && (masking(op4, "-"))))))
+    {
+      // BLRAA, BLRAAZ
+    }
   }
   if (masking(op0, "x00") && (masking(op1, "-") && (masking(op2, "-"))))
   {
     // Unconditional branch (immediate)
+    coprange op = {31, 31};
+    if (masking(op, "0"))
+    {
+      // B
+    }
+    if (masking(op, "1"))
+    {
+      // BL
+    }
   }
   if (masking(op0, "x01") && (masking(op1, "0xxxxxxxxxxxxx") && (masking(op2, "-"))))
   {
     // Compare and branch (immediate)
+    coprange sf = {31, 31};
+    coprange op = {24, 24};
+    if (masking(sf, "0") && (masking(op, "0")))
+    {
+      // CBZ - 32-bit variant
+    }
+    if (masking(sf, "0") && (masking(op, "1")))
+    {
+      // CBNZ - 32-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "0")))
+    {
+      // CBZ - 64-bit variant
+    }
+    if (masking(sf, "1") && (masking(op, "1")))
+    {
+      // CBNZ - 64-bit variant
+    }
   }
   if (masking(op0, "x01") && (masking(op1, "1xxxxxxxxxxxxx") && (masking(op2, "-"))))
   {
     // Test and branch (immediate)
+    coprange op = {24, 24};
+    if (masking(op, "0"))
+    {
+      // TBZ
+    }
+    if (masking(op, "1"))
+    {
+      // TBNZ
+    }
   }
 
   return gii(op_type::Undefine);
