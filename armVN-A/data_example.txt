@@ -1,4 +1,38 @@
-1 2
-op
-0 TBZ
-1 TBNZ
+5 36
+L R opcode S size 
+0 0 000 - - ST1 (single structure) - 8-bit variant
+0 0 001 - - ST3 (single structure) - 8-bit variant
+0 0 010 - x0 ST1 (single structure) - 16-bit variant
+0 0 011 - x0 ST3 (single structure) - 16-bit variant
+0 0 100 - 00 ST1 (single structure) - 32-bit variant
+0 0 100 0 01 ST1 (single structure) - 64-bit variant
+0 0 101 - 00 ST3 (single structure) - 32-bit variant
+0 0 101 0 01 ST3 (single structure) - 64-bit variant
+0 1 000 - - ST2 (single structure) - 8-bit variant
+0 1 001 - - ST4 (single structure) - 8-bit variant
+0 1 010 - x0 ST2 (single structure) - 16-bit variant
+0 1 011 - x0 ST4 (single structure) - 16-bit variant
+0 1 100 - 00 ST2 (single structure) - 32-bit variant
+0 1 100 0 01 ST2 (single structure) - 64-bit variant
+0 1 101 - 00 ST4 (single structure) - 32-bit variant
+0 1 101 0 01 ST4 (single structure) - 64-bit variant
+1 0 000 - - LD1 (single structure) - 8-bit variant
+1 0 001 - - LD3 (single structure) - 8-bit variant
+1 0 010 - x0 LD1 (single structure) - 16-bit variant
+1 0 011 - x0 LD3 (single structure) - 16-bit variant
+1 0 100 - 00 LD1 (single structure) - 32-bit variant
+1 0 100 0 01 LD1 (single structure) - 64-bit variant
+1 0 101 - 00 LD3 (single structure) - 32-bit variant
+1 0 101 0 01 LD3 (single structure) - 64-bit variant
+1 0 110 0 - LD1R
+1 0 111 0 - LD3R
+1 1 000 - - LD2 (single structure) - 8-bit variant
+1 1 001 - - LD4 (single structure) - 8-bit variant
+1 1 010 - x0 LD2 (single structure) - 16-bit variant
+1 1 011 - x0 LD4 (single structure) - 16-bit variant
+1 1 100 - 00 LD2 (single structure) - 32-bit variant
+1 1 100 0 01 LD2 (single structure) - 64-bit variant
+1 1 101 - 00 LD4 (single structure) - 32-bit variant
+1 1 101 0 01 LD4 (single structure) - 64-bit variant
+1 1 110 0 - LD2R
+1 1 111 0 - LD4R

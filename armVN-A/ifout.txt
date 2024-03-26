@@ -1,9 +1,149 @@
-coprange op = {24, 24};
-if(masking(op, "0"))
+coprange L = {22, 22};
+coprange R = {21, 21};
+coprange opcode = {13, 15};
+coprange S = {12, 12};
+coprange size = {10, 11};
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "000") &&(masking(S, "-") &&(masking(size, "-"))))))
 {
-	// TBZ
+	// ST1 (single structure) - 8-bit variant
 }
-if(masking(op, "1"))
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "001") &&(masking(S, "-") &&(masking(size, "-"))))))
 {
-	// TBNZ
+	// ST3 (single structure) - 8-bit variant
+}
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "010") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// ST1 (single structure) - 16-bit variant
+}
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "011") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// ST3 (single structure) - 16-bit variant
+}
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "100") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// ST1 (single structure) - 32-bit variant
+}
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "100") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// ST1 (single structure) - 64-bit variant
+}
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "101") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// ST3 (single structure) - 32-bit variant
+}
+if(masking(L, "0") &&(masking(R, "0") &&(masking(opcode, "101") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// ST3 (single structure) - 64-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "000") &&(masking(S, "-") &&(masking(size, "-"))))))
+{
+	// ST2 (single structure) - 8-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "001") &&(masking(S, "-") &&(masking(size, "-"))))))
+{
+	// ST4 (single structure) - 8-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "010") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// ST2 (single structure) - 16-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "011") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// ST4 (single structure) - 16-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "100") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// ST2 (single structure) - 32-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "100") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// ST2 (single structure) - 64-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "101") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// ST4 (single structure) - 32-bit variant
+}
+if(masking(L, "0") &&(masking(R, "1") &&(masking(opcode, "101") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// ST4 (single structure) - 64-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "000") &&(masking(S, "-") &&(masking(size, "-"))))))
+{
+	// LD1 (single structure) - 8-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "001") &&(masking(S, "-") &&(masking(size, "-"))))))
+{
+	// LD3 (single structure) - 8-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "010") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// LD1 (single structure) - 16-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "011") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// LD3 (single structure) - 16-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "100") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// LD1 (single structure) - 32-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "100") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// LD1 (single structure) - 64-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "101") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// LD3 (single structure) - 32-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "101") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// LD3 (single structure) - 64-bit variant
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "110") &&(masking(S, "0") &&(masking(size, "-"))))))
+{
+	// LD1R
+}
+if(masking(L, "1") &&(masking(R, "0") &&(masking(opcode, "111") &&(masking(S, "0") &&(masking(size, "-"))))))
+{
+	// LD3R
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "000") &&(masking(S, "-") &&(masking(size, "-"))))))
+{
+	// LD2 (single structure) - 8-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "001") &&(masking(S, "-") &&(masking(size, "-"))))))
+{
+	// LD4 (single structure) - 8-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "010") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// LD2 (single structure) - 16-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "011") &&(masking(S, "-") &&(masking(size, "x0"))))))
+{
+	// LD4 (single structure) - 16-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "100") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// LD2 (single structure) - 32-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "100") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// LD2 (single structure) - 64-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "101") &&(masking(S, "-") &&(masking(size, "00"))))))
+{
+	// LD4 (single structure) - 32-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "101") &&(masking(S, "0") &&(masking(size, "01"))))))
+{
+	// LD4 (single structure) - 64-bit variant
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "110") &&(masking(S, "0") &&(masking(size, "-"))))))
+{
+	// LD2R
+}
+if(masking(L, "1") &&(masking(R, "1") &&(masking(opcode, "111") &&(masking(S, "0") &&(masking(size, "-"))))))
+{
+	// LD4R
 }

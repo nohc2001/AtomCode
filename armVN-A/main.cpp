@@ -8182,18 +8182,372 @@ inst_info getOP_Load_Store()
   if (masking(op0, "0x00") && (masking(op1, "0") && (masking(op2, "00") && (masking(op3, "1xxxxx") && (masking(op4, "-"))))))
   {
     // Compare and swap pair
+    coprange sz = {30, 30};
+    coprange L = {22, 22};
+    coprange o0 = {15, 15};
+    coprange Rt2 = {10, 14};
+    if (masking(sz, "0") && (masking(L, "0") && (masking(o0, "0") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 32-bit CASP variant FEAT_LSE
+    }
+    if (masking(sz, "0") && (masking(L, "0") && (masking(o0, "1") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 32-bit CASPL variant FEAT_LSE
+    }
+    if (masking(sz, "0") && (masking(L, "1") && (masking(o0, "0") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 32-bit CASPA variant FEAT_LSE
+    }
+    if (masking(sz, "0") && (masking(L, "1") && (masking(o0, "1") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 32-bit CASPAL variant FEAT_LSE
+    }
+    if (masking(sz, "1") && (masking(L, "0") && (masking(o0, "0") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 64-bit CASP variant FEAT_LSE
+    }
+    if (masking(sz, "1") && (masking(L, "0") && (masking(o0, "1") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 64-bit CASPL variant FEAT_LSE
+    }
+    if (masking(sz, "1") && (masking(L, "1") && (masking(o0, "0") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 64-bit CASPA variant FEAT_LSE
+    }
+    if (masking(sz, "1") && (masking(L, "1") && (masking(o0, "1") && (masking(Rt2, "11111")))))
+    {
+      // CASP, CASPA, CASPAL, CASPL - 64-bit CASPAL variant FEAT_LSE
+    }
   }
   if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "00") && (masking(op3, "000000") && (masking(op4, "-"))))))
   {
     // Advanced SIMD load/store multiple structures
+    coprange L = {22, 22};
+    coprange opcode = {12, 15};
+    if (masking(L, "0") && (masking(opcode, "0000")))
+    {
+      // ST4 (multiple structures)
+    }
+    if (masking(L, "0") && (masking(opcode, "0010")))
+    {
+      // ST1 (multiple structures) - Four registers variant
+    }
+    if (masking(L, "0") && (masking(opcode, "0100")))
+    {
+      // ST3 (multiple structures)
+    }
+    if (masking(L, "0") && (masking(opcode, "0110")))
+    {
+      // ST1 (multiple structures) - Three registers variant
+    }
+    if (masking(L, "0") && (masking(opcode, "0111")))
+    {
+      // ST1 (multiple structures) - One register variant
+    }
+    if (masking(L, "0") && (masking(opcode, "1000")))
+    {
+      // ST2 (multiple structures)
+    }
+    if (masking(L, "0") && (masking(opcode, "1010")))
+    {
+      // ST1 (multiple structures) - Two registers variant
+    }
+    if (masking(L, "1") && (masking(opcode, "0000")))
+    {
+      // LD4 (multiple structures)
+    }
+    if (masking(L, "1") && (masking(opcode, "0010")))
+    {
+      // LD1 (multiple structures) - Four registers variant
+    }
+    if (masking(L, "1") && (masking(opcode, "0100")))
+    {
+      // LD3 (multiple structures)
+    }
+    if (masking(L, "1") && (masking(opcode, "0110")))
+    {
+      // LD1 (multiple structures) - Three registers variant
+    }
+    if (masking(L, "1") && (masking(opcode, "0111")))
+    {
+      // LD1 (multiple structures) - One register variant
+    }
+    if (masking(L, "1") && (masking(opcode, "1000")))
+    {
+      // LD2 (multiple structures)
+    }
   }
   if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "01") && (masking(op3, "0xxxxx") && (masking(op4, "-"))))))
   {
     // Advanced SIMD load/store multiple structures (post-indexed)
+    coprange L = {22, 22};
+    coprange Rm = {16, 20};
+    coprange opcode = {12, 15};
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "0000"))))
+    {
+      // ST4 (multiple structures) - Register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "0010"))))
+    {
+      // ST1 (multiple structures) - Four registers, register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "0100"))))
+    {
+      // ST3 (multiple structures) - Register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "0110"))))
+    {
+      // ST1 (multiple structures) - Three registers, register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "0111"))))
+    {
+      // ST1 (multiple structures) - One register, register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "1000"))))
+    {
+      // ST2 (multiple structures) - Register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "!=11111") && (masking(opcode, "1010"))))
+    {
+      // ST1 (multiple structures) - Two registers, register offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "0000"))))
+    {
+      // ST4 (multiple structures) - Immediate offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "0010"))))
+    {
+      // ST1 (multiple structures) - Four registers, immediate offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "0100"))))
+    {
+      // ST3 (multiple structures) - Immediate offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "0110"))))
+    {
+      // ST1 (multiple structures) - Three registers, immediate offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "0111"))))
+    {
+      // ST1 (multiple structures) - One register, immediate offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "1000"))))
+    {
+      // ST2 (multiple structures) - Immediate offset variant
+    }
+    if (masking(L, "0") && (masking(Rm, "11111") && (masking(opcode, "1010"))))
+    {
+      // ST1 (multiple structures) - Two registers, immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "0000"))))
+    {
+      // LD4 (multiple structures) - Register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "0010"))))
+    {
+      // LD1 (multiple structures) - Four registers, register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "0100"))))
+    {
+      // LD3 (multiple structures) - Register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "0110"))))
+    {
+      // LD1 (multiple structures) - Three registers, register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "0111"))))
+    {
+      // LD1 (multiple structures) - One register, register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "1000"))))
+    {
+      // LD2 (multiple structures) - Register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "!=11111") && (masking(opcode, "1010"))))
+    {
+      // LD1 (multiple structures) - Two registers, register offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "0000"))))
+    {
+      // LD4 (multiple structures) - Immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "0010"))))
+    {
+      // LD1 (multiple structures) - Four registers, immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "0100"))))
+    {
+      // LD3 (multiple structures) - Immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "0110"))))
+    {
+      // LD1 (multiple structures) - Three registers, immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "0111"))))
+    {
+      // LD1 (multiple structures) - One register, immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "1000"))))
+    {
+      // LD2 (multiple structures) - Immediate offset variant
+    }
+    if (masking(L, "1") && (masking(Rm, "11111") && (masking(opcode, "1010"))))
+    {
+      // LD1 (multiple structures) - Two registers, immediate offset variant
+    }
   }
   if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "10") && (masking(op3, "x00000") && (masking(op4, "-"))))))
   {
     // Advanced SIMD load/store single structure
+    coprange L = {22, 22};
+    coprange R = {21, 21};
+    coprange opcode = {13, 15};
+    coprange S = {12, 12};
+    coprange size = {10, 11};
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "000") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // ST1 (single structure) - 8-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "001") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // ST3 (single structure) - 8-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "010") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // ST1 (single structure) - 16-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "011") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // ST3 (single structure) - 16-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "100") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // ST1 (single structure) - 32-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "100") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // ST1 (single structure) - 64-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "101") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // ST3 (single structure) - 32-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "0") && (masking(opcode, "101") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // ST3 (single structure) - 64-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "000") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // ST2 (single structure) - 8-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "001") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // ST4 (single structure) - 8-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "010") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // ST2 (single structure) - 16-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "011") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // ST4 (single structure) - 16-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "100") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // ST2 (single structure) - 32-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "100") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // ST2 (single structure) - 64-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "101") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // ST4 (single structure) - 32-bit variant
+    }
+    if (masking(L, "0") && (masking(R, "1") && (masking(opcode, "101") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // ST4 (single structure) - 64-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "000") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // LD1 (single structure) - 8-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "001") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // LD3 (single structure) - 8-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "010") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // LD1 (single structure) - 16-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "011") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // LD3 (single structure) - 16-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "100") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // LD1 (single structure) - 32-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "100") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // LD1 (single structure) - 64-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "101") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // LD3 (single structure) - 32-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "101") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // LD3 (single structure) - 64-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "110") && (masking(S, "0") && (masking(size, "-"))))))
+    {
+      // LD1R
+    }
+    if (masking(L, "1") && (masking(R, "0") && (masking(opcode, "111") && (masking(S, "0") && (masking(size, "-"))))))
+    {
+      // LD3R
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "000") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // LD2 (single structure) - 8-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "001") && (masking(S, "-") && (masking(size, "-"))))))
+    {
+      // LD4 (single structure) - 8-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "010") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // LD2 (single structure) - 16-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "011") && (masking(S, "-") && (masking(size, "x0"))))))
+    {
+      // LD4 (single structure) - 16-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "100") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // LD2 (single structure) - 32-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "100") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // LD2 (single structure) - 64-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "101") && (masking(S, "-") && (masking(size, "00"))))))
+    {
+      // LD4 (single structure) - 32-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "101") && (masking(S, "0") && (masking(size, "01"))))))
+    {
+      // LD4 (single structure) - 64-bit variant
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "110") && (masking(S, "0") && (masking(size, "-"))))))
+    {
+      // LD2R
+    }
+    if (masking(L, "1") && (masking(R, "1") && (masking(opcode, "111") && (masking(S, "0") && (masking(size, "-"))))))
+    {
+      // LD4R
+    }
   }
   if (masking(op0, "0x00") && (masking(op1, "1") && (masking(op2, "11") && (masking(op3, "-") && (masking(op4, "-"))))))
   {
