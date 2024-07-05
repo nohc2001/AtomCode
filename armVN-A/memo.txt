@@ -32,3 +32,51 @@ x - 아무거나 가능
 좀더 자동화 못하나?
 데이터를 가져오고 점프하는 거까지 신경 쓰기 가능?
 그리고 이넘 ㅂ
+
+자동화 파일 형식
+
+(총 테이블 개수)
+(테이블 이름)
+(oprange 개수) (테이블항목개수)
+start end
+start end
+...
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+...
+
+(테이블 이름)
+(oprange 개수) (테이블항목개수)
+start end
+start end
+...
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+...
+
+(테이블 이름)
+(oprange 개수) (테이블항목개수)
+start end
+start end
+...
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+...
+
+-> 출력 코드 형식
+struct OprangeObj{
+    byte* oprangeData; // len is oprange_num*2 (start - end)
+    void* tableptr;
+}
+
+struct InstNodeTable{
+    char[128] name;
+    int oprange_num;
+    vecarr<OprangeObj*> table;
+};

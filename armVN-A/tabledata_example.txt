@@ -1,0 +1,408 @@
+#A64 instruction set encoding
+2 10
+31 31
+25 28
+0 0000 Reserved
+1 0000 SME encodings
+- 0001 Unallocated.
+- 0010 SVE encodings
+- 0011 Unallocated.
+- 100x Data Processing -- Immediate
+- 101x Branches, Exception Generating and System instructions
+- x1x0 Loads and Stores
+- x101 Data Processing -- Register
+- x111 Data Processing -- Scalar Floating-Point and Advanced SIMD
+#Reserved
+2 3
+29 30
+16 24
+00 000000000 UDF
+- !=000000000 Unallocated.
+!=00 - Unallocated.
+#SME encodings
+3 44
+29 30
+10 24
+2 4
+0x x11xxxxxxxxxxxx x0x SME Outer Product - 64 bit
+0x x11xxxxxxxxxxxx x1x Unallocated.
+00 x0xxxxxxxxxxxxx - Unallocated.
+00 x10xxxxxxxxxxxx x00 SME FP Outer Product - 32 bit
+00 010xxxxxxxxxxxx xx1 Unallocated.
+00 010xxxxxxxxxxxx x10 SME2 Binary Outer Product - 32 bit
+00 110xxxxxxxxxxxx x01 Unallocated.
+01 x10xxxxxxxxxxxx xx0 SME Integer Outer Product - 32 bit
+01 x10xxxxxxxxxxxx xx1 Unallocated.
+01 00xxxxxxxxxxxxx - SME2 Multi-vector - Memory (Contiguous)
+01 10xxxxxxxxxxxxx - SME2 Multi-vector - Memory (Strided)
+10 0xx000x0xxxxxxx 0xx SME Move into Array
+10 0xx000x0xxxxxxx 1xx Unallocated.
+10 0xx000x1xxxxxxx - SME Move from Array
+10 0xx010xxxxxxxxx x0x SME Add Vector to Array
+10 0xx010xxxxxxxxx x1x Unallocated.
+10 0xx011xxxxxxxxx - Unallocated.
+10 0xx1xxxxxxxxxxx - Unallocated.
+10 0000010xxxxxxxx - SME Zero
+10 0000011xxxxxxxx - Unallocated.
+10 0010010xxxxxxxx - SME2 Zero Lookup Table
+10 0010011xxxxxxxx - SME2 Move Lookup Table
+10 01x001xxxxxxxxx - SME2 Expand Lookup Table (Contiguous)
+10 1xx00xxxxxxxxxx - SME2 Multi-vector - Indexed (One register)
+10 1xx01xxxx0xxxxx - SME2 Multi-vector - Indexed (Two registers)
+10 1xx01xxxx1xxxxx - SME2 Multi-vector - Indexed (Four registers)
+10 1xx1xxxxx100xxx - SME2 Multi-vector - SVE Select
+10 1xx1xxxxx110xxx - SME2 Multi-vector - SVE Constructive Binary
+10 1xx1xxxxx111000 - SME2 Multi-vector - SVE Constructive Unary
+10 1xx1xxxxx111001 - Unallocated.
+10 1xx1xxxxx11101x - Unallocated.
+10 1xx1xxxx010110x - SME2 Multi-vector - Multiple Vectors SVE Destructive (Two registers)
+10 1xx1xxxx010111x - SME2 Multi-vector - Multiple Vectors SVE Destructive (Four registers)
+10 1xx10xxxx10100x - SME2 Multi-vector - Multiple and Single SVE Destructive (Two registers)
+10 1xx10xxxx10101x - SME2 Multi-vector - Multiple and Single SVE Destructive (Four registers)
+10 1xx10xxx01111xx - Unallocated.
+10 1xx10xxx11x11xx - Unallocated.
+10 1xx11xxxx1111xx - Unallocated.
+10 1xx11xxx01010xx - Unallocated.
+10 1xx11xxx1101xxx - Unallocated.
+10 10x1xxxxx0xxxxx - SME2 Multi-vector - Multiple and Single Array Vectors
+10 11x1xxxx00xxxxx - SME2 Multi-vector - Multiple Array Vectors (Two registers)
+10 11x1xxxx10xxxxx - SME2 Multi-vector - Multiple Array Vectors (Four registers)
+11 - - SME Memory
+#SME Outer Product - 64 bit
+3 4
+29 29
+24 24
+21 21
+0 0 0 SME FP64 outer product
+0 0 1 Unallocated.
+0 1 - Unallocated.
+1 - - SME Int16 outer product
+#SME FP64 outer product
+1 2
+4 4
+0 FMOPA (non-widening) FEAT_SME_F64F64
+1 FMOPS (non-widening) FEAT_SME_F64F64
+#SME Int16 outer product
+3 8
+24 24
+21 21
+4 4
+0 0 0 SMOPA (4-way) FEAT_SME_I16I64
+0 0 1 SMOPS (4-way) FEAT_SME_I16I64
+0 1 0 SUMOPA FEAT_SME_I16I64
+0 1 1 SUMOPS FEAT_SME_I16I64
+1 0 0 USMOPA FEAT_SME_I16I64
+1 0 1 USMOPS FEAT_SME_I16I64
+1 1 0 UMOPA (4-way) FEAT_SME_I16I64
+1 1 1 UMOPS (4-way) FEAT_SME_I16I64
+#SME FP Outer Product - 32 bit
+2 3
+24 24
+21 21
+0 0 SME FP32 outer product
+1 0 SME widening BF16 outer product
+1 1 SME FP16 widening outer product
+#SME FP32 outer product
+1 2
+4 4
+0 FMOPA (non-widening) FEAT_SME
+1 FMOPS (non-widening) FEAT_SME
+#SME widening BF16 outer product
+1 2
+4 4
+0 BFMOPA FEAT_SME
+1 BFMOPS FEAT_SME
+#SME FP16 widening outer product
+1 2
+4 4
+0 FMOPA (widening) FEAT_SME
+1 FMOPS (widening) FEAT_SME
+#SME2 Binary Outer Product - 32 bit
+1 2
+21 21
+0 SME2 32-bit binary outer product
+1 Unallocated.
+#SME2 32-bit binary outer product
+1 2
+4 4
+0 BMOPA FEAT_SME2
+1 BMOPS FEAT_SME2
+#SME Integer Outer Product - 32 bit
+2 3
+21 21
+3 3
+0 1 SME2 Int16 two-way outer product
+1 1 Unallocated.
+- 0 SME Int8 outer product
+#SME2 Int16 two-way outer product
+2 4
+24 24
+4 4
+0 0 SMOPA (2-way) FEAT_SME2
+0 1 SMOPS (2-way) FEAT_SME2
+1 0 UMOPA (2-way) FEAT_SME2
+1 1 UMOPS (2-way) FEAT_SME2
+#SME Int8 outer product
+3 8
+24 24
+21 21
+4 4
+0 0 0 SMOPA (4-way) FEAT_SME
+0 0 1 SMOPS (4-way) FEAT_SME
+0 1 0 SUMOPA FEAT_SME
+0 1 1 SUMOPS FEAT_SME
+1 0 0 USMOPA FEAT_SME
+1 0 1 USMOPS FEAT_SME
+1 1 0 UMOPA (4-way) FEAT_SME
+1 1 1 UMOPS (4-way) FEAT_SME
+#SME2 Multi-vector - Memory (Contiguous)
+3 11
+20 22
+15 15
+1 1
+00x 0 - SME2 multi-vec contiguous load (scalar plus scalar, two registers)
+00x 1 0 SME2 multi-vec contiguous load (scalar plus scalar, four registers)
+01x 0 - SME2 multi-vec contiguous store (scalar plus scalar, two registers)
+01x 1 0 SME2 multi-vec contiguous store (scalar plus scalar, four registers)
+0xx 1 1 Unallocated.
+100 0 - SME2 multi-vec contiguous load (scalar plus immediate, two registers)
+100 1 0 SME2 multi-vec contiguous load (scalar plus immediate, four registers)
+110 0 - SME2 multi-vec contiguous store (scalar plus immediate, two registers)
+110 1 0 SME2 multi-vec contiguous store (scalar plus immediate, four registers)
+1x0 1 1 Unallocated.
+1x1 - - Unallocated.
+#SME2 multi-vec contiguous load (scalar plus scalar, two registers)
+2 8
+13 14
+0 0
+00 0 LD1B (scalar plus scalar, consecutive registers) FEAT_SME2
+00 1 LDNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+01 0 LD1H (scalar plus scalar, consecutive registers) FEAT_SME2
+01 1 LDNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+10 0 LD1W (scalar plus scalar, consecutive registers) FEAT_SME2
+10 1 LDNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+11 0 LD1D (scalar plus scalar, consecutive registers) FEAT_SME2
+11 1 LDNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous load (scalar plus scalar, four registers)
+2 8
+13 14
+0 0
+00 0 LD1B (scalar plus scalar, consecutive registers) FEAT_SME2
+00 1 LDNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+01 0 LD1H (scalar plus scalar, consecutive registers) FEAT_SME2
+01 1 LDNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+10 0 LD1W (scalar plus scalar, consecutive registers) FEAT_SME2
+10 1 LDNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+11 0 LD1D (scalar plus scalar, consecutive registers) FEAT_SME2
+11 1 LDNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous store (scalar plus scalar, two registers)
+2 8
+13 14
+0 0
+00 0 ST1B (scalar plus scalar, consecutive registers) FEAT_SME2
+00 1 STNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+01 0 ST1H (scalar plus scalar, consecutive registers) FEAT_SME2
+01 1 STNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+10 0 ST1W (scalar plus scalar, consecutive registers) FEAT_SME2
+10 1 STNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+11 0 ST1D (scalar plus scalar, consecutive registers) FEAT_SME2
+11 1 STNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous store (scalar plus scalar, four registers)
+2 8
+13 14
+0 0
+00 0 ST1B (scalar plus scalar, consecutive registers) FEAT_SME2
+00 1 STNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+01 0 ST1H (scalar plus scalar, consecutive registers) FEAT_SME2
+01 1 STNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+10 0 ST1W (scalar plus scalar, consecutive registers) FEAT_SME2
+10 1 STNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+11 0 ST1D (scalar plus scalar, consecutive registers) FEAT_SME2
+11 1 STNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous load (scalar plus immediate, two registers)
+2 8
+13 14
+0 0
+00 0 LD1B (scalar plus immediate, consecutive registers) FEAT_SME2
+00 1 LDNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+01 0 LD1H (scalar plus immediate, consecutive registers) FEAT_SME2
+01 1 LDNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+10 0 LD1W (scalar plus immediate, consecutive registers) FEAT_SME2
+10 1 LDNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+11 0 LD1D (scalar plus immediate, consecutive registers) FEAT_SME2
+11 1 LDNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous load (scalar plus immediate, four registers)
+2 8
+13 14
+0 0
+00 0 LD1B (scalar plus immediate, consecutive registers) FEAT_SME2
+00 1 LDNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+01 0 LD1H (scalar plus immediate, consecutive registers) FEAT_SME2
+01 1 LDNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+10 0 LD1W (scalar plus immediate, consecutive registers) FEAT_SME2
+10 1 LDNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+11 0 LD1D (scalar plus immediate, consecutive registers) FEAT_SME2
+11 1 LDNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous store (scalar plus immediate, two registers)
+2 8
+13 14
+0 0
+00 0 ST1B (scalar plus immediate, consecutive registers) FEAT_SME2
+00 1 STNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+01 0 ST1H (scalar plus immediate, consecutive registers) FEAT_SME2
+01 1 STNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+10 0 ST1W (scalar plus immediate, consecutive registers) FEAT_SME2
+10 1 STNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+11 0 ST1D (scalar plus immediate, consecutive registers) FEAT_SME2
+11 1 STNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#SME2 multi-vec contiguous store (scalar plus immediate, four registers)
+2 8
+13 14
+0 0
+00 0 ST1B (scalar plus immediate, consecutive registers) FEAT_SME2
+00 1 STNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+01 0 ST1H (scalar plus immediate, consecutive registers) FEAT_SME2
+01 1 STNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+10 0 ST1W (scalar plus immediate, consecutive registers) FEAT_SME2
+10 1 STNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+11 0 ST1D (scalar plus immediate, consecutive registers) FEAT_SME2
+11 1 STNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#SME2 Multi-vector - Memory (Strided)
+3 11
+20 22
+15 15
+2 2
+00x 0 - SME2 multi-vec non-contiguous load (scalar plus scalar, two registers)
+00x 1 0 SME2 multi-vec non-contiguous load (scalar plus scalar, four registers)
+01x 0 - SME2 multi-vec non-contiguous store (scalar plus scalar, two registers)
+01x 1 0 SME2 multi-vec non-contiguous store (scalar plus scalar, four registers)
+0xx 1 1 Unallocated.
+100 0 - SME2 multi-vec non-contiguous load (scalar plus immediate, two registers)
+100 1 0 SME2 multi-vec non-contiguous load (scalar plus immediate, four registers)
+110 0 - SME2 multi-vec non-contiguous store (scalar plus immediate, two registers)
+110 1 0 SME2 multi-vec non-contiguous store (scalar plus immediate, four registers)
+1x0 1 1 Unallocated.
+1x1 - - Unallocated.
+#SME2 multi-vec non-contiguous load (scalar plus scalar, two registers)
+2 8
+13 14
+3 3
+00 0 LD1B (scalar plus scalar, strided registers) FEAT_SME2
+00 1 LDNT1B (scalar plus scalar, strided registers) FEAT_SME2
+01 0 LD1H (scalar plus scalar, strided registers) FEAT_SME2
+01 1 LDNT1H (scalar plus scalar, strided registers) FEAT_SME2
+10 0 LD1W (scalar plus scalar, strided registers) FEAT_SME2
+10 1 LDNT1W (scalar plus scalar, strided registers) FEAT_SME2
+11 0 LD1D (scalar plus scalar, strided registers) FEAT_SME2
+11 1 LDNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous load (scalar plus scalar, four registers)
+2 8
+13 14
+3 3
+00 0 LD1B (scalar plus scalar, strided registers) FEAT_SME2
+00 1 LDNT1B (scalar plus scalar, strided registers) FEAT_SME2
+01 0 LD1H (scalar plus scalar, strided registers) FEAT_SME2
+01 1 LDNT1H (scalar plus scalar, strided registers) FEAT_SME2
+10 0 LD1W (scalar plus scalar, strided registers) FEAT_SME2
+10 1 LDNT1W (scalar plus scalar, strided registers) FEAT_SME2
+11 0 LD1D (scalar plus scalar, strided registers) FEAT_SME2
+11 1 LDNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous store (scalar plus scalar, two registers)
+2 8
+13 14
+3 3
+00 0 ST1B (scalar plus scalar, strided registers) FEAT_SME2
+00 1 STNT1B (scalar plus scalar, strided registers) FEAT_SME2
+01 0 ST1H (scalar plus scalar, strided registers) FEAT_SME2
+01 1 STNT1H (scalar plus scalar, strided registers) FEAT_SME2
+10 0 ST1W (scalar plus scalar, strided registers) FEAT_SME2
+10 1 STNT1W (scalar plus scalar, strided registers) FEAT_SME2
+11 0 ST1D (scalar plus scalar, strided registers) FEAT_SME2
+11 1 STNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous store (scalar plus scalar, four registers)
+2 8
+13 14
+3 3
+00 0 ST1B (scalar plus scalar, strided registers) FEAT_SME2
+00 1 STNT1B (scalar plus scalar, strided registers) FEAT_SME2
+01 0 ST1H (scalar plus scalar, strided registers) FEAT_SME2
+01 1 STNT1H (scalar plus scalar, strided registers) FEAT_SME2
+10 0 ST1W (scalar plus scalar, strided registers) FEAT_SME2
+10 1 STNT1W (scalar plus scalar, strided registers) FEAT_SME2
+11 0 ST1D (scalar plus scalar, strided registers) FEAT_SME2
+11 1 STNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous load (scalar plus immediate, two registers)
+2 8
+13 14
+3 3
+00 0 LD1B (scalar plus immediate, strided registers) FEAT_SME2
+00 1 LDNT1B (scalar plus immediate, strided registers) FEAT_SME2
+01 0 LD1H (scalar plus immediate, strided registers) FEAT_SME2
+01 1 LDNT1H (scalar plus immediate, strided registers) FEAT_SME2
+10 0 LD1W (scalar plus immediate, strided registers) FEAT_SME2
+10 1 LDNT1W (scalar plus immediate, strided registers) FEAT_SME2
+11 0 LD1D (scalar plus immediate, strided registers) FEAT_SME2
+11 1 LDNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous load (scalar plus immediate, four registers)
+2 8
+13 14
+3 3
+00 0 LD1B (scalar plus immediate, strided registers) FEAT_SME2
+00 1 LDNT1B (scalar plus immediate, strided registers) FEAT_SME2
+01 0 LD1H (scalar plus immediate, strided registers) FEAT_SME2
+01 1 LDNT1H (scalar plus immediate, strided registers) FEAT_SME2
+10 0 LD1W (scalar plus immediate, strided registers) FEAT_SME2
+10 1 LDNT1W (scalar plus immediate, strided registers) FEAT_SME2
+11 0 LD1D (scalar plus immediate, strided registers) FEAT_SME2
+11 1 LDNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous store (scalar plus immediate, two registers)
+2 8
+13 14
+3 3
+00 0 ST1B (scalar plus immediate, strided registers) FEAT_SME2
+00 1 STNT1B (scalar plus immediate, strided registers) FEAT_SME2
+01 0 ST1H (scalar plus immediate, strided registers) FEAT_SME2
+01 1 STNT1H (scalar plus immediate, strided registers) FEAT_SME2
+10 0 ST1W (scalar plus immediate, strided registers) FEAT_SME2
+10 1 STNT1W (scalar plus immediate, strided registers) FEAT_SME2
+11 0 ST1D (scalar plus immediate, strided registers) FEAT_SME2
+11 1 STNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#SME2 multi-vec non-contiguous store (scalar plus immediate, four registers)
+2 8
+13 14
+3 3
+00 0 ST1B (scalar plus immediate, strided registers) FEAT_SME2
+00 1 STNT1B (scalar plus immediate, strided registers) FEAT_SME2
+01 0 ST1H (scalar plus immediate, strided registers) FEAT_SME2
+01 1 STNT1H (scalar plus immediate, strided registers) FEAT_SME2
+10 0 ST1W (scalar plus immediate, strided registers) FEAT_SME2
+10 1 STNT1W (scalar plus immediate, strided registers) FEAT_SME2
+11 0 ST1D (scalar plus immediate, strided registers) FEAT_SME2
+11 1 STNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#SME Move into Array
+#SME Move from Array
+#SME Add Vector to Array
+#SME Zero
+#SME2 Zero Lookup Table
+#SME2 Move Lookup Table
+#SME2 Expand Lookup Table (Contiguous)
+#SME2 Multi-vector - Indexed (One register)
+#SME2 Multi-vector - Indexed (Two registers)
+#SME2 Multi-vector - Indexed (Four registers)
+#SME2 Multi-vector - SVE Select
+#SME2 Multi-vector - SVE Constructive Binary
+#SME2 Multi-vector - SVE Constructive Unary
+#SME2 Multi-vector - Multiple Vectors SVE Destructive (Two registers)
+#SME2 Multi-vector - Multiple Vectors SVE Destructive (Four registers)
+#SME2 Multi-vector - Multiple and Single SVE Destructive (Two registers)
+#SME2 Multi-vector - Multiple and Single SVE Destructive (Four registers)
+#SME2 Multi-vector - Multiple and Single Array Vectors
+#SME2 Multi-vector - Multiple Array Vectors (Two registers)
+#SME2 Multi-vector - Multiple Array Vectors (Four registers)
+
+#SVE encodings
+#Data Processing -- Immediate
+#Branches, Exception Generating and System instructions
+#Loads and Stores
+#Data Processing -- Register
+#Data Processing -- Scalar Floating-Point and Advanced SIMD
