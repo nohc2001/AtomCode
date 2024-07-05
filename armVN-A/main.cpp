@@ -7274,12 +7274,211 @@ inst_info getOP_SVE()
     }
     if (masking(o1, "1xx100xxx10>"))
     {
+      coprange op0 = {11, 13};
+      coprange op1 = {9, 9};
+      if (masking(op0, "000") && (masking(op1, "1")))
+      {
+        // SVE predicate count (predicate-as-counter)
+        coprange opc = {16, 18};
+        if(masking(op0, "000")){
+          return gii(op_type::SVE_Predicated_Count_PredicateAsCounter_CNTP);
+        }
+      }
+      if (masking(op0, "!=000") && (masking(op1, "1")))
+      {
+        // Unallocated.
+        return gii(op_type::Undefine);
+      }
+      if (masking(op0, "-") && (masking(op1, "0")))
+      {
+        // SVE predicate count
+        coprange opc = {16, 18};
+        if(masking(op0, "000")){
+          return gii(op_type::SVE_Predicated_Count_CNTP);
+        }
+      }
     }
     if (masking(o1, "1xx101xxx1000>"))
     {
+      coprange op0 = {18, 18};
+      coprange op1 = {11, 11};
+      // SVE Inc/Dec by Predicate Count
+      if (masking(op0, "0") && (masking(op1, "0")))
+      {
+        coprange D = {17};
+        coprange U = {16};
+        coprange opc = {9, 10};
+        // SVE saturating inc/dec vector by predicate count
+        if (masking(D, "-") && (masking(U, "-") && (masking(opc, "01"))))
+        {
+          return gii(op_type::Undefine);
+        }
+        if (masking(D, "-") && (masking(U, "-") && (masking(opc, "1x"))))
+        {
+          return gii(op_type::Undefine);
+        }
+        if (masking(D, "0") && (masking(U, "0") && (masking(opc, "00"))))
+        {
+          // SQINCP (vector)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Vector_SQINCP);
+        }
+        if (masking(D, "0") && (masking(U, "1") && (masking(opc, "00"))))
+        {
+          // UQINCP (vector)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Vector_UQINCP);
+        }
+        if (masking(D, "1") && (masking(U, "0") && (masking(opc, "00"))))
+        {
+          // SQDECP (vector)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Vector_SQDECP);
+        }
+        if (masking(D, "1") && (masking(U, "1") && (masking(opc, "00"))))
+        {
+          // UQDECP (vector)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Vector_UQDECP);
+        }
+      }
+      if (masking(op0, "0") && (masking(op1, "1")))
+      {
+        coprange D = {17, 17};
+        coprange U = {16, 16};
+        coprange sf = {10, 10};
+        coprange op = {9, 9};
+        // SVE saturating inc/dec register by predicate count
+        if (masking(D, "-") && (masking(U, "-") && (masking(sf, "-") && (masking(op, "1")))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+        if (masking(D, "0") && (masking(U, "0") && (masking(sf, "0") && (masking(op, "0")))))
+        {
+          // SQINCP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_SQINCP);
+        }
+        if (masking(D, "0") && (masking(U, "0") && (masking(sf, "1") && (masking(op, "0")))))
+        {
+          // SQINCP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_SQINCP);
+        }
+        if (masking(D, "0") && (masking(U, "1") && (masking(sf, "0") && (masking(op, "0")))))
+        {
+          // UQINCP (scalar) - Encoding-
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_UQINCP);
+        }
+        if (masking(D, "0") && (masking(U, "1") && (masking(sf, "1") && (masking(op, "0")))))
+        {
+          // UQINCP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_UQINCP);
+        }
+        if (masking(D, "1") && (masking(U, "0") && (masking(sf, "0") && (masking(op, "0")))))
+        {
+          // SQDECP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_SQDECP);
+        }
+        if (masking(D, "1") && (masking(U, "0") && (masking(sf, "1") && (masking(op, "0")))))
+        {
+          // SQDECP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_SQDECP);
+        }
+        if (masking(D, "1") && (masking(U, "1") && (masking(sf, "0") && (masking(op, "0")))))
+        {
+          // UQDECP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_UQDECP);
+        }
+        if (masking(D, "1") && (masking(U, "1") && (masking(sf, "1") && (masking(op, "0")))))
+        {
+          // UQDECP (scalar) - Encoding
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Saturating_Register_UQDECP);
+        }
+      }
+      if (masking(op0, "1") && (masking(op1, "0")))
+      {
+        coprange op = {17, 17};
+        coprange D = {16, 16};
+        coprange opc2 = {9, 10};
+        // SVE inc/dec vector by predicate count
+        if (masking(op, "0") && (masking(D, "-") && (masking(opc2, "01"))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+        if (masking(op, "0") && (masking(D, "-") && (masking(opc2, "1x"))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+        if (masking(op, "0") && (masking(D, "0") && (masking(opc2, "00"))))
+        {
+          // INCP (vector)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Vector_INCP);
+        }
+        if (masking(op, "0") && (masking(D, "1") && (masking(opc2, "00"))))
+        {
+          // DECP (vector)
+           return gii(op_type::SVE_IncOrDecByPredicateCount_Vector_DECP);
+        }
+        if (masking(op, "1") && (masking(D, "-") && (masking(opc2, "-"))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+      }
+      if (masking(op0, "1") && (masking(op1, "1")))
+      {
+        coprange op = {17, 17};
+        coprange D = {16, 16};
+        coprange opc2 = {9, 10};
+        // SVE inc/dec register by predicate count
+        if (masking(op, "0") && (masking(D, "-") && (masking(opc2, "01"))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+        if (masking(op, "0") && (masking(D, "-") && (masking(opc2, "1x"))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+        if (masking(op, "0") && (masking(D, "0") && (masking(opc2, "00"))))
+        {
+          // INCP (scalar)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Register_INCP);
+        }
+        if (masking(op, "0") && (masking(D, "1") && (masking(opc2, "00"))))
+        {
+          // DECP (scalar)
+          return gii(op_type::SVE_IncOrDecByPredicateCount_Register_DECP);
+        }
+        if (masking(op, "1") && (masking(D, "-") && (masking(opc2, "-"))))
+        {
+          // Unallocated.
+          return gii(op_type::Undefine);
+        }
+      }
     }
     if (masking(o1, "1xx101xxx1001>"))
     {
+      coprange op0 = {18, 18};
+      coprange op1 = {16, 17};
+      coprange op2 = {9, 11};
+      coprange op3 = {5, 8};
+      coprange op4 = {0, 4};
+      if (masking(op0, "0") && (masking(op1, "00") && (masking(op2, "000") && (masking(op3, "-") && (masking(op4, "00000"))))))
+      {
+         // SVE FFR write from predicate
+        coprange opc = {22, 23};
+        if(masking(opc, "00")){
+          return gii(op_type::SVE_WriteFFR_FromPredicate_WRFFR);
+        }
+      }
+      if (masking(op0, "1") && (masking(op1, "00") && (masking(op2, "000") && (masking(op3, "0000") && (masking(op4, "00000"))))))
+      {
+        // SVE FFR initialise
+        coprange opc = {22, 23};
+        if(masking(opc, "00")){
+          //return gii(op_type::SVE_WriteFFR_);
+        }
+      }
     }
     if (masking(o1, "1xx101xxx101>"))
     {
