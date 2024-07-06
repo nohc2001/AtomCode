@@ -380,13 +380,220 @@
 11 0 ST1D (scalar plus immediate, strided registers) FEAT_SME2
 11 1 STNT1D (scalar plus immediate, strided registers) FEAT_SME2
 #SME Move into Array
+6 22
+22 23
+18 18
+15 16
+10 12
+5 6
+3 3
+00 1 00 010 x0 0 MOVA (vector to array, two registers) FEAT_SME2
+00 1 00 011 00 0 MOVA (vector to array, four registers) FEAT_SME2
+00 1 00 0x0 x0 1 Unallocated. -
+00 1 00 0x0 x1 - Unallocated. -
+00 1 00 0x1 00 1 Unallocated. -
+00 1 00 0x1 != 00 - Unallocated. -
+00 1 01 000 x0 1 Unallocated. -
+00 1 01 000 x1 - Unallocated. -
+00 1 01 001 00 1 Unallocated. -
+00 1 01 001 != 00 - Unallocated. -
+00 1 01 01x - - Unallocated. -
+!=00 1 0x 000 x0 1 Unallocated. -
+!=00 1 0x 000 x1 - Unallocated. -
+!=00 1 0x 001 00 1 Unallocated. -
+!=00 1 0x 001 01 - Unallocated. -
+!=00 1 0x 001 1x - Unallocated. -
+!=00 1 0x 01x - - Unallocated. -
+- 0 - - - - SME move vector to array -
+- 1 0x 000 x0 0 SME2 move vector to tile, two registers -
+- 1 0x 001 00 0 SME2 move vector to tile, four registers -
+- 1 0x 1xx - - Unallocated. -
+- 1 1x - - - Unallocated. -
+#SME move vector to array
+2 7
+22 23
+16 16
+0x 1 Unallocated. -
+00 0 MOVA (vector to tile, single) - Encoding FEAT_SME
+01 0 MOVA (vector to tile, single) - Encoding FEAT_SME
+10 0 MOVA (vector to tile, single) - Encoding FEAT_SME
+10 1 Unallocated. -
+11 0 MOVA (vector to tile, single) - Encoding FEAT_SME
+11 1 MOVA (vector to tile, single) - Encoding FEAT_SME
+#SME2 move vector to tile, two registers
+1 4
+22 23
+00 MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+01 MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+10 MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+11 MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+#SME2 move vector to tile, four registers
+22 23
+0 2
+0x 1xx Unallocated. -
+00 0xx MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+01 0xx MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+10 0xx MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+10 1xx Unallocated. -
+11 - MOVA (vector to tile, four registers) - Encoding FEAT_SME2
 #SME Move from Array
+6 21
+22 23
+18 18
+15 16
+10 12
+8 9
+0 1
+00 1 00 010 00 x0 MOVA (array to vector, two registers) FEAT_SME2
+00 1 00 011 00 00 MOVA (array to vector, four registers) FEAT_SME2
+00 1 00 0x0 00 x1 Unallocated. -
+00 1 00 0x1 00 !=00 Unallocated. -
+00 1 00 0xx !=00 - Unallocated. -
+00 1 01 000 00 x1 Unallocated. -
+00 1 01 001 00 !=00 Unallocated. -
+00 1 01 00x !=00 - Unallocated. -
+00 1 01 01x - - Unallocated. -
+!=00 1 0x 000 00 x1 Unallocated. -
+!=00 1 0x 001 00 01 Unallocated. -
+!=00 1 0x 001 00 1x Unallocated. -
+!=00 1 0x 00x 01 - Unallocated. -
+!=00 1 0x 00x 1x - Unallocated. -
+!=00 1 0x 01x - - Unallocated. -
+- 0 - - 0x - SME move array to vector -
+- 0 - - 1x - Unallocated. -
+- 1 0x 000 00 x0 SME2 move tile to vector, two registers -
+- 1 0x 001 00 00 SME2 move tile to vector, four registers -
+- 1 0x 1xx - - Unallocated. -
+- 1 1x - - - Unallocated. -
 #SME Add Vector to Array
+3 4
+23 23
+17 18
+4 4
+0 - - Unallocated.
+1 00 0 SME add vector to array
+1 00 1 Unallocated.
+1 !=00 - Unallocated.
 #SME Zero
+1 2
+8 17
+0000000000 ZERO (tile) FEAT_SME
+!= 0000000000 Unallocated. -
 #SME2 Zero Lookup Table
+1 2
+4 17
+00000000000000 SME2 zero lookup table
+!=00000000000000 Unallocated.
 #SME2 Move Lookup Table
+2 3
+17 17
+15 16
+0 00 SME2 move from lookup table
+1 00 SME2 move into lookup table
+- !=00 Unallocated.
+#SME2 move from lookup table
+1 8
+5 11
+000xxxx Unallocated. -
+0010xxx Unallocated. -
+00110xx Unallocated. -
+001110x Unallocated. -
+0011110 Unallocated. -
+0011111 MOVT (ZT0 to scalar) FEAT_SME2
+01xxxxx Unallocated. -
+1xxxxxx Unallocated. -
+#SME2 move into lookup table
+1 8
+5 11
+000xxxx Unallocated. -
+0010xxx Unallocated. -
+00110xx Unallocated. -
+001110x Unallocated. -
+0011110 Unallocated. -
+0011111 MOVT (scalar to ZT0) FEAT_SME2
+01xxxxx Unallocated. -
+1xxxxxx Unallocated. -
 #SME2 Expand Lookup Table (Contiguous)
+3 6
+22 22
+14 15
+0 1
+0 00 - Unallocated.
+0 10 00 SME2 lookup table expand four contiguous registers
+0 10 != 00 Unallocated.
+0 x1 x0 SME2 lookup table expand two contiguous registers
+0 x1 x1 Unallocated.
+1 - - SME2 lookup table expand one register
+#SME2 lookup table expand four contiguous registers
+2 7
+16 18
+10 11
+00x - Unallocated. -
+01x 00 LUTI4 (four registers) FEAT_SME2
+01x 01 Unallocated. -
+01x 1x Unallocated. -
+1xx 00 LUTI2 (four registers) FEAT_SME2
+1xx 01 Unallocated. -
+1xx 1x Unallocated. -
+#SME2 lookup table expand two contiguous registers
+2 7
+15 18
+10 11
+00xx - Unallocated. -
+01xx 00 LUTI4 (two registers) FEAT_SME2
+01xx 01 Unallocated. -
+01xx 1x Unallocated. -
+1xxx 00 LUTI2 (two registers) FEAT_SME2
+1xxx 01 Unallocated. -
+1xxx 1x Unallocated. -
+#SME2 lookup table expand one register
+2 7
+14 18
+10 11
+00xxx - Unallocated. -
+01xxx 00 LUTI4 (single) FEAT_SME2
+01xxx 01 Unallocated. -
+01xxx 1x Unallocated. -
+1xxxx 00 LUTI2 (single) FEAT_SME2
+1xxxx 01 Unallocated. -
+1xxxx 1x Unallocated. -
 #SME2 Multi-vector - Indexed (One register)
+3 7
+22 23
+20 21
+12 12
+2 2
+00 - - SME2 multi-vec indexed long long MLA one source 32-bit
+01 - - Unallocated.
+10 0 0 SME2 multi-vec indexed long long MLA one source 64-bit
+10 0 1 Unallocated.
+10 1 - SME2 multi-vec indexed long FMA one source
+11 0 - Unallocated.
+11 1 - SME2 multi-vec indexed long MLA one source
+#SME2 multi-vec indexed long long MLA one source 32-bit
+3 7
+4 4
+3 3
+2 2
+- 1 1 Unallocated. -
+0 0 0 SMLALL (multiple and indexed vector) FEAT_SME2
+0 0 1 USMLALL (multiple and indexed vector) FEAT_SME2
+0 1 0 SMLSLL (multiple and indexed vector) FEAT_SME2
+1 0 0 UMLALL (multiple and indexed vector) FEAT_SME2
+1 0 1 SUMLALL (multiple and indexed vector) FEAT_SME2
+1 1 0 UMLSLL (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec indexed long long MLA one source 64-bit
+2 4
+4 4
+3 3
+0 0 SMLALL (multiple and indexed vector) FEAT_SME_I16I64
+0 1 SMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+1 0 UMLALL (multiple and indexed vector) FEAT_SME_I16I64
+1 1 UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#SME2 multi-vec indexed long FMA one source
+
+#SME2 multi-vec indexed long MLA one source
+
 #SME2 Multi-vector - Indexed (Two registers)
 #SME2 Multi-vector - Indexed (Four registers)
 #SME2 Multi-vector - SVE Select
