@@ -591,14 +591,393 @@
 1 0 UMLALL (multiple and indexed vector) FEAT_SME_I16I64
 1 1 UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
 #SME2 multi-vec indexed long FMA one source
-
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple and indexed vector) FEAT_SME2
+0 1 FMLSL (multiple and indexed vector) FEAT_SME2
+1 0 BFMLAL (multiple and indexed vector) FEAT_SME2
+1 1 BFMLSL (multiple and indexed vector) FEAT_SME2
 #SME2 multi-vec indexed long MLA one source
-
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple and indexed vector) FEAT_SME2
+0 1 SMLSL (multiple and indexed vector) FEAT_SME2
+1 0 UMLAL (multiple and indexed vector) FEAT_SME2
+1 1 UMLSL (multiple and indexed vector) FEAT_SME2
 #SME2 Multi-vector - Indexed (Two registers)
+3 11
+22 23
+11 12
+5 5
+00 0x - SME2 multi-vec indexed long long MLA two sources 32-bit
+00 1x - Unallocated.
+01 - - SME2 multi-vec ternary indexed two registers 32-bit
+10 00 0 SME2 multi-vec indexed long long MLA two sources 64-bit
+10 00 1 Unallocated.
+10 01 - Unallocated.
+10 1x 0 SME2 multi-vec indexed long FMA two sources
+10 1x 1 Unallocated.
+11 00 0 SME2 multi-vec ternary indexed two registers 64-bit
+11 01 0 Unallocated.
+11 1x 0 SME2 multi-vec indexed long MLA two sources
+#SME2 multi-vec indexed long long MLA two sources 32-bit
+3 7
+5 5
+4 4
+3 3
+0 0 0 SMLALL (multiple and indexed vector) FEAT_SME2
+0 0 1 SMLSLL (multiple and indexed vector) FEAT_SME2
+0 1 0 UMLALL (multiple and indexed vector) FEAT_SME2
+0 1 1 UMLSLL (multiple and indexed vector) FEAT_SME2
+1 - 1 Unallocated. -
+1 0 0 USMLALL (multiple and indexed vector) FEAT_SME2
+1 1 0 SUMLALL (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec ternary indexed two registers 32-bit
+2 15
+12 12
+3 5
+0 000 FMLA (multiple and indexed vector) FEAT_SME2
+0 001 FVDOT FEAT_SME2
+0 010 FMLS (multiple and indexed vector) FEAT_SME2
+0 011 BFVDOT FEAT_SME2
+0 100 SVDOT (2-way) FEAT_SME2
+0 101 Unallocated. -
+0 110 UVDOT (2-way) FEAT_SME2
+1 000 SDOT (2-way, multiple and indexed vector) FEAT_SME2
+1 001 FDOT (multiple and indexed vector) FEAT_SME2
+1 010 UDOT (2-way, multiple and indexed vector) FEAT_SME2
+1 011 BFDOT (multiple and indexed vector) FEAT_SME2
+1 100 SDOT (4-way, multiple and indexed vector) FEAT_SME2
+1 101 USDOT (multiple and indexed vector) FEAT_SME2
+1 110 UDOT (4-way, multiple and indexed vector) FEAT_SME2
+1 111 SUDOT (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec indexed long long MLA two sources 64-bit
+2 4
+4 4
+3 3
+0 0 SMLALL (multiple and indexed vector) FEAT_SME_I16I64
+0 1 SMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+1 0 UMLALL (multiple and indexed vector) FEAT_SME_I16I64
+1 1 UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#SME2 multi-vec indexed long FMA two sources
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple and indexed vector) FEAT_SME2
+0 1 FMLSL (multiple and indexed vector) FEAT_SME2
+1 0 BFMLAL (multiple and indexed vector) FEAT_SME2
+1 1 BFMLSL (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec ternary indexed two registers 64-bit
+1 4
+3 4
+00 FMLA (multiple and indexed vector) FEAT_SME_F64F64
+01 SDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+10 FMLS (multiple and indexed vector) FEAT_SME_F64F64
+11 UDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+#SME2 multi-vec indexed long MLA two sources
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple and indexed vector) FEAT_SME2
+0 1 SMLSL (multiple and indexed vector) FEAT_SME2
+1 0 UMLAL (multiple and indexed vector) FEAT_SME2
+1 1 UMLSL (multiple and indexed vector) FEAT_SME2
 #SME2 Multi-vector - Indexed (Four registers)
+3 13
+22 23
+11 12
+5 6
+00 0x 0x SME2 multi-vec indexed long long MLA four sources 32-bit
+00 0x 1x Unallocated.
+00 1x - Unallocated.
+01 - 0x SME2 multi-vec ternary indexed four registers 32-bit
+10 00 00 SME2 multi-vec indexed long long MLA four sources 64-bit
+10 00 != 00 Unallocated.
+10 01 - Unallocated.
+10 1x 00 SME2 multi-vec indexed long FMA four sources
+10 1x != 00 Unallocated.
+11 0x 00 SME2 multi-vec ternary indexed four registers 64-bit
+11 0x 01 Unallocated.
+11 1x 00 SME2 multi-vec indexed long MLA four sources
+x1 - 1x Unallocated.
+#SME2 multi-vec indexed long long MLA four sources 32-bit
+3 7
+5 5
+4 4
+3 3
+0 0 0 SMLALL (multiple and indexed vector) FEAT_SME2
+0 0 1 SMLSLL (multiple and indexed vector) FEAT_SME2
+0 1 0 UMLALL (multiple and indexed vector) FEAT_SME2
+0 1 1 UMLSLL (multiple and indexed vector) FEAT_SME2
+1 - 1 Unallocated. -
+1 0 0 USMLALL (multiple and indexed vector) FEAT_SME2
+1 1 0 SUMLALL (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec ternary indexed four registers 32-bit
+2 14
+12 12
+3 5
+0 000 FMLA (multiple and indexed vector) FEAT_SME2
+0 010 FMLS (multiple and indexed vector) FEAT_SME2
+0 100 SVDOT (4-way) FEAT_SME2
+0 101 USVDOT FEAT_SME2
+0 110 UVDOT (4-way) FEAT_SME2
+0 111 SUVDOT FEAT_SME2
+1 000 SDOT (2-way, multiple and indexed vector) FEAT_SME2
+1 001 FDOT (multiple and indexed vector) FEAT_SME2
+1 010 UDOT (2-way, multiple and indexed vector) FEAT_SME2
+1 011 BFDOT (multiple and indexed vector) FEAT_SME2
+1 100 SDOT (4-way, multiple and indexed vector) FEAT_SME2
+1 101 USDOT (multiple and indexed vector) FEAT_SME2
+1 110 UDOT (4-way, multiple and indexed vector) FEAT_SME2
+1 111 SUDOT (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec indexed long long MLA four sources 64-bit
+2 4
+4 4
+3 3
+0 0 SMLALL (multiple and indexed vector) FEAT_SME_I16I64
+0 1 SMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+1 0 UMLALL (multiple and indexed vector) FEAT_SME_I16I64
+1 1 UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#SME2 multi-vec indexed long FMA four sources
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple and indexed vector) FEAT_SME2
+0 1 FMLSL (multiple and indexed vector) FEAT_SME2
+1 0 BFMLAL (multiple and indexed vector) FEAT_SME2
+1 1 BFMLSL (multiple and indexed vector) FEAT_SME2
+#SME2 multi-vec ternary indexed four registers 64-bit
+2 7
+11 11
+3 4
+0 00 FMLA (multiple and indexed vector) FEAT_SME_F64F64
+0 01 SDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+0 10 FMLS (multiple and indexed vector) FEAT_SME_F64F64
+0 11 UDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+1 x0 Unallocated. -
+1 01 SVDOT (4-way) FEAT_SME_I16I64
+1 11 UVDOT (4-way) FEAT_SME_I16I64
+#SME2 multi-vec indexed long MLA four sources
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple and indexed vector) FEAT_SME2
+0 1 SMLSL (multiple and indexed vector) FEAT_SME2
+1 0 UMLAL (multiple and indexed vector) FEAT_SME2
+1 1 UMLSL (multiple and indexed vector) FEAT_SME2
 #SME2 Multi-vector - SVE Select
+3 7
+5 6
+0 1
+01 00 00 SEL - Encoding FEAT_SME2
+01 00 !=00 Unallocated. -
+01 !=00 - Unallocated. -
+11 - - Unallocated. -
+x0 x0 x0 SEL - Encoding FEAT_SME2
+x0 x0 x1 Unallocated. -
+x0 x1 - Unallocated. -
 #SME2 Multi-vector - SVE Constructive Binary
+3 13
+22 23
+10 12
+0 1
+00 101 - SME2 multi-vec quadwords ZIP two registers -
+01 101 - Unallocated. -
+10 101 - Unallocated. -
+11 101 - SME2 multi-vec saturating shift right narrow two registers -
+- 000 x0 FCLAMP - Encoding FEAT_SME2
+- 000 x1 Unallocated. -
+- 001 - SME2 multi-vec CLAMP two registers -
+- 010 00 FCLAMP - Encoding FEAT_SME2
+- 010 01 Unallocated. -
+- 011 0x SME2 multi-vec CLAMP four registers -
+- 1x Unallocated. -
+- 100 - SME2 multi-vec ZIP two registers -
+- 11x - SME2 multi-vec saturating shift right narrow four registers -
+#SME2 multi-vec quadwords ZIP two registers -
+1 2
+0 0
+0 ZIP (two registers) FEAT_SME2
+1 UZP (two registers) FEAT_SME2
+#SME2 multi-vec saturating shift right narrow two registers -
+2 4
+20 20
+5 5
+0 0 SQRSHR (two registers) FEAT_SME2
+0 1 UQRSHR (two registers) FEAT_SME2
+1 0 SQRSHRU (two registers) FEAT_SME2
+1 1 Unallocated. -
+#SME2 multi-vec CLAMP two registers -
+1 2
+0 0
+0 SCLAMP FEAT_SME2
+1 UCLAMP FEAT_SME2
+#SME2 multi-vec CLAMP four registers -
+1 2
+0 0
+0 SCLAMP FEAT_SME2
+1 UCLAMP FEAT_SME2
+#SME2 multi-vec ZIP two registers -
+1 2
+0 0
+0 ZIP (two registers) FEAT_SME2
+1 UZP (two registers) FEAT_SME2
+#SME2 multi-vec saturating shift right narrow four registers -
+3 8
+10 10
+6 6
+5 5
+- 1 1 Unallocated. -
+0 0 0 SQRSHR (four registers) FEAT_SME2
+0 0 1 UQRSHR (four registers) FEAT_SME2
+0 1 0 SQRSHRU (four registers) FEAT_SME2
+1 0 0 SQRSHRN FEAT_SME2
+1 0 1 UQRSHRN FEAT_SME2
+1 1 0 SQRSHRUN FEAT_SME2
 #SME2 Multi-vector - SVE Constructive Unary
+4 40
+22 23
+16 20
+5 6
+0 1
+00 00001 - x0 SME2 multi-vec FP to int convert two registers
+00 00001 - x1 Unallocated.
+00 00010 - x0 SME2 multi-vec int to FP two registers
+00 00010 - x1 Unallocated.
+00 00111 - - Unallocated.
+00 10001 0x 00 SME2 multi-vec FP to int convert four registers
+00 10001 0x != 00 Unallocated.
+00 1000x 1x - Unallocated.
+00 10010 0x 00 SME2 multi-vec int to FP four registers
+00 10010 0x != 00 Unallocated.
+00 10010 1x - Unallocated.
+00 10111 00 x0 SME2 multi-vec quadwords ZIP four registers
+00 1011x 00 x1 Unallocated.
+00 1011x != 00 - Unallocated.
+01 00001 - - Unallocated.
+01 x0010 - - Unallocated.
+0x 00000 - - SME2 multi-vec FP down convert two registers
+0x 00011 - - SME2 multi-vec int down convert two registers
+0x 00100 x1 - Unallocated.
+0x 10100 - - Unallocated.
+1x 000xx - - Unallocated.
+1x 10010 - - Unallocated.
+1x x0100 - - Unallocated.
+!= 00 1000x - - Unallocated.
+!= 00 10110 00 x1 Unallocated.
+!= 00 10110 01 - Unallocated.
+!= 00 10110 1x - Unallocated.
+!= 00 x0111 - - Unallocated.
+- 00101 - - SME2 multi-vec unpack two registers
+- 01xxx x0 x0 SME2 multi-vec FRINT two registers
+- 01xxx x0 x1 Unallocated.
+- 01xxx x1 - Unallocated.
+- 10011 - - SME2 multi-vec int down convert four registers
+- 10101 x0 0x SME2 multi-vec unpack four registers
+- 10101 x0 1x Unallocated.
+- 10101 x1 - Unallocated.
+- 10110 00 x0 SME2 multi-vec ZIP four registers
+- 11xxx 00 00 SME2 multi-vec FRINT four registers
+- 11xxx 00 != 00 Unallocated.
+- 11xxx != 00 - Unallocated.
+
+#SME2 multi-vec FP to int convert two registers
+1 2
+5 5
+0 FCVTZS FEAT_SME2
+1 FCVTZU FEAT_SME2
+#SME2 multi-vec int to FP two registers
+1 2
+5 5
+0 SCVTF FEAT_SME2
+1 UCVTF FEAT_SME2
+#SME2 multi-vec FP to int convert four registers
+1 2
+5 5
+0 FCVTZS FEAT_SME2
+1 FCVTZU FEAT_SME2
+#SME2 multi-vec int to FP four registers
+1 2
+5 5
+0 SCVTF FEAT_SME2
+1 UCVTF FEAT_SME2
+#SME2 multi-vec quadwords ZIP four registers
+1 2
+1 1
+0 ZIP (four registers) FEAT_SME2
+1 UZP (four registers) FEAT_SME2
+#SME2 multi-vec FP down convert two registers
+2 4
+22 22
+5 5
+0 0 FCVT FEAT_SME2
+0 1 FCVTN FEAT_SME2
+1 0 BFCVT FEAT_SME2
+1 1 BFCVTN FEAT_SME2
+#SME2 multi-vec int down convert two registers
+2 4
+22 22
+5 5
+0 0 SQCVT (two registers) FEAT_SME2
+0 1 UQCVT (two registers) FEAT_SME2
+1 0 SQCVTU (two registers) FEAT_SME2
+1 1 Unallocated. -
+#SME2 multi-vec unpack two registers
+1 2
+0 0
+0 SUNPK FEAT_SME2
+1 UUNPK FEAT_SME2
+#SME2 multi-vec FRINT two registers
+2 9
+22 23
+16 18
+0x - Unallocated. -
+10 000 FRINTN FEAT_SME2
+10 001 FRINTP FEAT_SME2
+10 010 FRINTM FEAT_SME2
+10 011 Unallocated. -
+10 100 FRINTA FEAT_SME2
+10 101 Unallocated. -
+10 11x Unallocated. -
+11 - Unallocated. -
+#SME2 multi-vec int down convert four registers
+3 7
+22 22
+6 6
+5 5
+0 0 0 SQCVT (four registers) FEAT_SME2
+0 0 1 UQCVT (four registers) FEAT_SME2
+0 1 0 SQCVTN FEAT_SME2
+0 1 1 UQCVTN FEAT_SME2
+1 - 1 Unallocated. -
+1 0 0 SQCVTU (four registers) FEAT_SME2
+1 1 0 SQCVTUN FEAT_SME2
+#SME2 multi-vec unpack four registers
+1 2
+0 0
+0 SUNPK FEAT_SME2
+1 UUNPK FEAT_SME2
+#SME2 multi-vec ZIP four registers
+1 2
+1 1
+0 ZIP (four registers) FEAT_SME2
+1 UZP (four registers) FEAT_SME2
+#SME2 multi-vec FRINT four registers
+2 9
+22 23
+16 18
+0x - Unallocated. -
+10 000 FRINTN FEAT_SME2
+10 001 FRINTP FEAT_SME2
+10 010 FRINTM FEAT_SME2
+10 011 Unallocated. -
+10 100 FRINTA FEAT_SME2
+10 101 Unallocated. -
+10 11x Unallocated. -
+11 - Unallocated. -
+
 #SME2 Multi-vector - Multiple Vectors SVE Destructive (Two registers)
 #SME2 Multi-vector - Multiple Vectors SVE Destructive (Four registers)
 #SME2 Multi-vector - Multiple and Single SVE Destructive (Two registers)
