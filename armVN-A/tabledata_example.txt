@@ -1455,6 +1455,127 @@ x0 x1 - Unallocated. -
 - - 0 110 00 0xxx SME2 multiple vectors ternary FP four registers
 - - 0 110 00 1xxx SME2 multiple vectors ternary int four registers
 - - 1 - - - Unallocated. -
+#SME2 multiple vectors long FMA four sources -
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple vectors) FEAT_SME2
+0 1 FMLSL (multiple vectors) FEAT_SME2
+1 0 BFMLAL (multiple vectors) FEAT_SME2
+1 1 BFMLSL (multiple vectors) FEAT_SME2
+#SME2 multiple vectors long MLA four sources -
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple vectors) FEAT_SME2
+0 1 SMLSL (multiple vectors) FEAT_SME2
+1 0 UMLAL (multiple vectors) FEAT_SME2
+1 1 UMLSL (multiple vectors) FEAT_SME2
+#SME2 multiple vectors two-way dot product four registers -
+1 2
+4 4
+0 SDOT (2-way, multiple vectors) FEAT_SME2
+1 UDOT (2-way, multiple vectors) FEAT_SME2
+#SME2 multiple vectors binary FP four registers -
+1 2
+3 3
+0 FADD FEAT_SME2
+1 FSUB FEAT_SME2
+#SME2 multiple vectors binary int four registers -
+1 2
+3 3
+0 ADD (array accumulators) FEAT_SME2
+1 SUB (array accumulators) FEAT_SME2
+#SME2 multiple vectors long long MLA four sources
+4 8
+22 22
+4 4
+3 3
+2 2
+- 0 0 0 SMLALL (multiple vectors) FEAT_SME2
+- 0 1 0 SMLSLL (multiple vectors) FEAT_SME2
+- 1 0 0 UMLALL (multiple vectors) FEAT_SME2
+- 1 1 0 UMLSLL (multiple vectors) FEAT_SME2
+0 0 0 1 USMLALL (multiple vectors) FEAT_SME2
+0 0 1 1 Unallocated. -
+0 1 - 1 Unallocated. -
+1 - - 1 Unallocated. -
+#SME2 multiple vectors FP dot product four registers
+2 4
+22 22
+4 5
+0 00 FDOT (multiple vectors) FEAT_SME2
+0 01 BFDOT (multiple vectors) FEAT_SME2
+1 01 Unallocated. -
+1 1x Unallocated. -
+#SME2 multiple vectors four-way dot product four registers
+1 2
+4 4
+0 SDOT (4-way, multiple vectors) FEAT_SME2
+1 UDOT (4-way, multiple vectors) FEAT_SME2
+#SME2 multiple vectors ternary FP four registers
+1 2
+3 3
+0 FMLA (multiple vectors) FEAT_SME2
+1 FMLS (multiple vectors) FEAT_SME2
+#SME2 multiple vectors ternary int four registers
+1 2
+3 3
+0 ADD (array results, multiple vectors) FEAT_SME2
+1 SUB (array results, multiple vectors) FEAT_SME2
+#SME Memory
+5 15
+21 24
+16 20
+15 15
+10 14
+2 4
+0xx0 - - - 0xx SME load array vector (elements) -
+0xx1 - - - 0xx SME store array vector (elements) -
+0xxx - - - 1xx Unallocated. -
+100x 00000 0 xx000 0xx SME save and restore array -
+100x 00000 0 xx000 1xx Unallocated. -
+100x 00000 0 xx!= 000 - Unallocated. -
+100x != 00000 0 - - Unallocated. -
+100x - 1 00000 000 SME2 lookup table load/store -
+100x - 1 00000 != 000 Unallocated. -
+100x - 1 != 00000 - Unallocated. -
+101x - - - - Unallocated. -
+110x - - - - Unallocated. -
+1110 - - - 0xx LD1Q FEAT_SME
+1111 - - - 0xx ST1Q FEAT_SME
+111x - - - 1xx Unallocated. -
+#SME load array vector (elements) -
+1 2
+22 23
+00 LD1B (scalar plus scalar, tile slice) FEAT_SME
+01 LD1H (scalar plus scalar, tile slice) FEAT_SME
+10 LD1W (scalar plus scalar, tile slice) FEAT_SME
+11 LD1D (scalar plus scalar, tile slice) FEAT_SME
+#SME store array vector (elements) -
+1 2
+22 23
+00 ST1B (scalar plus scalar, tile slice) FEAT_SME
+01 ST1H (scalar plus scalar, tile slice) FEAT_SME
+10 ST1W (scalar plus scalar, tile slice) FEAT_SME
+11 ST1D (scalar plus scalar, tile slice) FEAT_SME
+#SME save and restore array -
+1 2
+0 LDR (vector) FEAT_SME
+1 STR (vector) FEAT_SME
+#SME2 lookup table load/store -
+2 9
+16 21
+0 1
+x0xxxx - Unallocated. -
+x10xxx - Unallocated. -
+x110xx - Unallocated. -
+x1110x - Unallocated. -
+x11110 - Unallocated. -
+x11111 01 Unallocated. -
+x11111 1x Unallocated. -
+011111 00 LDR (ZT0) FEAT_SME2
+111111 00 STR (ZT0) FEAT_SME2
 #SVE encodings
 #Data Processing -- Immediate
 #Branches, Exception Generating and System instructions
