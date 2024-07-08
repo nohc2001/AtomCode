@@ -979,13 +979,482 @@ x0 x1 - Unallocated. -
 11 - Unallocated. -
 
 #SME2 Multi-vector - Multiple Vectors SVE Destructive (Two registers)
+3 8
+10 10
+5 9
+0 0
+0 0000x - SME2 multiple vectors int min/max two registers -
+0 0100x - SME2 multiple vectors FP min/max two registers -
+0 0x!=00x - Unallocated. -
+0 10xxx - SME2 multiple vectors shift two registers -
+0 11xxx - Unallocated. -
+1 00000 0 SQDMULH (multiple vectors) - Encoding FEAT_SME2
+1 00000 1 Unallocated. -
+1 != 00000 - Unallocated. -
+#SME2 multiple vectors int min/max two registers -
+2 4
+5 5
+0 0
+0 0 SMAX (multiple vectors) FEAT_SME2
+0 1 UMAX (multiple vectors) FEAT_SME2
+1 0 SMIN (multiple vectors) FEAT_SME2
+1 1 UMIN (multiple vectors) FEAT_SME2
+#SME2 multiple vectors FP min/max two registers -
+2 4
+5 5
+0 0
+0 0 FMAX (multiple vectors) FEAT_SME2
+0 1 FMIN (multiple vectors) FEAT_SME2
+1 0 FMAXNM (multiple vectors) FEAT_SME2
+1 1 FMINNM (multiple vectors) FEAT_SME2
+#SME2 multiple vectors shift two registers -
+2 5
+5 7
+0 0
+000 - Unallocated. -
+001 0 SRSHL (multiple vectors) FEAT_SME2
+001 1 URSHL (multiple vectors) FEAT_SME2
+01x - Unallocated. -
+1xx - Unallocated. -
 #SME2 Multi-vector - Multiple Vectors SVE Destructive (Four registers)
+4 11
+17 17
+10 10
+5 9
+0 1
+0 0 0000x 0x SME2 multiple vectors int min/max four registers -
+0 0 0100x 0x SME2 multiple vectors FP min/max four registers -
+0 0 0x00x 1x Unallocated. -
+0 0 0x!= 00x - Unallocated. -
+0 0 10xxx 0x SME2 multiple vectors shift four registers -
+0 0 10xxx 1x Unallocated. -
+0 0 11xxx - Unallocated. -
+0 1 00000 00 SQDMULH (multiple vectors) - Encoding FEAT_SME2
+0 1 00000 != 00 Unallocated. -
+0 1 != 00000 - Unallocated. -
+1 - - - Unallocated. -
+#SME2 multiple vectors int min/max four registers -
+2 4
+5 5
+0 0
+0 0 SMAX (multiple vectors) FEAT_SME2
+0 1 UMAX (multiple vectors) FEAT_SME2
+1 0 SMIN (multiple vectors) FEAT_SME2
+1 1 UMIN (multiple vectors) FEAT_SME2
+#SME2 multiple vectors FP min/max four registers -
+2 4
+5 5
+0 0
+0 0 FMAX (multiple vectors) FEAT_SME2
+0 1 FMIN (multiple vectors) FEAT_SME2
+1 0 FMAXNM (multiple vectors) FEAT_SME2
+1 1 FMINNM (multiple vectors) FEAT_SME2
+#SME2 multiple vectors shift four registers -
+2 5
+5 7
+0 0
+000 - Unallocated. -
+001 0 SRSHL (multiple vectors) FEAT_SME2
+001 1 URSHL (multiple vectors) FEAT_SME2
+01x - Unallocated. -
+1xx - Unallocated. -
 #SME2 Multi-vector - Multiple and Single SVE Destructive (Two registers)
+3 10
+10 10
+5 9
+0 0
+0 0000x - SME2 single-multi int min/max two registers -
+0 0100x - SME2 single-multi FP min/max two registers -
+0 0x!= 00x - Unallocated. -
+0 10xxx - SME2 single-multi shift two registers -
+0 11000 0 ADD (to vector) - Encoding FEAT_SME2
+0 11000 1 Unallocated. -
+0 11!= 000 - Unallocated. -
+1 00000 0 SQDMULH (multiple and single vector) - Encoding FEAT_SME2
+1 00000 1 Unallocated. -
+1 != 00000 - Unallocated. -
+#SME2 single-multi int min/max two registers -
+2 4
+5 5
+0 0
+0 0 SMAX (multiple and single vector) FEAT_SME2
+0 1 UMAX (multiple and single vector) FEAT_SME2
+1 0 SMIN (multiple and single vector) FEAT_SME2
+1 1 UMIN (multiple and single vector) FEAT_SME2
+#SME2 single-multi FP min/max two registers -
+2 4
+5 5
+0 0
+0 0 FMAX (multiple and single vector) FEAT_SME2
+0 1 FMIN (multiple and single vector) FEAT_SME2
+1 0 FMAXNM (multiple and single vector) FEAT_SME2
+1 1 FMINNM (multiple and single vector) FEAT_SME2
+#SME2 single-multi shift two registers -
+2 5
+5 7
+0 0
+000 - Unallocated. -
+001 0 SRSHL (multiple and single vector) FEAT_SME2
+001 1 URSHL (multiple and single vector) FEAT_SME2
+01x - Unallocated. -
+1xx - Unallocated. -
 #SME2 Multi-vector - Multiple and Single SVE Destructive (Four registers)
+3 12
+10 10
+5 9
+0 1
+0 0000x 0x SME2 single-multi int min/max four registers -
+0 0100x 0x SME2 single-multi FP min/max four registers -
+0 0x00x 1x Unallocated. -
+0 0x!= 00x - Unallocated. -
+0 10xxx 0x SME2 single-multi shift four registers -
+0 10xxx 1x Unallocated. -
+0 11000 00 ADD (to vector) - Encoding FEAT_SME2
+0 11000 != 00 Unallocated. -
+0 11!= 000 - Unallocated. -
+1 00000 00 SQDMULH (multiple and single vector) - Encoding FEAT_SME2
+1 00000 != 00 Unallocated. -
+1 != 00000 - Unallocated. -
+#SME2 single-multi int min/max four registers -
+2 4
+5 5
+0 0
+0 SMAX (multiple and single vector) FEAT_SME2
+0 1 UMAX (multiple and single vector) FEAT_SME2
+1 0 SMIN (multiple and single vector) FEAT_SME2
+1 1 UMIN (multiple and single vector) FEAT_SME2
+#SME2 single-multi FP min/max four registers -
+2 4
+5 5
+0 0
+0 0 FMAX (multiple and single vector) FEAT_SME2
+0 1 FMIN (multiple and single vector) FEAT_SME2
+1 0 FMAXNM (multiple and single vector) FEAT_SME2
+1 1 FMINNM (multiple and single vector) FEAT_SME2
+#SME2 single-multi shift four registers -
+2 5
+5 7
+0 0
+000 - Unallocated. -
+001 0 SRSHL (multiple and single vector) FEAT_SME2
+001 1 URSHL (multiple and single vector) FEAT_SME2
+01x - Unallocated. -
+1xx - Unallocated. -
 #SME2 Multi-vector - Multiple and Single Array Vectors
+4 25
+22 22
+20 20
+10 12
+1 4
+0 0 010 xx0x SME2 single-multi long FMA two sources
+0 0 011 - SME2 multiple and single vector long FMA one source
+0 0 101 x1xx SME2 single-multi mixed dot product two registers
+0 1 010 xx0x SME2 single-multi long FMA four sources
+0 1 101 x1xx SME2 single-multi mixed dot product four registers
+1 0 010 xx0x SME2 single-multi long MLA two sources
+1 0 011 - SME2 multiple and single vector long MLA one source
+1 0 101 x1xx SME2 single-multi two-way dot product two registers
+1 1 010 xx0x SME2 single-multi long MLA four sources
+1 1 101 x1xx SME2 single-multi two-way dot product four registers
+- 0 000 xxx0 SME2 single-multi long long MLA two sources
+- 0 001 - SME2 multiple and single vector long long FMA one source
+- 0 100 - SME2 single-multi FP dot product two registers
+- 0 101 x0xx SME2 single-multi four-way dot product two registers
+- 0 110 0xxx SME2 single-multi ternary FP two registers
+- 0 110 1xxx SME2 single-multi ternary int two registers
+- 1 000 xxx0 SME2 single-multi long long MLA four sources
+- 1 0x1 - Unallocated.
+- 1 100 - SME2 single-multi FP dot product four registers
+- 1 101 x0xx SME2 single-multi four-way dot product four registers
+- 1 110 0xxx SME2 single-multi ternary FP four registers
+- 1 110 1xxx SME2 single-multi ternary int four registers
+- - 000 xxx1 Unallocated.
+- - 010 xx1x Unallocated.
+- - 111 - Unallocated.
+#SME2 single-multi long FMA two sources
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple and single vector) FEAT_SME2
+0 1 FMLSL (multiple and single vector) FEAT_SME2
+1 0 BFMLAL (multiple and single vector) FEAT_SME2
+1 1 BFMLSL (multiple and single vector) FEAT_SME2
+#SME2 multiple and single vector long FMA one source
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple and single vector) FEAT_SME2
+0 1 FMLSL (multiple and single vector) FEAT_SME2
+1 0 BFMLAL (multiple and single vector) FEAT_SME2
+1 1 BFMLSL (multiple and single vector) FEAT_SME2
+#SME2 single-multi mixed dot product two registers
+1 2
+4 4
+0 USDOT (multiple and single vector) FEAT_SME2
+1 SUDOT (multiple and single vector) FEAT_SME2
+#SME2 single-multi long FMA four sources
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple and single vector) FEAT_SME2
+0 1 FMLSL (multiple and single vector) FEAT_SME2
+1 0 BFMLAL (multiple and single vector) FEAT_SME2
+1 1 BFMLSL (multiple and single vector) FEAT_SME2
+#SME2 single-multi mixed dot product four registers
+1 2
+4 4
+0 USDOT (multiple and single vector) FEAT_SME2
+1 SUDOT (multiple and single vector) FEAT_SME2
+#SME2 single-multi long MLA two sources
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple and single vector) FEAT_SME2
+0 1 SMLSL (multiple and single vector) FEAT_SME2
+1 0 UMLAL (multiple and single vector) FEAT_SME2
+1 1 UMLSL (multiple and single vector) FEAT_SME2
+#SME2 multiple and single vector long MLA one source
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple and single vector) FEAT_SME2
+0 1 SMLSL (multiple and single vector) FEAT_SME2
+1 0 UMLAL (multiple and single vector) FEAT_SME2
+1 1 UMLSL (multiple and single vector) FEAT_SME2
+#SME2 single-multi two-way dot product two registers
+1 2
+4 4
+0 SDOT (2-way, multiple and single vector) FEAT_SME2
+1 UDOT (2-way, multiple and single vector) FEAT_SME2
+#SME2 single-multi long MLA four sources
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple and single vector) FEAT_SME2
+0 1 SMLSL (multiple and single vector) FEAT_SME2
+1 0 UMLAL (multiple and single vector) FEAT_SME2
+1 1 UMLSL (multiple and single vector) FEAT_SME2
+#SME2 single-multi two-way dot product four registers
+1 2
+4 4
+0 SDOT (2-way, multiple and single vector) FEAT_SME2
+1 UDOT (2-way, multiple and single vector) FEAT_SME2
+#SME2 single-multi long long MLA two sources
+4 8
+22 22
+4 4
+3 3
+2 2
+- 0 0 0 SMLALL (multiple and single vector) FEAT_SME2
+- 0 1 0 SMLSLL (multiple and single vector) FEAT_SME2
+- 1 1 0 0 UMLALL (multiple and single vector) FEAT_SME2
+- 1 1 0 UMLSLL (multiple and single vector) FEAT_SME2
+0 - 1 1 Unallocated. -
+0 0 0 1 USMLALL (multiple and single vector) FEAT_SME2
+0 1 0 1 SUMLALL (multiple and single vector) FEAT_SME2
+1 - - 1 Unallocated. -
+#SME2 multiple and single vector long long FMA one source
+4 8
+22 22
+4 4
+3 3
+2 2
+- 0 0 0 SMLALL (multiple and single vector) FEAT_SME2
+- 0 1 0 SMLSLL (multiple and single vector) FEAT_SME2
+- 1 0 0 UMLALL (multiple and single vector) FEAT_SME2
+- 1 1 0 UMLSLL (multiple and single vector) FEAT_SME2
+0 0 0 1 USMLALL (multiple and single vector) FEAT_SME2
+0 0 1 1 Unallocated. -
+0 1 - 1 Unallocated. -
+1 - - 1 Unallocated. -
+#SME2 single-multi FP dot product two registers
+2 4
+22 22
+3 4
+0 00 FDOT (multiple and single vector) FEAT_SME2
+0 10 BFDOT (multiple and single vector) FEAT_SME2
+1 01 Unallocated. -
+1 1x Unallocated. -
+#SME2 single-multi four-way dot product two registers
+1 2
+4 4
+0 SDOT (4-way, multiple and single vector) FEAT_SME2
+1 UDOT (4-way, multiple and single vector) FEAT_SME2
+#SME2 single-multi ternary FP two registers
+1 2
+3 3
+0 FMLA (multiple and single vector) FEAT_SME2
+1 FMLS (multiple and single vector) FEAT_SME2
+#SME2 single-multi ternary int two registers
+1 2
+3 3
+0 ADD (array results, multiple and single vector) FEAT_SME2
+1 SUB (array results, multiple and single vector) FEAT_SME2
+#SME2 single-multi long long MLA four sources
+4 8
+22 22
+4 4
+3 3
+2 2
+- 0 0 0 SMLALL (multiple and single vector) FEAT_SME2
+- 0 1 0 SMLSLL (multiple and single vector) FEAT_SME2
+- 1 0 0 UMLALL (multiple and single vector) FEAT_SME2
+- 1 1 0 UMLSLL (multiple and single vector) FEAT_SME2
+0 - 1 1 Unallocated. -
+0 0 0 1 USMLALL (multiple and single vector) FEAT_SME2
+0 1 0 1 SUMLALL (multiple and single vector) FEAT_SME2
+1 - - 1 Unallocated. -
+#SME2 single-multi FP dot product four registers
+2 4
+22 22
+3 4
+0 00 FDOT (multiple and single vector) FEAT_SME2
+0 10 BFDOT (multiple and single vector) FEAT_SME2
+1 01 Unallocated. -
+1 1x Unallocated. -
+#SME2 single-multi four-way dot product four registers
+1 2
+4 4
+0 SDOT (4-way, multiple and single vector) FEAT_SME2
+1 UDOT (4-way, multiple and single vector) FEAT_SME2
+#SME2 single-multi ternary FP four registers
+1 2
+3 3
+0 FMLA (multiple and single vector) FEAT_SME2
+1 FMLS (multiple and single vector) FEAT_SME2
+#SME2 single-multi ternary int four registers
+1 2
+3 3
+0 ADD (array results, multiple and single vector) FEAT_SME2
+1 SUB (array results, multiple and single vector) FEAT_SME2
 #SME2 Multi-vector - Multiple Array Vectors (Two registers)
+4 21
+22 22
+17 20
+10 12
+1 5
+0 - 010 0xx0x SME2 multiple vectors long FMA two sources -
+0 - 101 001xx USDOT (multiple vectors) - Encoding FEAT_SME2
+0 - 101 011xx Unallocated. -
+1 - 010 0xx0x SME2 multiple vectors long MLA two sources -
+1 - 101 0x1xx SME2 multiple vectors two-way dot product two registers -
+- 0000 111 00xxx SME2 multiple vectors binary FP two registers -
+- 0000 111 01xxx SME2 multiple vectors binary int two registers -
+- 0000 11x 1xxxx Unallocated. -
+- != 0000 110 1xxxx Unallocated. -
+- != 0000 111 - Unallocated. -
+- - 000 0xxx0 SME2 multiple vectors long long MLA two sources -
+- - 000 0xxx1 Unallocated. -
+- - 010 0xx1x Unallocated. -
+- - 0x0 1xxxx Unallocated. -
+- - 0x1 - Unallocated. -
+- - 100 xx0xx SME2 multiple vectors FP dot product two registers -
+- - 100 xx1xx Unallocated. -
+- - 101 0x0xx SME2 multiple vectors four-way dot product two registers -
+- - 101 1xxxx Unallocated. -
+- - 110 00xxx SME2 multiple vectors ternary FP two registers -
+- - 110 01xxx SME2 multiple vectors ternary int two registers -
+#SME2 multiple vectors long FMA two sources -
+2 4
+4 4
+3 3
+0 0 FMLAL (multiple vectors) FEAT_SME2
+0 1 FMLSL (multiple vectors) FEAT_SME2
+1 0 BFMLAL (multiple vectors) FEAT_SME2
+1 1 BFMLSL (multiple vectors) FEAT_SME2
+#SME2 multiple vectors long MLA two sources -
+2 4
+4 4
+3 3
+0 0 SMLAL (multiple vectors) FEAT_SME2
+0 1 SMLSL (multiple vectors) FEAT_SME2
+1 0 UMLAL (multiple vectors) FEAT_SME2
+1 1 UMLSL (multiple vectors) FEAT_SME2
+#SME2 multiple vectors two-way dot product two registers -
+1 2
+4 4
+0 SDOT (2-way, multiple vectors) FEAT_SME2
+1 UDOT (2-way, multiple vectors) FEAT_SME2
+#SME2 multiple vectors binary FP two registers -
+1 2
+3 3
+0 FADD FEAT_SME2
+1 FSUB FEAT_SME2
+#SME2 multiple vectors binary int two registers -
+1 2
+3 3
+0 ADD (array accumulators) FEAT_SME2
+1 SUB (array accumulators) FEAT_SME2
+#SME2 multiple vectors long long MLA two sources -
+4 8
+22 22
+4 4
+3 3
+2 2
+- 0 0 0 SMLALL (multiple vectors) FEAT_SME2
+- 0 1 0 SMLSLL (multiple vectors) FEAT_SME2
+- 1 0 0 UMLALL (multiple vectors) FEAT_SME2
+- 1 1 0 UMLSLL (multiple vectors) FEAT_SME2
+0 0 0 1 USMLALL (multiple vectors) FEAT_SME2
+0 0 1 1 Unallocated. -
+0 1 - 1 Unallocated. -
+1 - - 1 Unallocated. -
+#SME2 multiple vectors FP dot product two registers -
+2 4
+22 22
+4 5
+0 00 FDOT (multiple vectors) FEAT_SME2
+0 01 BFDOT (multiple vectors) FEAT_SME2
+1 01 Unallocated. -
+1 1x Unallocated. -
+#SME2 multiple vectors four-way dot product two registers -
+1 2
+4 4
+0 SDOT (4-way, multiple vectors) FEAT_SME2
+1 UDOT (4-way, multiple vectors) FEAT_SME2
+#SME2 multiple vectors ternary FP two registers -
+1 2
+3 3
+0 FMLA (multiple vectors) FEAT_SME2
+1 FMLS (multiple vectors) FEAT_SME2
+#SME2 multiple vectors ternary int two registers -
+1 2
+3 3
+0 ADD (array results, multiple vectors) FEAT_SME2
+1 SUB (array results, multiple vectors) FEAT_SME2
 #SME2 Multi-vector - Multiple Array Vectors (Four registers)
-
+6 25
+22 22
+18 20
+17 17
+10 12
+5 6
+1 4
+0 - 0 010 00 xx0x SME2 multiple vectors long FMA four sources -
+0 - 0 101 00 01xx USDOT (multiple vectors) - Encoding
+0 - 0 101 00 11xx Unallocated. -
+1 - 0 010 00 xx0x SME2 multiple vectors long MLA four sources -
+1 - 0 101 00 x1xx SME2 multiple vectors two-way dot product four registers -
+- 000 0 111 00 0xxx SME2 multiple vectors binary FP four registers -
+- 000 0 111 00 1xxx SME2 multiple vectors binary int four registers -
+- 000 0 11x 01 - Unallocated. -
+- 000 0 1xx 1x - Unallocated. -
+- != 000 0 10x 1x - Unallocated. -
+- != 000 0 110 01 - Unallocated. -
+- != 000 0 110 1x - Unallocated. -
+- != 000 0 111 - - Unallocated. -
+- - 0 000 00 xxx0 SME2 multiple vectors long long MLA four sources
+- - 0 000 00 xxx1 Unallocated. - 
+- - 0 010 00 xx1x Unallocated. -
+- - 0 0x0 !=00 - Unallocated. -
+- - 0 0x1 - - Unallocated. -
+- - 0 100 0x x0xx SME2 multiple vectors FP dot product four registers
+- - 0 100 0x x1xx Unallocated. -
+- - 0 101 00 x0xx SME2 multiple vectors four-way dot product four registers
+- - 0 101 01 - Unallocated. -
+- - 0 110 00 0xxx SME2 multiple vectors ternary FP four registers
+- - 0 110 00 1xxx SME2 multiple vectors ternary int four registers
+- - 1 - - - Unallocated. -
 #SVE encodings
 #Data Processing -- Immediate
 #Branches, Exception Generating and System instructions
