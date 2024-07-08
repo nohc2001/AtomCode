@@ -1577,6 +1577,772 @@ x11111 1x Unallocated. -
 011111 00 LDR (ZT0) FEAT_SME2
 111111 00 STR (ZT0) FEAT_SME2
 #SVE encodings
+3 113
+29 31
+10 24
+4 4
+000 0xx0xxxxxx1xxxx - SVE Integer Multiply-Add - Predicated -
+000 0xx0xxxxx000xxx - SVE Integer Binary Arithmetic - Predicated -
+000 0xx0xxxxx001xxx - SVE Integer Reduction -
+000 0xx0xxxxx100xxx - SVE Bitwise Shift - Predicated -
+000 0xx0xxxxx101xxx - SVE Integer Unary Arithmetic - Predicated -
+000 0xx1xxxxx000xxx - SVE integer add/subtract vectors (unpredicated) -
+000 0xx1xxxxx001xxx - SVE Bitwise Logical - Unpredicated -
+000 0xx1xxxxx0100xx - SVE Index Generation -
+000 0xx1xxxxx0101xx - SVE Stack Allocation -
+000 0xx1xxxxx011xxx - SVE2 Integer Multiply - Unpredicated -
+000 0xx1xxxxx100xxx - SVE Bitwise Shift - Unpredicated -
+000 0xx1xxxxx1010xx - SVE address generation -
+000 0xx1xxxxx1011xx - SVE Integer Misc - Unpredicated -
+000 0xx1xxxxx11xxxx - SVE Element Count -
+000 1xx00xxxxxxxxxx - SVE Bitwise Immediate -
+000 1xx01xxxxxxxxxx - SVE Integer Wide Immediate - Predicated -
+000 1xx1xxxxx001000 - DUP (indexed) -
+000 1xx1xxxxx001001 - Unallocated. -
+000 1xx1xxxxx00101x - SVE table lookup (three sources) -
+000 1xx1xxxxx0011x1 - Unallocated. -
+000 1xx1xxxxx001100 - TBL - Encoding -
+000 1xx1xxxxx001110 - SVE Permute Vector - Unpredicated -
+000 1xx1xxxxx010xxx - SVE Permute Predicate -
+000 1xx1xxxxx011xxx - SVE permute vector elements -
+000 1xx1xxxxx10xxxx - SVE Permute Vector - Predicated -
+000 1xx1xxxxx11xxxx - SEL (vectors) -
+000 10x1xxxxx000xxx - SVE Permute Vector - Extract -
+000 11x1xxxxx000xxx - SVE Permute Vector - Segments -
+001 0xx0xxxxxxxxxxx - SVE Integer Compare - Vectors -
+001 0xx1xxxxxxxxxxx - SVE integer compare with unsigned immediate -
+001 1xx0xxxxxx0xxxx - SVE integer compare with signed immediate -
+001 1xx00xxxx01xxxx - SVE predicate logical operations -
+001 1xx00xxxx11xxxx - SVE Propagate Break -
+001 1xx01xxxx01xxxx - SVE Partition Break -
+001 1xx01xxxx11xxxx - SVE Predicate Misc -
+001 1xx1xxxxx00xxxx - SVE Integer Compare - Scalars -
+001 1xx1xxxxx01xxxx 0 SVE broadcast predicate element -
+001 1xx1xxxxx01xxxx 1 SVE Scalar Integer Compare - Predicate-as-counter -
+001 1xx1xxxxx11xxxx - SVE Integer Wide Immediate - Unpredicated -
+001 1xx100xxx10xxxx - SVE Predicate Count -
+001 1xx101xxx1000xx - SVE Inc/Dec by Predicate Count -
+001 1xx101xxx1001xx - SVE Write FFR -
+001 1xx101xxx101xxx - Unallocated. -
+001 1xx11xxxx10xxxx - Unallocated. -
+010 0xx0xxxxx0xxxxx - SVE Integer Multiply-Add - Unpredicated -
+010 0xx0xxxxx10xxxx - SVE2 Integer - Predicated -
+010 0xx0xxxxx11000x - SVE integer clamp -
+010 0xx0xxxxx1101xx - Unallocated. -
+010 0xx0xxxxx111xxx - Unallocated. -
+010 0xx1xxxxxxxxxxx - SVE Multiply - Indexed -
+010 0x10xxxxx11001x - Unallocated. -
+010 0000xxxxx11001x - SVE two-way dot product -
+010 0100xxxxx11001x - SVE two-way dot product (indexed) -
+010 1xx0xxxxx0xxxxx - SVE2 Widening Integer Arithmetic -
+010 1xx0xxxxx10xxxx - SVE Misc -
+010 1xx0xxxxx11xxxx - SVE2 Accumulate -
+010 1xx1xxxxx0xxxxx - SVE2 Narrowing -
+010 1xx1xxxxx100xxx - SVE2 character match -
+010 1xx1xxxxx101xxx - SVE2 Histogram Computation - Segment -
+010 1xx1xxxxx110xxx - HISTCNT -
+010 1xx1xxxxx111xxx - SVE2 Crypto Extensions -
+011 0xx0xxxxx0xxxxx - FCMLA (vectors) -
+011 0xx00000x100xxx - FCADD -
+011 0xx00000x101xxx - Unallocated. -
+011 0xx00000x11xxxx - Unallocated. -
+011 0xx00001x1xxxxx - Unallocated. -
+011 0xx0001xx1xxxxx - Unallocated. -
+011 0xx0010xx100xxx - Unallocated. -
+011 0xx0010xx101xxx - SVE floating-point convert precision odd elements -
+011 0xx0010xx11xxxx - Unallocated. -
+011 0xx001100100xxx - Unallocated. -
+011 0xx00110011xxxx - Unallocated. -
+011 0xx0011011xxxxx - Unallocated. -
+011 0xx00111x1xxxxx - Unallocated. -
+011 0xx010xxx100xxx - SVE2 floating-point pairwise operations -
+011 0xx010xxx101xxx - Unallocated. -
+011 0xx010xxx11xxxx - Unallocated. -
+011 0xx011xxx1xxxxx - Unallocated. -
+011 0xx1xxxxx0000xx - SVE floating-point multiply-add (indexed) -
+011 0xx1xxxxx0001xx - SVE floating-point complex multiply-add (indexed) -
+011 0xx1xxxxx0010x0 - SVE floating-point multiply (indexed) -
+011 0xx1xxxxx001001 - FCLAMP FEAT_SME2
+011 0xx1xxxxx001011 - Unallocated. -
+011 0xx1xxxxx0011xx - Unallocated. -
+011 0xx1xxxxx01x0xx - SVE Floating Point Widening Multiply-Add - Indexed -
+011 0xx1xxxxx01x1xx - Unallocated. -
+011 0xx1xxxxx10x00x - SVE Floating Point Widening Multiply-Add -
+011 0xx1xxxxx10x01x - Unallocated. -
+011 0xx1xxxxx10x1xx - Unallocated. -
+011 0xx1xxxxx110xxx - Unallocated. -
+011 0xx1xxxxx111000 - Unallocated. -
+011 0xx1xxxxx111001 - SVE floating point matrix multiply accumulate -
+011 0xx1xxxxx11101x - Unallocated. -
+011 0xx1xxxxx1111xx - Unallocated. -
+011 1xx0xxxxxx1xxxx - SVE floating-point compare vectors -
+011 1xx0xxxxx000xxx - SVE floating-point arithmetic (unpredicated) -
+011 1xx0xxxxx100xxx - SVE Floating Point Arithmetic - Predicated -
+011 1xx0xxxxx101xxx - SVE Floating Point Unary Operations - Predicated -
+011 1xx000xxx001xxx - SVE floating-point recursive reduction -
+011 1xx001xxx0010xx - Unallocated. -
+011 1xx001xxx0011xx - SVE Floating Point Unary Operations - Unpredicated -
+011 1xx010xxx001xxx - SVE Floating Point Compare - with Zero -
+011 1xx011xxx001xxx - SVE Floating Point Accumulating Reduction -
+011 1xx1xxxxxxxxxxx - SVE Floating Point Multiply-Add -
+100 - - SVE Memory - 32-bit Gather and Unsized Contiguous -
+101 - - SVE Memory - Contiguous Load -
+110 - - SVE Memory - 64-bit Gather -
+111 xxxxxxxxx0x0xxx - SVE Memory - Contiguous Store and Unsized Contiguous -
+111 xxxxxxxxx001xxx - SVE Memory - Non-temporal and Quadword Scatter Store -
+111 xxxxxxxxx011xxx - SVE Memory - Non-temporal and Multi-register Contiguous Store -
+111 xxxxxxxxx1x0xxx - SVE Memory - Scatter with Optional Sign Extend -
+111 xxxxxxxxx101xxx - SVE Memory - Scatter -
+111 xxxxxxxxx111xxx - SVE Memory - Contiguous Store with Immediate Offset -
+
+#SVE Integer Multiply-Add - Predicated -
+1 2
+15 15
+0 SVE integer multiply-accumulate writing addend (predicated)
+1 SVE integer multiply-add writing multiplicand (predicated)
+#SVE integer multiply-accumulate writing addend (predicated)
+1 2
+13 13
+0 MLA (vectors)
+1 MLS (vectors)
+#SVE integer multiply-add writing multiplicand (predicated)
+1 2
+13 13
+0 MAD
+1 MSB
+#SVE Integer Binary Arithmetic - Predicated -
+1 8
+18 20
+00x SVE integer add/subtract vectors (predicated)
+01x SVE integer min/max/difference (predicated)
+100 SVE integer multiply vectors (predicated)
+101 SVE integer divide vectors (predicated)
+11x SVE bitwise logical operations (predicated)
+#SVE integer add/subtract vectors (predicated)
+1 5
+16 18
+000 ADD (vectors, predicated)
+001 SUB (vectors, predicated)
+010 Unallocated.
+011 SUBR (vectors)
+1xx Unallocated.
+#SVE integer min/max/difference (predicated)
+2 7
+17 18
+16 16
+00 0 SMAX (vectors)
+00 1 UMAX (vectors)
+01 0 SMIN (vectors)
+01 1 UMIN (vectors)
+10 0 SABD
+10 1 UABD
+11 - Unallocated.
+#SVE integer multiply vectors (predicated)
+2 4
+17 17
+16 16
+0 0 MUL (vectors, predicated)
+0 1 Unallocated.
+1 0 SMULH (predicated)
+1 1 UMULH (predicated)
+#SVE integer divide vectors (predicated)
+2 4
+17 17
+16 16
+0 0 SDIV
+0 1 UDIV
+1 0 SDIVR
+1 1 UDIVR
+#SVE bitwise logical operations (predicated)
+1 5
+16 18
+000 ORR (vectors, predicated)
+001 EOR (vectors, predicated)
+010 AND (vectors, predicated)
+011 BIC (vectors, predicated)
+1xx Unallocated.
+#SVE Integer Reduction -
+1 6
+18 20
+13 15
+000 SVE integer add reduction (predicated)
+010 SVE integer min/max reduction (predicated)
+0x1 Unallocated.
+10x SVE constructive prefix (predicated)
+110 SVE bitwise logical reduction (predicated)
+111 Unallocated.
+#SVE integer add reduction (predicated)
+2 3
+17 17
+16 16
+0 0 SADDV
+0 1 UADDV
+1 - Unallocated.
+#SVE integer min/max reduction (predicated)
+2 4
+17 17
+16 16
+0 0 SMAXV
+0 1 UMAXV
+1 0 SMINV
+1 1 UMINV
+#SVE constructive prefix (predicated)
+1 3
+17 18
+00 MOVPRFX (predicated)
+01 Unallocated.
+1x Unallocated.
+#SVE bitwise logical reduction (predicated)
+1 4
+16 17
+00 ORV
+01 EORV
+10 ANDV
+11 Unallocated.
+#SVE Bitwise Shift - Predicated -
+1 3
+19 20
+0x SVE bitwise shift by immediate (predicated)
+10 SVE bitwise shift by vector (predicated)
+11 SVE bitwise shift by wide elements (predicated)
+#SVE bitwise shift by immediate (predicated)
+3 13
+18 19
+17 17
+16 16
+00 0 0 ASR (immediate, predicated)
+00 0 1 LSR (immediate, predicated)
+00 1 0 Unallocated.
+00 1 1 LSL (immediate, predicated)
+01 0 0 ASRD
+01 0 1 Unallocated.
+01 1 0 SQSHL (immediate)
+01 1 1 UQSHL (immediate)
+10 - - Unallocated.
+11 0 0 SRSHR
+11 0 1 URSHR
+11 1 0 Unallocated.
+11 1 1 SQSHLU
+#SVE bitwise shift by vector (predicated)
+3 7
+18 18
+17 17
+16 16
+- 1 0 Unallocated.
+0 0 0 ASR (vectors)
+0 0 1 LSR (vectors)
+0 1 1 LSL (vectors)
+1 0 0 ASRR
+1 0 1 LSRR
+1 1 1 LSLR
+#SVE bitwise shift by wide elements (predicated)
+3 5
+18 18
+17 17
+16 16
+0 0 0 ASR (wide elements, predicated)
+0 0 1 LSR (wide elements, predicated)
+0 1 0 Unallocated.
+0 1 1 LSL (wide elements, predicated)
+1 - - Unallocated.
+#SVE Integer Unary Arithmetic - Predicated -
+1 3
+19 20
+0x Unallocated.
+10 SVE integer unary operations (predicated)
+11 SVE bitwise unary operations (predicated)
+#SVE integer unary operations (predicated)
+1 8
+16 18
+000 SXTB, SXTH, SXTW - Encoding
+001 UXTB, UXTH, UXTW - Encoding
+010 SXTB, SXTH, SXTW - Encoding
+011 UXTB, UXTH, UXTW - Encoding
+100 SXTB, SXTH, SXTW - Encoding
+101 UXTB, UXTH, UXTW - Encoding
+110 ABS
+111 NEG
+#SVE bitwise unary operations (predicated)
+1 8
+16 18
+000 CLS
+001 CLZ
+010 CNT
+011 CNOT
+100 FABS
+101 FNEG
+110 NOT (vector)
+111 Unallocated.
+#SVE integer add/subtract vectors (unpredicated) -
+1 7
+10 12
+000 ADD (vectors, unpredicated)
+001 SUB (vectors, unpredicated)
+01x Unallocated.
+100 SQADD (vectors, unpredicated)
+101 UQADD (vectors, unpredicated)
+110 SQSUB (vectors, unpredicated)
+111 UQSUB (vectors, unpredicated)
+#SVE Bitwise Logical - Unpredicated -
+1 4
+10 12
+0xx Unallocated.
+100 SVE bitwise logical operations (unpredicated)
+101 XAR
+11x SVE2 bitwise ternary operations
+#SVE bitwise logical operations (unpredicated)
+1 4
+22 23
+00 AND (vectors, unpredicated)
+01 ORR (vectors, unpredicated)
+10 EOR (vectors, unpredicated)
+11 BIC (vectors, unpredicated)
+#SVE2 bitwise ternary operations
+2 7
+22 23
+10 10
+00 0 EOR3
+00 1 BSL
+01 0 BCAX
+01 1 BSL1N
+1x 0 Unallocated.
+10 1 BSL2N
+11 1 NBSL
+#SVE Index Generation -
+1 4
+10 11
+00 INDEX (immediates)
+01 INDEX (scalar, immediate)
+10 INDEX (immediate, scalar)
+11 INDEX (scalars)
+#SVE Stack Allocation -
+2 4
+23 23
+11 11
+0 0 SVE stack frame adjustment
+0 1 Streaming SVE stack frame adjustment
+1 0 SVE stack frame size
+1 1 Streaming SVE stack frame size
+#SVE stack frame adjustment
+1 2
+22 22
+0 ADDVL
+1 ADDPL
+#Streaming SVE stack frame adjustment
+1 2
+22 22
+0 ADDSVL FEAT_SME
+1 ADDSPL FEAT_SME
+#SVE stack frame size
+2 7
+22 22
+16 20
+0 0xxxx Unallocated.
+0 10xxx Unallocated.
+0 110xx Unallocated.
+0 1110x Unallocated.
+0 11110 Unallocated.
+0 11111 RDVL
+1 - Unallocated.
+#Streaming SVE stack frame size
+2 7
+22 22
+16 20
+0 0xxxx Unallocated. -
+0 10xxx Unallocated. -
+0 110xx Unallocated. -
+0 1110x Unallocated. -
+0 11110 Unallocated. -
+0 11111 RDSVL FEAT_SME
+1 - Unallocated. -
+#SVE2 Integer Multiply - Unpredicated -
+1 3
+11 12
+0x SVE2 integer multiply vectors (unpredicated)
+10 SVE2 signed saturating doubling multiply high (unpredicated)
+11 Unallocated.
+#SVE2 integer multiply vectors (unpredicated)
+2 6
+22 23
+10 11
+- 00 MUL (vectors, unpredicated)
+- 10 SMULH (unpredicated)
+- 11 UMULH (unpredicated)
+00 01 PMUL
+01 01 Unallocated.
+1x 01 Unallocated.
+#SVE2 signed saturating doubling multiply high (unpredicated)
+1 2
+10 10
+0 SQDMULH (vectors)
+1 SQRDMULH (vectors)
+#SVE Bitwise Shift - Unpredicated -
+1 2
+12 12
+0 SVE bitwise shift by wide elements (unpredicated)
+1 SVE bitwise shift by immediate (unpredicated)
+#SVE bitwise shift by wide elements (unpredicated)
+1 4
+10 11
+00 ASR (wide elements, unpredicated)
+01 LSR (wide elements, unpredicated)
+10 Unallocated.
+11 LSL (wide elements, unpredicated)
+#SVE bitwise shift by immediate (unpredicated)
+1 4
+10 11
+00 ASR (immediate, unpredicated)
+01 LSR (immediate, unpredicated)
+10 Unallocated.
+11 LSL (immediate, unpredicated)
+#SVE address generation -
+1 3
+22 23
+00 ADR - Encoding
+01 ADR - Encoding
+1x ADR - Encoding
+#SVE Integer Misc - Unpredicated -
+1 3
+10 11
+0x SVE floating-point trig select coefficient
+10 SVE floating-point exponential accelerator
+11 SVE constructive prefix (unpredicated)
+#SVE floating-point trig select coefficient
+1 2
+10 10
+0 FTSSEL
+1 Unallocated.
+#SVE floating-point exponential accelerator
+1 6
+16 20
+00000 FEXPA
+00001 Unallocated.
+0001x Unallocated.
+001xx Unallocated.
+01xxx Unallocated.
+1xxxx Unallocated.
+#SVE constructive prefix (unpredicated)
+2 8
+22 23
+16 20
+00 00000 MOVPRFX (unpredicated)
+00 00001 Unallocated.
+00 0001x Unallocated.
+00 001xx Unallocated.
+00 01xxx Unallocated.
+00 1xxxx Unallocated.
+01 - Unallocated.
+1x - Unallocated.
+#SVE Element Count -
+2 8
+20 20
+11 13
+0 00x SVE saturating inc/dec vector by element count
+0 100 SVE element count
+0 101 Unallocated.
+1 000 SVE inc/dec vector by element count
+1 100 SVE inc/dec register by element count
+1 x01 Unallocated.
+- 01x Unallocated.
+- 11x SVE saturating inc/dec register by element count
+#SVE saturating inc/dec vector by element count
+3 13
+22 23
+11 11
+10 10
+00 - - Unallocated.
+01 0 0 SQINCH (vector)
+01 0 1 UQINCH (vector)
+01 1 0 SQDECH (vector)
+01 1 1 UQDECH (vector)
+10 0 0 SQINCW (vector)
+10 0 1 UQINCW (vector)
+10 1 0 SQDECW (vector)
+10 1 1 UQDECW (vector)
+11 0 0 SQINCD (vector)
+11 0 1 UQINCD (vector)
+11 1 0 SQDECD (vector)
+11 1 1 UQDECD (vector)
+#SVE element count
+2 5
+22 23
+10 10
+- 1 Unallocated.
+00 0 CNTB, CNTD, CNTH, CNTW - Encoding
+01 0 CNTB, CNTD, CNTH, CNTW - Encoding
+10 0 CNTB, CNTD, CNTH, CNTW - Encoding
+11 0 CNTB, CNTD, CNTH, CNTW - Encoding
+#SVE inc/dec vector by element count
+2 7
+22 23
+10 10
+00 - Unallocated.
+01 0 INCD, INCH, INCW (vector) - Encoding
+01 1 DECD, DECH, DECW (vector) - Encoding
+10 0 INCD, INCH, INCW (vector) - Encoding
+10 1 DECD, DECH, DECW (vector) - Encoding
+11 0 INCD, INCH, INCW (vector) - Encoding
+11 1 DECD, DECH, DECW (vector) - Encoding
+#SVE inc/dec register by element count
+2 8
+22 23
+10 10
+00 0 INCB, INCD, INCH, INCW (scalar) - Encoding
+00 1 DECB, DECD, DECH, DECW (scalar) - Encoding
+01 0 INCB, INCD, INCH, INCW (scalar) - Encoding
+01 1 DECB, DECD, DECH, DECW (scalar) - Encoding
+10 0 INCB, INCD, INCH, INCW (scalar) - Encoding
+10 1 DECB, DECD, DECH, DECW (scalar) - Encoding
+11 0 INCB, INCD, INCH, INCW (scalar) - Encoding
+11 1 DECB, DECD, DECH, DECW (scalar) - Encoding
+#SVE saturating inc/dec register by element count
+4 32
+22 23
+20 20
+11 11
+10 10
+00 0 0 0 SQINCB - Encoding
+00 0 0 1 UQINCB - Encoding
+00 0 1 0 SQDECB - Encoding
+00 0 1 1 UQDECB - Encoding
+00 1 0 0 SQINCB - Encoding
+00 1 0 1 UQINCB - Encoding
+00 1 1 0 SQDECB - Encoding
+00 1 1 1 UQDECB - Encoding
+01 0 0 0 SQINCH (scalar) - Encoding
+01 0 0 1 UQINCH (scalar) - Encoding
+01 0 1 0 SQDECH (scalar) - Encoding
+01 0 1 1 UQDECH (scalar) - Encoding
+01 1 0 0 SQINCH (scalar) - Encoding
+01 1 0 1 UQINCH (scalar) - Encoding
+01 1 1 0 SQDECH (scalar) - Encoding
+01 1 1 1 UQDECH (scalar) - Encoding
+10 0 0 0 SQINCW (scalar) - Encoding
+10 0 0 1 UQINCW (scalar) - Encoding
+10 0 1 0 SQDECW (scalar) - Encoding
+10 0 1 1 UQDECW (scalar) - Encoding
+10 1 0 0 SQINCW (scalar) - Encoding
+10 1 0 1 UQINCW (scalar) - Encoding
+10 1 1 0 SQDECW (scalar) - Encoding
+10 1 1 1 UQDECW (scalar) - Encoding
+11 0 0 0 SQINCD (scalar) - Encoding
+11 0 0 1 UQINCD (scalar) - Encoding
+11 0 1 0 SQDECD (scalar) - Encoding
+11 0 1 1 UQDECD (scalar) - Encoding
+11 1 0 0 SQINCD (scalar) - Encoding
+11 1 0 1 UQINCD (scalar) - Encoding
+11 1 1 0 SQDECD (scalar) - Encoding
+11 1 1 1 UQDECD (scalar) - Encoding
+#SVE Bitwise Immediate -
+2 3
+22 23
+18 19
+11 00 DUPM
+!=11 00 SVE bitwise logical with immediate (unpredicated)
+- !=00 Unallocated.
+#SVE bitwise logical with immediate (unpredicated)
+1 3
+22 23
+00 ORR (immediate)
+01 EOR (immediate)
+10 AND (immediate)
+#SVE Integer Wide Immediate - Predicated -
+1 4
+13 15
+0xx SVE copy integer immediate (predicated)
+10x Unallocated.
+110 FCPY
+111 Unallocated.
+#SVE copy integer immediate (predicated)
+1 2
+14 14
+0 CPY (immediate, zeroing)
+1 CPY (immediate, merging)
+#SVE table lookup (three sources) -
+1 2
+10 10
+0 TBL
+1 TBX
+#SVE Permute Vector - Unpredicated -
+2 11
+19 20
+16 18
+00 000 DUP (scalar)
+00 100 INSR (scalar)
+00 x10 Unallocated.
+00 xx1 Unallocated.
+01 - Unallocated.
+10 0xx SVE unpack vector elements
+10 100 INSR (SIMD&FP scalar)
+10 110 Unallocated.
+10 1x1 Unallocated.
+11 000 REV (vector)
+11 != 000 Unallocated.
+#SVE unpack vector elements
+17 17
+16 16
+0 0 SUNPKHI, SUNPKLO - Encoding
+0 1 SUNPKHI, SUNPKLO - Encoding
+1 0 UUNPKHI, UUNPKLO - Encoding
+1 1 UUNPKHI, UUNPKLO - Encoding
+#SVE Permute Predicate -
+4 15
+22 23
+16 20
+9 12
+4 4
+00 1000x 0000 0 SVE unpack predicate elements
+01 1000x 0000 0 Unallocated.
+10 1000x 0000 0 Unallocated.
+11 1000x 0000 0 Unallocated.
+- 0xxxx xxx0 0 SVE permute predicate elements
+- 0xxxx xxx1 0 Unallocated.
+- 10100 0000 0 REV (predicate)
+- 10101 0000 0 Unallocated.
+- 10x0x 1000 0 Unallocated.
+- 10x0x x100 0 Unallocated.
+- 10x0x xx10 0 Unallocated.
+- 10x0x xxx1 0 Unallocated.
+- 10x1x - 0 Unallocated.
+- 11xxx - 0 Unallocated.
+- - - 1 Unallocated.
+#SVE unpack predicate elements
+1 2
+16 16
+0 PUNPKHI, PUNPKLO - Encoding
+1 PUNPKHI, PUNPKLO - Encoding
+#SVE permute predicate elements
+2 7
+11 12
+10 10
+00 0 ZIP1, ZIP2 (predicates) - Encoding
+00 1 ZIP1, ZIP2 (predicates) - Encoding
+01 0 UZP1, UZP2 (predicates) - Encoding
+01 1 UZP1, UZP2 (predicates) - Encoding
+10 0 TRN1, TRN2 (predicates) - Encoding
+10 1 TRN1, TRN2 (predicates) - Encoding
+11 - Unallocated.
+#SVE permute vector elements -
+4 20
+20 20
+17 19
+16 16
+13 13
+0 000 0 0 CPY (SIMD&FP scalar)
+0 000 1 0 COMPACT
+0 000 - 1 SVE extract element to general register
+0 001 - 0 SVE extract element to SIMD&FP scalar register
+0 01x - 0 SVE reverse within elements
+0 01x - 1 Unallocated.
+0 100 0 1 CPY (scalar)
+0 100 1 1 Unallocated.
+0 100 - 0 SVE conditionally broadcast element to vector
+0 101 - 0 SVE conditionally extract element to SIMD&FP scalar
+0 110 0 0 SPLICE - Encoding
+0 110 1 0 SPLICE - Encoding
+0 110 - 1 Unallocated.
+0 111 0 0 SVE reverse doublewords
+0 111 0 1 Unallocated.
+0 111 1 - Unallocated.
+0 x01 - 1 Unallocated.
+1 000 - 0 Unallocated.
+1 000 - 1 SVE conditionally extract element to general register
+1 != 000 - - Unallocated.
+#SVE extract element to general register
+1 2
+16 16
+0 LASTA (scalar)
+1 LASTB (scalar)
+#SVE extract element to SIMD&FP scalar register
+1 2
+16 16
+0 LASTA (SIMD&FP scalar)
+1 LASTB (SIMD&FP scalar)
+#SVE reverse within elements
+1 4
+16 17
+00 REVB, REVH, REVW - Encoding
+01 REVB, REVH, REVW - Encoding
+10 REVB, REVH, REVW - Encoding
+11 RBIT
+#SVE conditionally broadcast element to vector
+1 2
+16 16
+0 CLASTA (vectors)
+1 CLASTB (vectors)
+#SVE conditionally extract element to SIMD&FP scalar
+1 2
+16 16
+0 CLASTA (SIMD&FP scalar)
+1 CLASTB (SIMD&FP scalar)
+#SVE reverse doublewords
+1 3
+22 23
+00 REVD FEAT_SME
+01 Unallocated. -
+1x Unallocated. -
+#SVE conditionally extract element to general register
+1 2
+16 16
+0 CLASTA (scalar)
+1 CLASTB (scalar)
+#SVE Permute Vector - Predicated -
+#SVE Permute Vector - Extract -
+#SVE Permute Vector - Segments -
+#SVE Integer Compare - Vectors -
+#SVE integer compare with unsigned immediate -
+#SVE integer compare with signed immediate -
+#SVE predicate logical operations -
+#SVE Propagate Break -
+#SVE Partition Break -
+#SVE Predicate Misc -
+#SVE Integer Compare - Scalars -
+#SVE broadcast predicate element -
+#SVE Scalar Integer Compare - Predicate-as-counter -
+#SVE Integer Wide Immediate - Unpredicated -
+#SVE Predicate Count -
+#SVE Inc/Dec by Predicate Count -
+#SVE Write FFR -
+#SVE Integer Multiply-Add - Unpredicated -
+#SVE2 Integer - Predicated -
+#SVE integer clamp -
+#SVE Multiply - Indexed -
+#SVE two-way dot product -
+#SVE two-way dot product (indexed) -
+#SVE2 Widening Integer Arithmetic -
+#SVE Misc -
+#SVE2 Accumulate -
+#SVE2 Narrowing -
+#SVE2 character match -
+#SVE2 Histogram Computation - Segment -
+#SVE2 Crypto Extensions -
+#SVE floating-point convert precision odd elements -
+#SVE2 floating-point pairwise operations -
+#SVE floating-point multiply-add (indexed) -
+#SVE floating-point complex multiply-add (indexed) -
+#SVE floating-point multiply (indexed) -
+#SVE Floating Point Widening Multiply-Add - Indexed -
+#SVE Floating Point Widening Multiply-Add -
+#SVE floating point matrix multiply accumulate -
+#SVE floating-point compare vectors -
+#SVE floating-point arithmetic (unpredicated) -
+#SVE Floating Point Arithmetic - Predicated -
+#SVE Floating Point Unary Operations - Predicated -
+#SVE floating-point recursive reduction -
+#SVE Floating Point Unary Operations - Unpredicated -
+#SVE Floating Point Compare - with Zero -
+#SVE Floating Point Accumulating Reduction -
+#SVE Floating Point Multiply-Add -
+#SVE Memory - 32-bit Gather and Unsized Contiguous -
+#SVE Memory - Contiguous Load -
+#SVE Memory - 64-bit Gather -
+#SVE Memory - Contiguous Store and Unsized Contiguous -
+#SVE Memory - Non-temporal and Quadword Scatter Store -
+#SVE Memory - Non-temporal and Multi-register Contiguous Store -
+#SVE Memory - Scatter with Optional Sign Extend -
+#SVE Memory - Scatter -
+#SVE Memory - Contiguous Store with Immediate Offset -
+
 #Data Processing -- Immediate
 #Branches, Exception Generating and System instructions
 #Loads and Stores
