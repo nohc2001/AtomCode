@@ -2287,32 +2287,1074 @@ x11111 1x Unallocated. -
 0 CLASTA (scalar)
 1 CLASTB (scalar)
 #SVE Permute Vector - Predicated -
+4 20
+20 20
+17 19
+16 16
+13 13
+0 000 0 0 CPY (SIMD&FP scalar)
+0 000 1 0 COMPACT
+0 000 - 1 SVE extract element to general register
+0 001 - 0 SVE extract element to SIMD&FP scalar register
+0 01x - 0 SVE reverse within elements
+0 01x - 1 Unallocated.
+0 100 0 1 CPY (scalar)
+0 100 1 1 Unallocated.
+0 100 - 0 SVE conditionally broadcast element to vector
+0 101 - 0 SVE conditionally extract element to SIMD&FP scalar
+0 110 0 0 SPLICE - Encoding
+0 110 1 0 SPLICE - Encoding
+0 110 - 1 Unallocated.
+0 111 0 0 SVE reverse doublewords
+0 111 0 1 Unallocated.
+0 111 1 - Unallocated.
+0 x01 - 1 Unallocated.
+1 000 - 0 Unallocated.
+1 000 - 1 SVE conditionally extract element to general register
+1 != 000 - - Unallocated.
+#SVE extract element to general register
+1 2
+16 16
+0 LASTA (scalar)
+1 LASTB (scalar)
+#SVE extract element to SIMD&FP scalar register
+1 2
+16 16
+0 LASTA (SIMD&FP scalar)
+1 LASTB (SIMD&FP scalar)
+#SVE reverse within elements
+1 4
+16 17
+00 REVB, REVH, REVW - Encoding
+01 REVB, REVH, REVW - Encoding
+10 REVB, REVH, REVW - Encoding
+11 RBIT
+#SVE conditionally broadcast element to vector
+1 2
+16 16
+0 CLASTA (vectors)
+1 CLASTB (vectors)
+#SVE conditionally extract element to SIMD&FP scalar
+1 2
+16 16
+0 CLASTA (SIMD&FP scalar)
+1 CLASTB (SIMD&FP scalar)
+#SVE reverse doublewords
+1 3
+22 23
+00 REVD FEAT_SME
+01 Unallocated. -
+1x Unallocated. -
+#SVE conditionally extract element to general register
+1 2
+16 16
+0 CLASTA (scalar)
+1 CLASTB (scalar)
 #SVE Permute Vector - Extract -
+1 2
+22 22
+0 EXT - Encoding
+1 EXT - Encoding
 #SVE Permute Vector - Segments -
+1 2
+22 22
+0 SVE permute vector segments
+1 Unallocated.
+#SVE permute vector segments
+2 7
+11 12
+10 10
+00 0 ZIP1, ZIP2 (vectors) - Encoding FEAT_F64MM
+00 1 ZIP1, ZIP2 (vectors) - Encoding FEAT_F64MM
+01 0 UZP1, UZP2 (vectors) - Encoding FEAT_F64MM
+01 1 UZP1, UZP2 (vectors) - Encoding FEAT_F64MM
+10 - Unallocated. -
+11 0 TRN1, TRN2 (vectors) - Encoding FEAT_F64MM
+11 1 TRN1, TRN2 (vectors) - Encoding FEAT_F64MM
 #SVE Integer Compare - Vectors -
+1 2
+14 14
+0 SVE integer compare vectors
+1 SVE integer compare with wide elements
+#SVE integer compare vectors
+3 8
+15 15
+13 13
+4 4
+0 0 0 CMP<cc> (vectors) - Encoding
+0 0 1 CMP<cc> (vectors) - Encoding
+0 1 0 CMP<cc> (wide elements) - Encoding
+0 1 1 CMP<cc> (wide elements) - Encoding
+1 0 0 CMP<cc> (vectors) - Encoding
+1 0 1 CMP<cc> (vectors) - Encoding
+1 1 0 CMP<cc> (vectors) - Encoding
+1 1 1 CMP<cc> (vectors) - Encoding
+#SVE integer compare with wide elements
+3 8
+15 15
+13 13
+4 4
+0 0 0 CMP<cc> (wide elements) - Encoding
+0 0 1 CMP<cc> (wide elements) - Encoding
+0 1 0 CMP<cc> (wide elements) - Encoding
+0 1 1 CMP<cc> (wide elements) - Encoding
+1 0 0 CMP<cc> (wide elements) - Encoding
+1 0 1 CMP<cc> (wide elements) - Encoding
+1 1 0 CMP<cc> (wide elements) - Encoding
+1 1 1 CMP<cc> (wide elements) - Encoding
 #SVE integer compare with unsigned immediate -
+2 4
+13 13
+4 4
+0 0 CMP<cc> (immediate) - Encoding
+0 1 CMP<cc> (immediate) - Encoding
+1 0 CMP<cc> (immediate) - Encoding
+1 1 CMP<cc> (immediate) - Encoding
 #SVE integer compare with signed immediate -
+3 7
+15 15
+13 13
+4 4
+0 0 0 CMP<cc> (immediate) - Encoding
+0 0 1 CMP<cc> (immediate) - Encoding
+0 1 0 CMP<cc> (immediate) - Encoding
+0 1 1 CMP<cc> (immediate) - Encoding
+1 0 0 CMP<cc> (immediate) - Encoding
+1 0 1 CMP<cc> (immediate) - Encoding
+1 1 - Unallocated.
 #SVE predicate logical operations -
+4 16
+23 23
+22 22
+9 9
+4 4
+0 0 0 0 AND (predicates)
+0 0 0 1 BIC (predicates)
+0 0 1 0 EOR (predicates)
+0 0 1 1 SEL (predicates)
+0 1 0 0 ANDS
+0 1 0 1 BICS
+0 1 1 0 EORS
+0 1 1 1 Unallocated.
+1 0 0 0 ORR (predicates)
+1 0 0 1 ORN (predicates)
+1 0 1 0 NOR
+1 0 1 1 NAND
+1 1 0 0 ORRS
+1 1 0 1 ORNS
+1 1 1 0 NORS
+1 1 1 1 NANDS
 #SVE Propagate Break -
+1 2
+9 9
+0 SVE propagate break from previous partition
+1 Unallocated.
+#SVE propagate break from previous partition
+3 5
+23 23
+22 22
+4 4
+0 0 0 BRKPA
+0 0 1 BRKPB
+0 1 0 BRKPAS
+0 1 1 BRKPBS
+1 - - Unallocated.
 #SVE Partition Break -
+4 9
+23 23
+16 19
+9 9
+4 4
+0 1000 0 0 SVE propagate break to next partition
+0 1000 0 1 Unallocated.
+0 x000 1 - Unallocated.
+0 x1xx - - Unallocated.
+0 xx1x - - Unallocated.
+0 xxx1 - - Unallocated.
+1 0000 1 - Unallocated.
+1 != 0000 - - Unallocated.
+- 0000 0 - SVE partition break condition
+#SVE propagate break to next partition
+1 2
+22 22
+0 BRKN
+1 BRKNS
+#SVE partition break condition
+3 5
+23 23
+22 22
+4 4
+- 1 1 Unallocated.
+0 0 - BRKA
+0 1 0 BRKAS
+1 0 - BRKB
+1 1 0 BRKBS
 #SVE Predicate Misc -
+5
+16 19
+11 13
+9 10
+5 8
+4 4
+0000 - x0 - 0 SVE predicate test
+0100 - x0 - 0 Unallocated.
+0x10 - x0 - 0 Unallocated.
+0xx1 - x0 - 0 Unallocated.
+0xxx - x1 - 0 Unallocated.
+1000 000 00 - 0 SVE predicate first active
+1000 000 != 00 - 0 Unallocated.
+1000 100 10 0000 0 SVE predicate zero
+1000 100 10 != 0000 0 Unallocated.
+1000 110 00 - 0 SVE predicate read from FFR (predicated)
+1001 000 0x - 0 Unallocated.
+1001 000 10 - 0 PNEXT
+1001 000 11 - 0 Unallocated.
+1001 100 10 - 0 Unallocated.
+1001 110 00 0000 0 SVE predicate read from FFR (unpredicated)
+1001 110 00 != 0000 0 Unallocated.
+100x 010 - - 0 Unallocated.
+100x 100 0x - 0 SVE predicate initialize
+100x 100 11 - 0 Unallocated.
+100x 110 != 00 - 0 Unallocated.
+100x xx1 - - 0 Unallocated.
+110x - - - 0 Unallocated.
+1x1x - - - 0 Unallocated.
+- - - - 1 Unallocated.
+#SVE predicate test
+3 7
+23 23
+22 22
+0 3
+0 0 - Unallocated.
+0 1 0000 PTEST
+0 1 0001 Unallocated.
+0 1 001x Unallocated.
+0 1 01xx Unallocated.
+0 1 1xxx Unallocated.
+1 - - Unallocated.
+#SVE predicate first active
+2 3
+23 23
+22 22
+0 0 Unallocated.
+0 1 PFIRST
+1 - Unallocated.
+#SVE predicate zero
+2 3
+23 23
+22 22
+0 0 PFALSE
+0 1 Unallocated.
+1 - Unallocated.
+#SVE predicate read from FFR (predicated)
+2 3
+23 23
+22 22
+0 0 RDFFR (predicated)
+0 1 RDFFRS
+1 - Unallocated.
+#SVE predicate read from FFR (unpredicated)
+2 3
+23 23
+22 22
+0 0 RDFFR (unpredicated)
+0 1 Unallocated.
+1 - Unallocated.
+#SVE predicate initialize
+1 2
+16 16
+0 PTRUE
+1 PTRUES
 #SVE Integer Compare - Scalars -
+3 5
+12 13
+10 11
+0 3
+0x - - SVE integer compare scalar count and limit
+10 00 0000 SVE conditionally terminate scalars
+10 00 != 0000 Unallocated.
+11 00 - SVE pointer conflict compare
+1x != 00 - Unallocated.
+#SVE integer compare scalar count and limit
+3 8
+11 11
+10 10
+4 4
+0 0 0 WHILEGE (predicate)
+0 0 1 WHILEGT (predicate)
+0 1 0 WHILELT (predicate)
+0 1 1 WHILELE (predicate)
+1 0 0 WHILEHS (predicate)
+1 0 1 WHILEHI (predicate)
+1 1 0 WHILELO (predicate)
+1 1 1 WHILELS (predicate)
+#SVE conditionally terminate scalars
+2 3
+23 23
+4 4
+0 - Unallocated.
+1 0 CTERMEQ, CTERMNE - Encoding
+1 1 CTERMEQ, CTERMNE - Encoding
+#SVE pointer conflict compare
+1 2
+4 4
+0 WHILEWR
+1 WHILERW
 #SVE broadcast predicate element -
+1 2
+9 9
+0 PSEL FEAT_SME
+1 Unallocated. -
 #SVE Scalar Integer Compare - Predicate-as-counter -
+4 7
+16 20
+11 13
+5 10
+3 3
+00000 110 - - SVE extract mask predicate from predicate-as-counter -
+00000 111 000000 0 PTRUE FEAT_SME2
+00000 111 000000 1 Unallocated. -
+00000 111 != 000000 - Unallocated. -
+!= 00000 11x - - Unallocated. -
+- 01x - - SVE integer compare scalar count and limit (predicate pair) -
+- x0x - - SVE integer compare scalar count and limit (predicate-as-counter) -
+#SVE extract mask predicate from predicate-as-counter -
+1 3
+8 10
+0xx PEXT (predicate) FEAT_SME2
+10x PEXT (predicate pair) FEAT_SME2
+11x Unallocated. -
+#SVE integer compare scalar count and limit (predicate pair) -
+3 8
+11 11
+10 10
+0 0
+0 0 0 WHILEGE (predicate pair) FEAT_SME2
+0 0 1 WHILEGT (predicate pair) FEAT_SME2
+0 1 0 WHILELT (predicate pair) FEAT_SME2
+0 1 1 WHILELE (predicate pair) FEAT_SME2
+1 0 0 WHILEHS (predicate pair) FEAT_SME2
+1 0 1 WHILEHI (predicate pair) FEAT_SME2
+1 1 0 WHILELO (predicate pair) FEAT_SME2
+1 1 1 WHILELS (predicate pair) FEAT_SME2
+#SVE integer compare scalar count and limit (predicate-as-counter) -
+3 8
+11 11
+10 10
+3 3
+0 0 0 WHILEGE FEAT_SME2
+0 0 1 WHILEGT FEAT_SME2
+0 1 0 WHILELT FEAT_SME2
+0 1 1 WHILELE FEAT_SME2
+1 0 0 WHILEHS FEAT_SME2
+1 0 1 WHILEHI FEAT_SME2
+1 1 0 WHILELO FEAT_SME2
+1 1 1 WHILELS FEAT_SME2
 #SVE Integer Wide Immediate - Unpredicated -
+2 5
+19 20
+16 16
+00 - SVE integer add/subtract immediate (unpredicated)
+01 - SVE integer min/max immediate (unpredicated)
+10 - SVE integer multiply immediate (unpredicated)
+11 0 SVE broadcast integer immediate (unpredicated)
+11 1 SVE broadcast floating-point immediate (unpredicated)
+#SVE integer add/subtract immediate (unpredicated)
+1 8
+16 18
+000 ADD (immediate)
+001 SUB (immediate)
+010 Unallocated.
+011 SUBR (immediate)
+100 SQADD (immediate)
+101 UQADD (immediate)
+110 SQSUB (immediate)
+111 UQSUB (immediate)
+#SVE integer min/max immediate (unpredicated)
+2 6
+16 18
+13 13
+0xx 1 Unallocated.
+000 0 SMAX (immediate)
+001 0 UMAX (immediate)
+010 0 SMIN (immediate)
+011 0 UMIN (immediate)
+1xx - Unallocated.
+#SVE integer multiply immediate (unpredicated)
+2 5
+16 18
+13 13
+000 0 MUL (immediate)
+000 1 Unallocated.
+001 - Unallocated.
+01x - Unallocated.
+1xx - Unallocated.
+#SVE broadcast integer immediate (unpredicated)
+1 3
+17 18
+00 DUP (immediate)
+01 Unallocated.
+1x Unallocated.
+#SVE broadcast floating-point immediate (unpredicated)
+2 4
+17 18
+13 13
+00 0 FDUP
+00 1 Unallocated.
+01 - Unallocated.
+1x - Unallocated.
 #SVE Predicate Count -
+2 3
+11 13
+9 9
+000 1 SVE predicate count (predicate-as-counter)
+!= 000 1 Unallocated.
+- 0 SVE predicate count
+#SVE predicate count (predicate-as-counter)
+1 4
+16 18
+000 CNTP FEAT_SME2
+001 Unallocated. -
+01x Unallocated. -
+1xx Unallocated. -
+#SVE predicate count
+1 4
+16 18
+000 CNTP
+001 Unallocated.
+01x Unallocated.
+1xx Unallocated.
 #SVE Inc/Dec by Predicate Count -
+2 4
+18 18
+11 11
+0 0 SVE saturating inc/dec vector by predicate count
+0 1 SVE saturating inc/dec register by predicate count
+1 0 SVE inc/dec vector by predicate count
+1 1 SVE inc/dec register by predicate count
+#SVE saturating inc/dec vector by predicate count
+3 6
+17 17
+16 16
+9 10
+- - 01 Unallocated.
+- - 1x Unallocated.
+0 0 00 SQINCP (vector)
+0 1 00 UQINCP (vector)
+1 0 00 SQDECP (vector)
+1 1 00 UQDECP (vector)
+#SVE saturating inc/dec register by predicate count
+4 9
+17 17
+16 16
+10 10
+9 9
+- - - 1 Unallocated.
+0 0 0 0 SQINCP (scalar) - Encoding
+0 0 1 0 SQINCP (scalar) - Encoding
+0 1 0 0 UQINCP (scalar) - Encoding
+0 1 1 0 UQINCP (scalar) - Encoding
+1 0 0 0 SQDECP (scalar) - Encoding
+1 0 1 0 SQDECP (scalar) - Encoding
+1 1 0 0 UQDECP (scalar) - Encoding
+1 1 1 0 UQDECP (scalar) - Encoding
+#SVE inc/dec vector by predicate count
+3 5
+17 17
+16 16
+9 10
+0 - 01 Unallocated.
+0 - 1x Unallocated.
+0 0 00 INCP (vector)
+0 1 00 DECP (vector)
+1 - - Unallocated.
+#SVE inc/dec register by predicate count
+3 5
+17 17
+16 16
+9 10
+0 - 01 Unallocated.
+0 - 1x Unallocated.
+0 0 00 INCP (scalar)
+0 1 00 DECP (scalar)
+1 - - Unallocated.
 #SVE Write FFR -
+5 9
+18 18
+16 17
+12 15
+9 11
+5 8
+0 4
+0 00 000 - 00000 SVE FFR write from predicate
+1 00 000 0000 00000 SVE FFR initialise
+1 00 000 1xxx 00000 Unallocated.
+1 00 000 x1xx 00000 Unallocated.
+1 00 000 xx1x 00000 Unallocated.
+1 00 000 xxx1 00000 Unallocated.
+- 00 000 - != 00000 Unallocated.
+- 00 != 000 - - Unallocated.
+- != 00 - - - Unallocated.
+#SVE FFR write from predicate
+1 3
+22 23
+00 WRFFR
+01 Unallocated.
+1x Unallocated.
+#SVE FFR initialise
+1 3
+22 23
+00 SETFFR
+01 Unallocated.
+1x Unallocated.
 #SVE Integer Multiply-Add - Unpredicated -
+1 9
+10 14
+0000x SVE integer dot product (unpredicated)
+0001x SVE2 saturating multiply-add interleaved long
+001xx CDOT (vectors)
+01xxx SVE2 complex integer multiply-add
+10xxx SVE2 integer multiply-add long
+110xx SVE2 saturating multiply-add long
+1110x SVE2 saturating multiply-add high
+11110 SVE mixed sign dot product
+11111 Unallocated.
+#SVE integer dot product (unpredicated)
+1 2
+10 10
+0 SDOT (4-way, vectors)
+1 UDOT (4-way, vectors)
+#SVE2 saturating multiply-add interleaved long
+1 2
+10 10
+0 SQDMLALBT
+1 SQDMLSLBT
+#SVE2 complex integer multiply-add
+1 2
+12 12
+0 CMLA (vectors)
+1 SQRDCMLAH (vectors)
+#SVE2 integer multiply-add long
+3 8
+12 12
+11 11
+10 10
+0 0 0 SMLALB (vectors)
+0 0 1 SMLALT (vectors)
+0 1 0 UMLALB (vectors)
+0 1 1 UMLALT (vectors)
+1 0 0 SMLSLB (vectors)
+1 0 1 SMLSLT (vectors)
+1 1 0 UMLSLB (vectors)
+1 1 1 UMLSLT (vectors)
+#SVE2 saturating multiply-add long
+2 4
+11 11
+10 10
+0 0 SQDMLALB (vectors)
+0 1 SQDMLALT (vectors)
+1 0 SQDMLSLB (vectors)
+1 1 SQDMLSLT (vectors)
+#SVE2 saturating multiply-add high
+1 2
+10 10
+0 SQRDMLAH (vectors)
+1 SQRDMLSH (vectors)
+#SVE mixed sign dot product
+1 3
+22 23
+0x Unallocated. -
+10 USDOT (vectors) FEAT_I8MM
+11 Unallocated. -
 #SVE2 Integer - Predicated -
+2 9
+17 20
+13 13
+0010 1 SVE2 integer pairwise add and accumulate long
+0011 1 Unallocated.
+011x 1 Unallocated.
+0x0x 1 SVE2 integer unary operations (predicated)
+0xxx 0 SVE2 saturating/rounding bitwise shift left (predicated)
+10xx 0 SVE2 integer halving add/subtract (predicated)
+10xx 1 SVE2 integer pairwise arithmetic
+11xx 0 SVE2 saturating add/subtract
+11xx 1 Unallocated.
+#SVE2 integer pairwise add and accumulate long
+1 2
+16 16
+0 SADALP
+1 UADALP
+#SVE2 integer unary operations (predicated)
+2 5
+19 19
+16 17
+- 1x Unallocated.
+0 00 URECPE
+0 01 URSQRTE
+1 00 SQABS
+1 01 SQNEG
+#SVE2 saturating/rounding bitwise shift left (predicated)
+4 13
+19 19
+18 18
+17 17
+16 16
+0 - 0 - Unallocated.
+0 0 1 0 SRSHL
+0 0 1 1 URSHL
+0 1 1 0 SRSHLR
+0 1 1 1 URSHLR
+1 0 0 0 SQSHL (vectors)
+1 0 0 1 UQSHL (vectors)
+1 0 1 0 SQRSHL
+1 0 1 1 UQRSHL
+1 1 0 0 SQSHLR
+1 1 0 1 UQSHLR
+1 1 1 0 SQRSHLR
+1 1 1 1 UQRSHLR
+#SVE2 integer halving add/subtract (predicated)
+3 8
+18 18
+17 17
+16 16
+0 0 0 SHADD
+0 0 1 UHADD
+0 1 0 SHSUB
+0 1 1 UHSUB
+1 0 0 SRHADD
+1 0 1 URHADD
+1 1 0 SHSUBR
+1 1 1 UHSUBR
+#SVE2 integer pairwise arithmetic
+2 7
+17 18
+16 16
+00 0 Unallocated.
+00 1 ADDP
+01 - Unallocated.
+10 0 SMAXP
+10 1 UMAXP
+11 0 SMINP
+11 1 UMINP
+#SVE2 saturating add/subtract
+3 8
+18 18
+17 17
+16 16
+0 0 0 SQADD (vectors, predicated)
+0 0 1 UQADD (vectors, predicated)
+0 1 0 SQSUB (vectors, predicated)
+0 1 1 UQSUB (vectors, predicated)
+1 0 0 SUQADD
+1 0 1 USQADD
+1 1 0 SQSUBR
+1 1 1 UQSUBR
 #SVE integer clamp -
+1 2
+10 10
+0 SCLAMP FEAT_SME
+1 UCLAMP FEAT_SME
 #SVE Multiply - Indexed -
+1 15
+10 15
+00000x SVE integer dot product (indexed)
+00001x SVE2 integer multiply-add (indexed)
+00010x SVE2 saturating multiply-add high (indexed)
+00011x SVE mixed sign dot product (indexed)
+001xxx SVE2 saturating multiply-add (indexed)
+0100xx SVE2 complex integer dot product (indexed)
+0101xx Unallocated.
+0110xx SVE2 complex integer multiply-add (indexed)
+0111xx SVE2 complex saturating multiply-add (indexed)
+10xxxx SVE2 integer multiply-add long (indexed)
+110xxx SVE2 integer multiply long (indexed)
+1110xx SVE2 saturating multiply (indexed)
+11110x SVE2 saturating multiply high (indexed)
+111110 SVE2 integer multiply (indexed)
+111111 Unallocated.
+#SVE integer dot product (indexed)
+2 5
+22 23
+10 10
+0x - Unallocated.
+10 0 SDOT (4-way, indexed) - Encoding
+10 1 UDOT (4-way, indexed) - Encoding
+11 0 SDOT (4-way, indexed) - Encoding
+11 1 UDOT (4-way, indexed) - Encoding
+#SVE2 integer multiply-add (indexed)
+2 6
+22 23
+10 10
+0x 0 MLA (indexed) - Encoding
+0x 1 MLS (indexed) - Encoding
+10 0 MLA (indexed) - Encoding
+10 1 MLS (indexed) - Encoding
+11 0 MLA (indexed) - Encoding
+11 1 MLS (indexed) - Encoding
+#SVE2 saturating multiply-add high (indexed)
+2 6
+22 23
+10 10
+0x 0 SQRDMLAH (indexed) - Encoding
+0x 1 SQRDMLSH (indexed) - Encoding
+10 0 SQRDMLAH (indexed) - Encoding
+10 1 SQRDMLSH (indexed) - Encoding
+11 0 SQRDMLAH (indexed) - Encoding
+11 1 SQRDMLSH (indexed) - Encoding
+#SVE mixed sign dot product (indexed)
+2 4
+22 23
+10 10
+0x - Unallocated. -
+10 0 USDOT (indexed) FEAT_I8MM
+10 1 SUDOT FEAT_I8MM
+11 - Unallocated. -
+#SVE2 saturating multiply-add (indexed)
+3 9
+22 23
+12 12
+10 10
+0x - - Unallocated.
+10 0 0 SQDMLALB (indexed) - Encoding
+10 0 1 SQDMLALT (indexed) - Encoding
+10 1 0 SQDMLSLB (indexed) - Encoding
+10 1 1 SQDMLSLT (indexed) - Encoding
+11 0 0 SQDMLALB (indexed) - Encoding
+11 0 1 SQDMLALT (indexed) - Encoding
+11 1 0 SQDMLSLB (indexed) - Encoding
+11 1 1 SQDMLSLT (indexed) - Encoding
+#SVE2 complex integer dot product (indexed)
+1 3
+22 23
+0x Unallocated.
+10 CDOT (indexed) - Encoding
+11 CDOT (indexed) - Encoding
+#SVE2 complex integer multiply-add (indexed)
+1 3
+22 23
+0x Unallocated.
+10 CMLA (indexed) - Encoding
+11 CMLA (indexed) - Encoding
+#SVE2 complex saturating multiply-add (indexed)
+1 3
+22 23
+0x Unallocated.
+10 SQRDCMLAH (indexed) - Encoding
+11 SQRDCMLAH (indexed) - Encoding
+#SVE2 integer multiply-add long (indexed)
+4 17
+22 23
+13 13
+12 12
+10 10
+0x - - - Unallocated.
+10 0 0 0 SMLALB (indexed) - Encoding
+10 0 0 1 SMLALT (indexed) - Encoding
+10 0 1 0 UMLALB (indexed) - Encoding
+10 0 1 1 UMLALT (indexed) - Encoding
+10 1 0 0 SMLSLB (indexed) - Encoding
+10 1 0 1 SMLSLT (indexed) - Encoding
+10 1 1 0 UMLSLB (indexed) - Encoding
+10 1 1 1 UMLSLT (indexed) - Encoding
+11 0 0 0 SMLALB (indexed) - Encoding
+11 0 0 1 SMLALT (indexed) - Encoding
+11 0 1 0 UMLALB (indexed) - Encoding
+11 0 1 1 UMLALT (indexed) - Encoding
+11 1 0 0 SMLSLB (indexed) - Encoding
+11 1 0 1 SMLSLT (indexed) - Encoding
+11 1 1 0 UMLSLB (indexed) - Encoding
+11 1 1 1 UMLSLT (indexed) - Encoding
+#SVE2 integer multiply long (indexed)
+3 9
+22 23
+12 12
+10 10
+0x - - Unallocated.
+10 0 0 SMULLB (indexed) - Encoding
+10 0 1 SMULLT (indexed) - Encoding
+10 1 0 UMULLB (indexed) - Encoding
+10 1 1 UMULLT (indexed) - Encoding
+11 0 0 SMULLB (indexed) - Encoding
+11 0 1 SMULLT (indexed) - Encoding
+11 1 0 UMULLB (indexed) - Encoding
+11 1 1 UMULLT (indexed) - Encoding
+#SVE2 saturating multiply (indexed)
+2 5
+22 23
+10 10
+0x - Unallocated.
+10 0 SQDMULLB (indexed) - Encoding
+10 1 SQDMULLT (indexed) - Encoding
+11 0 SQDMULLB (indexed) - Encoding
+11 1 SQDMULLT (indexed) - Encoding
+#SVE2 saturating multiply high (indexed)
+2 6
+22 23
+10 10
+0x 0 SQDMULH (indexed) - Encoding
+0x 1 SQRDMULH (indexed) - Encoding
+10 0 SQDMULH (indexed) - Encoding
+10 1 SQRDMULH (indexed) - Encoding
+11 0 SQDMULH (indexed) - Encoding
+11 1 SQRDMULH (indexed) - Encoding
+#SVE2 integer multiply (indexed)
+1 3
+22 23
+0x MUL (indexed) - Encoding
+10 MUL (indexed) - Encoding
+11 MUL (indexed) - Encoding
 #SVE two-way dot product -
+1 2
+10 10
+0 SDOT (2-way, vectors) FEAT_SME2
+1 UDOT (2-way, vectors) FEAT_SME2
 #SVE two-way dot product (indexed) -
+1 2
+10 10
+0 SDOT (2-way, indexed) FEAT_SME2
+1 UDOT (2-way, indexed) FEAT_SME2
 #SVE2 Widening Integer Arithmetic -
+2 3
+13 14
+0x SVE2 integer add/subtract long
+10 SVE2 integer add/subtract wide
+11 SVE2 integer multiply long
+#SVE2 integer add/subtract long
+4 13
+13 13
+12 12
+11 11
+10 10
+0 0 0 0 SADDLB
+0 0 0 1 SADDLT
+0 0 1 0 UADDLB
+0 0 1 1 UADDLT
+0 1 0 0 SSUBLB
+0 1 0 1 SSUBLT
+0 1 1 0 USUBLB
+0 1 1 1 USUBLT
+1 0 - - Unallocated.
+1 1 0 0 SABDLB
+1 1 0 1 SABDLT
+1 1 1 0 UABDLB
+1 1 1 1 UABDLT
+#SVE2 integer add/subtract wide
+3 8
+12 12
+11 11
+10 10
+0 0 0 SADDWB
+0 0 1 SADDWT
+0 1 0 UADDWB
+0 1 1 UADDWT
+1 0 0 SSUBWB
+1 0 1 SSUBWT
+1 1 0 USUBWB
+1 1 1 USUBWT
+#SVE2 integer multiply long
+4 10
+22 23
+12 12
+11 11
+10 10
+- 0 0 0 SQDMULLB (vectors) -
+- 0 0 1 SQDMULLT (vectors) -
+- 1 0 0 SMULLB (vectors) -
+- 1 0 1 SMULLT (vectors) -
+- 1 1 0 UMULLB (vectors) -
+- 1 1 1 UMULLT (vectors) -
+!=00 0 1 0 PMULLB - Encoding -
+!=00 0 1 1 PMULLT - Encoding -
+00 0 1 0 PMULLB - Encoding FEAT_SVE_PMULL128
+00 0 1 1 PMULLT - Encoding FEAT_SVE_PMULL128
 #SVE Misc -
+2 7
+23 23
+10 13
+0 10xx SVE2 bitwise shift left long
+1 10xx Unallocated.
+- 00xx SVE2 integer add/subtract interleaved long
+- 010x SVE2 bitwise exclusive-or interleaved
+- 0110 SVE integer matrix multiply accumulate
+- 0111 Unallocated.
+- 11xx SVE2 bitwise permute
+#SVE2 bitwise shift left long
+2 4
+11 11
+10 10
+0 0 SSHLLB
+0 1 SSHLLT
+1 0 USHLLB
+1 1 USHLLT
+#SVE2 integer add/subtract interleaved long
+2 4
+11 11
+10 10
+0 0 SADDLBT
+0 1 Unallocated.
+1 0 SSUBLBT
+1 1 SSUBLTB
+#SVE2 bitwise exclusive-or interleaved
+1 2
+10 10
+0 EORBT
+1 EORTB
+#SVE integer matrix multiply accumulate
+1 4
+22 23
+00 SMMLA FEAT_I8MM
+01 Unallocated. -
+10 USMMLA FEAT_I8MM
+11 UMMLA FEAT_I8MM
+#SVE2 bitwise permute
+1 4
+10 11
+00 BEXT FEAT_SVE_BitPerm
+01 BDEP FEAT_SVE_BitPerm
+10 BGRP FEAT_SVE_BitPerm
+11 Unallocated. -
 #SVE2 Accumulate -
+2 7
+17 20
+11 13
+0000 011 SVE2 complex integer add
+!= 0000 011 Unallocated.
+- 00x SVE2 integer absolute difference and accumulate long
+- 010 SVE2 integer add/subtract long with carry
+- 10x SVE2 bitwise shift right and accumulate
+- 110 SVE2 bitwise shift and insert
+- 111 SVE2 integer absolute difference and accumulate
+#SVE2 complex integer add
+1 2
+16 16
+0 CADD
+1 SQCADD
+#SVE2 integer absolute difference and accumulate long
+2 4
+11 11
+10 10
+0 0 SABALB
+0 1 SABALT
+1 0 UABALB
+1 1 UABALT
+#SVE2 integer add/subtract long with carry
+2 4
+22 23
+10 10
+0x 0 ADCLB
+0x 1 ADCLT
+1x 0 SBCLB
+1x 1 SBCLT
+#SVE2 bitwise shift right and accumulate
+2 4
+11 11
+10 10
+0 0 SSRA
+0 1 USRA
+1 0 SRSRA
+1 1 URSRA
+#SVE2 bitwise shift and insert
+1 2
+10 10
+0 SRI
+1 SLI
+#SVE2 integer absolute difference and accumulate
+1 2
+10 10
+0 SABA
+1 UABA
 #SVE2 Narrowing -
+6 11
+23 23
+17 18
+16 16
+13 14
+10 10
+5 5
+0 00 0 10 - - SVE2 saturating extract narrow
+0 00 1 10 0 0 SME2 multi-vec extract narrow
+0 00 1 10 0 1 Unallocated.
+0 00 1 10 1 - Unallocated.
+0 != 00 - 10 - - Unallocated.
+0 - - 0x - - SVE2 bitwise shift right narrow
+1 - - 0x 0 0 SME2 multi-vec shift narrow
+1 - - 0x 0 1 Unallocated.
+1 - - 0x 1 - Unallocated.
+1 - - 10 - - Unallocated.
+- - - 11 - - SVE2 integer add/subtract narrow high part
+#SVE2 saturating extract narrow
+2 7
+11 12
+10 10
+00 0 SQXTNB
+00 1 SQXTNT
+01 0 UQXTNB
+01 1 UQXTNT
+10 0 SQXTUNB
+10 1 SQXTUNT
+11 - Unallocated.
+#SME2 multi-vec extract narrow
+3 7
+22 22
+19 20
+11 12
+0 0x - Unallocated. -
+0 10 00 SQCVTN FEAT_SME2
+0 10 01 UQCVTN FEAT_SME2
+0 10 10 SQCVTUN FEAT_SME2
+0 10 11 Unallocated. -
+0 11 - Unallocated. -
+1 - - Unallocated. -
+#SVE2 bitwise shift right narrow
+4 16
+13 13
+12 12
+11 11
+10 10
+0 0 0 0 SQSHRUNB
+0 0 0 1 SQSHRUNT
+0 0 1 0 SQRSHRUNB
+0 0 1 1 SQRSHRUNT
+0 1 0 0 SHRNB
+0 1 0 1 SHRNT
+0 1 1 0 RSHRNB
+0 1 1 1 RSHRNT
+1 0 0 0 SQSHRNB
+1 0 0 1 SQSHRNT
+1 0 1 0 SQRSHRNB
+1 0 1 1 SQRSHRNT
+1 1 0 0 UQSHRNB
+1 1 0 1 UQSHRNT
+1 1 1 0 UQRSHRNB
+1 1 1 1 UQRSHRNT
+#SME2 multi-vec shift narrow
+5 8
+22 22
+20 20
+13 13
+12 12
+11 11
+0 0 - - - Unallocated. -
+0 1 0 0 0 Unallocated. -
+0 1 0 0 1 SQRSHRUN FEAT_SME2
+0 1 0 1 - Unallocated. -
+0 1 1 - 0 Unallocated. -
+0 1 1 0 1 SQRSHRN FEAT_SME2
+0 1 1 1 1 UQRSHRN FEAT_SME2
+1 - - - - Unallocated. -
+#SVE2 integer add/subtract narrow high part
+3 8
+12 12
+11 11
+10 10
+0 0 0 ADDHNB
+0 0 1 ADDHNT
+0 1 0 RADDHNB
+0 1 1 RADDHNT
+1 0 0 SUBHNB
+1 0 1 SUBHNT
+1 1 0 RSUBHNB
+1 1 1 RSUBHNT
 #SVE2 character match -
 #SVE2 Histogram Computation - Segment -
 #SVE2 Crypto Extensions -
