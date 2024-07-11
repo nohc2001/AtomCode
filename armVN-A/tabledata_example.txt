@@ -3926,16 +3926,849 @@ x0 11 Unallocated. -
 - 1 101 SVE contiguous non-fault load (scalar plus immediate)
 - 1 111 Unallocated.
 - - 000 SVE load and broadcast quadword (scalar plus scalar)
+- - 010 SVE contiguous load (scalar plus scalar)
+- - 011 SVE contiguous first-fault load (scalar plus scalar)
+- - 100 Unallocated.
+#SVE contiguous non-temporal load (scalar plus immediate)
+1 4
+23 24
+00 LDNT1B (scalar plus immediate, single register)
+01 LDNT1H (scalar plus immediate, single register)
+10 LDNT1W (scalar plus immediate, single register)
+11 LDNT1D (scalar plus immediate, single register)
+#SVE contiguous non-temporal load (scalar plus scalar)
+1 4
+23 24
+00 LDNT1B (scalar plus scalar, single register)
+01 LDNT1H (scalar plus scalar, single register)
+10 LDNT1W (scalar plus scalar, single register)
+11 LDNT1D (scalar plus scalar, single register)
+#SVE load multiple structures (scalar plus immediate)
+2 12
+23 24
+21 22
+00 01 LD2B (scalar plus immediate)
+00 10 LD3B (scalar plus immediate)
+00 11 LD4B (scalar plus immediate)
+01 01 LD2H (scalar plus immediate)
+01 10 LD3H (scalar plus immediate)
+01 11 LD4H (scalar plus immediate)
+10 01 LD2W (scalar plus immediate)
+10 10 LD3W (scalar plus immediate)
+10 11 LD4W (scalar plus immediate)
+11 01 LD2D (scalar plus immediate)
+11 10 LD3D (scalar plus immediate)
+11 11 LD4D (scalar plus immediate)
+#SVE load multiple structures (scalar plus scalar)
+2 12
+23 24
+21 22
+00 01 LD2B (scalar plus scalar)
+00 10 LD3B (scalar plus scalar)
+00 11 LD4B (scalar plus scalar)
+01 01 LD2H (scalar plus scalar)
+01 10 LD3H (scalar plus scalar)
+01 11 LD4H (scalar plus scalar)
+10 01 LD2W (scalar plus scalar)
+10 10 LD3W (scalar plus scalar)
+10 11 LD4W (scalar plus scalar)
+11 01 LD2D (scalar plus scalar)
+11 10 LD3D (scalar plus scalar)
+11 11 LD4D (scalar plus scalar)
+#SVE load and broadcast quadword (scalar plus immediate)
+2 9
+23 24
+21 22
+- 1x Unallocated. -
+00 00 LD1RQB (scalar plus immediate) -
+00 01 LD1ROB (scalar plus immediate) FEAT_F64MM
+01 00 LD1RQH (scalar plus immediate) -
+01 01 LD1ROH (scalar plus immediate) FEAT_F64MM
+10 00 LD1RQW (scalar plus immediate) -
+10 01 LD1ROW (scalar plus immediate) FEAT_F64MM
+11 00 LD1RQD (scalar plus immediate) -
+11 01 LD1ROD (scalar plus immediate) FEAT_F64MM
+#SVE contiguous load (scalar plus immediate)
+1 16
+21 24
+0000 LD1B (scalar plus immediate, single register) - Encoding
+0001 LD1B (scalar plus immediate, single register) - Encoding
+0010 LD1B (scalar plus immediate, single register) - Encoding
+0011 LD1B (scalar plus immediate, single register) - Encoding
+0100 LD1SW (scalar plus immediate)
+0101 LD1H (scalar plus immediate, single register) - Encoding
+0110 LD1H (scalar plus immediate, single register) - Encoding
+0111 LD1H (scalar plus immediate, single register) - Encoding
+1000 LD1SH (scalar plus immediate) - Encoding
+1001 LD1SH (scalar plus immediate) - Encoding
+1010 LD1W (scalar plus immediate, single register) - Encoding
+1011 LD1W (scalar plus immediate, single register) - Encoding
+1100 LD1SB (scalar plus immediate) - Encoding
+1101 LD1SB (scalar plus immediate) - Encoding
+1110 LD1SB (scalar plus immediate) - Encoding
+1111 LD1D (scalar plus immediate, single register)
+#SVE contiguous non-fault load (scalar plus immediate)
+1 16
+21 24
+0000 LDNF1B - Encoding
+0001 LDNF1B - Encoding
+0010 LDNF1B - Encoding
+0011 LDNF1B - Encoding
+0100 LDNF1SW
+0101 LDNF1H - Encoding
+0110 LDNF1H - Encoding
+0111 LDNF1H - Encoding
+1000 LDNF1SH - Encoding
+1001 LDNF1SH - Encoding
+1010 LDNF1W - Encoding
+1011 LDNF1W - Encoding
+1100 LDNF1SB - Encoding
+1101 LDNF1SB - Encoding
+1110 LDNF1SB - Encoding
+1111 LDNF1D
+#SVE load and broadcast quadword (scalar plus scalar)
+2 9
+23 24
+21 22
+- 1x Unallocated. -
+00 00 LD1RQB (scalar plus scalar) -
+00 01 LD1ROB (scalar plus scalar) FEAT_F64MM
+01 00 LD1RQH (scalar plus scalar) -
+01 01 LD1ROH (scalar plus scalar) FEAT_F64MM
+10 00 LD1RQW (scalar plus scalar) -
+10 01 LD1ROW (scalar plus scalar) FEAT_F64MM
+11 00 LD1RQD (scalar plus scalar) -
+11 01 LD1ROD (scalar plus scalar) FEAT_F64MM
+#SVE contiguous load (scalar plus scalar)
+1 16
+21 24
+0000 LD1B (scalar plus scalar, single register) - Encoding
+0001 LD1B (scalar plus scalar, single register) - Encoding
+0010 LD1B (scalar plus scalar, single register) - Encoding
+0011 LD1B (scalar plus scalar, single register) - Encoding
+0100 LD1SW (scalar plus scalar)
+0101 LD1H (scalar plus scalar, single register) - Encoding
+0110 LD1H (scalar plus scalar, single register) - Encoding
+0111 LD1H (scalar plus scalar, single register) - Encoding
+1000 LD1SH (scalar plus scalar) - Encoding
+1001 LD1SH (scalar plus scalar) - Encoding
+1010 LD1W (scalar plus scalar, single register) - Encoding
+1011 LD1W (scalar plus scalar, single register) - Encoding
+1100 LD1SB (scalar plus scalar) - Encoding
+1101 LD1SB (scalar plus scalar) - Encoding
+1110 LD1SB (scalar plus scalar) - Encoding
+1111 LD1D (scalar plus scalar, single register)
+#SVE contiguous first-fault load (scalar plus scalar)
+1 16
+21 24
+0000 LDFF1B (scalar plus scalar) - Encoding
+0001 LDFF1B (scalar plus scalar) - Encoding
+0010 LDFF1B (scalar plus scalar) - Encoding
+0011 LDFF1B (scalar plus scalar) - Encoding
+0100 LDFF1SW (scalar plus scalar)
+0101 LDFF1H (scalar plus scalar) - Encoding
+0110 LDFF1H (scalar plus scalar) - Encoding
+0111 LDFF1H (scalar plus scalar) - Encoding
+1000 LDFF1SH (scalar plus scalar) - Encoding
+1001 LDFF1SH (scalar plus scalar) - Encoding
+1010 LDFF1W (scalar plus scalar) - Encoding
+1011 LDFF1W (scalar plus scalar) - Encoding
+1100 LDFF1SB (scalar plus scalar) - Encoding
+1101 LDFF1SB (scalar plus scalar) - Encoding
+1110 LDFF1SB (scalar plus scalar) - Encoding
+1111 LDFF1D (scalar plus scalar)
 #SVE Memory - 64-bit Gather -
+4 13
+23 24
+21 22
+13 15
+4 4
+00 01 0xx 1 Unallocated.
+00 11 1xx 0 SVE 64-bit gather prefetch (scalar plus 64-bit scaled offsets)
+00 11 - 1 Unallocated.
+00 x1 0xx 0 SVE 64-bit gather prefetch (scalar plus unpacked 32-bit scaled offsets)
+!= 00 11 1xx - SVE 64-bit gather load (scalar plus 64-bit scaled offsets)
+!= 00 x1 0xx - SVE 64-bit gather load (scalar plus 32-bit unpacked scaled offsets)
+- 00 101 - Unallocated.
+- 00 111 0 SVE 64-bit gather prefetch (vector plus immediate)
+- 00 111 1 Unallocated.
+- 00 1x0 - SVE2 64-bit gather non-temporal load (vector plus scalar)
+- 01 1xx - SVE 64-bit gather load (vector plus immediate)
+- 10 1xx - SVE 64-bit gather load (scalar plus 64-bit unscaled offsets)
+- x0 0xx - SVE 64-bit gather load (scalar plus unpacked 32-bit unscaled offsets)
+#SVE 64-bit gather prefetch (scalar plus 64-bit scaled offsets)
+1 4
+13 14
+00 PRFB (scalar plus vector)
+01 PRFH (scalar plus vector)
+10 PRFW (scalar plus vector)
+11 PRFD (scalar plus vector)
+#SVE 64-bit gather prefetch (scalar plus unpacked 32-bit scaled offsets)
+1 4
+13 14
+00 PRFB (scalar plus vector)
+01 PRFH (scalar plus vector)
+10 PRFW (scalar plus vector)
+11 PRFD (scalar plus vector)
+#SVE 64-bit gather load (scalar plus 64-bit scaled offsets)
+3 11
+23 24
+14 14
+13 13
+01 0 0 LD1SH (scalar plus vector)
+01 0 1 LDFF1SH (scalar plus vector)
+01 1 0 LD1H (scalar plus vector)
+01 1 1 LDFF1H (scalar plus vector)
+10 0 0 LD1SW (scalar plus vector)
+10 0 1 LDFF1SW (scalar plus vector)
+10 1 0 LD1W (scalar plus vector)
+10 1 1 LDFF1W (scalar plus vector)
+11 0 - Unallocated.
+11 1 0 LD1D (scalar plus vector)
+11 1 1 LDFF1D (scalar plus vector)
+#SVE 64-bit gather load (scalar plus 32-bit unpacked scaled offsets)
+3 11
+23 24
+14 14
+13 13
+01 0 0 LD1SH (scalar plus vector)
+01 0 1 LDFF1SH (scalar plus vector)
+01 1 0 LD1H (scalar plus vector)
+01 1 1 LDFF1H (scalar plus vector)
+10 0 0 LD1SW (scalar plus vector)
+10 0 1 LDFF1SW (scalar plus vector)
+10 1 0 LD1W (scalar plus vector)
+10 1 1 LDFF1W (scalar plus vector)
+11 0 - Unallocated.
+11 1 0 LD1D (scalar plus vector)
+11 1 1 LDFF1D (scalar plus vector)
+#SVE 64-bit gather prefetch (vector plus immediate)
+1 4
+23 24
+00 PRFB (vector plus immediate)
+01 PRFH (vector plus immediate)
+10 PRFW (vector plus immediate)
+11 PRFD (vector plus immediate)
+#SVE2 64-bit gather non-temporal load (vector plus scalar)
+2 8
+23 24
+14 14
+00 0 LDNT1SB
+00 1 LDNT1B (vector plus scalar)
+01 0 LDNT1SH
+01 1 LDNT1H (vector plus scalar)
+10 0 LDNT1SW
+10 1 LDNT1W (vector plus scalar)
+11 0 Unallocated.
+11 1 LDNT1D (vector plus scalar)
+#SVE 64-bit gather load (vector plus immediate)
+3 15
+23 24
+14 14
+13 13
+00 0 0 LD1SB (vector plus immediate)
+00 0 1 LDFF1SB (vector plus immediate)
+00 1 0 LD1B (vector plus immediate)
+00 1 1 LDFF1B (vector plus immediate)
+01 0 0 LD1SH (vector plus immediate)
+01 0 1 LDFF1SH (vector plus immediate)
+01 1 0 LD1H (vector plus immediate)
+01 1 1 LDFF1H (vector plus immediate)
+10 0 0 LD1SW (vector plus immediate)
+10 0 1 LDFF1SW (vector plus immediate)
+10 1 0 LD1W (vector plus immediate)
+10 1 1 LDFF1W (vector plus immediate)
+11 0 - Unallocated.
+11 1 0 LD1D (vector plus immediate)
+11 1 1 LDFF1D (vector plus immediate)
+#SVE 64-bit gather load (scalar plus 64-bit unscaled offsets)
+3 15
+23 24
+14 14
+13 13
+00 0 0 LD1SB (scalar plus vector)
+00 0 1 LDFF1SB (scalar plus vector)
+00 1 0 LD1B (scalar plus vector)
+00 1 1 LDFF1B (scalar plus vector)
+01 0 0 LD1SH (scalar plus vector)
+01 0 1 LDFF1SH (scalar plus vector)
+01 1 0 LD1H (scalar plus vector)
+01 1 1 LDFF1H (scalar plus vector)
+10 0 0 LD1SW (scalar plus vector)
+10 0 1 LDFF1SW (scalar plus vector)
+10 1 0 LD1W (scalar plus vector)
+10 1 1 LDFF1W (scalar plus vector)
+11 0 - Unallocated.
+11 1 0 LD1D (scalar plus vector)
+11 1 1 LDFF1D (scalar plus vector)
+#SVE 64-bit gather load (scalar plus unpacked 32-bit unscaled offsets)
+3 15
+23 24
+14 14
+13 13
+00 0 0 LD1SB (scalar plus vector)
+00 0 1 LDFF1SB (scalar plus vector)
+00 1 0 LD1B (scalar plus vector)
+00 1 1 LDFF1B (scalar plus vector)
+01 0 0 LD1SH (scalar plus vector)
+01 0 1 LDFF1SH (scalar plus vector)
+01 1 0 LD1H (scalar plus vector)
+01 1 1 LDFF1H (scalar plus vector)
+10 0 0 LD1SW (scalar plus vector)
+10 0 1 LDFF1SW (scalar plus vector)
+10 1 0 LD1W (scalar plus vector)
+10 1 1 LDFF1W (scalar plus vector)
+11 0 - Unallocated.
+11 1 0 LD1D (scalar plus vector)
+11 1 1 LDFF1D (scalar plus vector)
 #SVE Memory - Contiguous Store and Unsized Contiguous -
+3 7
+22 24
+14 14
+4 4
+0xx 0 - Unallocated.
+10x 0 - Unallocated.
+110 0 0 STR (predicate)
+110 0 1 Unallocated.
+110 1 - STR (vector)
+111 0 - Unallocated.
+!= 110 1 - SVE contiguous store (scalar plus scalar)
 #SVE Memory - Non-temporal and Quadword Scatter Store -
+2 5
+22 24
+21 21
+00x - ST1B (scalar plus scalar, single register)
+01x - ST1H (scalar plus scalar, single register)
+101 - ST1W (scalar plus scalar, single register)
+111 0 Unallocated.
+111 1 ST1D (scalar plus scalar, single register)
 #SVE Memory - Non-temporal and Multi-register Contiguous Store -
+1 2
+21 22
+00 SVE contiguous non-temporal store (scalar plus scalar)
+!=00 SVE store multiple structures (scalar plus scalar)
+#SVE contiguous non-temporal store (scalar plus scalar)
+1 4
+23 24
+00 STNT1B (scalar plus scalar, single register)
+01 STNT1H (scalar plus scalar, single register)
+10 STNT1W (scalar plus scalar, single register)
+11 STNT1D (scalar plus scalar, single register)
+#SVE store multiple structures (scalar plus scalar)
+2 12
+23 24
+21 22
+00 01 ST2B (scalar plus scalar)
+00 10 ST3B (scalar plus scalar)
+00 11 ST4B (scalar plus scalar)
+01 01 ST2H (scalar plus scalar)
+01 10 ST3H (scalar plus scalar)
+01 11 ST4H (scalar plus scalar)
+10 01 ST2W (scalar plus scalar)
+10 10 ST3W (scalar plus scalar)
+10 11 ST4W (scalar plus scalar)
+11 01 ST2D (scalar plus scalar)
+11 10 ST3D (scalar plus scalar)
+11 11 ST4D (scalar plus scalar)
 #SVE Memory - Scatter with Optional Sign Extend -
+1 4
+21 22
+00 SVE 64-bit scatter store (scalar plus unpacked 32-bit unscaled offsets)
+01 SVE 64-bit scatter store (scalar plus unpacked 32-bit scaled offsets)
+10 SVE 32-bit scatter store (scalar plus 32-bit unscaled offsets)
+11 SVE 32-bit scatter store (scalar plus 32-bit scaled offsets)
+#SVE 64-bit scatter store (scalar plus unpacked 32-bit unscaled offsets)
+1 4
+23 24
+00 ST1B (scalar plus vector)
+01 ST1H (scalar plus vector)
+10 ST1W (scalar plus vector)
+11 ST1D (scalar plus vector)
+#SVE 64-bit scatter store (scalar plus unpacked 32-bit scaled offsets)
+1 4
+23 24
+00 Unallocated.
+01 ST1H (scalar plus vector)
+10 ST1W (scalar plus vector)
+11 ST1D (scalar plus vector)
+#SVE 32-bit scatter store (scalar plus 32-bit unscaled offsets)
+1 4
+23 24
+00 ST1B (scalar plus vector)
+01 ST1H (scalar plus vector)
+10 ST1W (scalar plus vector)
+11 Unallocated.
+#SVE 32-bit scatter store (scalar plus 32-bit scaled offsets)
+1 4
+23 24
+00 Unallocated.
+01 ST1H (scalar plus vector)
+10 ST1W (scalar plus vector)
+11 Unallocated.
 #SVE Memory - Scatter -
+1 4
+21 22
+00 SVE 64-bit scatter store (scalar plus 64-bit unscaled offsets)
+01 SVE 64-bit scatter store (scalar plus 64-bit scaled offsets)
+10 SVE 64-bit scatter store (vector plus immediate)
+11 SVE 32-bit scatter store (vector plus immediate)
+#SVE 64-bit scatter store (scalar plus 64-bit unscaled offsets)
+1 4
+23 24
+00 ST1B (scalar plus vector)
+01 ST1H (scalar plus vector)
+10 ST1W (scalar plus vector)
+11 ST1D (scalar plus vector)
+#SVE 64-bit scatter store (scalar plus 64-bit scaled offsets)
+1 4
+23 24
+00 Unallocated.
+01 ST1H (scalar plus vector)
+10 ST1W (scalar plus vector)
+11 ST1D (scalar plus vector)
+#SVE 64-bit scatter store (vector plus immediate)
+1 4
+23 24
+00 ST1B (vector plus immediate)
+01 ST1H (vector plus immediate)
+10 ST1W (vector plus immediate)
+11 ST1D (vector plus immediate)
+#SVE 32-bit scatter store (vector plus immediate)
+1 4
+23 24
+00 ST1B (vector plus immediate)
+01 ST1H (vector plus immediate)
+10 ST1W (vector plus immediate)
+11 Unallocated.
 #SVE Memory - Contiguous Store with Immediate Offset -
-
+2 3
+21 22
+20 20
+00 1 SVE contiguous non-temporal store (scalar plus immediate)
+!=00 1 SVE store multiple structures (scalar plus immediate)
+- 0 SVE contiguous store (scalar plus immediate)
+#SVE contiguous non-temporal store (scalar plus immediate)
+1 4
+23 24
+00 STNT1B (scalar plus immediate, single register)
+01 STNT1H (scalar plus immediate, single register)
+10 STNT1W (scalar plus immediate, single register)
+11 STNT1D (scalar plus immediate, single register)
+#SVE store multiple structures (scalar plus immediate)
+1 12
+23 24
+21 22
+00 01 ST2B (scalar plus immediate)
+00 10 ST3B (scalar plus immediate)
+00 11 ST4B (scalar plus immediate)
+01 01 ST2H (scalar plus immediate)
+01 10 ST3H (scalar plus immediate)
+01 11 ST4H (scalar plus immediate)
+10 01 ST2W (scalar plus immediate)
+10 10 ST3W (scalar plus immediate)
+10 11 ST4W (scalar plus immediate)
+11 01 ST2D (scalar plus immediate)
+11 10 ST3D (scalar plus immediate)
+11 11 ST4D (scalar plus immediate)
+#SVE contiguous store (scalar plus immediate)
+2 6
+23 24
+21 22
+00 - ST1B (scalar plus immediate, single register)
+01 - ST1H (scalar plus immediate, single register)
+1x 0x Unallocated.
+10 1x ST1W (scalar plus immediate, single register)
+11 10 Unallocated.
+11 11 ST1D (scalar plus immediate, single register)
 #Data Processing -- Immediate
+1 7
+23 25
+00x PC-rel. addressing
+010 Add/subtract (immediate)
+011 Add/subtract (immediate, with tags)
+100 Logical (immediate)
+101 Move wide (immediate)
+110 Bitfield
+111 Extract
+#PC-rel. addressing
+1 2
+31 31
+0 ADR
+1 ADRP
+#Add/subtract (immediate)
+3 8
+31 31
+30 30
+29 29
+0 0 0 ADD (immediate) - 32-bit variant
+0 0 1 ADDS (immediate) - 32-bit variant
+0 1 0 SUB (immediate) - 32-bit variant
+0 1 1 SUBS (immediate) - 32-bit variant
+1 0 0 ADD (immediate) - 64-bit variant
+1 0 1 ADDS (immediate) - 64-bit variant
+1 1 0 SUB (immediate) - 64-bit variant
+1 1 1 SUBS (immediate) - 64-bit variant
+#Add/subtract (immediate, with tags)
+4 5
+31 31
+30 30
+29 29
+22 22
+- - - 1 Unallocated. -
+0 - - 0 Unallocated. -
+1 - 1 0 Unallocated. -
+1 0 0 0 ADDG FEAT_MTE
+1 1 0 0 SUBG FEAT_MTE
+#Logical (immediate)
+3 9
+31 31
+29 30
+22 22
+0 - 1 Unallocated.
+0 00 0 AND (immediate) - 32-bit variant
+0 01 0 ORR (immediate) - 32-bit variant
+0 10 0 EOR (immediate) - 32-bit variant
+0 11 0 ANDS (immediate) - 32-bit variant
+1 00 - AND (immediate) - 64-bit variant
+1 01 - ORR (immediate) - 64-bit variant
+1 10 - EOR (immediate) - 64-bit variant
+1 11 - ANDS (immediate) - 64-bit variant
+#Move wide (immediate)
+3 8
+31 31
+29 30
+21 22
+- 01 - Unallocated.
+0 - 1x Unallocated.
+0 00 0x MOVN - 32-bit variant
+0 10 0x MOVZ - 32-bit variant
+0 11 0x MOVK - 32-bit variant
+1 00 - MOVN - 64-bit variant
+1 10 - MOVZ - 64-bit variant
+1 11 - MOVK - 64-bit variant
+#Bitfield
+3 9
+31 31
+29 30
+22 22
+- 11 - Unallocated.
+0 - 1 Unallocated.
+0 00 0 SBFM - 32-bit variant
+0 01 0 BFM - 32-bit variant
+0 10 0 UBFM - 32-bit variant
+1 - 0 Unallocated.
+1 00 1 SBFM - 64-bit variant
+1 01 1 BFM - 64-bit variant
+1 10 1 UBFM - 64-bit variant
+#Extract
+5 8
+31 31
+29 30
+22 22
+21 21
+10 15
+- x1 - - - Unallocated.
+- 00 - 1 - Unallocated.
+- 1x - - - Unallocated.
+0 - - - 1xxxxx Unallocated.
+0 - 1 - - Unallocated.
+0 00 0 0 0xxxxx EXTR - 32-bit variant
+1 - 0 - - Unallocated.
+1 00 1 0 - EXTR - 64-bit variant
 #Branches, Exception Generating and System instructions
+3 13
+29 31
+12 25
+0 4
+010 0xxxxxxxxxxxxx - Conditional branch (immediate)
+110 00xxxxxxxxxxxx - Exception generation
+110 01000000110001 - System instructions with register argument
+110 01000000110010 11111 Hints
+110 01000000110011 - Barriers
+110 0100000xxx0100 - PSTATE
+110 0100100xxxxxxx - System with result
+110 0100x01xxxxxxx - System instructions
+110 0100x1xxxxxxxx - System register move
+110 1xxxxxxxxxxxxx - Unconditional branch (register)
+x00 - - Unconditional branch (immediate)
+x01 0xxxxxxxxxxxxx - Compare and branch (immediate)
+x01 1xxxxxxxxxxxxx - Test and branch (immediate)
+#Conditional branch (immediate)
+2 3
+24 24
+4 4
+0 0 B.cond -
+0 1 BC.cond FEAT_HBC
+1 - Unallocated. -
+#Exception generation
+3 23
+21 23
+2 4
+0 1
+- 001 - Unallocated. -
+- 01x - Unallocated. -
+- 1xx - Unallocated. -
+000 000 00 Unallocated. -
+000 000 01 SVC -
+000 000 10 HVC -
+000 000 11 SMC -
+001 000 x1 Unallocated. -
+001 000 00 BRK -
+001 000 1x Unallocated. -
+010 000 x1 Unallocated. -
+010 000 00 HLT -
+010 000 1x Unallocated. -
+011 000 00 TCANCEL FEAT_TME
+011 000 01 Unallocated. -
+011 000 1x Unallocated. -
+100 000 - Unallocated. -
+101 000 00 Unallocated. -
+101 000 01 DCPS1 -
+101 000 10 DCPS2 -
+101 000 11 DCPS3 -
+110 000 - Unallocated. -
+111 000 - Unallocated. -
+#System instructions with register argument
+2 5
+8 11
+5 7
+!=0000 - Unallocated. -
+0000 000 WFET FEAT_WFxT
+0000 001 WFIT FEAT_WFxT
+0000 01x Unallocated. -
+0000 1xx Unallocated. -
+#Hints
+2 26
+8 11
+5 7
+- - HINT -
+0000 000 NOP -
+0000 001 YIELD -
+0000 010 WFE -
+0000 011 WFI -
+0000 100 SEV -
+0000 101 SEVL -
+0000 110 DGH FEAT_DGH
+0000 111 XPACD, XPACI, XPACLRI FEAT_PAuth
+0001 000 PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIA1716 variant FEAT_PAuth
+0001 010 PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIB1716 variant FEAT_PAuth
+0001 100 AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIA1716 variant FEAT_PAuth
+0001 110 AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIB1716 variant FEAT_PAuth
+0010 000 ESB FEAT_RAS
+0010 001 PSB CSYNC FEAT_SPE
+0010 010 TSB CSYNC FEAT_TRF
+0010 100 CSDB -
+0011 000 PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIAZ variant FEAT_PAuth
+0011 001 PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIASP variant FEAT_PAuth
+0011 010 PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIBZ variant FEAT_PAuth
+0011 011 PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIBSP variant FEAT_PAuth
+0011 100 AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIAZ variant FEAT_PAuth
+0011 101 AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIASP variant FEAT_PAuth
+0011 110 AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIBZ variant FEAT_PAuth
+0011 111 AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIBSP variant FEAT_PAuth
+0100 xx0 BTI FEAT_BTI
+#Barriers
+3 16
+8 11
+5 7
+0 4
+- 000 - Unallocated. -
+- 001 !=11111 Unallocated. -
+- 010 11111 CLREX -
+- 100 11111 DSB - Encoding -
+- 101 11111 DMB -
+- 110 11111 ISB -
+- 111 != 11111 Unallocated. -
+- 111 11111 SB FEAT_SB
+xx0x 001 11111 Unallocated. -
+xx10 001 11111 DSB - Encoding FEAT_XS
+xx11 001 11111 Unallocated. -
+0000 011 11111 TCOMMIT FEAT_TME
+0001 011 - Unallocated. -
+001x 011 - Unallocated. -
+01xx 011 - Unallocated. -
+1xxx 011 - Unallocated. -
+#PSTATE
+3 5
+16 18
+5 7
+0 4
+- - != 11111 Unallocated. -
+- - 11111 MSR (immediate) -
+000 000 11111 CFINV FEAT_FlagM
+000 001 11111 XAFLAG FEAT_FlagM2
+000 010 11111 AXFLAG FEAT_FlagM2
+#System with result
+4 6
+16 18
+22 15
+8 11
+0 4
+!=011 - - - Unallocated. -
+011 !=0011 - - Unallocated. -
+011 0011 - !=011 Unallocated. -
+011 0011 !=000x 011 Unallocated. -
+011 0011 0000 011 TSTART FEAT_TME
+011 0011 0001 011 TTEST FEAT_TME
+#System instructions
+1 2
+21 21
+0 SYS
+1 SYSL
+#System register move
+1 2
+21 21
+0 MSR (register)
+1 MRS
+#Unconditional branch (register)
+5 78
+21 24
+16 20
+10 15
+5 9
+0 4
+- !=11111 - - - Unallocated. -
+0000 11111 000000 - != 00000 Unallocated. -
+0000 11111 000000 - 00000 BR -
+0000 11111 000001 - - Unallocated. -
+0000 11111 000010 - != 11111 Unallocated. -
+0000 11111 000010 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key A, zero
+modifier variant FEAT_PAuth
+0000 11111 000011 - != 11111 Unallocated. -
+0000 11111 000011 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key B, zero
+modifier variant FEAT_PAuth
+0000 11111 0001xx - - Unallocated. -
+0000 11111 001xxx - - Unallocated. -
+0000 11111 01xxxx - - Unallocated. -
+0000 11111 1xxxxx - - Unallocated. -
+0001 11111 000000 - != 00000 Unallocated. -
+0001 11111 000000 - 00000 BLR -
+0001 11111 000001 - - Unallocated. -
+0001 11111 000010 - != 11111 Unallocated. -
+0001 11111 000010 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, zero
+modifier variant FEAT_PAuth
+0001 11111 000011 - != 11111 Unallocated. -
+0001 11111 000011 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key B, zero
+modifier variant FEAT_PAuth
+0001 11111 0001xx - - Unallocated. -
+0001 11111 001xxx - - Unallocated. -
+0001 11111 01xxxx - - Unallocated. -
+0001 11111 1xxxxx - - Unallocated. -
+0010 11111 000000 - !=00000 Unallocated. -
+0010 11111 000000 - 00000 RET -
+0010 11111 000001 - - Unallocated. -
+0010 11111 000010 !=11111 !=11111 Unallocated. -
+0010 11111 000010 !=11111 11111 Unallocated. -
+0010 11111 000010 11111 != 11111 Unallocated. -
+0010 11111 000010 11111 11111 RETAA, RETAB - RETAA variant FEAT_PAuth
+0010 11111 000011 != 11111 != 11111 Unallocated. -
+0010 11111 000011 != 11111 11111 Unallocated. -
+0010 11111 000011 11111 != 11111 Unallocated. -
+0010 11111 000011 11111 11111 RETAA, RETAB - RETAB variant FEAT_PAuth
+0010 11111 0001xx - - Unallocated. -
+0010 11111 001xxx - - Unallocated. -
+0010 11111 01xxxx - - Unallocated. -
+0010 11111 1xxxxx - - Unallocated. -
+0011 11111 - - - Unallocated. -
+0100 11111 000000 != 11111 != 00000 Unallocated. -
+0100 11111 000000 != 11111 00000 Unallocated. -
+0100 11111 000000 11111 != 00000 Unallocated. -
+0100 11111 000000 11111 00000 ERET -
+0100 11111 000001 - - Unallocated. -
+0100 11111 000010 != 11111 != 11111 Unallocated. -
+0100 11111 000010 != 11111 11111 Unallocated. -
+0100 11111 000010 11111 != 11111 Unallocated. -
+0100 11111 000010 11111 11111 ERETAA, ERETAB - ERETAA variant FEAT_PAuth
+0100 11111 000011 != 11111 != 11111 Unallocated. -
+0100 11111 000011 != 11111 11111 Unallocated. -
+0100 11111 000011 11111 != 11111 Unallocated. -
+0100 11111 000011 11111 11111 ERETAA, ERETAB - ERETAB variant FEAT_PAuth
+0100 11111 0001xx - - Unallocated. -
+0100 11111 001xxx - - Unallocated. -
+0100 11111 01xxxx - - Unallocated. -
+0100 11111 1xxxxx - - Unallocated. -
+#Unconditional branch (immediate)
+1 2
+31 31
+0 B
+1 BL
+#Compare and branch (immediate)
+2 4
+31 31
+24 24
+0 0 CBZ - 32-bit variant
+0 1 CBNZ - 32-bit variant
+1 0 CBZ - 64-bit variant
+1 1 CBNZ - 64-bit variant
+#Test and branch (immediate)
+1 2
+24 24
+0 TBZ
+1 TBNZ
 #Loads and Stores
+5 32
+28 31
+26 26
+23 24
+16 21
+10 11
+0x00 0 00 1xxxxx - Compare and swap pair
+0x00 1 00 000000 - Advanced SIMD load/store multiple structures
+0x00 1 01 0xxxxx - Advanced SIMD load/store multiple structures (post-indexed)
+0x00 1 0x 1xxxxx - Unallocated.
+0x00 1 10 x00000 - Advanced SIMD load/store single structure
+0x00 1 11 - - Advanced SIMD load/store single structure (post-indexed)
+0x00 1 x0 x1xxxx - Unallocated.
+0x00 1 x0 xx1xxx - Unallocated.
+0x00 1 x0 xxx1xx - Unallocated.
+0x00 1 x0 xxxx1x - Unallocated.
+0x00 1 x0 xxxxx1 - Unallocated.
+1101 0 1x 1xxxxx - Load/store memory tags
+1x00 0 00 1xxxxx - Load/store exclusive pair
+1x00 1 - - - Unallocated.
+xx00 0 00 0xxxxx - Load/store exclusive register
+xx00 0 01 0xxxxx - Load/store ordered
+xx00 0 01 1xxxxx - Compare and swap
+xx01 0 1x 0xxxxx 00 LDAPR/STLR (unscaled immediate)
+xx01 - 0x - - Load register (literal)
+xx01 - 1x 0xxxxx 01 Memory Copy and Memory Set
+xx10 - 00 - - Load/store no-allocate pair (offset)
+xx10 - 01 - - Load/store register pair (post-indexed)
+xx10 - 10 - - Load/store register pair (offset)
+xx10 - 11 - - Load/store register pair (pre-indexed)
+xx11 - 0x 0xxxxx 00 Load/store register (unscaled immediate)
+xx11 - 0x 0xxxxx 01 Load/store register (immediate post-indexed)
+xx11 - 0x 0xxxxx 10 Load/store register (unprivileged)
+xx11 - 0x 0xxxxx 11 Load/store register (immediate pre-indexed)
+xx11 - 0x 1xxxxx 00 Atomic memory operations
+xx11 - 0x 1xxxxx 10 Load/store register (register offset)
+xx11 - 0x 1xxxxx x1 Load/store register (pac)
+xx11 - 1x - - Load/store register (unsigned immediate)
+#Compare and swap pair
+#Advanced SIMD load/store multiple structures
+#Advanced SIMD load/store multiple structures (post-indexed)
+#Advanced SIMD load/store single structure
+#Advanced SIMD load/store single structure (post-indexed)
+#Load/store memory tags
+#Load/store exclusive pair
+#Load/store exclusive register
+#Load/store ordered
+#Compare and swap
+#LDAPR/STLR (unscaled immediate)
+#Load register (literal)
+#Memory Copy and Memory Set
+#Load/store no-allocate pair (offset)
+#Load/store register pair (post-indexed)
+#Load/store register pair (offset)
+#Load/store register pair (pre-indexed)
+#Load/store register (unscaled immediate)
+#Load/store register (immediate post-indexed)
+#Load/store register (unprivileged)
+#Load/store register (immediate pre-indexed)
+#Atomic memory operations
+#Load/store register (register offset)
+#Load/store register (pac)
+#Load/store register (unsigned immediate)
+
 #Data Processing -- Register
 #Data Processing -- Scalar Floating-Point and Advanced SIMD
