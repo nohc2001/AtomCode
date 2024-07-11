@@ -4745,27 +4745,932 @@ xx11 - 0x 1xxxxx 10 Load/store register (register offset)
 xx11 - 0x 1xxxxx x1 Load/store register (pac)
 xx11 - 1x - - Load/store register (unsigned immediate)
 #Compare and swap pair
+4 9
+30 30
+22 22
+15 15
+10 14
+- - - != 11111 Unallocated. -
+0 0 0 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASP variant FEAT_LSE
+0 0 1 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASPL variant FEAT_LSE
+0 1 0 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASPA variant FEAT_LSE
+0 1 1 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASPAL variant FEAT_LSE
+1 0 0 11111 CASP, CASPA, CASPAL, CASPL - 64-bit CASP variant FEAT_LSE
+1 0 1 11111 CASP, CASPA, CASPAL, CASPL - 64-bit CASPL variant FEAT_LSE
+1 1 0 11111 CASP, CASPA, CASPAL, CASPL - 64-bit CASPA variant FEAT_LSE
+1 1 1 11111 CASP, CASPA, CASPAL, CASPL - 64-bit CASPAL variant FEAT_LSE
 #Advanced SIMD load/store multiple structures
+2 26
+22 22
+12 15
+0 0000 ST4 (multiple structures)
+0 0001 Unallocated.
+0 0010 ST1 (multiple structures) - Four registers variant
+0 0011 Unallocated.
+0 0100 ST3 (multiple structures)
+0 0101 Unallocated.
+0 0110 ST1 (multiple structures) - Three registers variant
+0 0111 ST1 (multiple structures) - One register variant
+0 1000 ST2 (multiple structures)
+0 1001 Unallocated.
+0 1010 ST1 (multiple structures) - Two registers variant
+0 1011 Unallocated.
+0 11xx Unallocated.
+1 0000 LD4 (multiple structures)
+1 0001 Unallocated.
+1 0010 LD1 (multiple structures) - Four registers variant
+1 0011 Unallocated.
+1 0100 LD3 (multiple structures)
+1 0101 Unallocated.
+1 0110 LD1 (multiple structures) - Three registers variant
+1 0111 LD1 (multiple structures) - One register variant
+1 1000 LD2 (multiple structures)
+1 1001 Unallocated.
+1 1010 LD1 (multiple structures) - Two registers variant
+1 1011 Unallocated.
+1 11xx Unallocated.
 #Advanced SIMD load/store multiple structures (post-indexed)
+3 40
+22 22
+16 20
+12 15
+0 - 0001 Unallocated.
+0 - 0011 Unallocated.
+0 - 0101 Unallocated.
+0 - 1001 Unallocated.
+0 - 1011 Unallocated.
+0 - 11xx Unallocated.
+0 != 11111 0000 ST4 (multiple structures) - Register offset variant
+0 != 11111 0010 ST1 (multiple structures) - Four registers, register offset variant
+0 != 11111 0100 ST3 (multiple structures) - Register offset variant
+0 != 11111 0110 ST1 (multiple structures) - Three registers, register offset variant
+0 != 11111 0111 ST1 (multiple structures) - One register, register offset variant
+0 != 11111 1000 ST2 (multiple structures) - Register offset variant
+0 != 11111 1010 ST1 (multiple structures) - Two registers, register offset variant
+0 11111 0000 ST4 (multiple structures) - Immediate offset variant
+0 11111 0010 ST1 (multiple structures) - Four registers, immediate offset variant
+0 11111 0100 ST3 (multiple structures) - Immediate offset variant
+0 11111 0110 ST1 (multiple structures) - Three registers, immediate offset variant
+0 11111 0111 ST1 (multiple structures) - One register, immediate offset variant
+0 11111 1000 ST2 (multiple structures) - Immediate offset variant
+0 11111 1010 ST1 (multiple structures) - Two registers, immediate offset variant
+1 - 0001 Unallocated.
+1 - 0011 Unallocated.
+1 - 0101 Unallocated.
+1 - 1001 Unallocated.
+1 - 1011 Unallocated.
+1 - 11xx Unallocated.
+1 != 11111 0000 LD4 (multiple structures) - Register offset variant
+1 != 11111 0010 LD1 (multiple structures) - Four registers, register offset variant
+1 != 11111 0100 LD3 (multiple structures) - Register offset variant
+1 != 11111 0110 LD1 (multiple structures) - Three registers, register offset variant
+1 != 11111 0111 LD1 (multiple structures) - One register, register offset variant
+1 != 11111 1000 LD2 (multiple structures) - Register offset variant
+1 != 11111 1010 LD1 (multiple structures) - Two registers, register offset variant
+1 11111 0000 LD4 (multiple structures) - Immediate offset variant
+1 11111 0010 LD1 (multiple structures) - Four registers, immediate offset variant
+1 11111 0100 LD3 (multiple structures) - Immediate offset variant
+1 11111 0110 LD1 (multiple structures) - Three registers, immediate offset variant
+1 11111 0111 LD1 (multiple structures) - One register, immediate offset variant
+1 11111 1000 LD2 (multiple structures) - Immediate offset variant
+1 11111 1010 LD1 (multiple structures) - Two registers, immediate offset variant
 #Advanced SIMD load/store single structure
+5 71
+22 22
+21 21
+13 15
+12 12
+10 11
+0 - 11x - - Unallocated.
+0 0 000 - - ST1 (single structure) - 8-bit variant
+0 0 001 - - ST3 (single structure) - 8-bit variant
+0 0 010 - x0 ST1 (single structure) - 16-bit variant
+0 0 010 - x1 Unallocated.
+0 0 011 - x0 ST3 (single structure) - 16-bit variant
+0 0 011 - x1 Unallocated.
+0 0 100 - 00 ST1 (single structure) - 32-bit variant
+0 0 100 - 1x Unallocated.
+0 0 100 0 01 ST1 (single structure) - 64-bit variant
+0 0 100 1 01 Unallocated.
+0 0 101 - 00 ST3 (single structure) - 32-bit variant
+0 0 101 - 10 Unallocated.
+0 0 101 0 01 ST3 (single structure) - 64-bit variant
+0 0 101 0 11 Unallocated.
+0 0 101 1 x1 Unallocated.
+0 1 000 - - ST2 (single structure) - 8-bit variant
+0 1 001 - - ST4 (single structure) - 8-bit variant
+0 1 010 - x0 ST2 (single structure) - 16-bit variant
+0 1 010 - x1 Unallocated.
+0 1 011 - x0 ST4 (single structure) - 16-bit variant
+0 1 011 - x1 Unallocated.
+0 1 100 - 00 ST2 (single structure) - 32-bit variant
+0 1 100 - 10 Unallocated.
+0 1 100 0 01 ST2 (single structure) - 64-bit variant
+0 1 100 0 11 Unallocated.
+0 1 100 1 x1 Unallocated.
+0 1 101 - 00 ST4 (single structure) - 32-bit variant
+0 1 101 - 10 Unallocated.
+0 1 101 0 01 ST4 (single structure) - 64-bit variant
+0 1 101 0 11 Unallocated.
+0 1 101 1 x1 Unallocated.
+1 0 000 - - LD1 (single structure) - 8-bit variant
+1 0 001 - - LD3 (single structure) - 8-bit variant
+1 0 010 - x0 LD1 (single structure) - 16-bit variant
+1 0 010 - x1 Unallocated.
+1 0 011 - x0 LD3 (single structure) - 16-bit variant
+1 0 011 - x1 Unallocated.
+1 0 100 - 00 LD1 (single structure) - 32-bit variant
+1 0 100 - 1x Unallocated.
+1 0 100 0 01 LD1 (single structure) - 64-bit variant
+1 0 100 1 01 Unallocated.
+1 0 101 - 00 LD3 (single structure) - 32-bit variant
+1 0 101 - 10 Unallocated.
+1 0 101 0 01 LD3 (single structure) - 64-bit variant
+1 0 101 0 11 Unallocated.
+1 0 101 1 x1 Unallocated.
+1 0 110 0 - LD1R
+1 0 110 1 - Unallocated.
+1 0 111 0 - LD3R
+1 0 111 1 - Unallocated.
+1 1 000 - - LD2 (single structure) - 8-bit variant
+1 1 001 - - LD4 (single structure) - 8-bit variant
+1 1 010 - x0 LD2 (single structure) - 16-bit variant
+1 1 010 - x1 Unallocated.
+1 1 011 - x0 LD4 (single structure) - 16-bit variant
+1 1 011 - x1 Unallocated.
+1 1 100 - 00 LD2 (single structure) - 32-bit variant
+1 1 100 - 10 Unallocated.
+1 1 100 0 01 LD2 (single structure) - 64-bit variant
+1 1 100 0 11 Unallocated.
+1 1 100 1 x1 Unallocated.
+1 1 101 - 00 LD4 (single structure) - 32-bit variant
+1 1 101 - 10 Unallocated.
+1 1 101 0 01 LD4 (single structure) - 64-bit variant
+1 1 101 0 11 Unallocated.
+1 1 101 1 x1 Unallocated.
+1 1 110 0 - LD2R
+1 1 110 1 - Unallocated.
+1 1 111 0 - LD4R
+1 1 111 1 - Unallocated.
 #Advanced SIMD load/store single structure (post-indexed)
+6 107
+22 22
+21 21
+16 20
+13 15
+12 12
+10 11
+0 - - 11x - - Unallocated.
+0 0 - 010 - x1 Unallocated.
+0 0 - 011 - x1 Unallocated.
+0 0 - 100 - 1x Unallocated.
+0 0 - 100 1 01 Unallocated.
+0 0 - 101 - 10 Unallocated.
+0 0 - 101 0 11 Unallocated.
+0 0 - 101 1 x1 Unallocated.
+0 0 != 11111 000 - - ST1 (single structure) - 8-bit, register offset variant
+0 0 != 11111 001 - - ST3 (single structure) - 8-bit, register offset variant
+0 0 != 11111 010 - x0 ST1 (single structure) - 16-bit, register offset variant
+0 0 != 11111 011 - x0 ST3 (single structure) - 16-bit, register offset variant
+0 0 != 11111 100 - 00 ST1 (single structure) - 32-bit, register offset variant
+0 0 != 11111 100 0 01 ST1 (single structure) - 64-bit, register offset variant
+0 0 != 11111 101 - 00 ST3 (single structure) - 32-bit, register offset variant
+0 0 != 11111 101 0 01 ST3 (single structure) - 64-bit, register offset variant
+0 0 11111 000 - - ST1 (single structure) - 8-bit, immediate offset variant
+0 0 11111 001 - - ST3 (single structure) - 8-bit, immediate offset variant
+0 0 11111 010 - x0 ST1 (single structure) - 16-bit, immediate offset variant
+0 0 11111 011 - x0 ST3 (single structure) - 16-bit, immediate offset variant
+0 0 11111 100 - 00 ST1 (single structure) - 32-bit, immediate offset variant
+0 0 11111 100 0 01 ST1 (single structure) - 64-bit, immediate offset variant
+0 0 11111 101 - 00 ST3 (single structure) - 32-bit, immediate offset variant
+0 0 11111 101 0 01 ST3 (single structure) - 64-bit, immediate offset variant
+0 1 - 010 - x1 Unallocated.
+0 1 - 011 - x1 Unallocated.
+0 1 - 100 - 10 Unallocated.
+0 1 - 100 0 11 Unallocated.
+0 1 - 100 1 x1 Unallocated.
+0 1 - 101 - 10 Unallocated.
+0 1 - 101 0 11 Unallocated.
+0 1 - 101 1 x1 Unallocated.
+0 1 != 11111 000 - - ST2 (single structure) - 8-bit, register offset variant
+0 1 != 11111 001 - - ST4 (single structure) - 8-bit, register offset variant
+0 1 != 11111 010 - x0 ST2 (single structure) - 16-bit, register offset variant
+0 1 != 11111 011 - x0 ST4 (single structure) - 16-bit, register offset variant
+0 1 != 11111 100 - 00 ST2 (single structure) - 32-bit, register offset variant
+0 1 != 11111 100 0 01 ST2 (single structure) - 64-bit, register offset variant
+0 1 != 11111 101 - 00 ST4 (single structure) - 32-bit, register offset variant
+0 1 != 11111 101 0 01 ST4 (single structure) - 64-bit, register offset variant
+0 1 11111 000 - - ST2 (single structure) - 8-bit, immediate offset variant
+0 1 11111 001 - - ST4 (single structure) - 8-bit, immediate offset variant
+0 1 11111 010 - x0 ST2 (single structure) - 16-bit, immediate offset variant
+0 1 11111 011 - x0 ST4 (single structure) - 16-bit, immediate offset variant
+0 1 11111 100 - 00 ST2 (single structure) - 32-bit, immediate offset variant
+0 1 11111 100 0 01 ST2 (single structure) - 64-bit, immediate offset variant
+0 1 11111 101 - 00 ST4 (single structure) - 32-bit, immediate offset variant
+0 1 11111 101 0 01 ST4 (single structure) - 64-bit, immediate offset variant
+1 0 - 010 - x1 Unallocated.
+1 0 - 011 - x1 Unallocated.
+1 0 - 100 - 1x Unallocated.
+1 0 - 100 1 01 Unallocated.
+1 0 - 101 - 10 Unallocated.
+1 0 - 101 0 11 Unallocated.
+1 0 - 101 1 x1 Unallocated.
+1 0 - 110 1 - Unallocated.
+1 0 - 111 1 - Unallocated.
+1 0 != 11111 000 - - LD1 (single structure) - 8-bit, register offset variant
+1 0 != 11111 001 - - LD3 (single structure) - 8-bit, register offset variant
+1 0 != 11111 010 - x0 LD1 (single structure) - 16-bit, register offset variant
+1 0 != 11111 011 - x0 LD3 (single structure) - 16-bit, register offset variant
+1 0 != 11111 100 - 00 LD1 (single structure) - 32-bit, register offset variant
+1 0 != 11111 100 0 01 LD1 (single structure) - 64-bit, register offset variant
+1 0 != 11111 101 - 00 LD3 (single structure) - 32-bit, register offset variant
+1 0 != 11111 101 0 01 LD3 (single structure) - 64-bit, register offset variant
+1 0 != 11111 110 0 - LD1R - Register offset variant
+1 0 != 11111 111 0 - LD3R - Register offset variant
+1 0 11111 000 - - LD1 (single structure) - 8-bit, immediate offset variant
+1 0 11111 001 - - LD3 (single structure) - 8-bit, immediate offset variant
+1 0 11111 010 - x0 LD1 (single structure) - 16-bit, immediate offset variant
+1 0 11111 011 - x0 LD3 (single structure) - 16-bit, immediate offset variant
+1 0 11111 100 - 00 LD1 (single structure) - 32-bit, immediate offset variant
+1 0 11111 100 0 01 LD1 (single structure) - 64-bit, immediate offset variant
+1 0 11111 101 - 00 LD3 (single structure) - 32-bit, immediate offset variant
+1 0 11111 101 0 01 LD3 (single structure) - 64-bit, immediate offset variant
+1 0 11111 110 0 - LD1R - Immediate offset variant
+1 0 11111 111 0 - LD3R - Immediate offset variant
+1 1 - 010 - x1 Unallocated.
+1 1 - 011 - x1 Unallocated.
+1 1 - 100 - 10 Unallocated.
+1 1 - 100 0 11 Unallocated.
+1 1 - 100 1 x1 Unallocated.
+1 1 - 101 - 10 Unallocated.
+1 1 - 101 0 11 Unallocated.
+1 1 - 101 1 x1 Unallocated.
+1 1 - 110 1 - Unallocated.
+1 1 - 111 1 - Unallocated.
+1 1 != 11111 000 - - LD2 (single structure) - 8-bit, register offset variant
+1 1 != 11111 001 - - LD4 (single structure) - 8-bit, register offset variant
+1 1 != 11111 010 - x0 LD2 (single structure) - 16-bit, register offset variant
+1 1 != 11111 011 - x0 LD4 (single structure) - 16-bit, register offset variant
+1 1 != 11111 100 - 00 LD2 (single structure) - 32-bit, register offset variant
+1 1 != 11111 100 0 01 LD2 (single structure) - 64-bit, register offset variant
+1 1 != 11111 101 - 00 LD4 (single structure) - 32-bit, register offset variant
+1 1 != 11111 101 0 01 LD4 (single structure) - 64-bit, register offset variant
+1 1 != 11111 110 0 - LD2R - Register offset variant
+1 1 != 11111 111 0 - LD4R - Register offset variant
+1 1 11111 000 - - LD2 (single structure) - 8-bit, immediate offset variant
+1 1 11111 001 - - LD4 (single structure) - 8-bit, immediate offset variant
+1 1 11111 010 - x0 LD2 (single structure) - 16-bit, immediate offset variant
+1 1 11111 011 - x0 LD4 (single structure) - 16-bit, immediate offset variant
+1 1 11111 100 - 00 LD2 (single structure) - 32-bit, immediate offset variant
+1 1 11111 100 0 01 LD2 (single structure) - 64-bit, immediate offset variant
+1 1 11111 101 - 00 LD4 (single structure) - 32-bit, immediate offset variant
+1 1 11111 101 0 01 LD4 (single structure) - 64-bit, immediate offset variant
+1 1 11111 110 0 - LD2R - Immediate offset variant
+1 1 11111 111 0 - LD4R - Immediate offset variant
 #Load/store memory tags
+3 18
+22 23
+12 20
+10 11
+00 - 01 STG - Encoding FEAT_MTE
+00 - 10 STG - Encoding FEAT_MTE
+00 - 11 STG - Encoding FEAT_MTE
+00 000000000 00 STZGM FEAT_MTE2
+01 - 00 LDG FEAT_MTE
+01 - 01 STZG - Encoding FEAT_MTE
+01 - 10 STZG - Encoding FEAT_MTE
+01 - 11 STZG - Encoding FEAT_MTE
+10 - 01 ST2G - Encoding FEAT_MTE
+10 - 10 ST2G - Encoding FEAT_MTE
+10 - 11 ST2G - Encoding FEAT_MTE
+10 != 000000000 00 Unallocated. -
+10 000000000 00 STGM FEAT_MTE2
+11 - 01 STZ2G - Encoding FEAT_MTE
+11 - 10 STZ2G - Encoding FEAT_MTE
+11 - 11 STZ2G - Encoding FEAT_MTE
+11 != 000000000 00 Unallocated. -
+11 000000000 00 LDGM FEAT_MTE2
 #Load/store exclusive pair
+3 8
+30 30
+22 22
+15 15
+0 0 0 STXP - 32-bit variant
+0 0 1 STLXP - 32-bit variant
+0 1 0 LDXP - 32-bit variant
+0 1 1 LDAXP - 32-bit variant
+1 0 0 STXP - 64-bit variant
+1 0 1 STLXP - 64-bit variant
+1 1 0 LDXP - 64-bit variant
+1 1 1 LDAXP - 64-bit variant
 #Load/store exclusive register
+3 16
+30 31
+22 22
+15 15
+00 0 0 STXRB
+00 0 1 STLXRB
+00 1 0 LDXRB
+00 1 1 LDAXRB
+01 0 0 STXRH
+01 0 1 STLXRH
+01 1 0 LDXRH
+01 1 1 LDAXRH
+10 0 0 STXR - 32-bit variant
+10 0 1 STLXR - 32-bit variant
+10 1 0 LDXR - 32-bit variant
+10 1 1 LDAXR - 32-bit variant
+11 0 0 STXR - 64-bit variant
+11 0 1 STLXR - 64-bit variant
+11 1 0 LDXR - 64-bit variant
+11 1 1 LDAXR - 64-bit variant
 #Load/store ordered
+3 16
+30 31
+22 22
+15 15
+00 0 STLLRB FEAT_LOR
+00 0 1 STLRB -
+00 1 0 LDLARB FEAT_LOR
+00 1 1 LDARB -
+01 0 0 STLLRH FEAT_LOR
+01 0 1 STLRH -
+01 1 0 LDLARH FEAT_LOR
+01 1 1 LDARH -
+10 0 0 STLLR - 32-bit variant FEAT_LOR
+10 0 1 STLR - 32-bit variant -
+10 1 0 LDLAR - 32-bit variant FEAT_LOR
+10 1 1 LDAR - 32-bit variant -
+11 0 0 STLLR - 64-bit variant FEAT_LOR
+11 0 1 STLR - 64-bit variant -
+11 1 0 LDLAR - 64-bit variant FEAT_LOR
+11 1 1 LDAR - 64-bit variant -
 #Compare and swap
+4 17
+30 31
+22 22
+15 15
+10 14
+- - - != 11111 Unallocated. -
+00 0 0 11111 CASB, CASAB, CASALB, CASLB - CASB variant FEAT_LSE
+00 0 1 11111 CASB, CASAB, CASALB, CASLB - CASLB variant FEAT_LSE
+00 1 0 11111 CASB, CASAB, CASALB, CASLB - CASAB variant FEAT_LSE
+00 1 1 11111 CASB, CASAB, CASALB, CASLB - CASALB variant FEAT_LSE
+01 0 0 11111 CASH, CASAH, CASALH, CASLH - CASH variant FEAT_LSE
+01 0 1 11111 CASH, CASAH, CASALH, CASLH - CASLH variant FEAT_LSE
+01 1 0 11111 CASH, CASAH, CASALH, CASLH - CASAH variant FEAT_LSE
+01 1 1 11111 CASH, CASAH, CASALH, CASLH - CASALH variant FEAT_LSE
+10 0 0 11111 CAS, CASA, CASAL, CASL - 32-bit CAS variant FEAT_LSE
+10 0 1 11111 CAS, CASA, CASAL, CASL - 32-bit CASL variant FEAT_LSE
+10 1 0 11111 CAS, CASA, CASAL, CASL - 32-bit CASA variant FEAT_LSE
+10 1 1 11111 CAS, CASA, CASAL, CASL - 32-bit CASAL variant FEAT_LSE
+11 0 0 11111 CAS, CASA, CASAL, CASL - 64-bit CAS variant FEAT_LSE
+11 0 1 11111 CAS, CASA, CASAL, CASL - 64-bit CASL variant FEAT_LSE
+11 1 0 11111 CAS, CASA, CASAL, CASL - 64-bit CASA variant FEAT_LSE
+11 1 1 11111 CAS, CASA, CASAL, CASL - 64-bit CASAL variant FEAT_LSE
 #LDAPR/STLR (unscaled immediate)
+2 16
+30 31
+22 23
+00 00 STLURB FEAT_LRCPC2
+00 01 LDAPURB FEAT_LRCPC2
+00 10 LDAPURSB - 64-bit variant FEAT_LRCPC2
+00 11 LDAPURSB - 32-bit variant FEAT_LRCPC2
+01 00 STLURH FEAT_LRCPC2
+01 01 LDAPURH FEAT_LRCPC2
+01 10 LDAPURSH - 64-bit variant FEAT_LRCPC2
+01 11 LDAPURSH - 32-bit variant FEAT_LRCPC2
+10 00 STLUR - 32-bit variant FEAT_LRCPC2
+10 01 LDAPUR - 32-bit variant FEAT_LRCPC2
+10 10 LDAPURSW FEAT_LRCPC2
+10 11 Unallocated. -
+11 00 STLUR - 64-bit variant FEAT_LRCPC2
+11 01 LDAPUR - 64-bit variant FEAT_LRCPC2
+11 10 Unallocated. -
+11 11 Unallocated. -
 #Load register (literal)
+2 8
+30 31
+26 26
+00 0 LDR (literal) - 32-bit variant
+00 1 LDR (literal, SIMD&FP) - 32-bit variant
+01 0 LDR (literal) - 64-bit variant
+01 1 LDR (literal, SIMD&FP) - 64-bit variant
+10 0 LDRSW (literal)
+10 1 LDR (literal, SIMD&FP) - 128-bit variant
+11 0 PRFM (literal)
+11 1 Unallocated.
 #Memory Copy and Memory Set
+3 122
+26 26
+22 23
+12 15
+0 00 0000 CPYFP, CPYFM, CPYFE - Prologue variant FEAT_MOPS
+0 00 0001 CPYFPWT, CPYFMWT, CPYFEWT - Prologue variant FEAT_MOPS
+0 00 0010 CPYFPRT, CPYFMRT, CPYFERT - Prologue variant FEAT_MOPS
+0 00 0011 CPYFPT, CPYFMT, CPYFET - Prologue variant FEAT_MOPS
+0 00 0100 CPYFPWN, CPYFMWN, CPYFEWN - Prologue variant FEAT_MOPS
+0 00 0101 CPYFPWTWN, CPYFMWTWN, CPYFEWTWN - Prologue variant FEAT_MOPS
+0 00 0110 CPYFPRTWN, CPYFMRTWN, CPYFERTWN - Prologue variant FEAT_MOPS
+0 00 0111 CPYFPTWN, CPYFMTWN, CPYFETWN - Prologue variant FEAT_MOPS
+0 00 1000 CPYFPRN, CPYFMRN, CPYFERN - Prologue variant FEAT_MOPS
+0 00 1001 CPYFPWTRN, CPYFMWTRN, CPYFEWTRN - Prologue variant FEAT_MOPS
+0 00 1010 CPYFPRTRN, CPYFMRTRN, CPYFERTRN - Prologue variant FEAT_MOPS
+0 00 1011 CPYFPTRN, CPYFMTRN, CPYFETRN - Prologue variant FEAT_MOPS
+0 00 1100 CPYFPN, CPYFMN, CPYFEN - Prologue variant FEAT_MOPS
+0 00 1101 CPYFPWTN, CPYFMWTN, CPYFEWTN - Prologue variant FEAT_MOPS
+0 00 1110 CPYFPRTN, CPYFMRTN, CPYFERTN - Prologue variant FEAT_MOPS
+0 00 1111 CPYFPTN, CPYFMTN, CPYFETN - Prologue variant FEAT_MOPS
+0 01 0000 CPYFP, CPYFM, CPYFE - Main variant FEAT_MOPS
+0 01 0001 CPYFPWT, CPYFMWT, CPYFEWT - Main variant FEAT_MOPS
+0 01 0010 CPYFPRT, CPYFMRT, CPYFERT - Main variant FEAT_MOPS
+0 01 0011 CPYFPT, CPYFMT, CPYFET - Main variant FEAT_MOPS
+0 01 0100 CPYFPWN, CPYFMWN, CPYFEWN - Main variant FEAT_MOPS
+0 01 0101 CPYFPWTWN, CPYFMWTWN, CPYFEWTWN - Main variant FEAT_MOPS
+0 01 0110 CPYFPRTWN, CPYFMRTWN, CPYFERTWN - Main variant FEAT_MOPS
+0 01 0111 CPYFPTWN, CPYFMTWN, CPYFETWN - Main variant FEAT_MOPS
+0 01 1000 CPYFPRN, CPYFMRN, CPYFERN - Main variant FEAT_MOPS
+0 01 1001 CPYFPWTRN, CPYFMWTRN, CPYFEWTRN - Main variant FEAT_MOPS
+0 01 1010 CPYFPRTRN, CPYFMRTRN, CPYFERTRN - Main variant FEAT_MOPS
+0 01 1011 CPYFPTRN, CPYFMTRN, CPYFETRN - Main variant FEAT_MOPS
+0 01 1100 CPYFPN, CPYFMN, CPYFEN - Main variant FEAT_MOPS
+0 01 1101 CPYFPWTN, CPYFMWTN, CPYFEWTN - Main variant FEAT_MOPS
+0 01 1110 CPYFPRTN, CPYFMRTN, CPYFERTN - Main variant FEAT_MOPS
+0 01 1111 CPYFPTN, CPYFMTN, CPYFETN - Main variant FEAT_MOPS
+0 10 0000 CPYFP, CPYFM, CPYFE - Epilogue variant FEAT_MOPS
+0 10 0001 CPYFPWT, CPYFMWT, CPYFEWT - Epilogue variant FEAT_MOPS
+0 10 0010 CPYFPRT, CPYFMRT, CPYFERT - Epilogue variant FEAT_MOPS
+0 10 0011 CPYFPT, CPYFMT, CPYFET - Epilogue variant FEAT_MOPS
+0 10 0100 CPYFPWN, CPYFMWN, CPYFEWN - Epilogue variant FEAT_MOPS
+0 10 0101 CPYFPWTWN, CPYFMWTWN, CPYFEWTWN - Epilogue variant FEAT_MOPS
+0 10 0110 CPYFPRTWN, CPYFMRTWN, CPYFERTWN - Epilogue variant FEAT_MOPS
+0 10 0111 CPYFPTWN, CPYFMTWN, CPYFETWN - Epilogue variant FEAT_MOPS
+0 10 1000 CPYFPRN, CPYFMRN, CPYFERN - Epilogue variant FEAT_MOPS
+0 10 1001 CPYFPWTRN, CPYFMWTRN, CPYFEWTRN - Epilogue variant FEAT_MOPS
+0 10 1010 CPYFPRTRN, CPYFMRTRN, CPYFERTRN - Epilogue variant FEAT_MOPS
+0 10 1011 CPYFPTRN, CPYFMTRN, CPYFETRN - Epilogue variant FEAT_MOPS
+0 10 1100 CPYFPN, CPYFMN, CPYFEN - Epilogue variant FEAT_MOPS
+0 10 1101 CPYFPWTN, CPYFMWTN, CPYFEWTN - Epilogue variant FEAT_MOPS
+0 10 1110 CPYFPRTN, CPYFMRTN, CPYFERTN - Epilogue variant FEAT_MOPS
+0 10 1111 CPYFPTN, CPYFMTN, CPYFETN - Epilogue variant FEAT_MOPS
+0 11 0000 SETP, SETM, SETE - Prologue variant FEAT_MOPS
+0 11 0001 SETPT, SETMT, SETET - Prologue variant FEAT_MOPS
+0 11 0010 SETPN, SETMN, SETEN - Prologue variant FEAT_MOPS
+0 11 0011 SETPTN, SETMTN, SETETN - Prologue variant FEAT_MOPS
+0 11 0100 SETP, SETM, SETE - Main variant FEAT_MOPS
+0 11 0101 SETPT, SETMT, SETET - Main variant FEAT_MOPS
+0 11 0110 SETPN, SETMN, SETEN - Main variant FEAT_MOPS
+0 11 0111 SETPTN, SETMTN, SETETN - Main variant FEAT_MOPS
+0 11 1000 SETP, SETM, SETE - Epilogue variant FEAT_MOPS
+0 11 1001 SETPT, SETMT, SETET - Epilogue variant FEAT_MOPS
+0 11 1010 SETPN, SETMN, SETEN - Epilogue variant FEAT_MOPS
+0 11 1011 SETPTN, SETMTN, SETETN - Epilogue variant FEAT_MOPS
+0 11 11xx Unallocated. -
+1 00 0000 CPYP, CPYM, CPYE - Prologue variant FEAT_MOPS
+1 00 0001 CPYPWT, CPYMWT, CPYEWT - Prologue variant FEAT_MOPS
+1 00 0010 CPYPRT, CPYMRT, CPYERT - Prologue variant FEAT_MOPS
+1 00 0011 CPYPT, CPYMT, CPYET - Prologue variant FEAT_MOPS
+1 00 0100 CPYPWN, CPYMWN, CPYEWN - Prologue variant FEAT_MOPS
+1 00 0101 CPYPWTWN, CPYMWTWN, CPYEWTWN - Prologue variant FEAT_MOPS
+1 00 0110 CPYPRTWN, CPYMRTWN, CPYERTWN - Prologue variant FEAT_MOPS
+1 00 0111 CPYPTWN, CPYMTWN, CPYETWN - Prologue variant FEAT_MOPS
+1 00 1000 CPYPRN, CPYMRN, CPYERN - Prologue variant FEAT_MOPS
+1 00 1001 CPYPWTRN, CPYMWTRN, CPYEWTRN - Prologue variant FEAT_MOPS
+1 00 1010 CPYPRTRN, CPYMRTRN, CPYERTRN - Prologue variant FEAT_MOPS
+1 00 1011 CPYPTRN, CPYMTRN, CPYETRN - Prologue variant FEAT_MOPS
+1 00 1100 CPYPN, CPYMN, CPYEN - Prologue variant FEAT_MOPS
+1 00 1101 CPYPWTN, CPYMWTN, CPYEWTN - Prologue variant FEAT_MOPS
+1 00 1110 CPYPRTN, CPYMRTN, CPYERTN - Prologue variant FEAT_MOPS
+1 00 1111 CPYPTN, CPYMTN, CPYETN - Prologue variant FEAT_MOPS
+1 01 0000 CPYP, CPYM, CPYE - Main variant FEAT_MOPS
+1 01 0001 CPYPWT, CPYMWT, CPYEWT - Main variant FEAT_MOPS
+1 01 0010 CPYPRT, CPYMRT, CPYERT - Main variant FEAT_MOPS
+1 01 0011 CPYPT, CPYMT, CPYET - Main variant FEAT_MOPS
+1 01 0100 CPYPWN, CPYMWN, CPYEWN - Main variant FEAT_MOPS
+1 01 0101 CPYPWTWN, CPYMWTWN, CPYEWTWN - Main variant FEAT_MOPS
+1 01 0110 CPYPRTWN, CPYMRTWN, CPYERTWN - Main variant FEAT_MOPS
+1 01 0111 CPYPTWN, CPYMTWN, CPYETWN - Main variant FEAT_MOPS
+1 01 1000 CPYPRN, CPYMRN, CPYERN - Main variant FEAT_MOPS
+1 01 1001 CPYPWTRN, CPYMWTRN, CPYEWTRN - Main variant FEAT_MOPS
+1 01 1010 CPYPRTRN, CPYMRTRN, CPYERTRN - Main variant FEAT_MOPS
+1 01 1011 CPYPTRN, CPYMTRN, CPYETRN - Main variant FEAT_MOPS
+1 01 1100 CPYPN, CPYMN, CPYEN - Main variant FEAT_MOPS
+1 01 1101 CPYPWTN, CPYMWTN, CPYEWTN - Main variant FEAT_MOPS
+1 01 1110 CPYPRTN, CPYMRTN, CPYERTN - Main variant FEAT_MOPS
+1 01 1111 CPYPTN, CPYMTN, CPYETN - Main variant FEAT_MOPS
+1 10 0000 CPYP, CPYM, CPYE - Epilogue variant FEAT_MOPS
+1 10 0001 CPYPWT, CPYMWT, CPYEWT - Epilogue variant FEAT_MOPS
+1 10 0010 CPYPRT, CPYMRT, CPYERT - Epilogue variant FEAT_MOPS
+1 10 0011 CPYPT, CPYMT, CPYET - Epilogue variant FEAT_MOPS
+1 10 0100 CPYPWN, CPYMWN, CPYEWN - Epilogue variant FEAT_MOPS
+1 10 0101 CPYPWTWN, CPYMWTWN, CPYEWTWN - Epilogue variant FEAT_MOPS
+1 10 0110 CPYPRTWN, CPYMRTWN, CPYERTWN - Epilogue variant FEAT_MOPS
+1 10 0111 CPYPTWN, CPYMTWN, CPYETWN - Epilogue variant FEAT_MOPS
+1 10 1000 CPYPRN, CPYMRN, CPYERN - Epilogue variant FEAT_MOPS
+1 10 1001 CPYPWTRN, CPYMWTRN, CPYEWTRN - Epilogue variant FEAT_MOPS
+1 10 1010 CPYPRTRN, CPYMRTRN, CPYERTRN - Epilogue variant FEAT_MOPS
+1 10 1011 CPYPTRN, CPYMTRN, CPYETRN - Epilogue variant FEAT_MOPS
+1 10 1100 CPYPN, CPYMN, CPYEN - Epilogue variant FEAT_MOPS
+1 10 1101 CPYPWTN, CPYMWTN, CPYEWTN - Epilogue variant FEAT_MOPS
+1 10 1110 CPYPRTN, CPYMRTN, CPYERTN - Epilogue variant FEAT_MOPS
+1 10 1111 CPYPTN, CPYMTN, CPYETN - Epilogue variant FEAT_MOPS
+1 11 0000 SETGP, SETGM, SETGE - Prologue variant FEAT_MOPS
+1 11 0001 SETGPT, SETGMT, SETGET - Prologue variant FEAT_MOPS
+1 11 0010 SETGPN, SETGMN, SETGEN - Prologue variant FEAT_MOPS
+1 11 0011 SETGPTN, SETGMTN, SETGETN - Prologue variant FEAT_MOPS
+1 11 0100 SETGP, SETGM, SETGE - Main variant FEAT_MOPS
+1 11 0101 SETGPT, SETGMT, SETGET - Main variant FEAT_MOPS
+1 11 0110 SETGPN, SETGMN, SETGEN - Main variant FEAT_MOPS
+1 11 0111 SETGPTN, SETGMTN, SETGETN - Main variant FEAT_MOPS
+1 11 1000 SETGP, SETGM, SETGE - Epilogue variant FEAT_MOPS
+1 11 1001 SETGPT, SETGMT, SETGET - Epilogue variant FEAT_MOPS
+1 11 1010 SETGPN, SETGMN, SETGEN - Epilogue variant FEAT_MOPS
+1 11 1011 SETGPTN, SETGMTN, SETGETN - Epilogue variant FEAT_MOPS
+1 11 11xx Unallocated. -
 #Load/store no-allocate pair (offset)
+3 12
+30 31
+26 26
+22 22
+00 0 0 STNP - 32-bit variant
+00 0 1 LDNP - 32-bit variant
+00 1 0 STNP (SIMD&FP) - 32-bit variant
+00 1 1 LDNP (SIMD&FP) - 32-bit variant
+01 0 - Unallocated.
+01 1 0 STNP (SIMD&FP) - 64-bit variant
+01 1 1 LDNP (SIMD&FP) - 64-bit variant
+10 0 0 STNP - 64-bit variant
+10 0 1 LDNP - 64-bit variant
+10 1 0 STNP (SIMD&FP) - 128-bit variant
+10 1 1 LDNP (SIMD&FP) - 128-bit variant
+11 - - Unallocated.
 #Load/store register pair (post-indexed)
+3 13
+30 31
+26 26
+22 22
+00 0 0 STP - 32-bit variant -
+00 0 1 LDP - 32-bit variant -
+00 1 0 STP (SIMD&FP) - 32-bit variant -
+00 1 1 LDP (SIMD&FP) - 32-bit variant -
+01 0 0 STGP FEAT_MTE
+01 0 1 LDPSW -
+01 1 0 STP (SIMD&FP) - 64-bit variant -
+01 1 1 LDP (SIMD&FP) - 64-bit variant -
+10 0 0 STP - 64-bit variant -
+10 0 1 LDP - 64-bit variant -
+10 1 0 STP (SIMD&FP) - 128-bit variant -
+10 1 1 LDP (SIMD&FP) - 128-bit variant -
+11 - - Unallocated. -
 #Load/store register pair (offset)
+3 13
+30 31
+26 26
+22 22
+00 0 0 STP - 32-bit variant -
+00 0 1 LDP - 32-bit variant -
+00 1 0 STP (SIMD&FP) - 32-bit variant -
+00 1 1 LDP (SIMD&FP) - 32-bit variant -
+01 0 0 STGP FEAT_MTE
+01 0 1 LDPSW -
+01 1 0 STP (SIMD&FP) - 64-bit variant -
+01 1 1 LDP (SIMD&FP) - 64-bit variant -
+10 0 0 STP - 64-bit variant -
+10 0 1 LDP - 64-bit variant -
+10 1 0 STP (SIMD&FP) - 128-bit variant -
+10 1 1 LDP (SIMD&FP) - 128-bit variant -
+11 - - Unallocated. -
 #Load/store register pair (pre-indexed)
+3 13
+30 31
+26 26
+22 22
+00 0 0 STP - 32-bit variant -
+00 0 1 LDP - 32-bit variant -
+00 1 0 STP (SIMD&FP) - 32-bit variant -
+00 1 1 LDP (SIMD&FP) - 32-bit variant -
+01 0 0 STGP FEAT_MTE
+01 0 1 LDPSW -
+01 1 0 STP (SIMD&FP) - 64-bit variant -
+01 1 1 LDP (SIMD&FP) - 64-bit variant -
+10 0 0 STP - 64-bit variant -
+10 0 1 LDP - 64-bit variant -
+10 1 0 STP (SIMD&FP) - 128-bit variant -
+10 1 1 LDP (SIMD&FP) - 128-bit variant -
+11 - - Unallocated. -
 #Load/store register (unscaled immediate)
+3 27
+30 31
+26 26
+22 23
+x1 1 1x Unallocated.
+00 0 00 STURB
+00 0 01 LDURB
+00 0 10 LDURSB - 64-bit variant
+00 0 11 LDURSB - 32-bit variant
+00 1 00 STUR (SIMD&FP) - 8-bit variant
+00 1 01 LDUR (SIMD&FP) - 8-bit variant
+00 1 10 STUR (SIMD&FP) - 128-bit variant
+00 1 11 LDUR (SIMD&FP) - 128-bit variant
+01 0 00 STURH
+01 0 01 LDURH
+01 0 10 LDURSH - 64-bit variant
+01 0 11 LDURSH - 32-bit variant
+01 1 00 STUR (SIMD&FP) - 16-bit variant
+01 1 01 LDUR (SIMD&FP) - 16-bit variant
+1x 0 11 Unallocated.
+1x 1 1x Unallocated.
+10 0 00 STUR - 32-bit variant
+10 0 01 LDUR - 32-bit variant
+10 0 10 LDURSW
+10 1 00 STUR (SIMD&FP) - 32-bit variant
+10 1 01 LDUR (SIMD&FP) - 32-bit variant
+11 0 00 STUR - 64-bit variant
+11 0 01 LDUR - 64-bit variant
+11 0 10 PRFUM
+11 1 00 STUR (SIMD&FP) - 64-bit variant
+11 1 01 LDUR (SIMD&FP) - 64-bit variant
 #Load/store register (immediate post-indexed)
+3 27
+30 31
+26 26
+22 23
+x1 1 1x Unallocated.
+00 0 00 STRB (immediate)
+00 0 01 LDRB (immediate)
+00 0 10 LDRSB (immediate) - 64-bit variant
+00 0 11 LDRSB (immediate) - 32-bit variant
+00 1 00 STR (immediate, SIMD&FP) - 8-bit variant
+00 1 01 LDR (immediate, SIMD&FP) - 8-bit variant
+00 1 10 STR (immediate, SIMD&FP) - 128-bit variant
+00 1 11 LDR (immediate, SIMD&FP) - 128-bit variant
+01 0 00 STRH (immediate)
+01 0 01 LDRH (immediate)
+01 0 10 LDRSH (immediate) - 64-bit variant
+01 0 11 LDRSH (immediate) - 32-bit variant
+01 1 00 STR (immediate, SIMD&FP) - 16-bit variant
+01 1 01 LDR (immediate, SIMD&FP) - 16-bit variant
+1x 0 11 Unallocated.
+1x 1 1x Unallocated.
+10 0 00 STR (immediate) - 32-bit variant
+10 0 01 LDR (immediate) - 32-bit variant
+10 0 10 LDRSW (immediate)
+10 1 00 STR (immediate, SIMD&FP) - 32-bit variant
+10 1 01 LDR (immediate, SIMD&FP) - 32-bit variant
+11 0 00 STR (immediate) - 64-bit variant
+11 0 01 LDR (immediate) - 64-bit variant
+11 0 10 Unallocated.
+11 1 00 STR (immediate, SIMD&FP) - 64-bit variant
+11 1 01 LDR (immediate, SIMD&FP) - 64-bit variant
 #Load/store register (unprivileged)
+3 16
+30 31
+26 26
+22 23
+- 1 - Unallocated.
+00 0 00 STTRB
+00 0 01 LDTRB
+00 0 10 LDTRSB - 64-bit variant
+00 0 11 LDTRSB - 32-bit variant
+01 0 00 STTRH
+01 0 01 LDTRH
+01 0 10 LDTRSH - 64-bit variant
+01 0 11 LDTRSH - 32-bit variant
+1x 0 11 Unallocated.
+10 0 00 STTR - 32-bit variant
+10 0 01 LDTR - 32-bit variant
+10 0 10 LDTRSW
+11 0 00 STTR - 64-bit variant
+11 0 01 LDTR - 64-bit variant
+11 0 10 Unallocated.
 #Load/store register (immediate pre-indexed)
+3 27
+30 31
+26 26
+22 23
+x1 1 1x Unallocated.
+00 0 00 STRB (immediate)
+00 0 01 LDRB (immediate)
+00 0 10 LDRSB (immediate) - 64-bit variant
+00 0 11 LDRSB (immediate) - 32-bit variant
+00 1 00 STR (immediate, SIMD&FP) - 8-bit variant
+00 1 01 LDR (immediate, SIMD&FP) - 8-bit variant
+00 1 10 STR (immediate, SIMD&FP) - 128-bit variant
+00 1 11 LDR (immediate, SIMD&FP) - 128-bit variant
+01 0 00 STRH (immediate)
+01 0 01 LDRH (immediate)
+01 0 10 LDRSH (immediate) - 64-bit variant
+01 0 11 LDRSH (immediate) - 32-bit variant
+01 1 00 STR (immediate, SIMD&FP) - 16-bit variant
+01 1 01 LDR (immediate, SIMD&FP) - 16-bit variant
+1x 0 11 Unallocated.
+1x 1 1x Unallocated.
+10 0 00 STR (immediate) - 32-bit variant
+10 0 01 LDR (immediate) - 32-bit variant
+10 0 10 LDRSW (immediate)
+10 1 00 STR (immediate, SIMD&FP) - 32-bit variant
+10 1 01 LDR (immediate, SIMD&FP) - 32-bit variant
+11 0 00 STR (immediate) - 64-bit variant
+11 0 01 LDR (immediate) - 64-bit variant
+11 0 10 Unallocated.
+11 1 00 STR (immediate, SIMD&FP) - 64-bit variant
+11 1 01 LDR (immediate, SIMD&FP) - 64-bit variant
 #Atomic memory operations
+7 
+- 0 - - - 1 11x Unallocated. -
+- 0 0 - - 1 100 Unallocated. -
+- 0 0 1 - 1 001 Unallocated. -
+- 0 0 1 - 1 010 Unallocated. -
+- 0 0 1 - 1 011 Unallocated. -
+- 0 0 1 - 1 101 Unallocated. -
+- 0 1 0 - 1 001 Unallocated. -
+- 0 1 0 - 1 010 Unallocated. -
+- 0 1 0 - 1 011 Unallocated. -
+- 0 1 0 - 1 101 Unallocated. -
+- 0 1 1 - 1 001 Unallocated. -
+- 0 1 1 - 1 010 Unallocated. -
+- 0 1 1 - 1 011 Unallocated. -
+- 0 1 1 - 1 100 Unallocated. -
+- 0 0 1 - 1 101 Unallocated. -
+- 1 - - - - - Unallocated. -
+00 0 0 0 - 0 000 LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDB variant FEAT_LSE
+00 0 0 0 - 0 001 LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRB variant FEAT_LSE
+00 0 0 0 - 0 010 LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORB variant FEAT_LSE
+00 0 0 0 - 0 011 LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETB variant FEAT_LSE
+00 0 0 0 - 0 100 LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXB variant FEAT_LSE
+00 0 0 0 - 0 101 LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINB variant FEAT_LSE
+00 0 0 0 - 0 110 LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXB variant FEAT_LSE
+00 0 0 0 - 0 111 LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINB variant FEAT_LSE
+00 0 0 0 - 1 000 SWPB, SWPAB, SWPALB, SWPLB - SWPB variant FEAT_LSE
+00 0 0 0 - 1 001 Unallocated. -
+00 0 0 0 - 1 010 Unallocated. -
+00 0 0 0 - 1 011 Unallocated. -
+00 0 0 0 - 1 101 Unallocated. -
+00 0 0 1 - 0 000 LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDLB variant FEAT_LSE
+00 0 0 1 - 0 001 LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRLB variant FEAT_LSE
+00 0 0 1 - 0 010 LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORLB variant FEAT_LSE
+00 0 0 1 - 0 011 LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETLB variant FEAT_LSE
+00 0 0 1 - 0 100 LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXLB variant FEAT_LSE
+00 0 0 1 - 0 101 LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINLB variant FEAT_LSE
+00 0 0 1 - 0 110 LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXLB variant FEAT_LSE
+00 0 0 1 - 0 111 LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINLB variant FEAT_LSE
+00 0 0 1 - 1 000 SWPB, SWPAB, SWPALB, SWPLB - SWPLB variant FEAT_LSE
+00 0 1 0 - 0 000 LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDAB variant FEAT_LSE
+00 0 1 0 - 0 001 LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRAB variant FEAT_LSE
+00 0 1 0 - 0 010 LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORAB variant FEAT_LSE
+00 0 1 0 - 0 011 LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETAB variant FEAT_LSE
+00 0 1 0 - 0 100 LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXAB variant FEAT_LSE
+00 0 1 0 - 0 101 LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINAB variant FEAT_LSE
+00 0 1 0 - 0 110 LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXAB variant FEAT_LSE
+00 0 1 0 - 0 111 LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINAB variant FEAT_LSE
+00 0 1 0 - 1 000 SWPB, SWPAB, SWPALB, SWPLB - SWPAB variant FEAT_LSE
+00 0 1 0 - 1 100 LDAPRB FEAT_LRCPC
+00 0 1 1 - 0 000 LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDALB variant FEAT_LSE
+00 0 1 1 - 0 001 LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRALB variant FEAT_LSE
+00 0 1 1 - 0 010 LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORALB variant FEAT_LSE
+00 0 1 1 - 0 011 LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETALB variant FEAT_LSE
+00 0 1 1 - 0 100 LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXALB variant FEAT_LSE
+00 0 1 1 - 0 101 LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINALB variant FEAT_LSE
+00 0 1 1 - 0 110 LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXALB variant FEAT_LSE
+00 0 1 1 - 0 111 LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINALB variant FEAT_LSE
+00 0 1 1 - 1 000 SWPB, SWPAB, SWPALB, SWPLB - SWPALB variant FEAT_LSE
+01 0 0 0 - 0 000 LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDH variant FEAT_LSE
+01 0 0 0 - 0 001 LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRH variant FEAT_LSE
+01 0 0 0 - 0 010 LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORH variant FEAT_LSE
+01 0 0 0 - 0 011 LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETH variant FEAT_LSE
+01 0 0 0 - 0 100 LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXH variant FEAT_LSE
+01 0 0 0 - 0 101 LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINH variant FEAT_LSE
+01 0 0 0 - 0 110 LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXH variant FEAT_LSE
+01 0 0 0 - 0 111 LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINH variant FEAT_LSE
+01 0 0 0 - 1 000 SWPH, SWPAH, SWPALH, SWPLH - SWPH variant FEAT_LSE
+01 0 0 0 - 1 001 Unallocated. -
+01 0 0 0 - 1 010 Unallocated. -
+01 0 0 0 - 1 011 Unallocated. -
+01 0 0 0 - 1 101 Unallocated. -
+01 0 0 1 - 0 000 LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDLH variant FEAT_LSE
+01 0 0 1 - 0 001 LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRLH variant FEAT_LSE
+01 0 0 1 - 0 010 LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORLH variant FEAT_LSE
+01 0 0 1 - 0 011 LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETLH variant FEAT_LSE
+01 0 0 1 - 0 100 LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXLH variant FEAT_LSE
+01 0 0 1 - 0 101 LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINLH variant FEAT_LSE
+01 0 0 1 - 0 110 LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXLH variant FEAT_LSE
+01 0 0 1 - 0 111 LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINLH variant FEAT_LSE
+01 0 0 1 - 1 000 SWPH, SWPAH, SWPALH, SWPLH - SWPLH variant FEAT_LSE
+01 0 1 0 - 0 000 LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDAH variant FEAT_LSE
+01 0 1 0 - 0 001 LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRAH variant FEAT_LSE
+01 0 1 0 - 0 010 LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORAH variant FEAT_LSE
+01 0 1 0 - 0 011 LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETAH variant FEAT_LSE
+01 0 1 0 - 0 100 LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXAH variant FEAT_LSE
+01 0 1 0 - 0 101 LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINAH variant FEAT_LSE
+01 0 1 0 - 0 110 LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXAH variant FEAT_LSE
+01 0 1 0 - 0 111 LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINAH variant FEAT_LSE
+01 0 1 0 - 1 000 SWPH, SWPAH, SWPALH, SWPLH - SWPAH variant FEAT_LSE
+01 0 1 0 - 1 100 LDAPRH FEAT_LRCPC
+01 0 1 1 - 0 000 LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDALH variant FEAT_LSE
+01 0 1 1 - 0 001 LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRALH variant FEAT_LSE
+01 0 1 1 - 0 010 LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORALH variant FEAT_LSE
+01 0 1 1 - 0 011 LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETALH variant FEAT_LSE
+01 0 1 1 - 0 100 LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXALH variant FEAT_LSE
+01 0 1 1 - 0 101 LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINALH variant FEAT_LSE
+01 0 1 1 - 0 110 LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXALH variant FEAT_LSE
+01 0 1 1 - 0 111 LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINALH variant FEAT_LSE
+01 0 1 1 - 1 000 SWPH, SWPAH, SWPALH, SWPLH - SWPALH variant FEAT_LSE
+10 0 0 0 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADD variant FEAT_LSE
+10 0 0 0 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLR variant FEAT_LSE
+10 0 0 0 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEOR variant FEAT_LSE
+10 0 0 0 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSET variant FEAT_LSE
+10 0 0 0 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAX variant FEAT_LSE
+10 0 0 0 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMIN variant FEAT_LSE
+10 0 0 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAX variant FEAT_LSE
+10 0 0 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMIN variant FEAT_LSE
+10 0 0 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 32-bit SWP variant FEAT_LSE
+10 0 0 0 - 1 001 Unallocated. -
+10 0 0 0 - 1 010 Unallocated. -
+10 0 0 0 - 1 011 Unallocated. -
+10 0 0 0 - 1 101 Unallocated. -
+10 0 0 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDL variant FEAT_LSE
+10 0 0 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRL variant FEAT_LSE
+10 0 0 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORL variant FEAT_LSE
+10 0 0 1 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSETL variant FEAT_LSE
+10 0 0 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAXL variant FEAT_LSE
+10 0 0 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMINL variant FEAT_LSE
+10 0 0 1 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAXL variant FEAT_LSE
+10 0 0 1 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMINL variant FEAT_LSE
+10 0 0 1 - 1 000 SWP, SWPA, SWPAL, SWPL - 32-bit SWPL variant FEAT_LSE
+10 0 1 0 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDA variant FEAT_LSE
+10 0 1 0 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRA variant FEAT_LSE
+10 0 1 0 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORA variant FEAT_LSE
+10 0 1 0 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSETA variant FEAT_LSE
+10 0 1 0 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAXA variant FEAT_LSE
+10 0 1 0 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMINA variant FEAT_LSE
+10 0 1 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAXA variant FEAT_LSE
+10 0 1 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMINA variant FEAT_LSE
+10 0 1 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 32-bit SWPA variant FEAT_LSE
+10 0 1 0 - 1 100 LDAPR - 32-bit variant FEAT_LRCPC
+10 0 1 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDAL variant FEAT_LSE
+10 0 1 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRAL variant FEAT_LSE
+10 0 1 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORAL variant FEAT_LSE
+10 0 1 1 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSETAL variant FEAT_LSE
+10 0 1 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAXAL variant FEAT_LSE
+10 0 1 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMINAL variant FEAT_LSE
+10 0 1 1 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAXAL variant FEAT_LSE
+10 0 1 1 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL -32-bit LDUMINAL variant FEAT_LSE
+10 0 1 1 - 1 000 SWP, SWPA, SWPAL, SWPL - 32-bit SWPALvariant FEAT_LSE
+11 0 0 0 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADD variant FEAT_LSE
+11 0 0 0 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLR variant FEAT_LSE
+11 0 0 0 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEOR variant FEAT_LSE
+11 0 0 0 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSET variant FEAT_LSE
+11 0 0 0 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAX variant FEAT_LSE
+11 0 0 0 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMIN variant FEAT_LSE
+11 0 0 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAX variant FEAT_LSE
+11 0 0 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMIN variant FEAT_LSE
+11 0 0 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWP variant FEAT_LSE
+11 0 0 0 - 1 010 ST64BV0 FEAT_LS64_ACCDATA
+11 0 0 0 - 1 011 ST64BV FEAT_LS64_V
+11 0 0 0 11111 1 001 ST64B FEAT_LS64
+11 0 0 0 11111 1 101 LD64B FEAT_LS64
+11 0 0 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADDL variant FEAT_LSE
+11 0 0 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLRL variant FEAT_LSE
+11 0 0 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEORL variant FEAT_LSE
+11 0 0 1 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSETL variant FEAT_LSE
+11 0 0 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXL variant FEAT_LSE
+11 0 0 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINL variant FEAT_LSE
+11 0 0 1 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXL variant FEAT_LSE
+11 0 0 1 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL -
+64-bit LDUMINL variant FEAT_LSE
+11 0 0 1 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPL
+variant FEAT_LSE
+11 0 1 0 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL -
+64-bit LDADDA variant FEAT_LSE
+11 0 1 0 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit
+LDCLRA variant FEAT_LSE
+11 0 1 0 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit
+LDEORA variant FEAT_LSE
+11 0 1 0 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit
+LDSETA variant FEAT_LSE
+11 0 1 0 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL,
+LDSMAXL - 64-bit LDSMAXA variant FEAT_LSE
+11 0 1 0 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL -
+64-bit LDSMINA variant FEAT_LSE
+11 0 1 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL,
+LDUMAXL - 64-bit LDUMAXA variant FEAT_LSE
+11 0 1 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL -
+64-bit LDUMINA variant FEAT_LSE
+11 0 1 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPA
+variant FEAT_LSE
+11 0 1 0 - 1 100 LDAPR - 64-bit variant FEAT_LRCPC
+11 0 1 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL -
+64-bit LDADDAL variant FEAT_LSE
+11 0 1 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit
+LDCLRAL variant FEAT_LSE
+11 0 1 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit
+LDEORAL variant FEAT_LSE
+11 0 1 1 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit
+LDSETAL variant FEAT_LSE
+11 0 1 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL,
+LDSMAXL - 64-bit LDSMAXAL variant FEAT_LSE
+11 0 1 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL -
+64-bit LDSMINAL variant FEAT_LSE
 #Load/store register (register offset)
 #Load/store register (pac)
 #Load/store register (unsigned immediate)
