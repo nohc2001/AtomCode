@@ -5476,7 +5476,14 @@ x1 1 1x Unallocated.
 11 1 00 STR (immediate, SIMD&FP) - 64-bit variant
 11 1 01 LDR (immediate, SIMD&FP) - 64-bit variant
 #Atomic memory operations
-7 
+7 180
+30 31
+26 26
+23 23
+22 22
+16 20
+15 15
+12 14
 - 0 - - - 1 11x Unallocated. -
 - 0 0 - - 1 100 Unallocated. -
 - 0 0 1 - 1 001 Unallocated. -
@@ -5636,44 +5643,390 @@ x1 1 1x Unallocated.
 11 0 0 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXL variant FEAT_LSE
 11 0 0 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINL variant FEAT_LSE
 11 0 0 1 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXL variant FEAT_LSE
-11 0 0 1 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL -
-64-bit LDUMINL variant FEAT_LSE
-11 0 0 1 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPL
-variant FEAT_LSE
-11 0 1 0 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL -
-64-bit LDADDA variant FEAT_LSE
-11 0 1 0 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit
-LDCLRA variant FEAT_LSE
-11 0 1 0 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit
-LDEORA variant FEAT_LSE
-11 0 1 0 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit
-LDSETA variant FEAT_LSE
-11 0 1 0 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL,
-LDSMAXL - 64-bit LDSMAXA variant FEAT_LSE
-11 0 1 0 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL -
-64-bit LDSMINA variant FEAT_LSE
-11 0 1 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL,
-LDUMAXL - 64-bit LDUMAXA variant FEAT_LSE
-11 0 1 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL -
-64-bit LDUMINA variant FEAT_LSE
-11 0 1 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPA
-variant FEAT_LSE
+11 0 0 1 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMINL variant FEAT_LSE
+11 0 0 1 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPL variant FEAT_LSE
+11 0 1 0 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADDA variant FEAT_LSE
+11 0 1 0 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLRA variant FEAT_LSE
+11 0 1 0 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEORA variant FEAT_LSE
+11 0 1 0 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSETA variant FEAT_LSE
+11 0 1 0 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXA variant FEAT_LSE
+11 0 1 0 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINA variant FEAT_LSE
+11 0 1 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXA variant FEAT_LSE
+11 0 1 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMINA variant FEAT_LSE
+11 0 1 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPA variant FEAT_LSE
 11 0 1 0 - 1 100 LDAPR - 64-bit variant FEAT_LRCPC
-11 0 1 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL -
-64-bit LDADDAL variant FEAT_LSE
-11 0 1 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit
-LDCLRAL variant FEAT_LSE
-11 0 1 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit
-LDEORAL variant FEAT_LSE
-11 0 1 1 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit
-LDSETAL variant FEAT_LSE
-11 0 1 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL,
-LDSMAXL - 64-bit LDSMAXAL variant FEAT_LSE
-11 0 1 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL -
-64-bit LDSMINAL variant FEAT_LSE
+11 0 1 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADDAL variant FEAT_LSE
+11 0 1 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLRAL variant FEAT_LSE
+11 0 1 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEORAL variant FEAT_LSE
+11 0 1 1 - 0 011 LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSETAL variant FEAT_LSE
+11 0 1 1 - 0 100 LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXAL variant FEAT_LSE
+11 0 1 1 - 0 101 LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINAL variant FEAT_LSE
+11 0 1 1 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXAL variant FEAT_LSE
+11 0 1 1 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMINAL variant FEAT_LSE
+11 0 1 1 - 1 000 SWP, SWPA, SWPAL, SWPL - 64-bit SWPAL variant FEAT_LSE
 #Load/store register (register offset)
+4 33
+30 31
+26 26
+22 23
+16 20
+13 15
+x1 1 1x - Unallocated.
+00 0 00 != 011 STRB (register) - Extended register variant
+00 0 00 011 STRB (register) - Shifted register variant
+00 0 01 != 011 LDRB (register) - Extended register variant
+00 0 01 011 LDRB (register) - Shifted register variant
+00 0 10 != 011 LDRSB (register) - 64-bit with extended register offset variant
+00 0 10 011 LDRSB (register) - 64-bit with shifted register offset variant
+00 0 11 != 011 LDRSB (register) - 32-bit with extended register offset variant
+00 0 11 011 LDRSB (register) - 32-bit with shifted register offset variant
+00 1 00 != 011 STR (register, SIMD&FP)
+00 1 00 011 STR (register, SIMD&FP)
+00 1 01 != 011 LDR (register, SIMD&FP)
+00 1 01 011 LDR (register, SIMD&FP)
+00 1 10 - STR (register, SIMD&FP)
+00 1 11 - LDR (register, SIMD&FP)
+01 0 00 - STRH (register)
+01 0 01 - LDRH (register)
+01 0 10 - LDRSH (register) - 64-bit variant
+01 0 11 - LDRSH (register) - 32-bit variant
+01 1 00 - STR (register, SIMD&FP)
+01 1 01 - LDR (register, SIMD&FP)
+1x 0 11 - Unallocated.
+1x 1 1x - Unallocated.
+10 0 00 - STR (register) - 32-bit variant
+10 0 01 - LDR (register) - 32-bit variant
+10 0 10 - LDRSW (register)
+10 1 00 - STR (register, SIMD&FP)
+10 1 01 - LDR (register, SIMD&FP)
+11 0 00 - STR (register) - 64-bit variant
+11 0 01 - LDR (register) - 64-bit variant
+11 0 10 - PRFM (register)
+11 1 00 - STR (register, SIMD&FP)
+11 1 01 - LDR (register, SIMD&FP)
 #Load/store register (pac)
+!= 11 - - - Unallocated. -
+11 0 0 0 LDRAA, LDRAB - Key A, offset variant FEAT_PAuth
+11 0 0 1 LDRAA, LDRAB - Key A, pre-indexed variant FEAT_PAuth
+11 0 1 0 LDRAA, LDRAB - Key B, offset variant FEAT_PAuth
+11 0 1 1 LDRAA, LDRAB - Key B, pre-indexed variant FEAT_PAuth
+11 1 - - Unallocated. -
 #Load/store register (unsigned immediate)
-
+3 27
+30 31
+26 26
+22 23
+x1 1 1x Unallocated.
+00 0 00 STRB (immediate)
+00 0 01 LDRB (immediate)
+00 0 10 LDRSB (immediate) - 64-bit variant
+00 0 11 LDRSB (immediate) - 32-bit variant
+00 1 00 STR (immediate, SIMD&FP) - 8-bit variant
+00 1 01 LDR (immediate, SIMD&FP) - 8-bit variant
+00 1 10 STR (immediate, SIMD&FP) - 128-bit variant
+00 1 11 LDR (immediate, SIMD&FP) - 128-bit variant
+01 0 00 STRH (immediate)
+01 0 01 LDRH (immediate)
+01 0 10 LDRSH (immediate) - 64-bit variant
+01 0 11 LDRSH (immediate) - 32-bit variant
+01 1 00 STR (immediate, SIMD&FP) - 16-bit variant
+01 1 01 LDR (immediate, SIMD&FP) - 16-bit variant
+1x 0 11 Unallocated.
+1x 1 1x Unallocated.
+10 0 00 STR (immediate) - 32-bit variant
+10 0 01 LDR (immediate) - 32-bit variant
+10 0 10 LDRSW (immediate)
+10 1 00 STR (immediate, SIMD&FP) - 32-bit variant
+10 1 01 LDR (immediate, SIMD&FP) - 32-bit variant
+11 0 00 STR (immediate) - 64-bit variant
+11 0 01 LDR (immediate) - 64-bit variant
+11 0 10 PRFM (immediate)
+11 1 00 STR (immediate, SIMD&FP) - 64-bit variant
+11 1 01 LDR (immediate, SIMD&FP) - 64-bit variant
 #Data Processing -- Register
+4 12
+30 30
+28 28
+21 24
+10 15
+0 1 0110 - Data-processing (2 source)
+1 1 0110 - Data-processing (1 source)
+- 0 0xxx - Logical (shifted register)
+- 0 1xx0 - Add/subtract (shifted register)
+- 0 1xx1 - Add/subtract (extended register)
+- 1 0000 000000 Add/subtract (with carry)
+- 1 0000 x00001 Rotate right into flags
+- 1 0000 xx0010 Evaluate into flags
+- 1 0010 xxxx0x Conditional compare (register)
+- 1 0010 xxxx1x Conditional compare (immediate)
+- 1 0100 - Conditional select
+- 1 1xxx - Data-processing (3 source)
+#Data-processing (2 source)
+3 41
+31 31
+29 29
+10 15
+- - 000001 Unallocated. -
+- - 011xxx Unallocated. -
+- - 1xxxxx Unallocated. -
+- 0 00011x Unallocated. -
+- 0 001101 Unallocated. -
+- 0 00111x Unallocated. -
+- 1 00001x Unallocated. -
+- 1 0001xx Unallocated. -
+- 1 001xxx Unallocated. -
+- 1 01xxxx Unallocated. -
+0 - 000000 Unallocated. -
+0 0 000010 UDIV - 32-bit variant -
+0 0 000011 SDIV - 32-bit variant -
+0 0 00010x Unallocated. -
+0 0 001000 LSLV - 32-bit variant -
+0 0 001001 LSRV - 32-bit variant -
+0 0 001010 ASRV - 32-bit variant -
+0 0 001011 RORV - 32-bit variant -
+0 0 001100 Unallocated. -
+0 0 010x11 Unallocated. -
+0 0 010000 CRC32B, CRC32H, CRC32W, CRC32X - CRC32B variant FEAT_CRC32
+0 0 010001 CRC32B, CRC32H, CRC32W, CRC32X - CRC32H variant FEAT_CRC32
+0 0 010010 CRC32B, CRC32H, CRC32W, CRC32X - CRC32W variant FEAT_CRC32
+0 0 010100 CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CB variant FEAT_CRC32
+0 0 010101 CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CH variant FEAT_CRC32
+0 0 010110 CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CW variant FEAT_CRC32
+1 0 000000 SUBP FEAT_MTE
+1 0 000010 UDIV - 64-bit variant -
+1 0 000011 SDIV - 64-bit variant -
+1 0 000100 IRG FEAT_MTE
+1 0 000101 GMI FEAT_MTE
+1 0 001000 LSLV - 64-bit variant -
+1 0 001001 LSRV - 64-bit variant -
+1 0 001010 ASRV - 64-bit variant -
+1 0 001011 RORV - 64-bit variant -
+1 0 001100 PACGA FEAT_PAuth
+1 0 010xx0 Unallocated. -
+1 0 010x0x Unallocated. -
+1 0 010011 CRC32B, CRC32H, CRC32W, CRC32X - CRC32X variant FEAT_CRC32
+1 0 010111 CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CX variant FEAT_CRC32
+1 1 000000 SUBPS FEAT_MTE
+#Data-processing (1 source)
+5 44
+31 31
+29 29
+16 20
+10 15
+5 9
+- - - 1xxxxx - Unallocated. -
+- - xxx1x - - Unallocated. -
+- - xx1xx - - Unallocated. -
+- - x1xxx - - Unallocated. -
+- - 1xxxx - - Unallocated. -
+- 0 00000 00011x - Unallocated. -
+- 0 00000 001xxx - Unallocated. -
+- 0 00000 01xxxx - Unallocated. -
+- 1 - - - Unallocated. -
+0 - 00001 - - Unallocated. - 
+0 0 00000 000000 - RBIT - 32-bit variant -
+0 0 00000 000001 - REV16 - 32-bit variant -
+0 0 00000 000010 - REV - 32-bit variant -
+0 0 00000 000011 - Unallocated. -
+0 0 00000 000100 - CLZ - 32-bit variant -
+0 0 00000 000101 - CLS - 32-bit variant -
+1 0 00000 000000 - RBIT - 64-bit variant -
+1 0 00000 000001 - REV16 - 64-bit variant -
+1 0 00000 000010 - REV32 -
+1 0 00000 000011 - REV - 64-bit variant -
+1 0 00000 000100 - CLZ - 64-bit variant -
+1 0 00000 000101 - CLS - 64-bit variant -
+1 0 00001 000000 - PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIA variant FEAT_PAuth
+1 0 00001 000001 - PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIB variant FEAT_PAuth
+1 0 00001 000010 - PACDA, PACDZA - PACDA variant FEAT_PAuth
+1 0 00001 000011 - PACDB, PACDZB - PACDB variant FEAT_PAuth
+1 0 00001 000100 - AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIA variant FEAT_PAuth
+1 0 00001 000101 - AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIB variant FEAT_PAuth
+1 0 00001 000110 - AUTDA, AUTDZA - AUTDA variant FEAT_PAuth
+1 0 00001 000111 - AUTDB, AUTDZB - AUTDB variant FEAT_PAuth
+1 0 00001 001000 11111 PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIZA variant FEAT_PAuth
+1 0 00001 001001 11111 PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIZB variant FEAT_PAuth
+1 0 00001 001010 11111 PACDA, PACDZA - PACDZA variant FEAT_PAuth
+1 0 00001 001011 11111 PACDB, PACDZB - PACDZB variant FEAT_PAuth
+1 0 00001 001100 11111 AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIZA variant FEAT_PAuth
+1 0 00001 001101 11111 AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIZB variant FEAT_PAuth
+1 0 00001 001110 11111 AUTDA, AUTDZA - AUTDZA variant FEAT_PAuth
+1 0 00001 001111 11111 AUTDB, AUTDZB - AUTDZB variant FEAT_PAuth
+1 0 00001 010000 11111 XPACD, XPACI, XPACLRI - XPACI variant FEAT_PAuth
+1 0 00001 010001 11111 XPACD, XPACI, XPACLRI - XPACD variant FEAT_PAuth
+1 0 00001 01001x - Unallocated. -
+1 0 00001 0101xx - Unallocated. -
+1 0 00001 011xxx - Unallocated. -
+#Logical (shifted register)
+0 - - 1xxxxx Unallocated.
+31 31
+29 30
+21 21
+0 00 0 - AND (shifted register) - 32-bit variant
+0 00 1 - BIC (shifted register) - 32-bit variant
+0 01 0 - ORR (shifted register) - 32-bit variant
+0 01 1 - ORN (shifted register) - 32-bit variant
+0 10 0 - EOR (shifted register) - 32-bit variant
+0 10 1 - EON (shifted register) - 32-bit variant
+0 11 0 - ANDS (shifted register) - 32-bit variant
+0 11 1 - BICS (shifted register) - 32-bit variant
+1 00 0 - AND (shifted register) - 64-bit variant
+1 00 1 - BIC (shifted register) - 64-bit variant
+1 01 0 - ORR (shifted register) - 64-bit variant
+1 01 1 - ORN (shifted register) - 64-bit variant
+1 10 0 - EOR (shifted register) - 64-bit variant
+1 10 1 - EON (shifted register) - 64-bit variant
+1 11 0 - ANDS (shifted register) - 64-bit variant
+1 11 1 - BICS (shifted register) - 64-bit variant
+#Add/subtract (shifted register)
+5 10
+31 31
+30 30
+29 29
+22 23
+10 15
+- - - 11 - Unallocated.
+0 - - - 1xxxxx Unallocated.
+0 0 0 - - ADD (shifted register) - 32-bit variant
+0 0 1 - - ADDS (shifted register) - 32-bit variant
+0 1 0 - - SUB (shifted register) - 32-bit variant
+0 1 1 - - SUBS (shifted register) - 32-bit variant
+1 0 0 - - ADD (shifted register) - 64-bit variant
+1 0 1 - - ADDS (shifted register) - 64-bit variant
+1 1 0 - - SUB (shifted register) - 64-bit variant
+1 1 1 - - SUBS (shifted register) - 64-bit variant
+#Add/subtract (extended register)
+5 12
+31 31
+30 30
+29 29
+22 23
+10 12
+- - - - 1x1 Unallocated.
+- - - - 11x Unallocated.
+- - - x1 - Unallocated.
+- - - 1x - Unallocated.
+0 0 0 00 - ADD (extended register) - 32-bit variant
+0 0 1 00 - ADDS (extended register) - 32-bit variant
+0 1 0 00 - SUB (extended register) - 32-bit variant
+0 1 1 00 - SUBS (extended register) - 32-bit variant
+1 0 0 00 - ADD (extended register) - 64-bit variant
+1 0 1 00 - ADDS (extended register) - 64-bit variant
+1 1 0 00 - SUB (extended register) - 64-bit variant
+1 1 1 00 - SUBS (extended register) - 64-bit variant
+#Add/subtract (with carry)
+3 8
+31 31
+30 30
+29 29
+0 0 0 ADC - 32-bit variant
+0 0 1 ADCS - 32-bit variant
+0 1 0 SBC - 32-bit variant
+0 1 1 SBCS - 32-bit variant
+1 0 0 ADC - 64-bit variant
+1 0 1 ADCS - 64-bit variant
+1 1 0 SBC - 64-bit variant
+1 1 1 SBCS - 64-bit variant
+#Rotate right into flags
+4 5
+31 31
+30 30
+29 29
+4 4
+0 - - - Unallocated. -
+1 0 0 - Unallocated. -
+1 0 1 0 RMIF FEAT_FlagM
+1 0 1 1 Unallocated. -
+1 1 - - Unallocated. -
+#Evaluate into flags
+7 8
+31 31
+30 30
+29 29
+15 20
+14 14
+5 9
+4 4
+0 3
+0 0 0 - - - - Unallocated. -
+0 0 1 !=000000 - - - Unallocated. -
+0 0 1 000000 - 0 != 1101 Unallocated. -
+0 0 1 000000 - 1 - Unallocated. -
+0 0 1 000000 0 0 1101 SETF8, SETF16 - SETF8 variant FEAT_FlagM
+0 0 1 000000 1 0 1101 SETF8, SETF16 - SETF16 variant FEAT_FlagM
+0 1 - - - - - Unallocated. -
+1 - - - - - - Unallocated. -
+#Conditional compare (register)
+5 7
+31 31
+30 30
+29 29
+10 10
+4 4
+- - - - 1 Unallocated.
+- - - 1 - Unallocated.
+- - 0 - - Unallocated.
+0 0 1 0 0 CCMN (register) - 32-bit variant
+0 1 1 0 0 CCMP (register) - 32-bit variant
+1 0 1 0 0 CCMN (register) - 64-bit variant
+1 1 1 0 0 CCMP (register) - 64-bit variant
+#Conditional compare (immediate)
+5 7
+31 31
+30 30
+29 29
+10 10
+4 4
+- - - - 1 Unallocated.
+- - - 1 - Unallocated.
+- - 0 - - Unallocated.
+0 0 1 0 0 CCMN (immediate) - 32-bit variant
+0 1 1 0 0 CCMP (immediate) - 32-bit variant
+1 0 1 0 0 CCMN (immediate) - 64-bit variant
+1 1 1 0 0 CCMP (immediate) - 64-bit variant
+#Conditional select
+4 10
+31 31
+30 30
+29 29
+10 11
+- - - 1x Unallocated.
+- - 1 - Unallocated.
+0 0 0 00 CSEL - 32-bit variant
+0 0 0 01 CSINC - 32-bit variant
+0 1 0 00 CSINV - 32-bit variant
+0 1 0 01 CSNEG - 32-bit variant
+1 0 0 00 CSEL - 64-bit variant
+1 0 0 01 CSINC - 64-bit variant
+1 1 0 00 CSINV - 64-bit variant
+1 1 0 01 CSNEG - 64-bit variant
+#Data-processing (3 source)
+4 23
+31 31
+29 30
+21 23
+15 15
+- 00 010 1 Unallocated.
+- 00 011 - Unallocated.
+- 00 100 - Unallocated.
+- 00 110 1 Unallocated.
+- 00 111 - Unallocated.
+- 01 - - Unallocated.
+- 1x - - Unallocated.
+0 00 000 0 MADD - 32-bit variant
+0 00 000 1 MSUB - 32-bit variant
+0 00 001 0 Unallocated.
+0 00 001 1 Unallocated.
+0 00 010 0 Unallocated.
+0 00 101 0 Unallocated.
+0 00 101 1 Unallocated.
+0 00 110 0 Unallocated.
+1 00 000 0 MADD - 64-bit variant
+1 00 000 1 MSUB - 64-bit variant
+1 00 001 0 SMADDL
+1 00 001 1 SMSUBL
+1 00 010 0 SMULH
+1 00 101 0 UMADDL
+1 00 101 1 UMSUBL
+1 00 110 0 UMULH
 #Data Processing -- Scalar Floating-Point and Advanced SIMD
