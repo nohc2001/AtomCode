@@ -6030,3 +6030,111 @@ x1 1 1x Unallocated.
 1 00 101 1 UMSUBL
 1 00 110 0 UMULH
 #Data Processing -- Scalar Floating-Point and Advanced SIMD
+4 62
+28 31
+23 24
+19 22
+10 18
+0000 0x x101 00xxxxx10 Unallocated. -
+0010 0x x101 00xxxxx10 Unallocated. -
+0100 0x x101 00xxxxx10 Cryptographic AES -
+0101 0x x0xx xxx0xxx00 Cryptographic three-register SHA -
+0101 0x x0xx xxx0xxx10 Unallocated. -
+0101 0x x101 00xxxxx10 Cryptographic two-register SHA -
+0110 0x x101 00xxxxx10 Unallocated. -
+0111 0x x0xx xxx0xxxx0 Unallocated. -
+0111 0x x101 00xxxxx10 Unallocated. -
+01x1 00 00xx xxx0xxxx1 Advanced SIMD scalar copy -
+01x1 01 00xx xxx0xxxx1 Unallocated. -
+01x1 0x 0111 00xxxxx10 Unallocated. -
+01x1 0x 10xx xxx00xxx1 Advanced SIMD scalar three same FP16 -
+01x1 0x 10xx xxx01xxx1 Unallocated. -
+01x1 0x 1111 00xxxxx10 Advanced SIMD scalar two-register miscellaneous FP16 -
+01x1 0x x0xx xxx1xxxx0 Unallocated. -
+01x1 0x x0xx xxx1xxxx1 Advanced SIMD scalar three same extra -
+01x1 0x x100 00xxxxx10 Advanced SIMD scalar two-register miscellaneous -
+01x1 0x x110 00xxxxx10 Advanced SIMD scalar pairwise -
+01x1 0x x1xx 1xxxxxx10 Unallocated. -
+01x1 0x x1xx x1xxxxx10 Unallocated. -
+01x1 0x x1xx xxxxxxx00 Advanced SIMD scalar three different -
+01x1 0x x1xx xxxxxxxx1 Advanced SIMD scalar three same -
+01x1 10 - xxxxxxxx1 Advanced SIMD scalar shift by immediate -
+01x1 11 - xxxxxxxx1 Unallocated. -
+01x1 1x - xxxxxxxx0 Advanced SIMD scalar x indexed element -
+0x00 0x x0xx xxx0xxx00 Advanced SIMD table lookup -
+0x00 0x x0xx xxx0xxx10 Advanced SIMD permute -
+0x10 0x x0xx xxx0xxxx0 Advanced SIMD extract -
+0xx0 00 00xx xxx0xxxx1 Advanced SIMD copy -
+0xx0 01 00xx xxx0xxxx1 Unallocated. -
+0xx0 0x 0111 00xxxxx10 Unallocated. -
+0xx0 0x 10xx xxx00xxx1 Advanced SIMD three same (FP16) -
+0xx0 0x 10xx xxx01xxx1 Unallocated. -
+0xx0 0x 1111 00xxxxx10 Advanced SIMD two-register miscellaneous (FP16) -
+0xx0 0x x0xx xxx1xxxx0 Unallocated. -
+0xx0 0x x0xx xxx1xxxx1 Advanced SIMD three-register extension -
+0xx0 0x x100 00xxxxx10 Advanced SIMD two-register miscellaneous -
+0xx0 0x x110 00xxxxx10 Advanced SIMD across lanes -
+0xx0 0x x1xx 1xxxxxx10 Unallocated. -
+0xx0 0x x1xx x1xxxxx10 Unallocated. -
+0xx0 0x x1xx xxxxxxx00 Advanced SIMD three different -
+0xx0 0x x1xx xxxxxxxx1 Advanced SIMD three same -
+0xx0 10 0000 xxxxxxxx1 Advanced SIMD modified immediate -
+0xx0 10 != 0000 xxxxxxxx1 Advanced SIMD shift by immediate -
+0xx0 11 - xxxxxxxx1 Unallocated. -
+0xx0 1x - xxxxxxxx0 Advanced SIMD vector x indexed element -
+1100 00 10xx xxx10xxxx Cryptographic three-register, imm2 -
+1100 00 11xx xxx1x00xx Cryptographic three-register SHA 512 -
+1100 00 - xxx0xxxxx Cryptographic four-register -
+1100 01 00xx - XAR FEAT_SHA3
+1100 01 1000 0001000xx Cryptographic two-register SHA 512 -
+1xx0 1x - - Unallocated. -
+x0x1 0x x0xx - Conversion between floating-point and fixed-point -
+x0x1 0x x1xx xxx000000 Conversion between floating-point and integer -
+x0x1 0x x1xx xxxx10000 Floating-point data-processing (1 source) -
+x0x1 0x x1xx xxxxx1000 Floating-point compare -
+x0x1 0x x1xx xxxxxx100 Floating-point immediate -
+x0x1 0x x1xx xxxxxxx01 Floating-point conditional compare -
+x0x1 0x x1xx xxxxxxx10 Floating-point data-processing (2 source) -
+x0x1 0x x1xx xxxxxxx11 Floating-point conditional select -
+x0x1 1x - - Floating-point data-processing (3 source) -
+
+#Cryptographic AES -
+#Cryptographic three-register SHA -
+#Cryptographic two-register SHA -
+#Advanced SIMD scalar copy -
+#Advanced SIMD scalar three same FP16 -
+#Advanced SIMD scalar two-register miscellaneous FP16 -
+#Advanced SIMD scalar three same extra -
+#Advanced SIMD scalar two-register miscellaneous -
+#Advanced SIMD scalar pairwise -
+#Advanced SIMD scalar three different -
+#Advanced SIMD scalar three same -
+#Advanced SIMD scalar shift by immediate -
+#Advanced SIMD scalar x indexed element -
+#Advanced SIMD table lookup -
+#Advanced SIMD permute -
+#Advanced SIMD extract -
+#Advanced SIMD copy -
+#Advanced SIMD three same (FP16) -
+#Advanced SIMD two-register miscellaneous (FP16) -
+#Advanced SIMD three-register extension -
+#Advanced SIMD two-register miscellaneous -
+#Advanced SIMD across lanes -
+#Advanced SIMD three different -
+#Advanced SIMD three same -
+#Advanced SIMD modified immediate -
+#Advanced SIMD shift by immediate -
+#Advanced SIMD vector x indexed element -
+#Cryptographic three-register, imm2 -
+#Cryptographic three-register SHA 512 -
+#Cryptographic four-register -
+#Cryptographic two-register SHA 512 -
+#Conversion between floating-point and fixed-point -
+#Conversion between floating-point and integer -
+#Floating-point data-processing (1 source) -
+#Floating-point compare -
+#Floating-point immediate -
+#Floating-point conditional compare -
+#Floating-point data-processing (2 source) -
+#Floating-point conditional select -
+#Floating-point data-processing (3 source) -
