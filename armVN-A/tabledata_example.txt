@@ -6097,44 +6097,1314 @@ x0x1 0x x1xx xxxxxxx01 Floating-point conditional compare -
 x0x1 0x x1xx xxxxxxx10 Floating-point data-processing (2 source) -
 x0x1 0x x1xx xxxxxxx11 Floating-point conditional select -
 x0x1 1x - - Floating-point data-processing (3 source) -
-
 #Cryptographic AES -
+2 9
+22 23
+12 16
+- x1xxx Unallocated. -
+- 000xx Unallocated. -
+- 1xxxx Unallocated. -
+x1 - Unallocated. -
+00 00100 AESE FEAT_AES
+00 00101 AESD FEAT_AES
+00 00110 AESMC FEAT_AES
+00 00111 AESIMC FEAT_AES
+1x - Unallocated. -
 #Cryptographic three-register SHA -
+2 10
+22 23
+12 14
+- 111 Unallocated. -
+x1 - Unallocated. -
+00 000 SHA1C FEAT_SHA1
+00 001 SHA1P FEAT_SHA1
+00 010 SHA1M FEAT_SHA1
+00 011 SHA1SU0 FEAT_SHA1
+00 100 SHA256H FEAT_SHA256
+00 101 SHA256H2 FEAT_SHA256
+00 110 SHA256SU1 FEAT_SHA256
+1x - Unallocated. -
 #Cryptographic two-register SHA -
+2 9
+22 23
+12 16
+- xx1xx Unallocated. -
+- x1xxx Unallocated. -
+- 1xxxx Unallocated. -
+x1 - Unallocated. -
+00 00000 SHA1H FEAT_SHA1
+00 00001 SHA1SU1 FEAT_SHA1
+00 00010 SHA256SU0 FEAT_SHA256
+00 00011 Unallocated. -
+1x - Unallocated. -
 #Advanced SIMD scalar copy -
+2 6
+29 29
+11 14
+0 xxx1 Unallocated.
+0 xx1x Unallocated.
+0 x1xx Unallocated.
+0 0000 DUP (element)
+0 1xxx Unallocated.
+1 - Unallocated.
 #Advanced SIMD scalar three same FP16 -
+3 17
+29 29
+23 23
+11 13
+- - 110 Unallocated. -
+- 1 011 Unallocated. -
+0 0 011 FMULX FEAT_FP16
+0 0 100 FCMEQ (register) FEAT_FP16
+0 0 101 Unallocated. -
+0 0 111 FRECPS FEAT_FP16
+0 1 100 Unallocated. -
+0 1 101 Unallocated. -
+0 1 111 FRSQRTS FEAT_FP16
+1 0 011 Unallocated. -
+1 0 100 FCMGE (register) FEAT_FP16
+1 0 101 FACGE FEAT_FP16
+1 0 111 Unallocated. -
+1 1 010 FABD FEAT_FP16
+1 1 100 FCMGT (register) FEAT_FP16
+1 1 101 FACGT FEAT_FP16
+1 1 111 Unallocated. -
 #Advanced SIMD scalar two-register miscellaneous FP16 -
+3 31
+29 29
+23 23
+12 16
+- - 00xxx Unallocated. -
+- - 010xx Unallocated. -
+- - 10xxx Unallocated. -
+- - 1100x Unallocated. -
+- - 11110 Unallocated. -
+- 0 011xx Unallocated. -
+- 0 11111 Unallocated. -
+- 1 01111 Unallocated. -
+- 1 11100 Unallocated. -
+0 0 11010 FCVTNS (vector) FEAT_FP16
+0 0 11011 FCVTMS (vector) FEAT_FP16
+0 0 11100 FCVTAS (vector) FEAT_FP16
+0 0 11101 SCVTF (vector, integer) FEAT_FP16
+0 1 01100 FCMGT (zero) FEAT_FP16
+0 1 01101 FCMEQ (zero) FEAT_FP16
+0 1 01110 FCMLT (zero) FEAT_FP16
+0 1 11010 FCVTPS (vector) FEAT_FP16
+0 1 11011 FCVTZS (vector, integer) FEAT_FP16
+0 1 11101 FRECPE FEAT_FP16
+0 1 11111 FRECPX FEAT_FP16
+1 0 11010 FCVTNU (vector) FEAT_FP16
+1 0 11011 FCVTMU (vector) FEAT_FP16
+1 0 11100 FCVTAU (vector) FEAT_FP16
+1 0 11101 UCVTF (vector, integer) FEAT_FP16
+1 1 01100 FCMGE (zero) FEAT_FP16
+1 1 01101 FCMLE (zero) FEAT_FP16
+1 1 01110 Unallocated. -
+1 1 11010 FCVTPU (vector) FEAT_FP16
+1 1 11011 FCVTZU (vector, integer) FEAT_FP16
+1 1 11101 FRSQRTE FEAT_FP16
+1 1 11111 Unallocated. -
 #Advanced SIMD scalar three same extra -
+2 7
+29 29
+11 14
+- 001x Unallocated. -
+- 01xx Unallocated. -
+- 1xxx Unallocated. -
+0 0000 Unallocated. -
+0 0001 Unallocated. -
+1 0000 SQRDMLAH (vector) FEAT_RDM
+1 0001 SQRDMLSH (vector) FEAT_RDM
 #Advanced SIMD scalar two-register miscellaneous -
+3 55
+29 29
+22 23
+12 16
+- - 0000x Unallocated.
+- - 00010 Unallocated.
+- - 0010x Unallocated.
+- - 00110 Unallocated.
+- - 01111 Unallocated.
+- - 1000x Unallocated.
+- - 10011 Unallocated.
+- - 10101 Unallocated.
+- - 10111 Unallocated.
+- - 1100x Unallocated.
+- - 11110 Unallocated.
+- 0x 011xx Unallocated.
+- 0x 11111 Unallocated.
+- 1x 10110 Unallocated.
+- 1x 11100 Unallocated.
+0 - 00011 SUQADD
+0 - 00111 SQABS
+0 - 01000 CMGT (zero)
+0 - 01001 CMEQ (zero)
+0 - 01010 CMLT (zero)
+0 - 01011 ABS
+0 - 10010 Unallocated.
+0 - 10100 SQXTN, SQXTN2
+0 0x 10110 Unallocated.
+0 0x 11010 FCVTNS (vector)
+0 0x 11011 FCVTMS (vector)
+0 0x 11100 FCVTAS (vector)
+0 0x 11101 SCVTF (vector, integer)
+0 1x 01100 FCMGT (zero)
+0 1x 01101 FCMEQ (zero)
+0 1x 01110 FCMLT (zero)
+0 1x 11010 FCVTPS (vector)
+0 1x 11011 FCVTZS (vector, integer)
+0 1x 11101 FRECPE
+0 1x 11111 FRECPX
+1 - 00011 USQADD
+1 - 00111 SQNEG
+1 - 01000 CMGE (zero)
+1 - 01001 CMLE (zero)
+1 - 01010 Unallocated.
+1 - 01011 NEG (vector)
+1 - 10010 SQXTUN, SQXTUN2
+1 - 10100 UQXTN, UQXTN2
+1 0x 10110 FCVTXN, FCVTXN2
+1 0x 11010 FCVTNU (vector)
+1 0x 11011 FCVTMU (vector)
+1 0x 11100 FCVTAU (vector)
+1 0x 11101 UCVTF (vector, integer)
+1 1x 01100 FCMGE (zero)
+1 1x 01101 FCMLE (zero)
+1 1x 01110 Unallocated.
+1 1x 11010 FCVTPU (vector)
+1 1x 11011 FCVTZU (vector, integer)
+1 1x 11101 FRSQRTE
+1 1x 11111 Unallocated.
 #Advanced SIMD scalar pairwise -
+3 20
+29 29
+22 23
+12 16
+- - 00xxx Unallocated. -
+- - 010xx Unallocated. -
+- - 01110 Unallocated. -
+- - 10xxx Unallocated. -
+- - 1100x Unallocated. -
+- - 11010 Unallocated. -
+- - 111xx Unallocated. -
+- 1x 01101 Unallocated. -
+0 - 11011 ADDP (scalar) -
+0 0x 01100 FMAXNMP (scalar) - Encoding FEAT_FP16
+0 0x 01101 FADDP (scalar) - Encoding FEAT_FP16
+0 0x 01111 FMAXP (scalar) - Encoding FEAT_FP16
+0 1x 01100 FMINNMP (scalar) - Encoding FEAT_FP16
+0 1x 01111 FMINP (scalar) - Encoding FEAT_FP16
+1 - 11011 Unallocated. -
+1 0x 01100 FMAXNMP (scalar) - Encoding -
+1 0x 01101 FADDP (scalar) - Encoding -
+1 0x 01111 FMAXP (scalar) - Encoding -
+1 1x 01100 FMINNMP (scalar) - Encoding -
+1 1x 01111 FMINP (scalar) - Encoding -
 #Advanced SIMD scalar three different -
+2 12
+29 29
+12 15
+- 00xx Unallocated.
+- 01xx Unallocated.
+- 1000 Unallocated.
+- 1010 Unallocated.
+- 1100 Unallocated.
+- 111x Unallocated.
+0 1001 SQDMLAL, SQDMLAL2 (vector)
+0 1011 SQDMLSL, SQDMLSL2 (vector)
+0 1101 SQDMULL, SQDMULL2 (vector)
+1 1001 Unallocated.
+1 1011 Unallocated.
+1 1101 Unallocated.
 #Advanced SIMD scalar three same -
+3 64
+29 29
+22 23
+11 15
+- - 00000 Unallocated.
+- - 0001x Unallocated.
+- - 00100 Unallocated.
+- - 011xx Unallocated.
+- - 1001x Unallocated.
+- 1x 11011 Unallocated.
+0 - 00001 SQADD
+0 - 00101 SQSUB
+0 - 00110 CMGT (register)
+0 - 00111 CMGE (register)
+0 - 01000 SSHL
+0 - 01001 SQSHL (register)
+0 - 01010 SRSHL
+0 - 01011 SQRSHL
+0 - 10000 ADD (vector)
+0 - 10001 CMTST
+0 - 10100 Unallocated.
+0 - 10101 Unallocated.
+0 - 10110 SQDMULH (vector)
+0 - 10111 Unallocated.
+0 0x 11000 Unallocated.
+0 0x 11001 Unallocated.
+0 0x 11010 Unallocated.
+0 0x 11011 FMULX
+0 0x 11100 FCMEQ (register)
+0 0x 11101 Unallocated.
+0 0x 11110 Unallocated.
+0 0x 11111 FRECPS
+0 1x 11000 Unallocated.
+0 1x 11001 Unallocated.
+0 1x 11010 Unallocated.
+0 1x 11100 Unallocated.
+0 1x 11101 Unallocated.
+0 1x 11110 Unallocated.
+0 1x 11111 FRSQRTS
+1 - 00001 UQADD
+1 - 00101 UQSUB
+1 - 00110 CMHI (register)
+1 - 00111 CMHS (register)
+1 - 01000 USHL
+1 - 01001 UQSHL (register)
+1 - 01010 URSHL
+1 - 01011 UQRSHL
+1 - 10000 SUB (vector)
+1 - 10001 CMEQ (register)
+1 - 10100 Unallocated.
+1 - 10101 Unallocated.
+1 - 10110 SQRDMULH (vector)
+1 - 10111 Unallocated.
+1 0x 11000 Unallocated.
+1 0x 11001 Unallocated.
+1 0x 11010 Unallocated.
+1 0x 11011 Unallocated.
+1 0x 11100 FCMGE (register)
+1 0x 11101 FACGE
+1 0x 11110 Unallocated.
+1 0x 11111 Unallocated.
+1 1x 11000 Unallocated.
+1 1x 11001 Unallocated.
+1 1x 11010 FABD
+1 1x 11100 FCMGT (register)
+1 1x 11101 FACGT
+1 1x 11110 Unallocated.
+1 1x 11111 Unallocated.
 #Advanced SIMD scalar shift by immediate -
+3 41
+29 29
+19 22
+11 15
+- != 0000 00001 Unallocated.
+- != 0000 00011 Unallocated.
+- != 0000 00101 Unallocated.
+- != 0000 00111 Unallocated.
+- != 0000 01001 Unallocated.
+- != 0000 01011 Unallocated.
+- != 0000 01101 Unallocated.
+- != 0000 01111 Unallocated.
+- != 0000 101xx Unallocated.
+- != 0000 110xx Unallocated.
+- != 0000 11101 Unallocated.
+- != 0000 11110 Unallocated.
+- 0000 - Unallocated.
+0 != 0000 00000 SSHR
+0 != 0000 00010 SSRA
+0 != 0000 00100 SRSHR
+0 != 0000 00110 SRSRA
+0 != 0000 01000 Unallocated.
+0 != 0000 01010 SHL
+0 != 0000 01100 Unallocated.
+0 != 0000 01110 SQSHL (immediate)
+0 != 0000 10000 Unallocated.
+0 != 0000 10001 Unallocated.
+0 != 0000 10010 SQSHRN, SQSHRN2
+0 != 0000 10011 SQRSHRN, SQRSHRN2
+0 != 0000 11100 SCVTF (vector, fixed-point)
+0 != 0000 11111 FCVTZS (vector, fixed-point)
+1 != 0000 00000 USHR
+1 != 0000 00010 USRA
+1 != 0000 00100 URSHR
+1 != 0000 00110 URSRA
+1 != 0000 01000 SRI
+1 != 0000 01010 SLI
+1 != 0000 01100 SQSHLU
+1 != 0000 01110 UQSHL (immediate)
+1 != 0000 10000 SQSHRUN, SQSHRUN2
+1 != 0000 10001 SQRSHRUN, SQRSHRUN2
+1 != 0000 10010 UQSHRN, UQSHRN2
+1 != 0000 10011 UQRSHRN, UQRSHRN2
+1 != 0000 11100 UCVTF (vector, fixed-point)
+1 != 0000 11111 FCVTZU (vector, fixed-point)
 #Advanced SIMD scalar x indexed element -
+3 34
+29 29
+22 23
+12 15
+- - 0000 Unallocated. -
+- - 0010 Unallocated. -
+- - 0100 Unallocated. -
+- - 0110 Unallocated. -
+- - 1000 Unallocated. -
+- - 1010 Unallocated. -
+- - 1110 Unallocated. -
+- 01 0001 Unallocated. -
+- 01 0101 Unallocated. -
+- 01 1001 Unallocated. -
+0 - 0011 SQDMLAL, SQDMLAL2 (by element) -
+0 - 0111 SQDMLSL, SQDMLSL2 (by element) -
+0 - 1011 SQDMULL, SQDMULL2 (by element) -
+0 - 1100 SQDMULH (by element) -
+0 - 1101 SQRDMULH (by element) -
+0 - 1111 Unallocated. -
+0 00 0001 FMLA (by element) - Encoding FEAT_FP16
+0 00 0101 FMLS (by element) - Encoding FEAT_FP16
+0 00 1001 FMUL (by element) - Encoding FEAT_FP16
+0 1x 0001 FMLA (by element) - Encoding -
+0 1x 0101 FMLS (by element) - Encoding -
+0 1x 1001 FMUL (by element) - Encoding -
+1 - 0011 Unallocated. -
+1 - 0111 Unallocated. -
+1 - 1011 Unallocated. -
+1 - 1100 Unallocated. -
+1 - 1101 SQRDMLAH (by element) FEAT_RDM
+1 - 1111 SQRDMLSH (by element) FEAT_RDM
+1 00 0001 Unallocated. -
+1 00 0101 Unallocated. -
+1 00 1001 FMULX (by element) - Encoding FEAT_FP16
+1 1x 0001 Unallocated. -
+1 1x 0101 Unallocated. -
+1 1x 1001 FMULX (by element) - Encoding -
 #Advanced SIMD table lookup -
+3 10
+22 23
+13 14
+12 12
+x1 - - Unallocated.
+00 00 0 TBL - Single register table variant
+00 00 1 TBX - Single register table variant
+00 01 0 TBL - Two register table variant
+00 01 1 TBX - Two register table variant
+00 10 0 TBL - Three register table variant
+00 10 1 TBX - Three register table variant
+00 11 0 TBL - Four register table variant
+00 11 1 TBX - Four register table variant
+1x - - Unallocated.
 #Advanced SIMD permute -
+1 8
+12 14
+000 Unallocated.
+001 UZP1
+010 TRN1
+011 ZIP1
+100 Unallocated.
+101 UZP2
+110 TRN2
+111 ZIP2
 #Advanced SIMD extract -
+1 3
+22 23
+x1 Unallocated.
+00 EXT
+1x Unallocated.
 #Advanced SIMD copy -
+4 15
+30 30
+29 29
+16 20
+11 14
+- - x0000 - Unallocated.
+- 0 - 0000 DUP (element)
+- 0 - 0001 DUP (general)
+- 0 - 0010 Unallocated.
+- 0 - 0100 Unallocated.
+- 0 - 0110 Unallocated.
+- 0 - 1xxx Unallocated.
+0 0 - 0011 Unallocated.
+0 0 - 0101 SMOV
+0 0 - 0111 UMOV
+0 1 - - Unallocated.
+1 0 - 0011 INS (general)
+1 0 - 0101 SMOV
+1 0 x1000 0111 UMOV
+1 1 - - INS (element)
 #Advanced SIMD three same (FP16) -
+3 32
+29 29
+23 23
+11 13
+0 0 000 FMAXNM (vector) FEAT_FP16
+0 0 001 FMLA (vector) FEAT_FP16
+0 0 010 FADD (vector) FEAT_FP16
+0 0 011 FMULX FEAT_FP16
+0 0 100 FCMEQ (register) FEAT_FP16
+0 0 101 Unallocated. -
+0 0 110 FMAX (vector) FEAT_FP16
+0 0 111 FRECPS FEAT_FP16
+0 1 000 FMINNM (vector) FEAT_FP16
+0 1 001 FMLS (vector) FEAT_FP16
+0 1 010 FSUB (vector) FEAT_FP16
+0 1 011 Unallocated. -
+0 1 100 Unallocated. -
+0 1 101 Unallocated. -
+0 1 110 FMIN (vector) FEAT_FP16
+0 1 111 FRSQRTS FEAT_FP16
+1 0 000 FMAXNMP (vector) FEAT_FP16
+1 0 001 Unallocated. -
+1 0 010 FADDP (vector) FEAT_FP16
+1 0 011 FMUL (vector) FEAT_FP16
+1 0 100 FCMGE (register) FEAT_FP16
+1 0 101 FACGE FEAT_FP16
+1 0 110 FMAXP (vector) FEAT_FP16
+1 0 111 FDIV (vector) FEAT_FP16
+1 1 000 FMINNMP (vector) FEAT_FP16
+1 1 001 Unallocated. -
+1 1 010 FABD FEAT_FP16
+1 1 011 Unallocated. -
+1 1 100 FCMGT (register) FEAT_FP16
+1 1 101 FACGT FEAT_FP16
+1 1 110 FMINP (vector) FEAT_FP16
+1 1 111 Unallocated. -
 #Advanced SIMD two-register miscellaneous (FP16) -
+3 39
+29 29
+23 23
+12 16
+- - 00xxx Unallocated. -
+- - 010xx Unallocated. -
+- - 10xxx Unallocated. -
+- - 11110 Unallocated. -
+- 0 011xx Unallocated. -
+- 0 11111 Unallocated. -
+- 1 11100 Unallocated. -
+0 0 11000 FRINTN (vector) FEAT_FP16
+0 0 11001 FRINTM (vector) FEAT_FP16
+0 0 11010 FCVTNS (vector) FEAT_FP16
+0 0 11011 FCVTMS (vector) FEAT_FP16
+0 0 11100 FCVTAS (vector) FEAT_FP16
+0 0 11101 SCVTF (vector, integer) FEAT_FP16
+0 1 01100 FCMGT (zero) FEAT_FP16
+0 1 01101 FCMEQ (zero) FEAT_FP16
+0 1 01110 FCMLT (zero) FEAT_FP16
+0 1 01111 FABS (vector) FEAT_FP16
+0 1 11000 FRINTP (vector) FEAT_FP16
+0 1 11001 FRINTZ (vector) FEAT_FP16
+0 1 11010 FCVTPS (vector) FEAT_FP16
+0 1 11011 FCVTZS (vector, integer) FEAT_FP16
+0 1 11101 FRECPE FEAT_FP16
+0 1 11111 Unallocated. -
+1 0 11000 FRINTA (vector) FEAT_FP16
+1 0 11001 FRINTX (vector) FEAT_FP16
+1 0 11010 FCVTNU (vector) FEAT_FP16
+1 0 11011 FCVTMU (vector) FEAT_FP16
+1 0 11100 FCVTAU (vector) FEAT_FP16
+1 0 11101 UCVTF (vector, integer) FEAT_FP16
+1 1 01100 FCMGE (zero) FEAT_FP16
+1 1 01101 FCMLE (zero) FEAT_FP16
+1 1 01110 Unallocated. -
+1 1 01111 FNEG (vector) FEAT_FP16
+1 1 11000 Unallocated. -
+1 1 11001 FRINTI (vector) FEAT_FP16
+1 1 11010 FCVTPU (vector) FEAT_FP16
+1 1 11011 FCVTZU (vector, integer) FEAT_FP16
+1 1 11101 FRSQRTE FEAT_FP16
+1 1 11111 FSQRT (vector) FEAT_FP16
 #Advanced SIMD three-register extension -
+4 28
+30 30
+29 29
+22 23
+11 14
+- - 0x 0011 Unallocated. -
+- - 11 0011 Unallocated. -
+- 0 - 0000 Unallocated. -
+- 0 - 0001 Unallocated. -
+- 0 - 0010 SDOT (vector) FEAT_DotProd
+- 0 - 1xxx Unallocated. -
+- 0 10 0011 USDOT (vector) FEAT_I8MM
+- 1 - 0000 SQRDMLAH (vector) FEAT_RDM
+- 1 - 0001 SQRDMLSH (vector) FEAT_RDM
+- 1 - 0010 UDOT (vector) FEAT_DotProd
+- 1 - 10xx FCMLA FEAT_FCMA
+- 1 - 11x0 FCADD FEAT_FCMA
+- 1 00 1101 Unallocated. -
+- 1 00 1111 Unallocated. -
+- 1 01 1111 BFDOT (vector) FEAT_BF16
+- 1 1x 1101 Unallocated. -
+- 1 10 0011 Unallocated. -
+- 1 10 1111 Unallocated. -
+- 1 11 1111 BFMLALB, BFMLALT (vector) FEAT_BF16
+0 - - 01xx Unallocated. -
+0 1 01 1101 Unallocated. -
+1 - 0x 01xx Unallocated. -
+1 - 1x 011x Unallocated. -
+1 0 10 0100 SMMLA (vector) FEAT_I8MM
+1 0 10 0101 USMMLA (vector) FEAT_I8MM
+1 1 01 1101 BFMMLA FEAT_BF16
+1 1 10 0100 UMMLA (vector) FEAT_I8MM
+1 1 10 0101 Unallocated. -
 #Advanced SIMD two-register miscellaneous -
+3 82
+29 29
+22 23
+12 16
+- - 1000x Unallocated. -
+- - 10101 Unallocated. -
+- 0x 011xx Unallocated. -
+- 1x 10111 Unallocated. -
+- 1x 11110 Unallocated. -
+- 11 10110 Unallocated. -
+0 - 00000 REV64 -
+0 - 00001 REV16 (vector) -
+0 - 00010 SADDLP -
+0 - 00011 SUQADD -
+0 - 00100 CLS (vector) -
+0 - 00101 CNT -
+0 - 00110 SADALP -
+0 - 00111 SQABS -
+0 - 01000 CMGT (zero) -
+0 - 01001 CMEQ (zero) -
+0 - 01010 CMLT (zero) -
+0 - 01011 ABS -
+0 - 10010 XTN, XTN2 -
+0 - 10011 Unallocated. -
+0 - 10100 SQXTN, SQXTN2 -
+0 0x 10110 FCVTN, FCVTN2 -
+0 0x 10111 FCVTL, FCVTL2 -
+0 0x 11000 FRINTN (vector) -
+0 0x 11001 FRINTM (vector) -
+0 0x 11010 FCVTNS (vector) -
+0 0x 11011 FCVTMS (vector) -
+0 0x 11100 FCVTAS (vector) -
+0 0x 11101 SCVTF (vector, integer) -
+0 0x 11110 FRINT32Z (vector) FEAT_FRINTTS
+0 0x 11111 FRINT64Z (vector) FEAT_FRINTTS
+0 1x 01100 FCMGT (zero) -
+0 1x 01101 FCMEQ (zero) -
+0 1x 01110 FCMLT (zero) -
+0 1x 01111 FABS (vector) -
+0 1x 11000 FRINTP (vector) -
+0 1x 11001 FRINTZ (vector) -
+0 1x 11010 FCVTPS (vector) -
+0 1x 11011 FCVTZS (vector, integer) -
+0 1x 11100 URECPE -
+0 1x 11101 FRECPE -
+0 1x 11111 Unallocated. -
+0 10 10110 BFCVTN, BFCVTN2 FEAT_BF16
+1 - 00000 REV32 (vector) -
+1 - 00001 Unallocated. -
+1 - 00010 UADDLP -
+1 - 00011 USQADD -
+1 - 00100 CLZ (vector) -
+1 - 00110 UADALP -
+1 - 00111 SQNEG -
+1 - 01000 CMGE (zero) -
+1 - 01001 CMLE (zero) -
+1 - 01010 Unallocated. -
+1 - 01011 NEG (vector) -
+1 - 10010 SQXTUN, SQXTUN2 -
+1 - 10011 SHLL, SHLL2 -
+1 - 10100 UQXTN, UQXTN2 -
+1 0x 10110 FCVTXN, FCVTXN2 -
+1 0x 10111 Unallocated. -
+1 0x 11000 FRINTA (vector) -
+1 0x 11001 FRINTX (vector) -
+1 0x 11010 FCVTNU (vector) -
+1 0x 11011 FCVTMU (vector) -
+1 0x 11100 FCVTAU (vector) -
+1 0x 11101 UCVTF (vector, integer) -
+1 0x 11110 FRINT32X (vector) FEAT_FRINTTS
+1 0x 11111 FRINT64X (vector) FEAT_FRINTTS
+1 00 00101 NOT -
+1 01 00101 RBIT (vector) -
+1 1x 00101 Unallocated. -
+1 1x 01100 FCMGE (zero) -
+1 1x 01101 FCMLE (zero) -
+1 1x 01110 Unallocated. -
+1 1x 01111 FNEG (vector) -
+1 1x 11000 Unallocated. -
+1 1x 11001 FRINTI (vector) -
+1 1x 11010 FCVTPU (vector) -
+1 1x 11011 FCVTZU (vector, integer) -
+1 1x 11100 URSQRTE -
+1 1x 11101 FRSQRTE -
+1 1x 11111 FSQRT (vector) -
+1 10 10110 Unallocated. -
 #Advanced SIMD across lanes -
+3 30
+29 29
+22 23
+12 16
+- - 0000x Unallocated. -
+- - 00010 Unallocated. -
+- - 001xx Unallocated. -
+- - 0100x Unallocated. -
+- - 01011 Unallocated. -
+- - 01101 Unallocated. -
+- - 01110 Unallocated. -
+- - 10xxx Unallocated. -
+- - 1100x Unallocated. -
+- - 111xx Unallocated. -
+0 - 00011 SADDLV -
+0 - 01010 SMAXV -
+0 - 11010 SMINV -
+0 - 11011 ADDV -
+0 00 01100 FMAXNMV - Encoding FEAT_FP16
+0 00 01111 FMAXV - Encoding FEAT_FP16
+0 01 01100 Unallocated. -
+0 01 01111 Unallocated. -
+0 10 01100 FMINNMV - Encoding FEAT_FP16
+0 10 01111 FMINV - Encoding FEAT_FP16
+0 11 01100 Unallocated. -
+0 11 01111 Unallocated. -
+1 - 00011 UADDLV -
+1 - 01010 UMAXV -
+1 - 11010 UMINV -
+1 - 11011 Unallocated. -
+1 0x 01100 FMAXNMV - Encoding -
+1 0x 01111 FMAXV - Encoding -
+1 1x 01100 FMINNMV - Encoding -
+1 1x 01111 FMINV - Encoding -
 #Advanced SIMD three different -
+2 31
+29 29
+12 15
+- 1111 Unallocated.
+0 0000 SADDL, SADDL2
+0 0001 SADDW, SADDW2
+0 0010 SSUBL, SSUBL2
+0 0011 SSUBW, SSUBW2
+0 0100 ADDHN, ADDHN2
+0 0101 SABAL, SABAL2
+0 0110 SUBHN, SUBHN2
+0 0111 SABDL, SABDL2
+0 1000 SMLAL, SMLAL2 (vector)
+0 1001 SQDMLAL, SQDMLAL2 (vector)
+0 1010 SMLSL, SMLSL2 (vector)
+0 1011 SQDMLSL, SQDMLSL2 (vector)
+0 1100 SMULL, SMULL2 (vector)
+0 1101 SQDMULL, SQDMULL2 (vector)
+0 1110 PMULL, PMULL2
+1 0000 UADDL, UADDL2
+1 0001 UADDW, UADDW2
+1 0010 USUBL, USUBL2
+1 0011 USUBW, USUBW2
+1 0100 RADDHN, RADDHN2
+1 0101 UABAL, UABAL2
+1 0110 RSUBHN, RSUBHN2
+1 0111 UABDL, UABDL2
+1 1000 UMLAL, UMLAL2 (vector)
+1 1001 Unallocated.
+1 1010 UMLSL, UMLSL2 (vector)
+1 1011 Unallocated.
+1 1100 UMULL, UMULL2 (vector)
+1 1101 Unallocated.
+1 1110 Unallocated.
 #Advanced SIMD three same -
+3 90
+29 29
+22 23
+11 15
+0 - 00000 SHADD -
+0 - 00001 SQADD -
+0 - 00010 SRHADD -
+0 - 00100 SHSUB -
+0 - 00101 SQSUB -
+0 - 00110 CMGT (register) -
+0 - 00111 CMGE (register) -
+0 - 01000 SSHL -
+0 - 01001 SQSHL (register) -
+0 - 01010 SRSHL -
+0 - 01011 SQRSHL -
+0 - 01100 SMAX -
+0 - 01101 SMIN -
+0 - 01110 SABD -
+0 - 01111 SABA -
+0 - 10000 ADD (vector) -
+0 - 10001 CMTST -
+0 - 10010 MLA (vector) -
+0 - 10011 MUL (vector) -
+0 - 10100 SMAXP -
+0 - 10101 SMINP -
+0 - 10110 SQDMULH (vector) -
+0 - 10111 ADDP (vector) -
+0 0x 11000 FMAXNM (vector) -
+0 0x 11001 FMLA (vector) -
+0 0x 11010 FADD (vector) -
+0 0x 11011 FMULX -
+0 0x 11100 FCMEQ (register) -
+0 0x 11110 FMAX (vector) -
+0 0x 11111 FRECPS -
+0 00 00011 AND (vector) -
+0 00 11101 FMLAL, FMLAL2 (vector) - Encoding FEAT_FHM
+0 01 00011 BIC (vector, register) -
+0 01 11101 Unallocated. -
+0 1x 11000 FMINNM (vector) -
+0 1x 11001 FMLS (vector) -
+0 1x 11010 FSUB (vector) -
+0 1x 11011 Unallocated. -
+0 1x 11100 Unallocated. -
+0 1x 11110 FMIN (vector) -
+0 1x 11111 FRSQRTS -
+0 10 00011 ORR (vector, register) -
+0 10 11101 FMLSL, FMLSL2 (vector) - Encoding FEAT_FHM
+0 11 00011 ORN (vector) -
+0 11 11101 Unallocated. -
+1 - 00000 UHADD -
+1 - 00001 UQADD -
+1 - 00010 URHADD -
+1 - 00100 UHSUB -
+1 - 00101 UQSUB -
+1 - 00110 CMHI (register) -
+1 - 00111 CMHS (register) -
+1 - 01000 USHL -
+1 - 01001 UQSHL (register) -
+1 - 01010 URSHL -
+1 - 01011 UQRSHL -
+1 - 01100 UMAX -
+1 - 01101 UMIN -
+1 - 01110 UABD -
+1 - 01111 UABA -
+1 - 10000 SUB (vector) -
+1 - 10001 CMEQ (register) -
+1 - 10010 MLS (vector) -
+1 - 10011 PMUL -
+1 - 10100 UMAXP -
+1 - 10101 UMINP -
+1 - 10110 SQRDMULH (vector) -
+1 - 10111 Unallocated. -
+1 0x 11000 FMAXNMP (vector) -
+1 0x 11010 FADDP (vector) -
+1 0x 11011 FMUL (vector) -
+1 0x 11100 FCMGE (register) -
+1 0x 11101 FACGE -
+1 0x 11110 FMAXP (vector) -
+1 0x 11111 FDIV (vector) -
+1 00 00011 EOR (vector) -
+1 00 11001 FMLAL, FMLAL2 (vector) - Encoding FEAT_FHM
+1 01 00011 BSL -
+1 01 11001 Unallocated. -
+1 1x 11000 FMINNMP (vector) -
+1 1x 11010 FABD -
+1 1x 11011 Unallocated. -
+1 1x 11100 FCMGT (register) -
+1 1x 11101 FACGT -
+1 1x 11110 FMINP (vector) -
+1 1x 11111 Unallocated. -
+1 10 00011 BIT -
+1 10 11001 FMLSL, FMLSL2 (vector) - Encoding FEAT_FHM
+1 11 00011 BIF -
+1 11 11001 Unallocated. -
 #Advanced SIMD modified immediate -
+4 22 
+30 30
+29 29
+12 15
+11 11
+- 0 0xxx 1 Unallocated. -
+- 0 0xx0 0 MOVI - 32-bit shifted immediate variant -
+- 0 0xx1 0 ORR (vector, immediate) - 32-bit variant -
+- 0 10xx 1 Unallocated. -
+- 0 10x0 0 MOVI - 16-bit shifted immediate variant -
+- 0 10x1 0 ORR (vector, immediate) - 16-bit variant -
+- 0 110x 0 MOVI - 32-bit shifting ones variant -
+- 0 110x 1 Unallocated. -
+- 0 1110 0 MOVI - 8-bit variant -
+- 0 1110 1 Unallocated. -
+- 0 1111 0 FMOV (vector, immediate) - Single-precision variant -
+- 0 1111 1 FMOV (vector, immediate) - Encoding FEAT_FP16
+- 1 - 1 Unallocated. -
+- 1 0xx0 0 MVNI - 32-bit shifted immediate variant -
+- 1 0xx1 0 BIC (vector, immediate) - 32-bit variant -
+- 1 10x0 0 MVNI - 16-bit shifted immediate variant -
+- 1 10x1 0 BIC (vector, immediate) - 16-bit variant -
+- 1 110x 0 MVNI - 32-bit shifting ones variant -
+0 1 1110 0 MOVI - 64-bit scalar variant -
+0 1 1111 0 Unallocated. -
+1 1 1110 0 MOVI - 64-bit vector variant -
+1 1 1111 0 FMOV (vector, immediate) - Double-precision variant -
 #Advanced SIMD shift by immediate -
+2 45
+29 29
+11 15
+- 00001 Unallocated.
+- 00011 Unallocated.
+- 00101 Unallocated.
+- 00111 Unallocated.
+- 01001 Unallocated.
+- 01011 Unallocated.
+- 01101 Unallocated.
+- 01111 Unallocated.
+- 10101 Unallocated.
+- 1011x Unallocated.
+- 110xx Unallocated.
+- 11101 Unallocated.
+- 11110 Unallocated.
+0 00000 SSHR
+0 00010 SSRA
+0 00100 SRSHR
+0 00110 SRSRA
+0 01000 Unallocated.
+0 01010 SHL
+0 01100 Unallocated.
+0 01110 SQSHL (immediate)
+0 10000 SHRN, SHRN2
+0 10001 RSHRN, RSHRN2
+0 10010 SQSHRN, SQSHRN2
+0 10011 SQRSHRN, SQRSHRN2
+0 10100 SSHLL, SSHLL2
+0 11100 SCVTF (vector, fixed-point)
+0 11111 FCVTZS (vector, fixed-point)
+1 00000 USHR
+1 00010 USRA
+1 00100 URSHR
+1 00110 URSRA
+1 01000 SRI
+1 01010 SLI
+1 01100 SQSHLU
+1 01110 UQSHL (immediate)
+1 10000 SQSHRUN, SQSHRUN2
+1 10001 SQRSHRUN, SQRSHRUN2
+1 10010 UQSHRN, UQSHRN2
+1 10011 UQRSHRN, UQRSHRN2
+1 10100 USHLL, USHLL2
+1 11100 UCVTF (vector, fixed-point)
+1 11111 FCVTZU (vector, fixed-point)
 #Advanced SIMD vector x indexed element -
+3 56
+29 29
+22 23
+12 15
+- 01 1001 Unallocated. -
+0 - 0010 SMLAL, SMLAL2 (by element) -
+0 - 0011 SQDMLAL, SQDMLAL2 (by element) -
+0 - 0110 SMLSL, SMLSL2 (by element) -
+0 - 0111 SQDMLSL, SQDMLSL2 (by element) -
+0 - 1000 MUL (by element) -
+0 - 1010 SMULL, SMULL2 (by element) -
+0 - 1011 SQDMULL, SQDMULL2 (by element) -
+0 - 1100 SQDMULH (by element) -
+0 - 1101 SQRDMULH (by element) -
+0 - 1110 SDOT (by element) FEAT_DotProd
+0 0x 0000 Unallocated. -
+0 0x 0100 Unallocated. -
+0 00 0001 FMLA (by element) - Encoding FEAT_FP16
+0 00 0101 FMLS (by element) - Encoding FEAT_FP16
+0 00 1001 FMUL (by element) - Encoding FEAT_FP16
+0 00 1111 SUDOT (by element) FEAT_I8MM
+0 01 0001 Unallocated. -
+0 01 0101 Unallocated. -
+0 01 1111 BFDOT (by element) FEAT_BF16
+0 1x 0001 FMLA (by element) - Encoding -
+0 1x 0101 FMLS (by element) - Encoding -
+0 1x 1001 FMUL (by element) - Encoding -
+0 10 0000 FMLAL, FMLAL2 (by element) - Encoding FEAT_FHM
+0 10 0100 FMLSL, FMLSL2 (by element) - Encoding FEAT_FHM
+0 10 1111 USDOT (by element) FEAT_I8MM
+0 11 0000 Unallocated. -
+0 11 0100 Unallocated. -
+0 11 1111 BFMLALB, BFMLALT (by element) FEAT_BF16
+1 - 0000 MLA (by element) -
+1 - 0010 UMLAL, UMLAL2 (by element) -
+1 - 0100 MLS (by element) -
+1 - 0110 UMLSL, UMLSL2 (by element) -
+1 - 1010 UMULL, UMULL2 (by element) -
+1 - 1011 Unallocated. -
+1 - 1101 SQRDMLAH (by element) FEAT_RDM
+1 - 1110 UDOT (by element) FEAT_DotProd
+1 - 1111 SQRDMLSH (by element) FEAT_RDM
+1 0x 1000 Unallocated. -
+1 0x 1100 Unallocated. -
+1 00 0001 Unallocated. -
+1 00 0011 Unallocated. -
+1 00 0101 Unallocated. -
+1 00 0111 Unallocated. -
+1 00 1001 FMULX (by element) - Encoding FEAT_FP16
+1 01 0xx1 FCMLA (by element) FEAT_FCMA
+1 1x 1001 FMULX (by element) - Encoding -
+1 10 0xx1 FCMLA (by element) FEAT_FCMA
+1 10 1000 FMLAL, FMLAL2 (by element) - Encoding FEAT_FHM
+1 10 1100 FMLSL, FMLSL2 (by element) - Encoding FEAT_FHM
+1 11 0001 Unallocated. -
+1 11 0011 Unallocated. -
+1 11 0101 Unallocated. -
+1 11 0111 Unallocated. -
+1 11 1000 Unallocated. -
+1 11 1100 Unallocated. -
 #Cryptographic three-register, imm2 -
+1 4
+10 11
+00 SM3TT1A FEAT_SM3
+01 SM3TT1B FEAT_SM3
+10 SM3TT2A FEAT_SM3
+11 SM3TT2B FEAT_SM3
 #Cryptographic three-register SHA 512 -
+2 8
+14 14
+10 11
+0 00 SHA512H FEAT_SHA512
+0 01 SHA512H2 FEAT_SHA512
+0 10 SHA512SU1 FEAT_SHA512
+0 11 RAX1 FEAT_SHA3
+1 00 SM3PARTW1 FEAT_SM3
+1 01 SM3PARTW2 FEAT_SM3
+1 10 SM4EKEY FEAT_SM4
+1 11 Unallocated. -
 #Cryptographic four-register -
+1 4
+21 22
+00 EOR3 FEAT_SHA3
+01 BCAX FEAT_SHA3
+10 SM3SS1 FEAT_SM3
+11 Unallocated. -
 #Cryptographic two-register SHA 512 -
+1 3
+10 11
+00 SHA512SU0 FEAT_SHA512
+01 SM4E FEAT_SM4
+1x Unallocated. -
 #Conversion between floating-point and fixed-point -
+6 32
+31 31
+29 29
+22 23
+19 20
+16 18
+10 15
+- - - - 1xx - Unallocated. -
+- - - x0 00x - Unallocated. -
+- - - x1 01x - Unallocated. -
+- - - 0x 00x - Unallocated. -
+- - - 1x 01x - Unallocated. -
+- - 10 - - - Unallocated. -
+- 1 - - - - Unallocated. -
+0 - - - - 0xxxxx Unallocated. -
+0 0 00 00 010 - SCVTF (scalar, fixed-point) - 32-bit to single-precision variant -
+0 0 00 00 011 - UCVTF (scalar, fixed-point) - 32-bit to single-precision variant -
+0 0 00 11 000 - FCVTZS (scalar, fixed-point) - Single-precision to 32-bit variant -
+0 0 00 11 001 - FCVTZU (scalar, fixed-point) - Single-precision to 32-bit variant -
+0 0 01 00 010 - SCVTF (scalar, fixed-point) - 32-bit to double-precision variant -
+0 0 01 00 011 - UCVTF (scalar, fixed-point) - 32-bit to double-precision variant -
+0 0 01 11 000 - FCVTZS (scalar, fixed-point) - Double-precision to 32-bit variant -
+0 0 01 11 001 - FCVTZU (scalar, fixed-point) - Double-precision to 32-bit variant -
+0 0 11 00 010 - SCVTF (scalar, fixed-point) - 32-bit to half-precision variant FEAT_FP16
+0 0 11 00 011 - UCVTF (scalar, fixed-point) - 32-bit to half-precision variant FEAT_FP16
+0 0 11 11 000 - FCVTZS (scalar, fixed-point) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 11 001 - FCVTZU (scalar, fixed-point) - Half-precision to 32-bit variant FEAT_FP16
+1 0 00 00 010 - SCVTF (scalar, fixed-point) - 64-bit to single-precision variant -
+1 0 00 00 011 - UCVTF (scalar, fixed-point) - 64-bit to single-precision variant -
+1 0 00 11 000 - FCVTZS (scalar, fixed-point) - Single-precision to 64-bit variant -
+1 0 00 11 001 - FCVTZU (scalar, fixed-point) - Single-precision to 64-bit variant -
+1 0 01 00 010 - SCVTF (scalar, fixed-point) - 64-bit to double-precision variant -
+1 0 01 00 011 - UCVTF (scalar, fixed-point) - 64-bit to double-precision variant -
+1 0 01 11 000 - FCVTZS (scalar, fixed-point) - Double-precision to 64-bit variant -
+1 0 01 11 001 - FCVTZU (scalar, fixed-point) - Double-precision to 64-bit variant -
+1 0 11 00 010 - SCVTF (scalar, fixed-point) - 64-bit to half-precision variant FEAT_FP16
+1 0 11 00 011 - UCVTF (scalar, fixed-point) - 64-bit to half-precision variant FEAT_FP16
+1 0 11 11 000 - FCVTZS (scalar, fixed-point) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 11 001 - FCVTZU (scalar, fixed-point) - Half-precision to 64-bit variant FEAT_FP16
 #Conversion between floating-point and integer -
+5 101
+31 31
+29 29
+22 23
+19 20
+16 18
+- - - x1 01x Unallocated. -
+- - - x1 10x Unallocated. -
+- - - 1x 01x Unallocated. -
+- - - 1x 10x Unallocated. -
+- 0 10 - 0xx Unallocated. -
+- 0 10 - 10x Unallocated. -
+- 1 - - - Unallocated. -
+0 0 00 x1 11x Unallocated. -
+0 0 00 00 000 FCVTNS (scalar) - Single-precision to 32-bit variant -
+0 0 00 00 001 FCVTNU (scalar) - Single-precision to 32-bit variant -
+0 0 00 00 010 SCVTF (scalar, integer) - 32-bit to single-precision variant -
+0 0 00 00 011 UCVTF (scalar, integer) - 32-bit to single-precision variant -
+0 0 00 00 100 FCVTAS (scalar) - Single-precision to 32-bit variant -
+0 0 00 00 101 FCVTAU (scalar) - Single-precision to 32-bit variant -
+0 0 00 00 110 FMOV (general) - Single-precision to 32-bit variant -
+0 0 00 00 111 FMOV (general) - 32-bit to single-precision variant -
+0 0 00 01 000 FCVTPS (scalar) - Single-precision to 32-bit variant -
+0 0 00 01 001 FCVTPU (scalar) - Single-precision to 32-bit variant -
+0 0 00 1x 11x Unallocated. -
+0 0 00 10 000 FCVTMS (scalar) - Single-precision to 32-bit variant -
+0 0 00 10 001 FCVTMU (scalar) - Single-precision to 32-bit variant -
+0 0 00 11 000 FCVTZS (scalar, integer) - Single-precision to 32-bit variant -
+0 0 00 11 001 FCVTZU (scalar, integer) - Single-precision to 32-bit variant -
+0 0 01 0x 11x Unallocated. -
+0 0 01 00 000 FCVTNS (scalar) - Double-precision to 32-bit variant -
+0 0 01 00 001 FCVTNU (scalar) - Double-precision to 32-bit variant -
+0 0 01 00 010 SCVTF (scalar, integer) - 32-bit to double-precision variant -
+0 0 01 00 011 UCVTF (scalar, integer) - 32-bit to double-precision variant -
+0 0 01 00 100 FCVTAS (scalar) - Double-precision to 32-bit variant -
+0 0 01 00 101 FCVTAU (scalar) - Double-precision to 32-bit variant -
+0 0 01 01 000 FCVTPS (scalar) - Double-precision to 32-bit variant -
+0 0 01 01 001 FCVTPU (scalar) - Double-precision to 32-bit variant -
+0 0 01 10 000 FCVTMS (scalar) - Double-precision to 32-bit variant -
+0 0 01 10 001 FCVTMU (scalar) - Double-precision to 32-bit variant -
+0 0 01 10 11x Unallocated. -
+0 0 01 11 000 FCVTZS (scalar, integer) - Double-precision to 32-bit variant -
+0 0 01 11 001 FCVTZU (scalar, integer) - Double-precision to 32-bit variant -
+0 0 01 11 110 FJCVTZS FEAT_JSCVT
+0 0 01 11 111 Unallocated. -
+0 0 10 - 11x Unallocated. -
+0 0 11 00 000 FCVTNS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 00 001 FCVTNU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 00 010 SCVTF (scalar, integer) - 32-bit to half-precision variant FEAT_FP16
+0 0 11 00 011 UCVTF (scalar, integer) - 32-bit to half-precision variant FEAT_FP16
+0 0 11 00 100 FCVTAS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 00 101 FCVTAU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 00 110 FMOV (general) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 00 111 FMOV (general) - 32-bit to half-precision variant FEAT_FP16
+0 0 11 01 000 FCVTPS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 01 001 FCVTPU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 10 000 FCVTMS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 10 001 FCVTMU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 11 000 FCVTZS (scalar, integer) - Half-precision to 32-bit variant FEAT_FP16
+0 0 11 11 001 FCVTZU (scalar, integer) - Half-precision to 32-bit variant FEAT_FP16
+1 0 00 - 11x Unallocated. -
+1 0 00 00 000 FCVTNS (scalar) - Single-precision to 64-bit variant -
+1 0 00 00 001 FCVTNU (scalar) - Single-precision to 64-bit variant -
+1 0 00 00 010 SCVTF (scalar, integer) - 64-bit to single-precision variant -
+1 0 00 00 011 UCVTF (scalar, integer) - 64-bit to single-precision variant -
+1 0 00 00 100 FCVTAS (scalar) - Single-precision to 64-bit variant -
+1 0 00 00 101 FCVTAU (scalar) - Single-precision to 64-bit variant -
+1 0 00 01 000 FCVTPS (scalar) - Single-precision to 64-bit variant -
+1 0 00 01 001 FCVTPU (scalar) - Single-precision to 64-bit variant -
+1 0 00 10 000 FCVTMS (scalar) - Single-precision to 64-bit variant -
+1 0 00 10 001 FCVTMU (scalar) - Single-precision to 64-bit variant -
+1 0 00 11 000 FCVTZS (scalar, integer) - Single-precision to 64-bit variant -
+1 0 00 11 001 FCVTZU (scalar, integer) - Single-precision to 64-bit variant -
+1 0 01 x1 11x Unallocated. -
+1 0 01 00 000 FCVTNS (scalar) - Double-precision to 64-bit variant -
+1 0 01 00 001 FCVTNU (scalar) - Double-precision to 64-bit variant -
+1 0 01 00 010 SCVTF (scalar, integer) - 64-bit to double-precision variant -
+1 0 01 00 011 UCVTF (scalar, integer) - 64-bit to double-precision variant -
+1 0 01 00 100 FCVTAS (scalar) - Double-precision to 64-bit variant -
+1 0 01 00 101 FCVTAU (scalar) - Double-precision to 64-bit variant -
+1 0 01 00 110 FMOV (general) - Double-precision to 64-bit variant -
+1 0 01 00 111 FMOV (general) - 64-bit to double-precision variant -
+1 0 01 01 000 FCVTPS (scalar) - Double-precision to 64-bit variant -
+1 0 01 01 001 FCVTPU (scalar) - Double-precision to 64-bit variant -
+1 0 01 1x 11x Unallocated. -
+1 0 01 10 000 FCVTMS (scalar) - Double-precision to 64-bit variant -
+1 0 01 10 001 FCVTMU (scalar) - Double-precision to 64-bit variant -
+1 0 01 11 000 FCVTZS (scalar, integer) - Double-precision to 64-bit variant -
+1 0 01 11 001 FCVTZU (scalar, integer) - Double-precision to 64-bit variant -
+1 0 10 x0 11x Unallocated. -
+1 0 10 01 110 FMOV (general) - Top half of 128-bit to 64-bit variant -
+1 0 10 01 111 FMOV (general) - 64-bit to top half of 128-bit variant -
+1 0 10 1x 11x Unallocated. -
+1 0 11 00 000 FCVTNS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 00 001 FCVTNU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 00 010 SCVTF (scalar, integer) - 64-bit to half-precision variant FEAT_FP16
+1 0 11 00 011 UCVTF (scalar, integer) - 64-bit to half-precision variant FEAT_FP16
+1 0 11 00 100 FCVTAS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 00 101 FCVTAU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 00 110 FMOV (general) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 00 111 FMOV (general) - 64-bit to half-precision variant FEAT_FP16
+1 0 11 01 000 FCVTPS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 01 001 FCVTPU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 10 000 FCVTMS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 10 001 FCVTMU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 11 000 FCVTZS (scalar, integer) - Half-precision to 64-bit variant FEAT_FP16
+1 0 11 11 001 FCVTZU (scalar, integer) - Half-precision to 64-bit variant FEAT_FP16
 #Floating-point data-processing (1 source) -
+4 64
+31 31
+29 29
+22 23
+15 20
+- - - 1xxxxx Unallocated. -
+- 1 - - Unallocated. -
+0 0 00 000000 FMOV (register) - Single-precision variant -
+0 0 00 000001 FABS (scalar) - Single-precision variant -
+0 0 00 000010 FNEG (scalar) - Single-precision variant -
+0 0 00 000011 FSQRT (scalar) - Single-precision variant -
+0 0 00 000100 Unallocated. -
+0 0 00 000101 FCVT - Single-precision to double-precision variant -
+0 0 00 000110 Unallocated. -
+0 0 00 000111 FCVT - Single-precision to half-precision variant -
+0 0 00 001000 FRINTN (scalar) - Single-precision variant -
+0 0 00 001001 FRINTP (scalar) - Single-precision variant -
+0 0 00 001010 FRINTM (scalar) - Single-precision variant -
+0 0 00 001011 FRINTZ (scalar) - Single-precision variant -
+0 0 00 001100 FRINTA (scalar) - Single-precision variant -
+0 0 00 001101 Unallocated. -
+0 0 00 001110 FRINTX (scalar) - Single-precision variant -
+0 0 00 001111 FRINTI (scalar) - Single-precision variant -
+0 0 00 010000 FRINT32Z (scalar) - Single-precision variant FEAT_FRINTTS
+0 0 00 010001 FRINT32X (scalar) - Single-precision variant FEAT_FRINTTS
+0 0 00 010010 FRINT64Z (scalar) - Single-precision variant FEAT_FRINTTS
+0 0 00 010011 FRINT64X (scalar) - Single-precision variant FEAT_FRINTTS
+0 0 00 0101xx Unallocated. -
+0 0 00 011xxx Unallocated. -
+0 0 01 000000 FMOV (register) - Double-precision variant -
+0 0 01 000001 FABS (scalar) - Double-precision variant -
+0 0 01 000010 FNEG (scalar) - Double-precision variant -
+0 0 01 000011 FSQRT (scalar) - Double-precision variant -
+0 0 01 000100 FCVT - Double-precision to single-precision variant -
+0 0 01 000101 Unallocated. -
+0 0 01 000110 BFCVT FEAT_BF16
+0 0 01 000111 FCVT - Double-precision to half-precision variant -
+0 0 01 001000 FRINTN (scalar) - Double-precision variant -
+0 0 01 001001 FRINTP (scalar) - Double-precision variant -
+0 0 01 001010 FRINTM (scalar) - Double-precision variant -
+0 0 01 001011 FRINTZ (scalar) - Double-precision variant -
+0 0 01 001100 FRINTA (scalar) - Double-precision variant -
+0 0 01 001101 Unallocated. -
+0 0 01 001110 FRINTX (scalar) - Double-precision variant -
+0 0 01 001111 FRINTI (scalar) - Double-precision variant -
+0 0 01 010000 FRINT32Z (scalar) - Double-precision variant FEAT_FRINTTS
+0 0 01 010001 FRINT32X (scalar) - Double-precision variant FEAT_FRINTTS
+0 0 01 010010 FRINT64Z (scalar) - Double-precision variant FEAT_FRINTTS
+0 0 01 010011 FRINT64X (scalar) - Double-precision variant FEAT_FRINTTS
+0 0 01 0101xx Unallocated. -
+0 0 01 011xxx Unallocated. -
+0 0 10 0xxxxx Unallocated. -
+0 0 11 000000 FMOV (register) - Half-precision variant FEAT_FP16
+0 0 11 000001 FABS (scalar) - Half-precision variant FEAT_FP16
+0 0 11 000010 FNEG (scalar) - Half-precision variant FEAT_FP16
+0 0 11 000011 FSQRT (scalar) - Half-precision variant FEAT_FP16
+0 0 11 000100 FCVT - Half-precision to single-precision variant -
+0 0 11 000101 FCVT - Half-precision to double-precision variant -
+0 0 11 00011x Unallocated. -
+0 0 11 001000 FRINTN (scalar) - Half-precision variant FEAT_FP16
+0 0 11 001001 FRINTP (scalar) - Half-precision variant FEAT_FP16
+0 0 11 001010 FRINTM (scalar) - Half-precision variant FEAT_FP16
+0 0 11 001011 FRINTZ (scalar) - Half-precision variant FEAT_FP16
+0 0 11 001100 FRINTA (scalar) - Half-precision variant FEAT_FP16
+0 0 11 001101 Unallocated. -
+0 0 11 001110 FRINTX (scalar) - Half-precision variant FEAT_FP16
+0 0 11 001111 FRINTI (scalar) - Half-precision variant FEAT_FP16
+0 0 11 01xxxx Unallocated. -
+1 - - - Unallocated. -
 #Floating-point compare -
+5 20
+31 31
+29 29
+22 23
+14 15
+0 4
+- - - - xxxx1 Unallocated. -
+- - - - xxx1x Unallocated. -
+- - - - xx1xx Unallocated. -
+- - - x1 - Unallocated. -
+- - - 1x - Unallocated. -
+- - 10 - - Unallocated. -
+- 1 - - - Unallocated. -
+0 0 00 00 00000 FCMP -
+0 0 00 00 01000 FCMP -
+0 0 00 00 10000 FCMPE -
+0 0 00 00 11000 FCMPE -
+0 0 01 00 00000 FCMP -
+0 0 01 00 01000 FCMP -
+0 0 01 00 10000 FCMPE -
+0 0 01 00 11000 FCMPE -
+0 0 11 00 00000 FCMP FEAT_FP16
+0 0 11 00 01000 FCMP FEAT_FP16
+0 0 11 00 10000 FCMPE FEAT_FP16
+0 0 11 00 11000 FCMPE FEAT_FP16
+1 - - - - Unallocated. -
 #Floating-point immediate -
+4 11
+31 31
+29 29
+22 23
+5 9
+- - - xxxx1 Unallocated. -
+- - - xxx1x Unallocated. -
+- - - xx1xx Unallocated. -
+- - - x1xxx Unallocated. -
+- - - 1xxxx Unallocated. -
+- - 10 - Unallocated. -
+- 1 - - Unallocated. -
+0 0 00 00000 FMOV (scalar, immediate) - Single-precision variant -
+0 0 01 00000 FMOV (scalar, immediate) - Double-precision variant -
+0 0 11 00000 FMOV (scalar, immediate) - Half-precision variant FEAT_FP16
+1 - - - Unallocated. -
 #Floating-point conditional compare -
+4 9
+31 31
+29 29
+22 23
+4 4
+- - 10 - Unallocated. -
+- 1 - - Unallocated. -
+0 0 00 0 FCCMP - Single-precision variant -
+0 0 00 1 FCCMPE - Single-precision variant -
+0 0 01 0 FCCMP - Double-precision variant -
+0 0 01 1 FCCMPE - Double-precision variant -
+0 0 11 0 FCCMP - Half-precision variant FEAT_FP16
+0 0 11 1 FCCMPE - Half-precision variant FEAT_FP16
+1 - - - Unallocated. -
 #Floating-point data-processing (2 source) -
+4 
+31 31
+29 29
+22 23
+12 15
+- - - 1xx1 Unallocated. -
+- - - 1x1x Unallocated. -
+- - - 11xx Unallocated. -
+- - 10 - Unallocated. -
+- 1 - - Unallocated. -
+0 0 00 0000 FMUL (scalar) - Single-precision variant -
+0 0 00 0001 FDIV (scalar) - Single-precision variant -
+0 0 00 0010 FADD (scalar) - Single-precision variant -
+0 0 00 0011 FSUB (scalar) - Single-precision variant -
+0 0 00 0100 FMAX (scalar) - Single-precision variant -
+0 0 00 0101 FMIN (scalar) - Single-precision variant -
+0 0 00 0110 FMAXNM (scalar) - Single-precision variant -
+0 0 00 0111 FMINNM (scalar) - Single-precision variant -
+0 0 00 1000 FNMUL (scalar) - Single-precision variant -
+0 0 01 0000 FMUL (scalar) - Double-precision variant -
+0 0 01 0001 FDIV (scalar) - Double-precision variant -
+0 0 01 0010 FADD (scalar) - Double-precision variant -
+0 0 01 0011 FSUB (scalar) - Double-precision variant -
+0 0 01 0100 FMAX (scalar) - Double-precision variant -
+0 0 01 0101 FMIN (scalar) - Double-precision variant -
+0 0 01 0110 FMAXNM (scalar) - Double-precision variant -
+0 0 01 0111 FMINNM (scalar) - Double-precision variant -
+0 0 01 1000 FNMUL (scalar) - Double-precision variant -
+0 0 11 0000 FMUL (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0001 FDIV (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0010 FADD (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0011 FSUB (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0100 FMAX (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0101 FMIN (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0110 FMAXNM (scalar) - Half-precision variant FEAT_FP16
+0 0 11 0111 FMINNM (scalar) - Half-precision variant FEAT_FP16
+0 0 11 1000 FNMUL (scalar) - Half-precision variant FEAT_FP16
+1 - - - Unallocated. -
 #Floating-point conditional select -
+3 6
+31 31
+29 29
+22 23
+- - 10 Unallocated. -
+- 1 - Unallocated. -
+0 0 00 FCSEL - Single-precision variant -
+0 0 01 FCSEL - Double-precision variant -
+0 0 11 FCSEL - Half-precision variant FEAT_FP16
+1 - - Unallocated. -
 #Floating-point data-processing (3 source) -
+5 15
+31 31
+29 29
+22 23
+21 21
+15 15
+- - 10 - - Unallocated. -
+- 1 - - - Unallocated. -
+0 0 00 0 0 FMADD - Single-precision variant -
+0 0 00 0 1 FMSUB - Single-precision variant -
+0 0 00 1 0 FNMADD - Single-precision variant -
+0 0 00 1 1 FNMSUB - Single-precision variant -
+0 0 01 0 0 FMADD - Double-precision variant -
+0 0 01 0 1 FMSUB - Double-precision variant -
+0 0 01 1 0 FNMADD - Double-precision variant -
+0 0 01 1 1 FNMSUB - Double-precision variant -
+0 0 11 0 0 FMADD - Half-precision variant FEAT_FP16
+0 0 11 0 1 FMSUB - Half-precision variant FEAT_FP16
+0 0 11 1 0 FNMADD - Half-precision variant FEAT_FP16
+0 0 11 1 1 FNMSUB - Half-precision variant FEAT_FP16
+1 - - - - Unallocated. -
