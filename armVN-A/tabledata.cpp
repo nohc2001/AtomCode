@@ -84,6 +84,7 @@ struct ArmDecodeTable{
 
 int decode_table_count = 0;
 ArmDecodeTable* tables[1024] = {};
+#define last_table tables[decode_table_count-1]
 
 void PushNewTable(){
     tables[decode_table_count] = (ArmDecodeTable*)malloc(sizeof(ArmDecodeTable));
@@ -94,73 +95,92 @@ void ReadDecodingTables(){
     ifstream rs;
     rs.open(filename);
 
-    char c = 0;
-    rs >> c;
-    if(c == '#'){
-        //table adding
+    while (!rs.eof())
+    {
+      char c = 0;
+      c = rs.get();
+      if (c == '#')
+      {
+        // table adding
+        int tnindex = 0;
         PushNewTable();
-        while(true){
-            rs >> c;
-            int tnindex = 0;
-            if(c != '\n'){
-                tables[decode_table_count]->table_name[tnindex] = c;
-                tnindex += 1;
-            }
-            else{
-                tables[decode_table_count]->table_name[tnindex] = 0;
-                tnindex += 1;
-                break;
-            }
+        last_table->table_name[tnindex] = '#';
+        tnindex += 1;
+        while (true)
+        {
+          c = rs.get();
+
+          if (c != '\n')
+          {
+            last_table->table_name[tnindex] = c;
+            tnindex += 1;
+          }
+          else
+          {
+            last_table->table_name[tnindex] = 0;
+            tnindex += 1;
+            break;
+          }
         }
 
-        char* tablename = tables[decode_table_count]->table_name;
-        for(int i=0;i<decode_table_count;++i){
-            for(int k=0;k<tables[decode_table_count]->link_count;++k){
-                if(strcmp((char*)tables[decode_table_count]->linkArr[i].next_table_ptr, tablename) == 0){
-                    free(tables[decode_table_count]->linkArr[i].next_table_ptr);
-                    tables[decode_table_count]->linkArr[i].next_table_ptr = nullptr;
-                    tables[decode_table_count]->linkArr[i].next_table_ptr = (void*)tables[decode_table_count];
-                }
-            }
-        }
-        
-        rs >> tables[decode_table_count]->oprange_count;
-        rs >> tables[decode_table_count]->link_count;
-        tables[decode_table_count]->oprangeArr = (op_range*)malloc(sizeof(op_range)* tables[decode_table_count]->oprange_count);
-        for(int i=0;i<tables[decode_table_count]->oprange_count;++i){
-            rs >> tables[decode_table_count]->oprangeArr[i].start;
-            rs >> tables[decode_table_count]->oprangeArr[i].end;
-        }
-
-        tables[decode_table_count]->linkArr = (ArmDecodeLink*)malloc(sizeof(ArmDecodeLink)*tables[decode_table_count]->link_count);
-        for(int i=0;i<tables[decode_table_count]->link_count;++i){
-            tables[decode_table_count]->linkArr[i].mask = (char**)malloc(sizeof(char*)*tables[decode_table_count]->oprange_count);
-            for(int k=0;k<tables[decode_table_count]->oprange_count;++k){
-                int oplen = tables[decode_table_count]->oprangeArr[k].end - tables[decode_table_count]->oprangeArr[k].start + 1;
-                tables[decode_table_count]->linkArr[i].mask[i] = (char *)malloc(oplen + 1);
-                rs >> tables[decode_table_count]->linkArr[i].mask[i];
-            }
-            tables[decode_table_count]->linkArr[i].next_table_ptr = malloc(128);
-            rs >> c;
-
-            char* cstr = (char*)tables[decode_table_count]->linkArr[i].next_table_ptr;
-            while (true)
+        char *tablename = last_table->table_name;
+        /*
+        for (int i = 0; i < decode_table_count; ++i)
+        {
+          for (int k = 0; k < tables[i]->link_count; ++k)
+          {
+            if (strcmp((char *)tables[i]->linkArr[k].next_table_ptr, tablename) == 0)
             {
-                rs >> c;
-                int tnindex = 0;
-                if (c != '\n')
-                {
-                    cstr[tnindex] = c;
-                    tnindex += 1;
-                }
-                else
-                {
-                    cstr[tnindex] = 0;
-                    tnindex += 1;
-                    break;
-                }
+              free(tables[i]->linkArr[k].next_table_ptr);
+              tables[i]->linkArr[k].next_table_ptr = nullptr;
+              tables[i]->linkArr[k].next_table_ptr = (void *)last_table;
             }
+          }
         }
+        */
+
+        rs >> last_table->oprange_count;
+        rs >> last_table->link_count;
+        last_table->oprangeArr = (op_range *)malloc(sizeof(op_range) * last_table->oprange_count);
+        for (int i = 0; i < last_table->oprange_count; ++i)
+        {
+          rs >> last_table->oprangeArr[i].start;
+          rs >> last_table->oprangeArr[i].end;
+        }
+
+        last_table->linkArr = (ArmDecodeLink *)malloc(sizeof(ArmDecodeLink) * last_table->link_count);
+        for (int i = 0; i < last_table->link_count; ++i)
+        {
+          last_table->linkArr[i].mask = (char **)malloc(sizeof(char *) * last_table->oprange_count);
+          for (int k = 0; k < last_table->oprange_count; ++k)
+          {
+            int oplen = last_table->oprangeArr[k].end - last_table->oprangeArr[k].start + 1;
+            last_table->linkArr[i].mask[k] = (char *)malloc(oplen + 1);
+            rs >> last_table->linkArr[i].mask[k];
+          }
+          last_table->linkArr[i].next_table_ptr = malloc(128);
+          c = rs.get();
+          int tnindex = 0;
+          char *cstr = (char *)last_table->linkArr[i].next_table_ptr;
+          cstr[0] = '#';
+          tnindex += 1;
+          while (true)
+          {
+            c = rs.get();
+            if (c != '\n')
+            {
+              cstr[tnindex] = c;
+              tnindex += 1;
+            }
+            else
+            {
+              cstr[tnindex] = 0;
+              tnindex += 1;
+              break;
+            }
+          }
+        }
+      }
     }
 }
 
@@ -173,14 +193,45 @@ void Arm_DecodingMachineCodeToASM(uint32_t instruction){
             hit = hit & masking(table->oprangeArr[k], table->linkArr[i].mask[k]);
         }
         if(hit){
+          char* cstr = (char*)table->linkArr[i].next_table_ptr;
+          if(cstr[0] == '#'){
+            cout << cstr << endl;
+          }
+          else{
             table = (ArmDecodeTable*)table->linkArr[i].next_table_ptr;
             break;
-            // 하지만 포인터가 문자열일때 감지할 수 없음. 추가적인 부분을 만들 필요가 있다.
+          }
         }
     }
 }
 
+void TableShow(){
+  for(int i=0;i<decode_table_count;++i){
+    cout << "table name : " << tables[i]->table_name << endl;
+    cout << "table_oprange_count : " << tables[i]->oprange_count << endl;
+    for(int k=0;k<tables[i]->oprange_count;++k){
+      cout << "oprange[" << k << "] : (" << tables[i]->oprangeArr[k].start << ", " << tables[i]->oprangeArr[k].end << ")" << endl;
+    }
+    cout << "table_link_count : " << tables[i]->link_count << endl;
+    for(int k=0;k<tables[i]->link_count;++k){
+      char* cstr = (char*)tables[i]->linkArr[k].next_table_ptr;
+      if(cstr[0] == '#'){
+        cout << "link[" << k << "] : " << cstr << endl;
+      }
+      else{
+        ArmDecodeTable* t = (ArmDecodeTable*)tables[i]->linkArr[k].next_table_ptr;
+        cout << "link[" << k << "] : " << t->table_name << endl;
+      }
+    }
+  }
+}
+
 int main(){
-    
-    return 0;
+  ReadDecodingTables();
+  TableShow();
+  uint64_t inst = 0;
+  while(true){
+    Arm_DecodingMachineCodeToASM(inst);
+  }
+  return 0;
 }
