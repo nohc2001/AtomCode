@@ -770,6 +770,7 @@ x1 - 1x Unallocated.
 1 1 UMLSL (multiple and indexed vector) FEAT_SME2
 #SME2 Multi-vector - SVE Select
 3 7
+16 17
 5 6
 0 1
 01 00 00 SEL - Encoding FEAT_SME2
@@ -1120,7 +1121,7 @@ x0 x1 - Unallocated. -
 2 4
 5 5
 0 0
-0 SMAX (multiple and single vector) FEAT_SME2
+0 0 SMAX (multiple and single vector) FEAT_SME2
 0 1 UMAX (multiple and single vector) FEAT_SME2
 1 0 SMIN (multiple and single vector) FEAT_SME2
 1 1 UMIN (multiple and single vector) FEAT_SME2
@@ -1713,7 +1714,7 @@ x11111 1x Unallocated. -
 0 MAD
 1 MSB
 #SVE Integer Binary Arithmetic - Predicated -
-1 8
+1 5
 18 20
 00x SVE integer add/subtract vectors (predicated)
 01x SVE integer min/max/difference (predicated)
@@ -4624,7 +4625,7 @@ xx11 001 11111 Unallocated. -
 0 MSR (register)
 1 MRS
 #Unconditional branch (register)
-5 78
+5 56
 21 24
 16 20
 10 15
@@ -4635,11 +4636,9 @@ xx11 001 11111 Unallocated. -
 0000 11111 000000 - 00000 BR -
 0000 11111 000001 - - Unallocated. -
 0000 11111 000010 - !=11111 Unallocated. -
-0000 11111 000010 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key A, zero
-modifier variant FEAT_PAuth
+0000 11111 000010 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key A, zero modifier variant FEAT_PAuth
 0000 11111 000011 - !=11111 Unallocated. -
-0000 11111 000011 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key B, zero
-modifier variant FEAT_PAuth
+0000 11111 000011 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key B, zero modifier variant FEAT_PAuth
 0000 11111 0001xx - - Unallocated. -
 0000 11111 001xxx - - Unallocated. -
 0000 11111 01xxxx - - Unallocated. -
@@ -4648,11 +4647,9 @@ modifier variant FEAT_PAuth
 0001 11111 000000 - 00000 BLR -
 0001 11111 000001 - - Unallocated. -
 0001 11111 000010 - !=11111 Unallocated. -
-0001 11111 000010 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, zero
-modifier variant FEAT_PAuth
+0001 11111 000010 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, zero modifier variant FEAT_PAuth
 0001 11111 000011 - !=11111 Unallocated. -
-0001 11111 000011 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key B, zero
-modifier variant FEAT_PAuth
+0001 11111 000011 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key B, zero modifier variant FEAT_PAuth
 0001 11111 0001xx - - Unallocated. -
 0001 11111 001xxx - - Unallocated. -
 0001 11111 01xxxx - - Unallocated. -
@@ -5672,7 +5669,6 @@ x1 1 1x Unallocated.
 30 31
 26 26
 22 23
-16 20
 13 15
 x1 1 1x - Unallocated.
 00 0 00 !=011 STRB (register) - Extended register variant
@@ -5866,10 +5862,12 @@ x1 1 1x Unallocated.
 1 0 00001 0101xx - Unallocated. -
 1 0 00001 011xxx - Unallocated. -
 #Logical (shifted register)
-0 - - 1xxxxx Unallocated.
+4 17
 31 31
 29 30
 21 21
+10 15
+0 - - 1xxxxx Unallocated.
 0 00 0 - AND (shifted register) - 32-bit variant
 0 00 1 - BIC (shifted register) - 32-bit variant
 0 01 0 - ORR (shifted register) - 32-bit variant

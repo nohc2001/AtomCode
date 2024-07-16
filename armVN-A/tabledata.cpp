@@ -69,169 +69,210 @@ bool isp(int loc, char bit)
   return !is1(loc);
 }
 
-struct ArmDecodeLink{
-    char** mask;
-    void* next_table_ptr;
+struct ArmDecodeLink
+{
+  char **mask;
+  void *next_table_ptr;
 };
 
-struct ArmDecodeTable{
-    char table_name[128];
-    unsigned int oprange_count;
-    unsigned int link_count;
-    op_range* oprangeArr;
-    ArmDecodeLink* linkArr;
+struct ArmDecodeTable
+{
+  unsigned int oprange_count;
+  unsigned int link_count;
+  char table_name[128];
+  op_range *oprangeArr;
+  ArmDecodeLink *linkArr;
 };
 
 int decode_table_count = 0;
-ArmDecodeTable* tables[1024] = {};
-#define last_table tables[decode_table_count-1]
+ArmDecodeTable *tables[1024] = {};
+#define last_table tables[decode_table_count - 1]
 
-void PushNewTable(){
-    tables[decode_table_count] = (ArmDecodeTable*)malloc(sizeof(ArmDecodeTable));
-    decode_table_count += 1;
+void PushNewTable()
+{
+  tables[decode_table_count] = (ArmDecodeTable *)malloc(sizeof(ArmDecodeTable));
+  decode_table_count += 1;
 }
 
-void ReadDecodingTables(){
-    ifstream rs;
-    rs.open(filename);
+void ReadDecodingTables()
+{
+  ifstream rs;
+  rs.open(filename);
 
-    while (!rs.eof())
+  while (!rs.eof())
+  {
+    char c = 0;
+    c = rs.get();
+    if (c == '#')
     {
-      char c = 0;
-      c = rs.get();
-      if (c == '#')
+      // table adding
+      int tnindex = 0;
+      PushNewTable();
+      last_table->table_name[tnindex] = '#';
+      tnindex += 1;
+      while (true)
       {
-        // table adding
+        c = rs.get();
+
+        if (c != '\n')
+        {
+          last_table->table_name[tnindex] = c;
+          tnindex += 1;
+        }
+        else
+        {
+          last_table->table_name[tnindex] = 0;
+          tnindex += 1;
+          break;
+        }
+      }
+
+      char *tablename = last_table->table_name;
+      /*
+      for (int i = 0; i < decode_table_count; ++i)
+      {
+        for (int k = 0; k < tables[i]->link_count; ++k)
+        {
+          if (strcmp((char *)tables[i]->linkArr[k].next_table_ptr, tablename) == 0)
+          {
+            free(tables[i]->linkArr[k].next_table_ptr);
+            tables[i]->linkArr[k].next_table_ptr = nullptr;
+            tables[i]->linkArr[k].next_table_ptr = (void *)last_table;
+          }
+        }
+      }
+      */
+
+      rs >> last_table->oprange_count;
+      rs >> last_table->link_count;
+      last_table->oprangeArr = (op_range *)malloc(sizeof(op_range) * last_table->oprange_count);
+      for (int i = 0; i < last_table->oprange_count; ++i)
+      {
+        rs >> last_table->oprangeArr[i].start;
+        rs >> last_table->oprangeArr[i].end;
+      }
+
+      last_table->linkArr = (ArmDecodeLink *)malloc(sizeof(ArmDecodeLink) * last_table->link_count);
+      for (int i = 0; i < last_table->link_count; ++i)
+      {
+        last_table->linkArr[i].mask = (char **)malloc(sizeof(char *) * last_table->oprange_count);
+        for (int k = 0; k < last_table->oprange_count; ++k)
+        {
+          int oplen = last_table->oprangeArr[k].end - last_table->oprangeArr[k].start + 1;
+          last_table->linkArr[i].mask[k] = (char *)malloc(oplen + 1);
+          rs >> last_table->linkArr[i].mask[k];
+        }
+        last_table->linkArr[i].next_table_ptr = malloc(128);
+        c = rs.get();
         int tnindex = 0;
-        PushNewTable();
-        last_table->table_name[tnindex] = '#';
+        char *cstr = (char *)last_table->linkArr[i].next_table_ptr;
+        cstr[0] = '#';
         tnindex += 1;
         while (true)
         {
           c = rs.get();
-
           if (c != '\n')
           {
-            last_table->table_name[tnindex] = c;
+            cstr[tnindex] = c;
             tnindex += 1;
           }
           else
           {
-            last_table->table_name[tnindex] = 0;
+            cstr[tnindex] = 0;
             tnindex += 1;
             break;
           }
         }
-
-        char *tablename = last_table->table_name;
-        /*
-        for (int i = 0; i < decode_table_count; ++i)
-        {
-          for (int k = 0; k < tables[i]->link_count; ++k)
-          {
-            if (strcmp((char *)tables[i]->linkArr[k].next_table_ptr, tablename) == 0)
-            {
-              free(tables[i]->linkArr[k].next_table_ptr);
-              tables[i]->linkArr[k].next_table_ptr = nullptr;
-              tables[i]->linkArr[k].next_table_ptr = (void *)last_table;
-            }
-          }
-        }
-        */
-
-        rs >> last_table->oprange_count;
-        rs >> last_table->link_count;
-        last_table->oprangeArr = (op_range *)malloc(sizeof(op_range) * last_table->oprange_count);
-        for (int i = 0; i < last_table->oprange_count; ++i)
-        {
-          rs >> last_table->oprangeArr[i].start;
-          rs >> last_table->oprangeArr[i].end;
-        }
-
-        last_table->linkArr = (ArmDecodeLink *)malloc(sizeof(ArmDecodeLink) * last_table->link_count);
-        for (int i = 0; i < last_table->link_count; ++i)
-        {
-          last_table->linkArr[i].mask = (char **)malloc(sizeof(char *) * last_table->oprange_count);
-          for (int k = 0; k < last_table->oprange_count; ++k)
-          {
-            int oplen = last_table->oprangeArr[k].end - last_table->oprangeArr[k].start + 1;
-            last_table->linkArr[i].mask[k] = (char *)malloc(oplen + 1);
-            rs >> last_table->linkArr[i].mask[k];
-          }
-          last_table->linkArr[i].next_table_ptr = malloc(128);
-          c = rs.get();
-          int tnindex = 0;
-          char *cstr = (char *)last_table->linkArr[i].next_table_ptr;
-          cstr[0] = '#';
-          tnindex += 1;
-          while (true)
-          {
-            c = rs.get();
-            if (c != '\n')
-            {
-              cstr[tnindex] = c;
-              tnindex += 1;
-            }
-            else
-            {
-              cstr[tnindex] = 0;
-              tnindex += 1;
-              break;
-            }
-          }
-        }
       }
     }
-}
+  }
 
-void Arm_DecodingMachineCodeToASM(uint32_t instruction){
-    mainInst = instruction;
-    ArmDecodeTable* table = tables[0];
-    bool hit = false;
-    for(int i=0;i<table->link_count;++i){
-        for(int k=0;k<table->oprange_count;++k){
-            hit = hit & masking(table->oprangeArr[k], table->linkArr[i].mask[k]);
-        }
-        if(hit){
-          char* cstr = (char*)table->linkArr[i].next_table_ptr;
-          if(cstr[0] == '#'){
-            cout << cstr << endl;
-          }
-          else{
-            table = (ArmDecodeTable*)table->linkArr[i].next_table_ptr;
-            break;
-          }
-        }
-    }
-}
-
-void TableShow(){
   for(int i=0;i<decode_table_count;++i){
-    cout << "table name : " << tables[i]->table_name << endl;
-    cout << "table_oprange_count : " << tables[i]->oprange_count << endl;
-    for(int k=0;k<tables[i]->oprange_count;++k){
-      cout << "oprange[" << k << "] : (" << tables[i]->oprangeArr[k].start << ", " << tables[i]->oprangeArr[k].end << ")" << endl;
-    }
-    cout << "table_link_count : " << tables[i]->link_count << endl;
-    for(int k=0;k<tables[i]->link_count;++k){
-      char* cstr = (char*)tables[i]->linkArr[k].next_table_ptr;
-      if(cstr[0] == '#'){
-        cout << "link[" << k << "] : " << cstr << endl;
+    ArmDecodeTable* t0 = tables[i];
+    for(int k=0;k<t0->link_count;++k){
+      bool istable = false;
+      char* cstr0 = (char*)t0->linkArr[k].next_table_ptr;
+      for(int u=0;u<decode_table_count;++u){
+        ArmDecodeTable* t1 = tables[u];
+        if(strcmp(t1->table_name, cstr0) == 0){
+          free(cstr0);
+          t0->linkArr[k].next_table_ptr = (void*)t1;
+          istable = true;
+          break;
+        }
       }
-      else{
-        ArmDecodeTable* t = (ArmDecodeTable*)tables[i]->linkArr[k].next_table_ptr;
-        cout << "link[" << k << "] : " << t->table_name << endl;
+
+      if((istable == false && cstr0[1] != 'U') && ('a' <= cstr0[2] && cstr0[2] <= 'z')){
+        cout << "in table " << t0->table_name << " sus link.. : " << cstr0 << endl;
       }
     }
   }
 }
 
-int main(){
+void Arm_DecodingMachineCodeToASM(uint32_t instruction)
+{
+  mainInst = instruction;
+  ArmDecodeTable *table = tables[0];
+  bool hit = true;
+  for (int i = 0; i < table->link_count; ++i)
+  {
+    hit = true;
+    for (int k = 0; k < table->oprange_count; ++k)
+    {
+      hit = hit & masking(table->oprangeArr[k], table->linkArr[i].mask[k]);
+    }
+    if (hit)
+    {
+      char *cstr = (char *)table->linkArr[i].next_table_ptr;
+      if (cstr[0] == '#')
+      {
+        cout << cstr << endl;
+      }
+      else
+      {
+        table = (ArmDecodeTable *)table->linkArr[i].next_table_ptr;
+      }
+      break;
+    }
+  }
+}
+
+void TableShow()
+{
+  for (int i = 0; i < decode_table_count; ++i)
+  {
+    cout << "table name : " << tables[i]->table_name << endl;
+    cout << "table_oprange_count : " << tables[i]->oprange_count << endl;
+    for (int k = 0; k < tables[i]->oprange_count; ++k)
+    {
+      cout << "oprange[" << k << "] : (" << tables[i]->oprangeArr[k].start << ", " << tables[i]->oprangeArr[k].end << ")" << endl;
+    }
+    cout << "table_link_count : " << tables[i]->link_count << endl;
+    for (int k = 0; k < tables[i]->link_count; ++k)
+    {
+      char *cstr = (char *)tables[i]->linkArr[k].next_table_ptr;
+      if (cstr[0] == '#')
+      {
+        cout << "link[" << k << "]_instruction : " << cstr << endl;
+      }
+      else
+      {
+        ArmDecodeTable *t = (ArmDecodeTable *)tables[i]->linkArr[k].next_table_ptr;
+        cout << "link[" << k << "]_table : " << t->table_name << endl;
+      }
+    }
+  }
+}
+
+int main()
+{
   ReadDecodingTables();
   TableShow();
   uint64_t inst = 0;
-  while(true){
+  while (true)
+  {
     Arm_DecodingMachineCodeToASM(inst);
+    inst += 1;
   }
   return 0;
 }
