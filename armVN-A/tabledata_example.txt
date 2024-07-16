@@ -462,8 +462,8 @@
 !=00 1 0x 01x - - Unallocated. -
 - 0 - - 0x - SME move array to vector
 - 0 - - 1x - Unallocated. -
-- 1 0x 000 00 x0 SME2 move tile to vector, two registers -
-- 1 0x 001 00 00 SME2 move tile to vector, four registers -
+- 1 0x 000 00 x0 SME2 move tile to vector, two registers
+- 1 0x 001 00 00 SME2 move tile to vector, four registers
 - 1 0x 1xx - - Unallocated. -
 - 1 1x - - - Unallocated. -
 #SME Add Vector to Array

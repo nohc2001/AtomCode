@@ -75,6 +75,8 @@ struct ArmDecodeLink
   void *next_table_ptr;
 };
 
+// parant table ptr 으로 역으로도 갈 수 있게 하자.
+// oprange를 통해 4바이트에 비트를 박는 식. (확정된 0과 1만 새김.)
 struct ArmDecodeTable
 {
   unsigned int oprange_count;
@@ -205,6 +207,9 @@ void ReadDecodingTables()
       if((istable == false && cstr0[1] == 'S') && ('M' == cstr0[2] && cstr0[3] == 'E')){
         cout << "in table " << t0->table_name << " sus link.. : " << cstr0 << endl;
       }
+      if((istable == false && cstr0[1] == 'S') && ('V' == cstr0[2] && cstr0[3] == 'E')){
+        cout << "in table " << t0->table_name << " sus link.. : " << cstr0 << endl;
+      }
     }
   }
 }
@@ -264,9 +269,29 @@ void TableShow()
   }
 }
 
+void InstShow()
+{
+  for (int i = 0; i < decode_table_count; ++i)
+  {
+    for (int k = 0; k < tables[i]->link_count; ++k)
+    {
+      char *cstr = (char *)tables[i]->linkArr[k].next_table_ptr;
+      if(strcmp(cstr, "#Unallocated. -") == 0 || strcmp(cstr, "#Unallocated.")==0)
+      {
+        continue;
+      }
+      if (cstr[0] == '#')
+      {
+        cout << "instruction : " << cstr << endl;
+      }
+    }
+  }
+}
+
 int main()
 {
   ReadDecodingTables();
+  InstShow();
   TableShow();
   uint64_t inst = 0;
   while (true)
