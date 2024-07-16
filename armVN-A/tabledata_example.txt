@@ -404,9 +404,9 @@
 !=00 1 0x 001 01 - Unallocated. -
 !=00 1 0x 001 1x - Unallocated. -
 !=00 1 0x 01x - - Unallocated. -
-- 0 - - - - SME move vector to array -
-- 1 0x 000 x0 0 SME2 move vector to tile, two registers -
-- 1 0x 001 00 0 SME2 move vector to tile, four registers -
+- 0 - - - - SME move vector to array
+- 1 0x 000 x0 0 SME2 move vector to tile, two registers
+- 1 0x 001 00 0 SME2 move vector to tile, four registers
 - 1 0x 1xx - - Unallocated. -
 - 1 1x - - - Unallocated. -
 #SME move vector to array
@@ -460,7 +460,7 @@
 !=00 1 0x 00x 01 - Unallocated. -
 !=00 1 0x 00x 1x - Unallocated. -
 !=00 1 0x 01x - - Unallocated. -
-- 0 - - 0x - SME move array to vector -
+- 0 - - 0x - SME move array to vector
 - 0 - - 1x - Unallocated. -
 - 1 0x 000 00 x0 SME2 move tile to vector, two registers -
 - 1 0x 001 00 00 SME2 move tile to vector, four registers -
@@ -827,7 +827,7 @@ x0 x1 - Unallocated. -
 0 ZIP (two registers) FEAT_SME2
 1 UZP (two registers) FEAT_SME2
 #SME2 multi-vec saturating shift right narrow four registers -
-3 8
+3 7
 10 10
 6 6
 5 5
@@ -5812,7 +5812,7 @@ x1 1 1x Unallocated.
 1 0 010111 CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CX variant FEAT_CRC32
 1 1 000000 SUBPS FEAT_MTE
 #Data-processing (1 source)
-5 44
+5 43
 31 31
 29 29
 16 20
@@ -6926,7 +6926,7 @@ x1 Unallocated.
 1 1 1110 0 MOVI - 64-bit vector variant -
 1 1 1111 0 FMOV (vector, immediate) - Double-precision variant -
 #Advanced SIMD shift by immediate -
-2 45
+2 43
 29 29
 11 15
 - 00001 Unallocated.

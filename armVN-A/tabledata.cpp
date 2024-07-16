@@ -202,7 +202,7 @@ void ReadDecodingTables()
         }
       }
 
-      if((istable == false && cstr0[1] != 'U') && ('a' <= cstr0[2] && cstr0[2] <= 'z')){
+      if((istable == false && cstr0[1] == 'S') && ('M' == cstr0[2] && cstr0[3] == 'E')){
         cout << "in table " << t0->table_name << " sus link.. : " << cstr0 << endl;
       }
     }
