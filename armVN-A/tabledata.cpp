@@ -111,6 +111,18 @@ struct ArmDecodeTable
   ArmDecodeLink *linkArr;
 };
 
+struct InstructionMask{
+  uint32_t opcode_0mask;
+  uint32_t opcode_1mask;
+  uint32_t imm_0mask;
+  uint32_t imm_1mask;
+  uint32_t reg0_0mask;
+  uint32_t reg0_1mask;
+  uint32_t disp_0mask;
+  uint32_t dsip_1mask;
+  //...
+}
+
 int decode_table_count = 0;
 ArmDecodeTable *tables[1024] = {};
 #define last_table tables[decode_table_count - 1]
@@ -263,6 +275,9 @@ void Arm_DecodingMachineCodeToASM(uint32_t instruction)
       char *cstr = (char *)table->linkArr[i].next_table_ptr;
       if (cstr[0] == '#')
       {
+        if(strcmp(cstr, "#Unallocated.") == 0){
+          break;
+        }
         cout << cstr << endl;
         break;
       }
