@@ -121,7 +121,7 @@ struct InstructionMask{
   uint32_t disp_0mask;
   uint32_t dsip_1mask;
   //...
-}
+};
 
 int decode_table_count = 0;
 ArmDecodeTable *tables[1024] = {};
