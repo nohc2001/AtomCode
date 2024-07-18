@@ -80,3 +80,8 @@ struct InstNodeTable{
     int oprange_num;
     vecarr<OprangeObj*> table;
 };
+
+-> 어떻게 4바이트를 명령어로 디코딩 하는가?
+-> 4바이트 모두 다 거치면 너무 시간이 걸림??
+1. 자주쓰이는 영역의 oprange 번호들을 내림차순으로 정렬.
+2. 

@@ -6,6 +6,7 @@ using namespace std;
 
 constexpr char filename[256] = "tabledata_example.txt";
 constexpr char outfile[256] = "tableout.txt";
+constexpr char instfile[256] = "all_inst.txt";
 
 uint32_t mainInst;
 
@@ -27,6 +28,30 @@ inline int gr(op_range r, int index)
 
 bool masking(op_range r, const char *mask)
 {
+  if (mask[0] == '!' && mask[1] == '=')
+  {
+    bool b = true;
+    int len = 1 + r.end - r.start;
+    for (int i = 2; i < len; ++i)
+    {
+      switch (mask[i])
+      {
+      case '1':
+        b = b && is1(gr(r, i-2));
+        break;
+      case '0':
+        b = b && !is1(gr(r, i-2));
+        break;
+      case '>':
+        return b;
+      }
+
+      if (b == false)
+        return true;
+      else
+        return false;
+    }
+  }
   if (mask[0] == '-')
     return true;
   int len = 1 + r.end - r.start;
@@ -271,30 +296,34 @@ void TableShow()
 
 void InstShow()
 {
+  ofstream out;
+  out.open(instfile);
+
   for (int i = 0; i < decode_table_count; ++i)
   {
     for (int k = 0; k < tables[i]->link_count; ++k)
     {
       char *cstr = (char *)tables[i]->linkArr[k].next_table_ptr;
-      if(strcmp(cstr, "#Unallocated. -") == 0 || strcmp(cstr, "#Unallocated.")==0)
+      if(strcmp(cstr, "#Unallocated.")==0)
       {
         continue;
       }
       if (cstr[0] == '#')
       {
-        cout << "instruction : " << cstr << endl;
+        out << cstr << endl;
       }
     }
   }
+
+  out.close();
 }
 
 int main()
 {
   ReadDecodingTables();
   InstShow();
-  TableShow();
-  uint64_t inst = 0;
-  while (true)
+  uint64_t inst = 1;
+  while (inst != 0)
   {
     Arm_DecodingMachineCodeToASM(inst);
     inst += 1;

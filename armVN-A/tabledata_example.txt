@@ -389,35 +389,35 @@
 3 3
 00 1 00 010 x0 0 MOVA (vector to array, two registers) FEAT_SME2
 00 1 00 011 00 0 MOVA (vector to array, four registers) FEAT_SME2
-00 1 00 0x0 x0 1 Unallocated. -
-00 1 00 0x0 x1 - Unallocated. -
-00 1 00 0x1 00 1 Unallocated. -
-00 1 00 0x1 !=00 - Unallocated. -
-00 1 01 000 x0 1 Unallocated. -
-00 1 01 000 x1 - Unallocated. -
-00 1 01 001 00 1 Unallocated. -
-00 1 01 001 !=00 - Unallocated. -
-00 1 01 01x - - Unallocated. -
-!=00 1 0x 000 x0 1 Unallocated. -
-!=00 1 0x 000 x1 - Unallocated. -
-!=00 1 0x 001 00 1 Unallocated. -
-!=00 1 0x 001 01 - Unallocated. -
-!=00 1 0x 001 1x - Unallocated. -
-!=00 1 0x 01x - - Unallocated. -
+00 1 00 0x0 x0 1 Unallocated.
+00 1 00 0x0 x1 - Unallocated.
+00 1 00 0x1 00 1 Unallocated.
+00 1 00 0x1 !=00 - Unallocated.
+00 1 01 000 x0 1 Unallocated.
+00 1 01 000 x1 - Unallocated.
+00 1 01 001 00 1 Unallocated.
+00 1 01 001 !=00 - Unallocated.
+00 1 01 01x - - Unallocated.
+!=00 1 0x 000 x0 1 Unallocated.
+!=00 1 0x 000 x1 - Unallocated.
+!=00 1 0x 001 00 1 Unallocated.
+!=00 1 0x 001 01 - Unallocated.
+!=00 1 0x 001 1x - Unallocated.
+!=00 1 0x 01x - - Unallocated.
 - 0 - - - - SME move vector to array
 - 1 0x 000 x0 0 SME2 move vector to tile, two registers
 - 1 0x 001 00 0 SME2 move vector to tile, four registers
-- 1 0x 1xx - - Unallocated. -
-- 1 1x - - - Unallocated. -
+- 1 0x 1xx - - Unallocated.
+- 1 1x - - - Unallocated.
 #SME move vector to array
 2 7
 22 23
 16 16
-0x 1 Unallocated. -
+0x 1 Unallocated.
 00 0 MOVA (vector to tile, single) - Encoding FEAT_SME
 01 0 MOVA (vector to tile, single) - Encoding FEAT_SME
 10 0 MOVA (vector to tile, single) - Encoding FEAT_SME
-10 1 Unallocated. -
+10 1 Unallocated.
 11 0 MOVA (vector to tile, single) - Encoding FEAT_SME
 11 1 MOVA (vector to tile, single) - Encoding FEAT_SME
 #SME2 move vector to tile, two registers
@@ -431,11 +431,11 @@
 2 6
 22 23
 0 2
-0x 1xx Unallocated. -
+0x 1xx Unallocated.
 00 0xx MOVA (vector to tile, four registers) - Encoding FEAT_SME2
 01 0xx MOVA (vector to tile, four registers) - Encoding FEAT_SME2
 10 0xx MOVA (vector to tile, four registers) - Encoding FEAT_SME2
-10 1xx Unallocated. -
+10 1xx Unallocated.
 11 - MOVA (vector to tile, four registers) - Encoding FEAT_SME2
 #SME Move from Array
 6 21
@@ -447,25 +447,53 @@
 0 1
 00 1 00 010 00 x0 MOVA (array to vector, two registers) FEAT_SME2
 00 1 00 011 00 00 MOVA (array to vector, four registers) FEAT_SME2
-00 1 00 0x0 00 x1 Unallocated. -
-00 1 00 0x1 00 !=00 Unallocated. -
-00 1 00 0xx !=00 - Unallocated. -
-00 1 01 000 00 x1 Unallocated. -
-00 1 01 001 00 !=00 Unallocated. -
-00 1 01 00x !=00 - Unallocated. -
-00 1 01 01x - - Unallocated. -
-!=00 1 0x 000 00 x1 Unallocated. -
-!=00 1 0x 001 00 01 Unallocated. -
-!=00 1 0x 001 00 1x Unallocated. -
-!=00 1 0x 00x 01 - Unallocated. -
-!=00 1 0x 00x 1x - Unallocated. -
-!=00 1 0x 01x - - Unallocated. -
+00 1 00 0x0 00 x1 Unallocated.
+00 1 00 0x1 00 !=00 Unallocated.
+00 1 00 0xx !=00 - Unallocated.
+00 1 01 000 00 x1 Unallocated.
+00 1 01 001 00 !=00 Unallocated.
+00 1 01 00x !=00 - Unallocated.
+00 1 01 01x - - Unallocated.
+!=00 1 0x 000 00 x1 Unallocated.
+!=00 1 0x 001 00 01 Unallocated.
+!=00 1 0x 001 00 1x Unallocated.
+!=00 1 0x 00x 01 - Unallocated.
+!=00 1 0x 00x 1x - Unallocated.
+!=00 1 0x 01x - - Unallocated.
 - 0 - - 0x - SME move array to vector
-- 0 - - 1x - Unallocated. -
+- 0 - - 1x - Unallocated.
 - 1 0x 000 00 x0 SME2 move tile to vector, two registers
 - 1 0x 001 00 00 SME2 move tile to vector, four registers
-- 1 0x 1xx - - Unallocated. -
-- 1 1x - - - Unallocated. -
+- 1 0x 1xx - - Unallocated.
+- 1 1x - - - Unallocated.
+#SME2 move tile to vector, four registers
+2 6
+22 23
+5 7
+0x 1xx Unallocated.
+00 0xx MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+01 0xx MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+10 0xx MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+10 1xx Unallocated.
+11 - MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+#SME2 move tile to vector, two registers
+1 4
+22 23
+00 MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+01 MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+10 MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+11 MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+#SME move array to vector
+2 7
+22 23
+16 16
+0x 1 Unallocated.
+00 0 MOVA (tile to vector, single) - Encoding FEAT_SME
+01 0 MOVA (tile to vector, single) - Encoding FEAT_SME
+10 0 MOVA (tile to vector, single) - Encoding FEAT_SME
+10 1 Unallocated.
+11 0 MOVA (tile to vector, single) - Encoding FEAT_SME
+11 1 MOVA (tile to vector, single) - Encoding FEAT_SME
 #SME Add Vector to Array
 3 4
 23 23
@@ -475,16 +503,34 @@
 1 00 0 SME add vector to array
 1 00 1 Unallocated.
 1 !=00 - Unallocated.
+#SME add vector to array
+3 5
+22 22
+16 16
+0 2
+0 - 1xx Unallocated.
+0 0 0xx ADDHA - Encoding FEAT_SME
+0 1 0xx ADDVA - Encoding FEAT_SME
+1 0 - ADDHA - Encoding FEAT_SME_I16I64
+1 1 - ADDVA - Encoding FEAT_SME_I16I64
 #SME Zero
 1 2
 8 17
 0000000000 ZERO (tile) FEAT_SME
-!=0000000000 Unallocated. -
+!=0000000000 Unallocated.
 #SME2 Zero Lookup Table
 1 2
 4 17
 00000000000000 SME2 zero lookup table
 !=00000000000000 Unallocated.
+#SME2 zero lookup table
+1 5
+0 3
+0000 Unallocated.
+0001 ZERO (ZT0) FEAT_SME2
+001x Unallocated.
+01xx Unallocated.
+1xxx Unallocated.
 #SME2 Move Lookup Table
 2 3
 17 17
@@ -495,25 +541,25 @@
 #SME2 move from lookup table
 1 8
 5 11
-000xxxx Unallocated. -
-0010xxx Unallocated. -
-00110xx Unallocated. -
-001110x Unallocated. -
-0011110 Unallocated. -
+000xxxx Unallocated.
+0010xxx Unallocated.
+00110xx Unallocated.
+001110x Unallocated.
+0011110 Unallocated.
 0011111 MOVT (ZT0 to scalar) FEAT_SME2
-01xxxxx Unallocated. -
-1xxxxxx Unallocated. -
+01xxxxx Unallocated.
+1xxxxxx Unallocated.
 #SME2 move into lookup table
 1 8
 5 11
-000xxxx Unallocated. -
-0010xxx Unallocated. -
-00110xx Unallocated. -
-001110x Unallocated. -
-0011110 Unallocated. -
+000xxxx Unallocated.
+0010xxx Unallocated.
+00110xx Unallocated.
+001110x Unallocated.
+0011110 Unallocated.
 0011111 MOVT (scalar to ZT0) FEAT_SME2
-01xxxxx Unallocated. -
-1xxxxxx Unallocated. -
+01xxxxx Unallocated.
+1xxxxxx Unallocated.
 #SME2 Expand Lookup Table (Contiguous)
 3 6
 22 22
@@ -529,39 +575,38 @@
 2 7
 16 18
 10 11
-00x - Unallocated. -
+00x - Unallocated.
 01x 00 LUTI4 (four registers) FEAT_SME2
-01x 01 Unallocated. -
-01x 1x Unallocated. -
+01x 01 Unallocated.
+01x 1x Unallocated.
 1xx 00 LUTI2 (four registers) FEAT_SME2
-1xx 01 Unallocated. -
-1xx 1x Unallocated. -
+1xx 01 Unallocated.
+1xx 1x Unallocated.
 #SME2 lookup table expand two contiguous registers
 2 7
 15 18
 10 11
-00xx - Unallocated. -
+00xx - Unallocated.
 01xx 00 LUTI4 (two registers) FEAT_SME2
-01xx 01 Unallocated. -
-01xx 1x Unallocated. -
+01xx 01 Unallocated.
+01xx 1x Unallocated.
 1xxx 00 LUTI2 (two registers) FEAT_SME2
-1xxx 01 Unallocated. -
-1xxx 1x Unallocated. -
+1xxx 01 Unallocated.
+1xxx 1x Unallocated.
 #SME2 lookup table expand one register
 2 7
 14 18
 10 11
-00xxx - Unallocated. -
+00xxx - Unallocated.
 01xxx 00 LUTI4 (single) FEAT_SME2
-01xxx 01 Unallocated. -
-01xxx 1x Unallocated. -
+01xxx 01 Unallocated.
+01xxx 1x Unallocated.
 1xxxx 00 LUTI2 (single) FEAT_SME2
-1xxxx 01 Unallocated. -
-1xxxx 1x Unallocated. -
+1xxxx 01 Unallocated.
+1xxxx 1x Unallocated.
 #SME2 Multi-vector - Indexed (One register)
 3 7
 22 23
-20 21
 12 12
 2 2
 00 - - SME2 multi-vec indexed long long MLA one source 32-bit
@@ -576,7 +621,7 @@
 4 4
 3 3
 2 2
-- 1 1 Unallocated. -
+- 1 1 Unallocated.
 0 0 0 SMLALL (multiple and indexed vector) FEAT_SME2
 0 0 1 USMLALL (multiple and indexed vector) FEAT_SME2
 0 1 0 SMLSLL (multiple and indexed vector) FEAT_SME2
@@ -632,7 +677,7 @@
 0 0 1 SMLSLL (multiple and indexed vector) FEAT_SME2
 0 1 0 UMLALL (multiple and indexed vector) FEAT_SME2
 0 1 1 UMLSLL (multiple and indexed vector) FEAT_SME2
-1 - 1 Unallocated. -
+1 - 1 Unallocated.
 1 0 0 USMLALL (multiple and indexed vector) FEAT_SME2
 1 1 0 SUMLALL (multiple and indexed vector) FEAT_SME2
 #SME2 multi-vec ternary indexed two registers 32-bit
@@ -644,7 +689,7 @@
 0 010 FMLS (multiple and indexed vector) FEAT_SME2
 0 011 BFVDOT FEAT_SME2
 0 100 SVDOT (2-way) FEAT_SME2
-0 101 Unallocated. -
+0 101 Unallocated.
 0 110 UVDOT (2-way) FEAT_SME2
 1 000 SDOT (2-way, multiple and indexed vector) FEAT_SME2
 1 001 FDOT (multiple and indexed vector) FEAT_SME2
@@ -712,7 +757,7 @@ x1 - 1x Unallocated.
 0 0 1 SMLSLL (multiple and indexed vector) FEAT_SME2
 0 1 0 UMLALL (multiple and indexed vector) FEAT_SME2
 0 1 1 UMLSLL (multiple and indexed vector) FEAT_SME2
-1 - 1 Unallocated. -
+1 - 1 Unallocated.
 1 0 0 USMLALL (multiple and indexed vector) FEAT_SME2
 1 1 0 SUMLALL (multiple and indexed vector) FEAT_SME2
 #SME2 multi-vec ternary indexed four registers 32-bit
@@ -757,7 +802,7 @@ x1 - 1x Unallocated.
 0 01 SDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
 0 10 FMLS (multiple and indexed vector) FEAT_SME_F64F64
 0 11 UDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
-1 x0 Unallocated. -
+1 x0 Unallocated.
 1 01 SVDOT (4-way) FEAT_SME_I16I64
 1 11 UVDOT (4-way) FEAT_SME_I16I64
 #SME2 multi-vec indexed long MLA four sources
@@ -774,28 +819,28 @@ x1 - 1x Unallocated.
 5 6
 0 1
 01 00 00 SEL - Encoding FEAT_SME2
-01 00 !=00 Unallocated. -
-01 !=00 - Unallocated. -
-11 - - Unallocated. -
+01 00 !=00 Unallocated.
+01 !=00 - Unallocated.
+11 - - Unallocated.
 x0 x0 x0 SEL - Encoding FEAT_SME2
-x0 x0 x1 Unallocated. -
-x0 x1 - Unallocated. -
+x0 x0 x1 Unallocated.
+x0 x1 - Unallocated.
 #SME2 Multi-vector - SVE Constructive Binary
 3 13
 22 23
 10 12
 0 1
 00 101 - SME2 multi-vec quadwords ZIP two registers -
-01 101 - Unallocated. -
-10 101 - Unallocated. -
+01 101 - Unallocated.
+10 101 - Unallocated.
 11 101 - SME2 multi-vec saturating shift right narrow two registers -
 - 000 x0 FCLAMP - Encoding FEAT_SME2
-- 000 x1 Unallocated. -
+- 000 x1 Unallocated.
 - 001 - SME2 multi-vec CLAMP two registers -
 - 010 00 FCLAMP - Encoding FEAT_SME2
-- 010 01 Unallocated. -
+- 010 01 Unallocated.
 - 011 0x SME2 multi-vec CLAMP four registers -
-- 1x Unallocated. -
+- 1x 1x Unallocated.
 - 100 - SME2 multi-vec ZIP two registers -
 - 11x - SME2 multi-vec saturating shift right narrow four registers -
 #SME2 multi-vec quadwords ZIP two registers -
@@ -810,7 +855,7 @@ x0 x1 - Unallocated. -
 0 0 SQRSHR (two registers) FEAT_SME2
 0 1 UQRSHR (two registers) FEAT_SME2
 1 0 SQRSHRU (two registers) FEAT_SME2
-1 1 Unallocated. -
+1 1 Unallocated.
 #SME2 multi-vec CLAMP two registers -
 1 2
 0 0
@@ -831,7 +876,7 @@ x0 x1 - Unallocated. -
 10 10
 6 6
 5 5
-- 1 1 Unallocated. -
+- 1 1 Unallocated.
 0 0 0 SQRSHR (four registers) FEAT_SME2
 0 0 1 UQRSHR (four registers) FEAT_SME2
 0 1 0 SQRSHRU (four registers) FEAT_SME2
@@ -925,7 +970,7 @@ x0 x1 - Unallocated. -
 0 0 SQCVT (two registers) FEAT_SME2
 0 1 UQCVT (two registers) FEAT_SME2
 1 0 SQCVTU (two registers) FEAT_SME2
-1 1 Unallocated. -
+1 1 Unallocated.
 #SME2 multi-vec unpack two registers
 1 2
 0 0
@@ -935,15 +980,15 @@ x0 x1 - Unallocated. -
 2 9
 22 23
 16 18
-0x - Unallocated. -
+0x - Unallocated.
 10 000 FRINTN FEAT_SME2
 10 001 FRINTP FEAT_SME2
 10 010 FRINTM FEAT_SME2
-10 011 Unallocated. -
+10 011 Unallocated.
 10 100 FRINTA FEAT_SME2
-10 101 Unallocated. -
-10 11x Unallocated. -
-11 - Unallocated. -
+10 101 Unallocated.
+10 11x Unallocated.
+11 - Unallocated.
 #SME2 multi-vec int down convert four registers
 3 7
 22 22
@@ -953,7 +998,7 @@ x0 x1 - Unallocated. -
 0 0 1 UQCVT (four registers) FEAT_SME2
 0 1 0 SQCVTN FEAT_SME2
 0 1 1 UQCVTN FEAT_SME2
-1 - 1 Unallocated. -
+1 - 1 Unallocated.
 1 0 0 SQCVTU (four registers) FEAT_SME2
 1 1 0 SQCVTUN FEAT_SME2
 #SME2 multi-vec unpack four registers
@@ -970,15 +1015,15 @@ x0 x1 - Unallocated. -
 2 9
 22 23
 16 18
-0x - Unallocated. -
+0x - Unallocated.
 10 000 FRINTN FEAT_SME2
 10 001 FRINTP FEAT_SME2
 10 010 FRINTM FEAT_SME2
-10 011 Unallocated. -
+10 011 Unallocated.
 10 100 FRINTA FEAT_SME2
-10 101 Unallocated. -
-10 11x Unallocated. -
-11 - Unallocated. -
+10 101 Unallocated.
+10 11x Unallocated.
+11 - Unallocated.
 
 #SME2 Multi-vector - Multiple Vectors SVE Destructive (Two registers)
 3 8
@@ -987,12 +1032,12 @@ x0 x1 - Unallocated. -
 0 0
 0 0000x - SME2 multiple vectors int min/max two registers -
 0 0100x - SME2 multiple vectors FP min/max two registers -
-0 0x!=00x - Unallocated. -
+0 0x!=00x - Unallocated.
 0 10xxx - SME2 multiple vectors shift two registers -
-0 11xxx - Unallocated. -
+0 11xxx - Unallocated.
 1 00000 0 SQDMULH (multiple vectors) - Encoding FEAT_SME2
-1 00000 1 Unallocated. -
-1 !=00000 - Unallocated. -
+1 00000 1 Unallocated.
+1 !=00000 - Unallocated.
 #SME2 multiple vectors int min/max two registers -
 2 4
 5 5
@@ -1013,11 +1058,11 @@ x0 x1 - Unallocated. -
 2 5
 5 7
 0 0
-000 - Unallocated. -
+000 - Unallocated.
 001 0 SRSHL (multiple vectors) FEAT_SME2
 001 1 URSHL (multiple vectors) FEAT_SME2
-01x - Unallocated. -
-1xx - Unallocated. -
+01x - Unallocated.
+1xx - Unallocated.
 #SME2 Multi-vector - Multiple Vectors SVE Destructive (Four registers)
 4 11
 17 17
@@ -1026,15 +1071,15 @@ x0 x1 - Unallocated. -
 0 1
 0 0 0000x 0x SME2 multiple vectors int min/max four registers -
 0 0 0100x 0x SME2 multiple vectors FP min/max four registers -
-0 0 0x00x 1x Unallocated. -
-0 0 0x!=00x - Unallocated. -
+0 0 0x00x 1x Unallocated.
+0 0 0x!=00x - Unallocated.
 0 0 10xxx 0x SME2 multiple vectors shift four registers -
-0 0 10xxx 1x Unallocated. -
-0 0 11xxx - Unallocated. -
+0 0 10xxx 1x Unallocated.
+0 0 11xxx - Unallocated.
 0 1 00000 00 SQDMULH (multiple vectors) - Encoding FEAT_SME2
-0 1 00000 !=00 Unallocated. -
-0 1 !=00000 - Unallocated. -
-1 - - - Unallocated. -
+0 1 00000 !=00 Unallocated.
+0 1 !=00000 - Unallocated.
+1 - - - Unallocated.
 #SME2 multiple vectors int min/max four registers -
 2 4
 5 5
@@ -1055,11 +1100,11 @@ x0 x1 - Unallocated. -
 2 5
 5 7
 0 0
-000 - Unallocated. -
+000 - Unallocated.
 001 0 SRSHL (multiple vectors) FEAT_SME2
 001 1 URSHL (multiple vectors) FEAT_SME2
-01x - Unallocated. -
-1xx - Unallocated. -
+01x - Unallocated.
+1xx - Unallocated.
 #SME2 Multi-vector - Multiple and Single SVE Destructive (Two registers)
 3 10
 10 10
@@ -1067,14 +1112,14 @@ x0 x1 - Unallocated. -
 0 0
 0 0000x - SME2 single-multi int min/max two registers -
 0 0100x - SME2 single-multi FP min/max two registers -
-0 0x!=00x - Unallocated. -
+0 0x!=00x - Unallocated.
 0 10xxx - SME2 single-multi shift two registers -
 0 11000 0 ADD (to vector) - Encoding FEAT_SME2
-0 11000 1 Unallocated. -
-0 11!=000 - Unallocated. -
+0 11000 1 Unallocated.
+0 11!=000 - Unallocated.
 1 00000 0 SQDMULH (multiple and single vector) - Encoding FEAT_SME2
-1 00000 1 Unallocated. -
-1 !=00000 - Unallocated. -
+1 00000 1 Unallocated.
+1 !=00000 - Unallocated.
 #SME2 single-multi int min/max two registers -
 2 4
 5 5
@@ -1095,11 +1140,11 @@ x0 x1 - Unallocated. -
 2 5
 5 7
 0 0
-000 - Unallocated. -
+000 - Unallocated.
 001 0 SRSHL (multiple and single vector) FEAT_SME2
 001 1 URSHL (multiple and single vector) FEAT_SME2
-01x - Unallocated. -
-1xx - Unallocated. -
+01x - Unallocated.
+1xx - Unallocated.
 #SME2 Multi-vector - Multiple and Single SVE Destructive (Four registers)
 3 12
 10 10
@@ -1107,16 +1152,16 @@ x0 x1 - Unallocated. -
 0 1
 0 0000x 0x SME2 single-multi int min/max four registers -
 0 0100x 0x SME2 single-multi FP min/max four registers -
-0 0x00x 1x Unallocated. -
-0 0x!=00x - Unallocated. -
+0 0x00x 1x Unallocated.
+0 0x!=00x - Unallocated.
 0 10xxx 0x SME2 single-multi shift four registers -
-0 10xxx 1x Unallocated. -
+0 10xxx 1x Unallocated.
 0 11000 00 ADD (to vector) - Encoding FEAT_SME2
-0 11000 !=00 Unallocated. -
-0 11!=000 - Unallocated. -
+0 11000 !=00 Unallocated.
+0 11!=000 - Unallocated.
 1 00000 00 SQDMULH (multiple and single vector) - Encoding FEAT_SME2
-1 00000 !=00 Unallocated. -
-1 !=00000 - Unallocated. -
+1 00000 !=00 Unallocated.
+1 !=00000 - Unallocated.
 #SME2 single-multi int min/max four registers -
 2 4
 5 5
@@ -1137,11 +1182,11 @@ x0 x1 - Unallocated. -
 2 5
 5 7
 0 0
-000 - Unallocated. -
+000 - Unallocated.
 001 0 SRSHL (multiple and single vector) FEAT_SME2
 001 1 URSHL (multiple and single vector) FEAT_SME2
-01x - Unallocated. -
-1xx - Unallocated. -
+01x - Unallocated.
+1xx - Unallocated.
 #SME2 Multi-vector - Multiple and Single Array Vectors
 4 25
 22 22
@@ -1251,10 +1296,10 @@ x0 x1 - Unallocated. -
 - 0 1 0 SMLSLL (multiple and single vector) FEAT_SME2
 - 1 1 0 0 UMLALL (multiple and single vector) FEAT_SME2
 - 1 1 0 UMLSLL (multiple and single vector) FEAT_SME2
-0 - 1 1 Unallocated. -
+0 - 1 1 Unallocated.
 0 0 0 1 USMLALL (multiple and single vector) FEAT_SME2
 0 1 0 1 SUMLALL (multiple and single vector) FEAT_SME2
-1 - - 1 Unallocated. -
+1 - - 1 Unallocated.
 #SME2 multiple and single vector long long FMA one source
 4 8
 22 22
@@ -1266,17 +1311,17 @@ x0 x1 - Unallocated. -
 - 1 0 0 UMLALL (multiple and single vector) FEAT_SME2
 - 1 1 0 UMLSLL (multiple and single vector) FEAT_SME2
 0 0 0 1 USMLALL (multiple and single vector) FEAT_SME2
-0 0 1 1 Unallocated. -
-0 1 - 1 Unallocated. -
-1 - - 1 Unallocated. -
+0 0 1 1 Unallocated.
+0 1 - 1 Unallocated.
+1 - - 1 Unallocated.
 #SME2 single-multi FP dot product two registers
 2 4
 22 22
 3 4
 0 00 FDOT (multiple and single vector) FEAT_SME2
 0 10 BFDOT (multiple and single vector) FEAT_SME2
-1 01 Unallocated. -
-1 1x Unallocated. -
+1 01 Unallocated.
+1 1x Unallocated.
 #SME2 single-multi four-way dot product two registers
 1 2
 4 4
@@ -1302,18 +1347,18 @@ x0 x1 - Unallocated. -
 - 0 1 0 SMLSLL (multiple and single vector) FEAT_SME2
 - 1 0 0 UMLALL (multiple and single vector) FEAT_SME2
 - 1 1 0 UMLSLL (multiple and single vector) FEAT_SME2
-0 - 1 1 Unallocated. -
+0 - 1 1 Unallocated.
 0 0 0 1 USMLALL (multiple and single vector) FEAT_SME2
 0 1 0 1 SUMLALL (multiple and single vector) FEAT_SME2
-1 - - 1 Unallocated. -
+1 - - 1 Unallocated.
 #SME2 single-multi FP dot product four registers
 2 4
 22 22
 3 4
 0 00 FDOT (multiple and single vector) FEAT_SME2
 0 10 BFDOT (multiple and single vector) FEAT_SME2
-1 01 Unallocated. -
-1 1x Unallocated. -
+1 01 Unallocated.
+1 1x Unallocated.
 #SME2 single-multi four-way dot product four registers
 1 2
 4 4
@@ -1337,23 +1382,23 @@ x0 x1 - Unallocated. -
 1 5
 0 - 010 0xx0x SME2 multiple vectors long FMA two sources -
 0 - 101 001xx USDOT (multiple vectors) - Encoding FEAT_SME2
-0 - 101 011xx Unallocated. -
+0 - 101 011xx Unallocated.
 1 - 010 0xx0x SME2 multiple vectors long MLA two sources -
 1 - 101 0x1xx SME2 multiple vectors two-way dot product two registers -
 - 0000 111 00xxx SME2 multiple vectors binary FP two registers -
 - 0000 111 01xxx SME2 multiple vectors binary int two registers -
-- 0000 11x 1xxxx Unallocated. -
-- !=0000 110 1xxxx Unallocated. -
-- !=0000 111 - Unallocated. -
+- 0000 11x 1xxxx Unallocated.
+- !=0000 110 1xxxx Unallocated.
+- !=0000 111 - Unallocated.
 - - 000 0xxx0 SME2 multiple vectors long long MLA two sources -
-- - 000 0xxx1 Unallocated. -
-- - 010 0xx1x Unallocated. -
-- - 0x0 1xxxx Unallocated. -
-- - 0x1 - Unallocated. -
+- - 000 0xxx1 Unallocated.
+- - 010 0xx1x Unallocated.
+- - 0x0 1xxxx Unallocated.
+- - 0x1 - Unallocated.
 - - 100 xx0xx SME2 multiple vectors FP dot product two registers -
-- - 100 xx1xx Unallocated. -
+- - 100 xx1xx Unallocated.
 - - 101 0x0xx SME2 multiple vectors four-way dot product two registers -
-- - 101 1xxxx Unallocated. -
+- - 101 1xxxx Unallocated.
 - - 110 00xxx SME2 multiple vectors ternary FP two registers -
 - - 110 01xxx SME2 multiple vectors ternary int two registers -
 #SME2 multiple vectors long FMA two sources -
@@ -1398,17 +1443,17 @@ x0 x1 - Unallocated. -
 - 1 0 0 UMLALL (multiple vectors) FEAT_SME2
 - 1 1 0 UMLSLL (multiple vectors) FEAT_SME2
 0 0 0 1 USMLALL (multiple vectors) FEAT_SME2
-0 0 1 1 Unallocated. -
-0 1 - 1 Unallocated. -
-1 - - 1 Unallocated. -
+0 0 1 1 Unallocated.
+0 1 - 1 Unallocated.
+1 - - 1 Unallocated.
 #SME2 multiple vectors FP dot product two registers -
 2 4
 22 22
 4 5
 0 00 FDOT (multiple vectors) FEAT_SME2
 0 01 BFDOT (multiple vectors) FEAT_SME2
-1 01 Unallocated. -
-1 1x Unallocated. -
+1 01 Unallocated.
+1 1x Unallocated.
 #SME2 multiple vectors four-way dot product two registers -
 1 2
 4 4
@@ -1434,29 +1479,29 @@ x0 x1 - Unallocated. -
 1 4
 0 - 0 010 00 xx0x SME2 multiple vectors long FMA four sources -
 0 - 0 101 00 01xx USDOT (multiple vectors) - Encoding
-0 - 0 101 00 11xx Unallocated. -
+0 - 0 101 00 11xx Unallocated.
 1 - 0 010 00 xx0x SME2 multiple vectors long MLA four sources -
 1 - 0 101 00 x1xx SME2 multiple vectors two-way dot product four registers -
 - 000 0 111 00 0xxx SME2 multiple vectors binary FP four registers -
 - 000 0 111 00 1xxx SME2 multiple vectors binary int four registers -
-- 000 0 11x 01 - Unallocated. -
-- 000 0 1xx 1x - Unallocated. -
-- !=000 0 10x 1x - Unallocated. -
-- !=000 0 110 01 - Unallocated. -
-- !=000 0 110 1x - Unallocated. -
-- !=000 0 111 - - Unallocated. -
+- 000 0 11x 01 - Unallocated.
+- 000 0 1xx 1x - Unallocated.
+- !=000 0 10x 1x - Unallocated.
+- !=000 0 110 01 - Unallocated.
+- !=000 0 110 1x - Unallocated.
+- !=000 0 111 - - Unallocated.
 - - 0 000 00 xxx0 SME2 multiple vectors long long MLA four sources
-- - 0 000 00 xxx1 Unallocated. - 
-- - 0 010 00 xx1x Unallocated. -
-- - 0 0x0 !=00 - Unallocated. -
-- - 0 0x1 - - Unallocated. -
+- - 0 000 00 xxx1 Unallocated. 
+- - 0 010 00 xx1x Unallocated.
+- - 0 0x0 !=00 - Unallocated.
+- - 0 0x1 - - Unallocated.
 - - 0 100 0x x0xx SME2 multiple vectors FP dot product four registers
-- - 0 100 0x x1xx Unallocated. -
+- - 0 100 0x x1xx Unallocated.
 - - 0 101 00 x0xx SME2 multiple vectors four-way dot product four registers
-- - 0 101 01 - Unallocated. -
+- - 0 101 01 - Unallocated.
 - - 0 110 00 0xxx SME2 multiple vectors ternary FP four registers
 - - 0 110 00 1xxx SME2 multiple vectors ternary int four registers
-- - 1 - - - Unallocated. -
+- - 1 - - - Unallocated.
 #SME2 multiple vectors long FMA four sources -
 2 4
 4 4
@@ -1499,17 +1544,17 @@ x0 x1 - Unallocated. -
 - 1 0 0 UMLALL (multiple vectors) FEAT_SME2
 - 1 1 0 UMLSLL (multiple vectors) FEAT_SME2
 0 0 0 1 USMLALL (multiple vectors) FEAT_SME2
-0 0 1 1 Unallocated. -
-0 1 - 1 Unallocated. -
-1 - - 1 Unallocated. -
+0 0 1 1 Unallocated.
+0 1 - 1 Unallocated.
+1 - - 1 Unallocated.
 #SME2 multiple vectors FP dot product four registers
 2 4
 22 22
 4 5
 0 00 FDOT (multiple vectors) FEAT_SME2
 0 01 BFDOT (multiple vectors) FEAT_SME2
-1 01 Unallocated. -
-1 1x Unallocated. -
+1 01 Unallocated.
+1 1x Unallocated.
 #SME2 multiple vectors four-way dot product four registers
 1 2
 4 4
@@ -1534,19 +1579,19 @@ x0 x1 - Unallocated. -
 2 4
 0xx0 - - - 0xx SME load array vector (elements) -
 0xx1 - - - 0xx SME store array vector (elements) -
-0xxx - - - 1xx Unallocated. -
+0xxx - - - 1xx Unallocated.
 100x 00000 0 xx000 0xx SME save and restore array -
-100x 00000 0 xx000 1xx Unallocated. -
-100x 00000 0 xx!=000 - Unallocated. -
-100x !=00000 0 - - Unallocated. -
+100x 00000 0 xx000 1xx Unallocated.
+100x 00000 0 xx!=000 - Unallocated.
+100x !=00000 0 - - Unallocated.
 100x - 1 00000 000 SME2 lookup table load/store -
-100x - 1 00000 !=000 Unallocated. -
-100x - 1 !=00000 - Unallocated. -
-101x - - - - Unallocated. -
-110x - - - - Unallocated. -
+100x - 1 00000 !=000 Unallocated.
+100x - 1 !=00000 - Unallocated.
+101x - - - - Unallocated.
+110x - - - - Unallocated.
 1110 - - - 0xx LD1Q FEAT_SME
 1111 - - - 0xx ST1Q FEAT_SME
-111x - - - 1xx Unallocated. -
+111x - - - 1xx Unallocated.
 #SME load array vector (elements) -
 1 4
 22 23
@@ -1570,13 +1615,13 @@ x0 x1 - Unallocated. -
 2 9
 16 21
 0 1
-x0xxxx - Unallocated. -
-x10xxx - Unallocated. -
-x110xx - Unallocated. -
-x1110x - Unallocated. -
-x11110 - Unallocated. -
-x11111 01 Unallocated. -
-x11111 1x Unallocated. -
+x0xxxx - Unallocated.
+x10xxx - Unallocated.
+x110xx - Unallocated.
+x1110x - Unallocated.
+x11110 - Unallocated.
+x11111 01 Unallocated.
+x11111 1x Unallocated.
 011111 00 LDR (ZT0) FEAT_SME2
 111111 00 STR (ZT0) FEAT_SME2
 #SVE encodings
@@ -1601,9 +1646,9 @@ x11111 1x Unallocated. -
 000 1xx00xxxxxxxxxx - SVE Bitwise Immediate -
 000 1xx01xxxxxxxxxx - SVE Integer Wide Immediate - Predicated -
 000 1xx1xxxxx001000 - DUP (indexed) -
-000 1xx1xxxxx001001 - Unallocated. -
+000 1xx1xxxxx001001 - Unallocated.
 000 1xx1xxxxx00101x - SVE table lookup (three sources) -
-000 1xx1xxxxx0011x1 - Unallocated. -
+000 1xx1xxxxx0011x1 - Unallocated.
 000 1xx1xxxxx001100 - TBL - Encoding -
 000 1xx1xxxxx001110 - SVE Permute Vector - Unpredicated -
 000 1xx1xxxxx010xxx - SVE Permute Predicate -
@@ -1626,15 +1671,15 @@ x11111 1x Unallocated. -
 001 1xx100xxx10xxxx - SVE Predicate Count -
 001 1xx101xxx1000xx - SVE Inc/Dec by Predicate Count -
 001 1xx101xxx1001xx - SVE Write FFR -
-001 1xx101xxx101xxx - Unallocated. -
-001 1xx11xxxx10xxxx - Unallocated. -
+001 1xx101xxx101xxx - Unallocated.
+001 1xx11xxxx10xxxx - Unallocated.
 010 0xx0xxxxx0xxxxx - SVE Integer Multiply-Add - Unpredicated -
 010 0xx0xxxxx10xxxx - SVE2 Integer - Predicated -
 010 0xx0xxxxx11000x - SVE integer clamp -
-010 0xx0xxxxx1101xx - Unallocated. -
-010 0xx0xxxxx111xxx - Unallocated. -
+010 0xx0xxxxx1101xx - Unallocated.
+010 0xx0xxxxx111xxx - Unallocated.
 010 0xx1xxxxxxxxxxx - SVE Multiply - Indexed -
-010 0x10xxxxx11001x - Unallocated. -
+010 0x10xxxxx11001x - Unallocated.
 010 0000xxxxx11001x - SVE two-way dot product -
 010 0100xxxxx11001x - SVE two-way dot product (indexed) -
 010 1xx0xxxxx0xxxxx - SVE2 Widening Integer Arithmetic -
@@ -1647,43 +1692,43 @@ x11111 1x Unallocated. -
 010 1xx1xxxxx111xxx - SVE2 Crypto Extensions -
 011 0xx0xxxxx0xxxxx - FCMLA (vectors) -
 011 0xx00000x100xxx - FCADD -
-011 0xx00000x101xxx - Unallocated. -
-011 0xx00000x11xxxx - Unallocated. -
-011 0xx00001x1xxxxx - Unallocated. -
-011 0xx0001xx1xxxxx - Unallocated. -
-011 0xx0010xx100xxx - Unallocated. -
+011 0xx00000x101xxx - Unallocated.
+011 0xx00000x11xxxx - Unallocated.
+011 0xx00001x1xxxxx - Unallocated.
+011 0xx0001xx1xxxxx - Unallocated.
+011 0xx0010xx100xxx - Unallocated.
 011 0xx0010xx101xxx - SVE floating-point convert precision odd elements -
-011 0xx0010xx11xxxx - Unallocated. -
-011 0xx001100100xxx - Unallocated. -
-011 0xx00110011xxxx - Unallocated. -
-011 0xx0011011xxxxx - Unallocated. -
-011 0xx00111x1xxxxx - Unallocated. -
+011 0xx0010xx11xxxx - Unallocated.
+011 0xx001100100xxx - Unallocated.
+011 0xx00110011xxxx - Unallocated.
+011 0xx0011011xxxxx - Unallocated.
+011 0xx00111x1xxxxx - Unallocated.
 011 0xx010xxx100xxx - SVE2 floating-point pairwise operations -
-011 0xx010xxx101xxx - Unallocated. -
-011 0xx010xxx11xxxx - Unallocated. -
-011 0xx011xxx1xxxxx - Unallocated. -
+011 0xx010xxx101xxx - Unallocated.
+011 0xx010xxx11xxxx - Unallocated.
+011 0xx011xxx1xxxxx - Unallocated.
 011 0xx1xxxxx0000xx - SVE floating-point multiply-add (indexed) -
 011 0xx1xxxxx0001xx - SVE floating-point complex multiply-add (indexed) -
 011 0xx1xxxxx0010x0 - SVE floating-point multiply (indexed) -
 011 0xx1xxxxx001001 - FCLAMP FEAT_SME2
-011 0xx1xxxxx001011 - Unallocated. -
-011 0xx1xxxxx0011xx - Unallocated. -
+011 0xx1xxxxx001011 - Unallocated.
+011 0xx1xxxxx0011xx - Unallocated.
 011 0xx1xxxxx01x0xx - SVE Floating Point Widening Multiply-Add - Indexed -
-011 0xx1xxxxx01x1xx - Unallocated. -
+011 0xx1xxxxx01x1xx - Unallocated.
 011 0xx1xxxxx10x00x - SVE Floating Point Widening Multiply-Add -
-011 0xx1xxxxx10x01x - Unallocated. -
-011 0xx1xxxxx10x1xx - Unallocated. -
-011 0xx1xxxxx110xxx - Unallocated. -
-011 0xx1xxxxx111000 - Unallocated. -
+011 0xx1xxxxx10x01x - Unallocated.
+011 0xx1xxxxx10x1xx - Unallocated.
+011 0xx1xxxxx110xxx - Unallocated.
+011 0xx1xxxxx111000 - Unallocated.
 011 0xx1xxxxx111001 - SVE floating point matrix multiply accumulate -
-011 0xx1xxxxx11101x - Unallocated. -
-011 0xx1xxxxx1111xx - Unallocated. -
+011 0xx1xxxxx11101x - Unallocated.
+011 0xx1xxxxx1111xx - Unallocated.
 011 1xx0xxxxxx1xxxx - SVE floating-point compare vectors -
 011 1xx0xxxxx000xxx - SVE floating-point arithmetic (unpredicated) -
 011 1xx0xxxxx100xxx - SVE Floating Point Arithmetic - Predicated -
 011 1xx0xxxxx101xxx - SVE Floating Point Unary Operations - Predicated -
 011 1xx000xxx001xxx - SVE floating-point recursive reduction -
-011 1xx001xxx0010xx - Unallocated. -
+011 1xx001xxx0010xx - Unallocated.
 011 1xx001xxx0011xx - SVE Floating Point Unary Operations - Unpredicated -
 011 1xx010xxx001xxx - SVE Floating Point Compare - with Zero -
 011 1xx011xxx001xxx - SVE Floating Point Accumulating Reduction -
@@ -1767,7 +1812,6 @@ x11111 1x Unallocated. -
 #SVE Integer Reduction -
 1 6
 18 20
-13 15
 000 SVE integer add reduction (predicated)
 010 SVE integer min/max reduction (predicated)
 0x1 Unallocated.
@@ -1951,13 +1995,13 @@ x11111 1x Unallocated. -
 2 7
 22 22
 16 20
-0 0xxxx Unallocated. -
-0 10xxx Unallocated. -
-0 110xx Unallocated. -
-0 1110x Unallocated. -
-0 11110 Unallocated. -
+0 0xxxx Unallocated.
+0 10xxx Unallocated.
+0 110xx Unallocated.
+0 1110x Unallocated.
+0 11110 Unallocated.
 0 11111 RDSVL FEAT_SME
-1 - Unallocated. -
+1 - Unallocated.
 #SVE2 Integer Multiply - Unpredicated -
 1 3
 11 12
@@ -2283,8 +2327,8 @@ x11111 1x Unallocated. -
 1 3
 22 23
 00 REVD FEAT_SME
-01 Unallocated. -
-1x Unallocated. -
+01 Unallocated.
+1x Unallocated.
 #SVE conditionally extract element to general register
 1 2
 16 16
@@ -2347,8 +2391,8 @@ x11111 1x Unallocated. -
 1 3
 22 23
 00 REVD FEAT_SME
-01 Unallocated. -
-1x Unallocated. -
+01 Unallocated.
+1x Unallocated.
 #SVE conditionally extract element to general register
 1 2
 16 16
@@ -2372,7 +2416,7 @@ x11111 1x Unallocated. -
 00 1 ZIP1, ZIP2 (vectors) - Encoding FEAT_F64MM
 01 0 UZP1, UZP2 (vectors) - Encoding FEAT_F64MM
 01 1 UZP1, UZP2 (vectors) - Encoding FEAT_F64MM
-10 - Unallocated. -
+10 - Unallocated.
 11 0 TRN1, TRN2 (vectors) - Encoding FEAT_F64MM
 11 1 TRN1, TRN2 (vectors) - Encoding FEAT_F64MM
 #SVE Integer Compare - Vectors -
@@ -2608,7 +2652,7 @@ x11111 1x Unallocated. -
 1 2
 9 9
 0 PSEL FEAT_SME
-1 Unallocated. -
+1 Unallocated.
 #SVE Scalar Integer Compare - Predicate-as-counter -
 4 7
 16 20
@@ -2617,9 +2661,9 @@ x11111 1x Unallocated. -
 3 3
 00000 110 - - SVE extract mask predicate from predicate-as-counter -
 00000 111 000000 0 PTRUE FEAT_SME2
-00000 111 000000 1 Unallocated. -
-00000 111 !=000000 - Unallocated. -
-!=00000 11x - - Unallocated. -
+00000 111 000000 1 Unallocated.
+00000 111 !=000000 - Unallocated.
+!=00000 11x - - Unallocated.
 - 01x - - SVE integer compare scalar count and limit (predicate pair) -
 - x0x - - SVE integer compare scalar count and limit (predicate-as-counter) -
 #SVE extract mask predicate from predicate-as-counter -
@@ -2627,7 +2671,7 @@ x11111 1x Unallocated. -
 8 10
 0xx PEXT (predicate) FEAT_SME2
 10x PEXT (predicate pair) FEAT_SME2
-11x Unallocated. -
+11x Unallocated.
 #SVE integer compare scalar count and limit (predicate pair) -
 3 8
 11 11
@@ -2718,9 +2762,9 @@ x11111 1x Unallocated. -
 1 4
 16 18
 000 CNTP FEAT_SME2
-001 Unallocated. -
-01x Unallocated. -
-1xx Unallocated. -
+001 Unallocated.
+01x Unallocated.
+1xx Unallocated.
 #SVE predicate count
 1 4
 16 18
@@ -2786,7 +2830,6 @@ x11111 1x Unallocated. -
 5 9
 18 18
 16 17
-12 15
 9 11
 5 8
 0 4
@@ -2867,9 +2910,9 @@ x11111 1x Unallocated. -
 #SVE mixed sign dot product
 1 3
 22 23
-0x Unallocated. -
+0x Unallocated.
 10 USDOT (vectors) FEAT_I8MM
-11 Unallocated. -
+11 Unallocated.
 #SVE2 Integer - Predicated -
 2 9
 17 20
@@ -3009,10 +3052,10 @@ x11111 1x Unallocated. -
 2 4
 22 23
 10 10
-0x - Unallocated. -
+0x - Unallocated.
 10 0 USDOT (indexed) FEAT_I8MM
 10 1 SUDOT FEAT_I8MM
-11 - Unallocated. -
+11 - Unallocated.
 #SVE2 saturating multiply-add (indexed)
 3 9
 22 23
@@ -3207,7 +3250,7 @@ x11111 1x Unallocated. -
 1 4
 22 23
 00 SMMLA FEAT_I8MM
-01 Unallocated. -
+01 Unallocated.
 10 USMMLA FEAT_I8MM
 11 UMMLA FEAT_I8MM
 #SVE2 bitwise permute
@@ -3216,7 +3259,7 @@ x11111 1x Unallocated. -
 00 BEXT FEAT_SVE_BitPerm
 01 BDEP FEAT_SVE_BitPerm
 10 BGRP FEAT_SVE_BitPerm
-11 Unallocated. -
+11 Unallocated.
 #SVE2 Accumulate -
 2 7
 17 20
@@ -3302,13 +3345,13 @@ x11111 1x Unallocated. -
 22 22
 19 20
 11 12
-0 0x - Unallocated. -
+0 0x - Unallocated.
 0 10 00 SQCVTN FEAT_SME2
 0 10 01 UQCVTN FEAT_SME2
 0 10 10 SQCVTUN FEAT_SME2
-0 10 11 Unallocated. -
-0 11 - Unallocated. -
-1 - - Unallocated. -
+0 10 11 Unallocated.
+0 11 - Unallocated.
+1 - - Unallocated.
 #SVE2 bitwise shift right narrow
 4 16
 13 13
@@ -3338,14 +3381,14 @@ x11111 1x Unallocated. -
 13 13
 12 12
 11 11
-0 0 - - - Unallocated. -
-0 1 0 0 0 Unallocated. -
+0 0 - - - Unallocated.
+0 1 0 0 0 Unallocated.
 0 1 0 0 1 SQRSHRUN FEAT_SME2
-0 1 0 1 - Unallocated. -
-0 1 1 - 0 Unallocated. -
+0 1 0 1 - Unallocated.
+0 1 1 - 0 Unallocated.
 0 1 1 0 1 SQRSHRN FEAT_SME2
 0 1 1 1 1 UQRSHRN FEAT_SME2
-1 - - - - Unallocated. -
+1 - - - - Unallocated.
 #SVE2 integer add/subtract narrow high part
 3 8
 12 12
@@ -3391,8 +3434,8 @@ x11111 1x Unallocated. -
 10 10
 00 0 AESMC FEAT_SVE_AES
 00 1 AESIMC FEAT_SVE_AES
-01 - Unallocated. -
-1x - Unallocated. -
+01 - Unallocated.
+1x - Unallocated.
 #SVE2 crypto destructive binary operations
 3 6
 22 23
@@ -3401,17 +3444,17 @@ x11111 1x Unallocated. -
 00 0 0 AESE FEAT_SVE_AES
 00 0 1 AESD FEAT_SVE_AES
 00 1 0 SM4E FEAT_SVE_SM4
-00 1 1 Unallocated. -
-01 - - Unallocated. -
-1x - - Unallocated. -
+00 1 1 Unallocated.
+01 - - Unallocated.
+1x - - Unallocated.
 #SVE2 crypto constructive binary operations
 2 4
 22 23
 10 10
 00 0 SM4EKEY FEAT_SVE_SM4
 00 1 RAX1 FEAT_SVE_SHA3
-01 - Unallocated. -
-1x - Unallocated. -
+01 - Unallocated.
+1x - Unallocated.
 #SVE2 Crypto Extensions -
 4 10
 18 20
@@ -3434,8 +3477,8 @@ x11111 1x Unallocated. -
 10 10
 00 0 AESMC FEAT_SVE_AES
 00 1 AESIMC FEAT_SVE_AES
-01 - Unallocated. -
-1x - Unallocated. -
+01 - Unallocated.
+1x - Unallocated.
 #SVE2 crypto destructive binary operations
 3 6
 22 23
@@ -3444,29 +3487,29 @@ x11111 1x Unallocated. -
 00 0 0 AESE FEAT_SVE_AES
 00 0 1 AESD FEAT_SVE_AES
 00 1 0 SM4E FEAT_SVE_SM4
-00 1 1 Unallocated. -
-01 - - Unallocated. -
-1x - - Unallocated. -
+00 1 1 Unallocated.
+01 - - Unallocated.
+1x - - Unallocated.
 #SVE2 crypto constructive binary operations
 2 4
 22 23
 10 10
 00 0 SM4EKEY FEAT_SVE_SM4
 00 1 RAX1 FEAT_SVE_SHA3
-01 - Unallocated. -
-1x - Unallocated. -
+01 - Unallocated.
+1x - Unallocated.
 #SVE floating-point convert precision odd elements -
 2 10
 22 23
 16 17
-x0 11 Unallocated. -
-00 0x Unallocated. -
+x0 11 Unallocated.
+00 0x Unallocated.
 00 10 FCVTXNT -
-01 - Unallocated. -
+01 - Unallocated.
 10 00 FCVTNT - Encoding -
 10 01 FCVTLT - Encoding -
 10 10 BFCVTNT FEAT_BF16
-11 0x Unallocated. -
+11 0x Unallocated.
 11 10 FCVTNT - Encoding -
 11 11 FCVTLT - Encoding -
 #SVE2 floating-point pairwise operations -
@@ -3518,7 +3561,7 @@ x0 11 Unallocated. -
 10 11
 0 00 FDOT (indexed) FEAT_SME2
 1 00 BFDOT (indexed) FEAT_BF16
-1 10 Unallocated. -
+1 10 Unallocated.
 #SVE floating-point multiply-add long (indexed)
 3 8
 22 22
@@ -3543,9 +3586,9 @@ x0 11 Unallocated. -
 13 13
 10 10
 0 0 0 FDOT (vectors) FEAT_SME2
-0 1 1 Unallocated. -
+0 1 1 Unallocated.
 1 0 0 BFDOT (vectors) FEAT_BF16
-1 1 - Unallocated. -
+1 1 - Unallocated.
 #SVE floating-point multiply-add long
 3 8
 22 22
@@ -3562,7 +3605,7 @@ x0 11 Unallocated. -
 #SVE floating point matrix multiply accumulate -
 1 4
 22 23
-00 Unallocated. -
+00 Unallocated.
 01 BFMMLA FEAT_BF16
 10 FMMLA - Encoding FEAT_F32MM
 11 FMMLA - Encoding FEAT_F64MM
@@ -3650,10 +3693,10 @@ x0 11 Unallocated. -
 2 11
 22 23
 16 17
-x0 11 Unallocated. -
-00 0x Unallocated. -
+x0 11 Unallocated.
+00 0x Unallocated.
 00 10 FCVTX -
-01 - Unallocated. -
+01 - Unallocated.
 10 00 FCVT - Encoding -
 10 01 FCVT - Encoding -
 10 10 BFCVT FEAT_BF16
@@ -3983,7 +4026,7 @@ x0 11 Unallocated. -
 2 9
 23 24
 21 22
-- 1x Unallocated. -
+- 1x Unallocated.
 00 00 LD1RQB (scalar plus immediate) -
 00 01 LD1ROB (scalar plus immediate) FEAT_F64MM
 01 00 LD1RQH (scalar plus immediate) -
@@ -4034,7 +4077,7 @@ x0 11 Unallocated. -
 2 9
 23 24
 21 22
-- 1x Unallocated. -
+- 1x Unallocated.
 00 00 LD1RQB (scalar plus scalar) -
 00 01 LD1ROB (scalar plus scalar) FEAT_F64MM
 01 00 LD1RQH (scalar plus scalar) -
@@ -4237,6 +4280,15 @@ x0 11 Unallocated. -
 110 1 - STR (vector)
 111 0 - Unallocated.
 !=110 1 - SVE contiguous store (scalar plus scalar)
+#SVE contiguous store (scalar plus scalar)
+2 5
+22 24
+21 21
+00x - ST1B (scalar plus scalar, single register)
+01x - ST1H (scalar plus scalar, single register)
+101 - ST1W (scalar plus scalar, single register)
+111 0 Unallocated.
+111 1 ST1D (scalar plus scalar, single register)
 #SVE Memory - Non-temporal and Quadword Scatter Store -
 2 5
 22 24
@@ -4359,7 +4411,7 @@ x0 11 Unallocated. -
 10 STNT1W (scalar plus immediate, single register)
 11 STNT1D (scalar plus immediate, single register)
 #SVE store multiple structures (scalar plus immediate)
-1 12
+2 12
 23 24
 21 22
 00 01 ST2B (scalar plus immediate)
@@ -4418,9 +4470,9 @@ x0 11 Unallocated. -
 30 30
 29 29
 22 22
-- - - 1 Unallocated. -
-0 - - 0 Unallocated. -
-1 - 1 0 Unallocated. -
+- - - 1 Unallocated.
+0 - - 0 Unallocated.
+1 - 1 0 Unallocated.
 1 0 0 0 ADDG FEAT_MTE
 1 1 0 0 SUBG FEAT_MTE
 #Logical (immediate)
@@ -4503,44 +4555,44 @@ x01 1xxxxxxxxxxxxx - Test and branch (immediate)
 4 4
 0 0 B.cond -
 0 1 BC.cond FEAT_HBC
-1 - Unallocated. -
+1 - Unallocated.
 #Exception generation
 3 23
 21 23
 2 4
 0 1
-- 001 - Unallocated. -
-- 01x - Unallocated. -
-- 1xx - Unallocated. -
-000 000 00 Unallocated. -
+- 001 - Unallocated.
+- 01x - Unallocated.
+- 1xx - Unallocated.
+000 000 00 Unallocated.
 000 000 01 SVC -
 000 000 10 HVC -
 000 000 11 SMC -
-001 000 x1 Unallocated. -
+001 000 x1 Unallocated.
 001 000 00 BRK -
-001 000 1x Unallocated. -
-010 000 x1 Unallocated. -
+001 000 1x Unallocated.
+010 000 x1 Unallocated.
 010 000 00 HLT -
-010 000 1x Unallocated. -
+010 000 1x Unallocated.
 011 000 00 TCANCEL FEAT_TME
-011 000 01 Unallocated. -
-011 000 1x Unallocated. -
-100 000 - Unallocated. -
-101 000 00 Unallocated. -
+011 000 01 Unallocated.
+011 000 1x Unallocated.
+100 000 - Unallocated.
+101 000 00 Unallocated.
 101 000 01 DCPS1 -
 101 000 10 DCPS2 -
 101 000 11 DCPS3 -
-110 000 - Unallocated. -
-111 000 - Unallocated. -
+110 000 - Unallocated.
+111 000 - Unallocated.
 #System instructions with register argument
 2 5
 8 11
 5 7
-!=0000 - Unallocated. -
+!=0000 - Unallocated.
 0000 000 WFET FEAT_WFxT
 0000 001 WFIT FEAT_WFxT
-0000 01x Unallocated. -
-0000 1xx Unallocated. -
+0000 01x Unallocated.
+0000 1xx Unallocated.
 #Hints
 2 26
 8 11
@@ -4576,28 +4628,28 @@ x01 1xxxxxxxxxxxxx - Test and branch (immediate)
 8 11
 5 7
 0 4
-- 000 - Unallocated. -
-- 001 !=11111 Unallocated. -
+- 000 - Unallocated.
+- 001 !=11111 Unallocated.
 - 010 11111 CLREX -
 - 100 11111 DSB - Encoding -
 - 101 11111 DMB -
 - 110 11111 ISB -
-- 111 !=11111 Unallocated. -
+- 111 !=11111 Unallocated.
 - 111 11111 SB FEAT_SB
-xx0x 001 11111 Unallocated. -
+xx0x 001 11111 Unallocated.
 xx10 001 11111 DSB - Encoding FEAT_XS
-xx11 001 11111 Unallocated. -
+xx11 001 11111 Unallocated.
 0000 011 11111 TCOMMIT FEAT_TME
-0001 011 - Unallocated. -
-001x 011 - Unallocated. -
-01xx 011 - Unallocated. -
-1xxx 011 - Unallocated. -
+0001 011 - Unallocated.
+001x 011 - Unallocated.
+01xx 011 - Unallocated.
+1xxx 011 - Unallocated.
 #PSTATE
 3 5
 16 18
 5 7
 0 4
-- - !=11111 Unallocated. -
+- - !=11111 Unallocated.
 - - 11111 MSR (immediate) -
 000 000 11111 CFINV FEAT_FlagM
 000 001 11111 XAFLAG FEAT_FlagM2
@@ -4608,10 +4660,10 @@ xx11 001 11111 Unallocated. -
 15 22
 8 11
 0 4
-!=011 - - - Unallocated. -
-011 !=0011 - - Unallocated. -
-011 0011 - !=011 Unallocated. -
-011 0011 !=000x 011 Unallocated. -
+!=011 - - - Unallocated.
+011 !=0011 - - Unallocated.
+011 0011 - !=011 Unallocated.
+011 0011 !=000x 011 Unallocated.
 011 0011 0000 011 TSTART FEAT_TME
 011 0011 0001 011 TTEST FEAT_TME
 #System instructions
@@ -4631,62 +4683,62 @@ xx11 001 11111 Unallocated. -
 10 15
 5 9
 0 4
-- !=11111 - - - Unallocated. -
-0000 11111 000000 - !=00000 Unallocated. -
+- !=11111 - - - Unallocated.
+0000 11111 000000 - !=00000 Unallocated.
 0000 11111 000000 - 00000 BR -
-0000 11111 000001 - - Unallocated. -
-0000 11111 000010 - !=11111 Unallocated. -
+0000 11111 000001 - - Unallocated.
+0000 11111 000010 - !=11111 Unallocated.
 0000 11111 000010 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key A, zero modifier variant FEAT_PAuth
-0000 11111 000011 - !=11111 Unallocated. -
+0000 11111 000011 - !=11111 Unallocated.
 0000 11111 000011 - 11111 BRAA, BRAAZ, BRAB, BRABZ - Key B, zero modifier variant FEAT_PAuth
-0000 11111 0001xx - - Unallocated. -
-0000 11111 001xxx - - Unallocated. -
-0000 11111 01xxxx - - Unallocated. -
-0000 11111 1xxxxx - - Unallocated. -
-0001 11111 000000 - !=00000 Unallocated. -
+0000 11111 0001xx - - Unallocated.
+0000 11111 001xxx - - Unallocated.
+0000 11111 01xxxx - - Unallocated.
+0000 11111 1xxxxx - - Unallocated.
+0001 11111 000000 - !=00000 Unallocated.
 0001 11111 000000 - 00000 BLR -
-0001 11111 000001 - - Unallocated. -
-0001 11111 000010 - !=11111 Unallocated. -
+0001 11111 000001 - - Unallocated.
+0001 11111 000010 - !=11111 Unallocated.
 0001 11111 000010 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, zero modifier variant FEAT_PAuth
-0001 11111 000011 - !=11111 Unallocated. -
+0001 11111 000011 - !=11111 Unallocated.
 0001 11111 000011 - 11111 BLRAA, BLRAAZ, BLRAB, BLRABZ - Key B, zero modifier variant FEAT_PAuth
-0001 11111 0001xx - - Unallocated. -
-0001 11111 001xxx - - Unallocated. -
-0001 11111 01xxxx - - Unallocated. -
-0001 11111 1xxxxx - - Unallocated. -
-0010 11111 000000 - !=00000 Unallocated. -
+0001 11111 0001xx - - Unallocated.
+0001 11111 001xxx - - Unallocated.
+0001 11111 01xxxx - - Unallocated.
+0001 11111 1xxxxx - - Unallocated.
+0010 11111 000000 - !=00000 Unallocated.
 0010 11111 000000 - 00000 RET -
-0010 11111 000001 - - Unallocated. -
-0010 11111 000010 !=11111 !=11111 Unallocated. -
-0010 11111 000010 !=11111 11111 Unallocated. -
-0010 11111 000010 11111 !=11111 Unallocated. -
+0010 11111 000001 - - Unallocated.
+0010 11111 000010 !=11111 !=11111 Unallocated.
+0010 11111 000010 !=11111 11111 Unallocated.
+0010 11111 000010 11111 !=11111 Unallocated.
 0010 11111 000010 11111 11111 RETAA, RETAB - RETAA variant FEAT_PAuth
-0010 11111 000011 !=11111 !=11111 Unallocated. -
-0010 11111 000011 !=11111 11111 Unallocated. -
-0010 11111 000011 11111 !=11111 Unallocated. -
+0010 11111 000011 !=11111 !=11111 Unallocated.
+0010 11111 000011 !=11111 11111 Unallocated.
+0010 11111 000011 11111 !=11111 Unallocated.
 0010 11111 000011 11111 11111 RETAA, RETAB - RETAB variant FEAT_PAuth
-0010 11111 0001xx - - Unallocated. -
-0010 11111 001xxx - - Unallocated. -
-0010 11111 01xxxx - - Unallocated. -
-0010 11111 1xxxxx - - Unallocated. -
-0011 11111 - - - Unallocated. -
-0100 11111 000000 !=11111 !=00000 Unallocated. -
-0100 11111 000000 !=11111 00000 Unallocated. -
-0100 11111 000000 11111 !=00000 Unallocated. -
+0010 11111 0001xx - - Unallocated.
+0010 11111 001xxx - - Unallocated.
+0010 11111 01xxxx - - Unallocated.
+0010 11111 1xxxxx - - Unallocated.
+0011 11111 - - - Unallocated.
+0100 11111 000000 !=11111 !=00000 Unallocated.
+0100 11111 000000 !=11111 00000 Unallocated.
+0100 11111 000000 11111 !=00000 Unallocated.
 0100 11111 000000 11111 00000 ERET -
-0100 11111 000001 - - Unallocated. -
-0100 11111 000010 !=11111 !=11111 Unallocated. -
-0100 11111 000010 !=11111 11111 Unallocated. -
-0100 11111 000010 11111 !=11111 Unallocated. -
+0100 11111 000001 - - Unallocated.
+0100 11111 000010 !=11111 !=11111 Unallocated.
+0100 11111 000010 !=11111 11111 Unallocated.
+0100 11111 000010 11111 !=11111 Unallocated.
 0100 11111 000010 11111 11111 ERETAA, ERETAB - ERETAA variant FEAT_PAuth
-0100 11111 000011 !=11111 !=11111 Unallocated. -
-0100 11111 000011 !=11111 11111 Unallocated. -
-0100 11111 000011 11111 !=11111 Unallocated. -
+0100 11111 000011 !=11111 !=11111 Unallocated.
+0100 11111 000011 !=11111 11111 Unallocated.
+0100 11111 000011 11111 !=11111 Unallocated.
 0100 11111 000011 11111 11111 ERETAA, ERETAB - ERETAB variant FEAT_PAuth
-0100 11111 0001xx - - Unallocated. -
-0100 11111 001xxx - - Unallocated. -
-0100 11111 01xxxx - - Unallocated. -
-0100 11111 1xxxxx - - Unallocated. -
+0100 11111 0001xx - - Unallocated.
+0100 11111 001xxx - - Unallocated.
+0100 11111 01xxxx - - Unallocated.
+0100 11111 1xxxxx - - Unallocated.
 #Unconditional branch (immediate)
 1 2
 31 31
@@ -4750,7 +4802,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 22 22
 15 15
 10 14
-- - - !=11111 Unallocated. -
+- - - !=11111 Unallocated.
 0 0 0 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASP variant FEAT_LSE
 0 0 1 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASPL variant FEAT_LSE
 0 1 0 11111 CASP, CASPA, CASPAL, CASPL - 32-bit CASPA variant FEAT_LSE
@@ -5043,12 +5095,12 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 10 - 01 ST2G - Encoding FEAT_MTE
 10 - 10 ST2G - Encoding FEAT_MTE
 10 - 11 ST2G - Encoding FEAT_MTE
-10 !=000000000 00 Unallocated. -
+10 !=000000000 00 Unallocated.
 10 000000000 00 STGM FEAT_MTE2
 11 - 01 STZ2G - Encoding FEAT_MTE
 11 - 10 STZ2G - Encoding FEAT_MTE
 11 - 11 STZ2G - Encoding FEAT_MTE
-11 !=000000000 00 Unallocated. -
+11 !=000000000 00 Unallocated.
 11 000000000 00 LDGM FEAT_MTE2
 #Load/store exclusive pair
 3 8
@@ -5111,7 +5163,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 22 22
 15 15
 10 14
-- - - !=11111 Unallocated. -
+- - - !=11111 Unallocated.
 00 0 0 11111 CASB, CASAB, CASALB, CASLB - CASB variant FEAT_LSE
 00 0 1 11111 CASB, CASAB, CASALB, CASLB - CASLB variant FEAT_LSE
 00 1 0 11111 CASB, CASAB, CASALB, CASLB - CASAB variant FEAT_LSE
@@ -5143,11 +5195,11 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 10 00 STLUR - 32-bit variant FEAT_LRCPC2
 10 01 LDAPUR - 32-bit variant FEAT_LRCPC2
 10 10 LDAPURSW FEAT_LRCPC2
-10 11 Unallocated. -
+10 11 Unallocated.
 11 00 STLUR - 64-bit variant FEAT_LRCPC2
 11 01 LDAPUR - 64-bit variant FEAT_LRCPC2
-11 10 Unallocated. -
-11 11 Unallocated. -
+11 10 Unallocated.
+11 11 Unallocated.
 #Load register (literal)
 2 8
 30 31
@@ -5225,7 +5277,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 0 11 1001 SETPT, SETMT, SETET - Epilogue variant FEAT_MOPS
 0 11 1010 SETPN, SETMN, SETEN - Epilogue variant FEAT_MOPS
 0 11 1011 SETPTN, SETMTN, SETETN - Epilogue variant FEAT_MOPS
-0 11 11xx Unallocated. -
+0 11 11xx Unallocated.
 1 00 0000 CPYP, CPYM, CPYE - Prologue variant FEAT_MOPS
 1 00 0001 CPYPWT, CPYMWT, CPYEWT - Prologue variant FEAT_MOPS
 1 00 0010 CPYPRT, CPYMRT, CPYERT - Prologue variant FEAT_MOPS
@@ -5286,7 +5338,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 1 11 1001 SETGPT, SETGMT, SETGET - Epilogue variant FEAT_MOPS
 1 11 1010 SETGPN, SETGMN, SETGEN - Epilogue variant FEAT_MOPS
 1 11 1011 SETGPTN, SETGMTN, SETGETN - Epilogue variant FEAT_MOPS
-1 11 11xx Unallocated. -
+1 11 11xx Unallocated.
 #Load/store no-allocate pair (offset)
 3 12
 30 31
@@ -5321,7 +5373,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 10 0 1 LDP - 64-bit variant -
 10 1 0 STP (SIMD&FP) - 128-bit variant -
 10 1 1 LDP (SIMD&FP) - 128-bit variant -
-11 - - Unallocated. -
+11 - - Unallocated.
 #Load/store register pair (offset)
 3 13
 30 31
@@ -5339,7 +5391,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 10 0 1 LDP - 64-bit variant -
 10 1 0 STP (SIMD&FP) - 128-bit variant -
 10 1 1 LDP (SIMD&FP) - 128-bit variant -
-11 - - Unallocated. -
+11 - - Unallocated.
 #Load/store register pair (pre-indexed)
 3 13
 30 31
@@ -5357,7 +5409,7 @@ xx11 - 1x - - Load/store register (unsigned immediate)
 10 0 1 LDP - 64-bit variant -
 10 1 0 STP (SIMD&FP) - 128-bit variant -
 10 1 1 LDP (SIMD&FP) - 128-bit variant -
-11 - - Unallocated. -
+11 - - Unallocated.
 #Load/store register (unscaled immediate)
 3 27
 30 31
@@ -5484,22 +5536,22 @@ x1 1 1x Unallocated.
 16 20
 15 15
 12 14
-- 0 - - - 1 11x Unallocated. -
-- 0 0 - - 1 100 Unallocated. -
-- 0 0 1 - 1 001 Unallocated. -
-- 0 0 1 - 1 010 Unallocated. -
-- 0 0 1 - 1 011 Unallocated. -
-- 0 0 1 - 1 101 Unallocated. -
-- 0 1 0 - 1 001 Unallocated. -
-- 0 1 0 - 1 010 Unallocated. -
-- 0 1 0 - 1 011 Unallocated. -
-- 0 1 0 - 1 101 Unallocated. -
-- 0 1 1 - 1 001 Unallocated. -
-- 0 1 1 - 1 010 Unallocated. -
-- 0 1 1 - 1 011 Unallocated. -
-- 0 1 1 - 1 100 Unallocated. -
-- 0 0 1 - 1 101 Unallocated. -
-- 1 - - - - - Unallocated. -
+- 0 - - - 1 11x Unallocated.
+- 0 0 - - 1 100 Unallocated.
+- 0 0 1 - 1 001 Unallocated.
+- 0 0 1 - 1 010 Unallocated.
+- 0 0 1 - 1 011 Unallocated.
+- 0 0 1 - 1 101 Unallocated.
+- 0 1 0 - 1 001 Unallocated.
+- 0 1 0 - 1 010 Unallocated.
+- 0 1 0 - 1 011 Unallocated.
+- 0 1 0 - 1 101 Unallocated.
+- 0 1 1 - 1 001 Unallocated.
+- 0 1 1 - 1 010 Unallocated.
+- 0 1 1 - 1 011 Unallocated.
+- 0 1 1 - 1 100 Unallocated.
+- 0 0 1 - 1 101 Unallocated.
+- 1 - - - - - Unallocated.
 00 0 0 0 - 0 000 LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDB variant FEAT_LSE
 00 0 0 0 - 0 001 LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRB variant FEAT_LSE
 00 0 0 0 - 0 010 LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORB variant FEAT_LSE
@@ -5509,10 +5561,10 @@ x1 1 1x Unallocated.
 00 0 0 0 - 0 110 LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXB variant FEAT_LSE
 00 0 0 0 - 0 111 LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINB variant FEAT_LSE
 00 0 0 0 - 1 000 SWPB, SWPAB, SWPALB, SWPLB - SWPB variant FEAT_LSE
-00 0 0 0 - 1 001 Unallocated. -
-00 0 0 0 - 1 010 Unallocated. -
-00 0 0 0 - 1 011 Unallocated. -
-00 0 0 0 - 1 101 Unallocated. -
+00 0 0 0 - 1 001 Unallocated.
+00 0 0 0 - 1 010 Unallocated.
+00 0 0 0 - 1 011 Unallocated.
+00 0 0 0 - 1 101 Unallocated.
 00 0 0 1 - 0 000 LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDLB variant FEAT_LSE
 00 0 0 1 - 0 001 LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRLB variant FEAT_LSE
 00 0 0 1 - 0 010 LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORLB variant FEAT_LSE
@@ -5550,10 +5602,10 @@ x1 1 1x Unallocated.
 01 0 0 0 - 0 110 LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXH variant FEAT_LSE
 01 0 0 0 - 0 111 LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINH variant FEAT_LSE
 01 0 0 0 - 1 000 SWPH, SWPAH, SWPALH, SWPLH - SWPH variant FEAT_LSE
-01 0 0 0 - 1 001 Unallocated. -
-01 0 0 0 - 1 010 Unallocated. -
-01 0 0 0 - 1 011 Unallocated. -
-01 0 0 0 - 1 101 Unallocated. -
+01 0 0 0 - 1 001 Unallocated.
+01 0 0 0 - 1 010 Unallocated.
+01 0 0 0 - 1 011 Unallocated.
+01 0 0 0 - 1 101 Unallocated.
 01 0 0 1 - 0 000 LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDLH variant FEAT_LSE
 01 0 0 1 - 0 001 LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRLH variant FEAT_LSE
 01 0 0 1 - 0 010 LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORLH variant FEAT_LSE
@@ -5591,10 +5643,10 @@ x1 1 1x Unallocated.
 10 0 0 0 - 0 110 LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAX variant FEAT_LSE
 10 0 0 0 - 0 111 LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMIN variant FEAT_LSE
 10 0 0 0 - 1 000 SWP, SWPA, SWPAL, SWPL - 32-bit SWP variant FEAT_LSE
-10 0 0 0 - 1 001 Unallocated. -
-10 0 0 0 - 1 010 Unallocated. -
-10 0 0 0 - 1 011 Unallocated. -
-10 0 0 0 - 1 101 Unallocated. -
+10 0 0 0 - 1 001 Unallocated.
+10 0 0 0 - 1 010 Unallocated.
+10 0 0 0 - 1 011 Unallocated.
+10 0 0 0 - 1 101 Unallocated.
 10 0 0 1 - 0 000 LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDL variant FEAT_LSE
 10 0 0 1 - 0 001 LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRL variant FEAT_LSE
 10 0 0 1 - 0 010 LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORL variant FEAT_LSE
@@ -5709,12 +5761,12 @@ x1 1 1x - Unallocated.
 26 26
 23 23
 11 11
-!=11 - - - Unallocated. -
+!=11 - - - Unallocated.
 11 0 0 0 LDRAA, LDRAB - Key A, offset variant FEAT_PAuth
 11 0 0 1 LDRAA, LDRAB - Key A, pre-indexed variant FEAT_PAuth
 11 0 1 0 LDRAA, LDRAB - Key B, offset variant FEAT_PAuth
 11 0 1 1 LDRAA, LDRAB - Key B, pre-indexed variant FEAT_PAuth
-11 1 - - Unallocated. -
+11 1 - - Unallocated.
 #Load/store register (unsigned immediate)
 3 27
 30 31
@@ -5770,26 +5822,26 @@ x1 1 1x Unallocated.
 31 31
 29 29
 10 15
-- - 000001 Unallocated. -
-- - 011xxx Unallocated. -
-- - 1xxxxx Unallocated. -
-- 0 00011x Unallocated. -
-- 0 001101 Unallocated. -
-- 0 00111x Unallocated. -
-- 1 00001x Unallocated. -
-- 1 0001xx Unallocated. -
-- 1 001xxx Unallocated. -
-- 1 01xxxx Unallocated. -
-0 - 000000 Unallocated. -
+- - 000001 Unallocated.
+- - 011xxx Unallocated.
+- - 1xxxxx Unallocated.
+- 0 00011x Unallocated.
+- 0 001101 Unallocated.
+- 0 00111x Unallocated.
+- 1 00001x Unallocated.
+- 1 0001xx Unallocated.
+- 1 001xxx Unallocated.
+- 1 01xxxx Unallocated.
+0 - 000000 Unallocated.
 0 0 000010 UDIV - 32-bit variant -
 0 0 000011 SDIV - 32-bit variant -
-0 0 00010x Unallocated. -
+0 0 00010x Unallocated.
 0 0 001000 LSLV - 32-bit variant -
 0 0 001001 LSRV - 32-bit variant -
 0 0 001010 ASRV - 32-bit variant -
 0 0 001011 RORV - 32-bit variant -
-0 0 001100 Unallocated. -
-0 0 010x11 Unallocated. -
+0 0 001100 Unallocated.
+0 0 010x11 Unallocated.
 0 0 010000 CRC32B, CRC32H, CRC32W, CRC32X - CRC32B variant FEAT_CRC32
 0 0 010001 CRC32B, CRC32H, CRC32W, CRC32X - CRC32H variant FEAT_CRC32
 0 0 010010 CRC32B, CRC32H, CRC32W, CRC32X - CRC32W variant FEAT_CRC32
@@ -5806,8 +5858,8 @@ x1 1 1x Unallocated.
 1 0 001010 ASRV - 64-bit variant -
 1 0 001011 RORV - 64-bit variant -
 1 0 001100 PACGA FEAT_PAuth
-1 0 010xx0 Unallocated. -
-1 0 010x0x Unallocated. -
+1 0 010xx0 Unallocated.
+1 0 010x0x Unallocated.
 1 0 010011 CRC32B, CRC32H, CRC32W, CRC32X - CRC32X variant FEAT_CRC32
 1 0 010111 CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CX variant FEAT_CRC32
 1 1 000000 SUBPS FEAT_MTE
@@ -5818,20 +5870,20 @@ x1 1 1x Unallocated.
 16 20
 10 15
 5 9
-- - - 1xxxxx - Unallocated. -
-- - xxx1x - - Unallocated. -
-- - xx1xx - - Unallocated. -
-- - x1xxx - - Unallocated. -
-- - 1xxxx - - Unallocated. -
-- 0 00000 00011x - Unallocated. -
-- 0 00000 001xxx - Unallocated. -
-- 0 00000 01xxxx - Unallocated. -
-- 1 - - - Unallocated. -
-0 - 00001 - - Unallocated. - 
+- - - 1xxxxx - Unallocated.
+- - xxx1x - - Unallocated.
+- - xx1xx - - Unallocated.
+- - x1xxx - - Unallocated.
+- - 1xxxx - - Unallocated.
+- 0 00000 00011x - Unallocated.
+- 0 00000 001xxx - Unallocated.
+- 0 00000 01xxxx - Unallocated.
+- 1 - - - Unallocated.
+0 - 00001 - - Unallocated. 
 0 0 00000 000000 - RBIT - 32-bit variant -
 0 0 00000 000001 - REV16 - 32-bit variant -
 0 0 00000 000010 - REV - 32-bit variant -
-0 0 00000 000011 - Unallocated. -
+0 0 00000 000011 - Unallocated.
 0 0 00000 000100 - CLZ - 32-bit variant -
 0 0 00000 000101 - CLS - 32-bit variant -
 1 0 00000 000000 - RBIT - 64-bit variant -
@@ -5858,9 +5910,9 @@ x1 1 1x Unallocated.
 1 0 00001 001111 11111 AUTDB, AUTDZB - AUTDZB variant FEAT_PAuth
 1 0 00001 010000 11111 XPACD, XPACI, XPACLRI - XPACI variant FEAT_PAuth
 1 0 00001 010001 11111 XPACD, XPACI, XPACLRI - XPACD variant FEAT_PAuth
-1 0 00001 01001x - Unallocated. -
-1 0 00001 0101xx - Unallocated. -
-1 0 00001 011xxx - Unallocated. -
+1 0 00001 01001x - Unallocated.
+1 0 00001 0101xx - Unallocated.
+1 0 00001 011xxx - Unallocated.
 #Logical (shifted register)
 4 17
 31 31
@@ -5939,11 +5991,11 @@ x1 1 1x Unallocated.
 30 30
 29 29
 4 4
-0 - - - Unallocated. -
-1 0 0 - Unallocated. -
+0 - - - Unallocated.
+1 0 0 - Unallocated.
 1 0 1 0 RMIF FEAT_FlagM
-1 0 1 1 Unallocated. -
-1 1 - - Unallocated. -
+1 0 1 1 Unallocated.
+1 1 - - Unallocated.
 #Evaluate into flags
 7 8
 31 31
@@ -5951,17 +6003,16 @@ x1 1 1x Unallocated.
 29 29
 15 20
 14 14
-5 9
 4 4
 0 3
-0 0 0 - - - - Unallocated. -
-0 0 1 !=000000 - - - Unallocated. -
-0 0 1 000000 - 0 !=1101 Unallocated. -
-0 0 1 000000 - 1 - Unallocated. -
+0 0 0 - - - - Unallocated.
+0 0 1 !=000000 - - - Unallocated.
+0 0 1 000000 - 0 !=1101 Unallocated.
+0 0 1 000000 - 1 - Unallocated.
 0 0 1 000000 0 0 1101 SETF8, SETF16 - SETF8 variant FEAT_FlagM
 0 0 1 000000 1 0 1101 SETF8, SETF16 - SETF16 variant FEAT_FlagM
-0 1 - - - - - Unallocated. -
-1 - - - - - - Unallocated. -
+0 1 - - - - - Unallocated.
+1 - - - - - - Unallocated.
 #Conditional compare (register)
 5 7
 31 31
@@ -6041,59 +6092,59 @@ x1 1 1x Unallocated.
 23 24
 19 22
 10 18
-0000 0x x101 00xxxxx10 Unallocated. -
-0010 0x x101 00xxxxx10 Unallocated. -
+0000 0x x101 00xxxxx10 Unallocated.
+0010 0x x101 00xxxxx10 Unallocated.
 0100 0x x101 00xxxxx10 Cryptographic AES -
 0101 0x x0xx xxx0xxx00 Cryptographic three-register SHA -
-0101 0x x0xx xxx0xxx10 Unallocated. -
+0101 0x x0xx xxx0xxx10 Unallocated.
 0101 0x x101 00xxxxx10 Cryptographic two-register SHA -
-0110 0x x101 00xxxxx10 Unallocated. -
-0111 0x x0xx xxx0xxxx0 Unallocated. -
-0111 0x x101 00xxxxx10 Unallocated. -
+0110 0x x101 00xxxxx10 Unallocated.
+0111 0x x0xx xxx0xxxx0 Unallocated.
+0111 0x x101 00xxxxx10 Unallocated.
 01x1 00 00xx xxx0xxxx1 Advanced SIMD scalar copy -
-01x1 01 00xx xxx0xxxx1 Unallocated. -
-01x1 0x 0111 00xxxxx10 Unallocated. -
+01x1 01 00xx xxx0xxxx1 Unallocated.
+01x1 0x 0111 00xxxxx10 Unallocated.
 01x1 0x 10xx xxx00xxx1 Advanced SIMD scalar three same FP16 -
-01x1 0x 10xx xxx01xxx1 Unallocated. -
+01x1 0x 10xx xxx01xxx1 Unallocated.
 01x1 0x 1111 00xxxxx10 Advanced SIMD scalar two-register miscellaneous FP16 -
-01x1 0x x0xx xxx1xxxx0 Unallocated. -
+01x1 0x x0xx xxx1xxxx0 Unallocated.
 01x1 0x x0xx xxx1xxxx1 Advanced SIMD scalar three same extra -
 01x1 0x x100 00xxxxx10 Advanced SIMD scalar two-register miscellaneous -
 01x1 0x x110 00xxxxx10 Advanced SIMD scalar pairwise -
-01x1 0x x1xx 1xxxxxx10 Unallocated. -
-01x1 0x x1xx x1xxxxx10 Unallocated. -
+01x1 0x x1xx 1xxxxxx10 Unallocated.
+01x1 0x x1xx x1xxxxx10 Unallocated.
 01x1 0x x1xx xxxxxxx00 Advanced SIMD scalar three different -
 01x1 0x x1xx xxxxxxxx1 Advanced SIMD scalar three same -
 01x1 10 - xxxxxxxx1 Advanced SIMD scalar shift by immediate -
-01x1 11 - xxxxxxxx1 Unallocated. -
+01x1 11 - xxxxxxxx1 Unallocated.
 01x1 1x - xxxxxxxx0 Advanced SIMD scalar x indexed element -
 0x00 0x x0xx xxx0xxx00 Advanced SIMD table lookup -
 0x00 0x x0xx xxx0xxx10 Advanced SIMD permute -
 0x10 0x x0xx xxx0xxxx0 Advanced SIMD extract -
 0xx0 00 00xx xxx0xxxx1 Advanced SIMD copy -
-0xx0 01 00xx xxx0xxxx1 Unallocated. -
-0xx0 0x 0111 00xxxxx10 Unallocated. -
+0xx0 01 00xx xxx0xxxx1 Unallocated.
+0xx0 0x 0111 00xxxxx10 Unallocated.
 0xx0 0x 10xx xxx00xxx1 Advanced SIMD three same (FP16) -
-0xx0 0x 10xx xxx01xxx1 Unallocated. -
+0xx0 0x 10xx xxx01xxx1 Unallocated.
 0xx0 0x 1111 00xxxxx10 Advanced SIMD two-register miscellaneous (FP16) -
-0xx0 0x x0xx xxx1xxxx0 Unallocated. -
+0xx0 0x x0xx xxx1xxxx0 Unallocated.
 0xx0 0x x0xx xxx1xxxx1 Advanced SIMD three-register extension -
 0xx0 0x x100 00xxxxx10 Advanced SIMD two-register miscellaneous -
 0xx0 0x x110 00xxxxx10 Advanced SIMD across lanes -
-0xx0 0x x1xx 1xxxxxx10 Unallocated. -
-0xx0 0x x1xx x1xxxxx10 Unallocated. -
+0xx0 0x x1xx 1xxxxxx10 Unallocated.
+0xx0 0x x1xx x1xxxxx10 Unallocated.
 0xx0 0x x1xx xxxxxxx00 Advanced SIMD three different -
 0xx0 0x x1xx xxxxxxxx1 Advanced SIMD three same -
 0xx0 10 0000 xxxxxxxx1 Advanced SIMD modified immediate -
 0xx0 10 !=0000 xxxxxxxx1 Advanced SIMD shift by immediate -
-0xx0 11 - xxxxxxxx1 Unallocated. -
+0xx0 11 - xxxxxxxx1 Unallocated.
 0xx0 1x - xxxxxxxx0 Advanced SIMD vector x indexed element -
 1100 00 10xx xxx10xxxx Cryptographic three-register, imm2 -
 1100 00 11xx xxx1x00xx Cryptographic three-register SHA 512 -
 1100 00 - xxx0xxxxx Cryptographic four-register -
 1100 01 00xx - XAR FEAT_SHA3
 1100 01 1000 0001000xx Cryptographic two-register SHA 512 -
-1xx0 1x - - Unallocated. -
+1xx0 1x - - Unallocated.
 x0x1 0x x0xx - Conversion between floating-point and fixed-point -
 x0x1 0x x1xx xxx000000 Conversion between floating-point and integer -
 x0x1 0x x1xx xxxx10000 Floating-point data-processing (1 source) -
@@ -6107,21 +6158,21 @@ x0x1 1x - - Floating-point data-processing (3 source) -
 2 9
 22 23
 12 16
-- x1xxx Unallocated. -
-- 000xx Unallocated. -
-- 1xxxx Unallocated. -
-x1 - Unallocated. -
+- x1xxx Unallocated.
+- 000xx Unallocated.
+- 1xxxx Unallocated.
+x1 - Unallocated.
 00 00100 AESE FEAT_AES
 00 00101 AESD FEAT_AES
 00 00110 AESMC FEAT_AES
 00 00111 AESIMC FEAT_AES
-1x - Unallocated. -
+1x - Unallocated.
 #Cryptographic three-register SHA -
 2 10
 22 23
 12 14
-- 111 Unallocated. -
-x1 - Unallocated. -
+- 111 Unallocated.
+x1 - Unallocated.
 00 000 SHA1C FEAT_SHA1
 00 001 SHA1P FEAT_SHA1
 00 010 SHA1M FEAT_SHA1
@@ -6129,20 +6180,20 @@ x1 - Unallocated. -
 00 100 SHA256H FEAT_SHA256
 00 101 SHA256H2 FEAT_SHA256
 00 110 SHA256SU1 FEAT_SHA256
-1x - Unallocated. -
+1x - Unallocated.
 #Cryptographic two-register SHA -
 2 9
 22 23
 12 16
-- xx1xx Unallocated. -
-- x1xxx Unallocated. -
-- 1xxxx Unallocated. -
-x1 - Unallocated. -
+- xx1xx Unallocated.
+- x1xxx Unallocated.
+- 1xxxx Unallocated.
+x1 - Unallocated.
 00 00000 SHA1H FEAT_SHA1
 00 00001 SHA1SU1 FEAT_SHA1
 00 00010 SHA256SU0 FEAT_SHA256
-00 00011 Unallocated. -
-1x - Unallocated. -
+00 00011 Unallocated.
+1x - Unallocated.
 #Advanced SIMD scalar copy -
 2 6
 29 29
@@ -6158,37 +6209,37 @@ x1 - Unallocated. -
 29 29
 23 23
 11 13
-- - 110 Unallocated. -
-- 1 011 Unallocated. -
+- - 110 Unallocated.
+- 1 011 Unallocated.
 0 0 011 FMULX FEAT_FP16
 0 0 100 FCMEQ (register) FEAT_FP16
-0 0 101 Unallocated. -
+0 0 101 Unallocated.
 0 0 111 FRECPS FEAT_FP16
-0 1 100 Unallocated. -
-0 1 101 Unallocated. -
+0 1 100 Unallocated.
+0 1 101 Unallocated.
 0 1 111 FRSQRTS FEAT_FP16
-1 0 011 Unallocated. -
+1 0 011 Unallocated.
 1 0 100 FCMGE (register) FEAT_FP16
 1 0 101 FACGE FEAT_FP16
-1 0 111 Unallocated. -
+1 0 111 Unallocated.
 1 1 010 FABD FEAT_FP16
 1 1 100 FCMGT (register) FEAT_FP16
 1 1 101 FACGT FEAT_FP16
-1 1 111 Unallocated. -
+1 1 111 Unallocated.
 #Advanced SIMD scalar two-register miscellaneous FP16 -
 3 31
 29 29
 23 23
 12 16
-- - 00xxx Unallocated. -
-- - 010xx Unallocated. -
-- - 10xxx Unallocated. -
-- - 1100x Unallocated. -
-- - 11110 Unallocated. -
-- 0 011xx Unallocated. -
-- 0 11111 Unallocated. -
-- 1 01111 Unallocated. -
-- 1 11100 Unallocated. -
+- - 00xxx Unallocated.
+- - 010xx Unallocated.
+- - 10xxx Unallocated.
+- - 1100x Unallocated.
+- - 11110 Unallocated.
+- 0 011xx Unallocated.
+- 0 11111 Unallocated.
+- 1 01111 Unallocated.
+- 1 11100 Unallocated.
 0 0 11010 FCVTNS (vector) FEAT_FP16
 0 0 11011 FCVTMS (vector) FEAT_FP16
 0 0 11100 FCVTAS (vector) FEAT_FP16
@@ -6206,20 +6257,20 @@ x1 - Unallocated. -
 1 0 11101 UCVTF (vector, integer) FEAT_FP16
 1 1 01100 FCMGE (zero) FEAT_FP16
 1 1 01101 FCMLE (zero) FEAT_FP16
-1 1 01110 Unallocated. -
+1 1 01110 Unallocated.
 1 1 11010 FCVTPU (vector) FEAT_FP16
 1 1 11011 FCVTZU (vector, integer) FEAT_FP16
 1 1 11101 FRSQRTE FEAT_FP16
-1 1 11111 Unallocated. -
+1 1 11111 Unallocated.
 #Advanced SIMD scalar three same extra -
 2 7
 29 29
 11 14
-- 001x Unallocated. -
-- 01xx Unallocated. -
-- 1xxx Unallocated. -
-0 0000 Unallocated. -
-0 0001 Unallocated. -
+- 001x Unallocated.
+- 01xx Unallocated.
+- 1xxx Unallocated.
+0 0000 Unallocated.
+0 0001 Unallocated.
 1 0000 SQRDMLAH (vector) FEAT_RDM
 1 0001 SQRDMLSH (vector) FEAT_RDM
 #Advanced SIMD scalar two-register miscellaneous -
@@ -6287,21 +6338,21 @@ x1 - Unallocated. -
 29 29
 22 23
 12 16
-- - 00xxx Unallocated. -
-- - 010xx Unallocated. -
-- - 01110 Unallocated. -
-- - 10xxx Unallocated. -
-- - 1100x Unallocated. -
-- - 11010 Unallocated. -
-- - 111xx Unallocated. -
-- 1x 01101 Unallocated. -
+- - 00xxx Unallocated.
+- - 010xx Unallocated.
+- - 01110 Unallocated.
+- - 10xxx Unallocated.
+- - 1100x Unallocated.
+- - 11010 Unallocated.
+- - 111xx Unallocated.
+- 1x 01101 Unallocated.
 0 - 11011 ADDP (scalar) -
 0 0x 01100 FMAXNMP (scalar) - Encoding FEAT_FP16
 0 0x 01101 FADDP (scalar) - Encoding FEAT_FP16
 0 0x 01111 FMAXP (scalar) - Encoding FEAT_FP16
 0 1x 01100 FMINNMP (scalar) - Encoding FEAT_FP16
 0 1x 01111 FMINP (scalar) - Encoding FEAT_FP16
-1 - 11011 Unallocated. -
+1 - 11011 Unallocated.
 1 0x 01100 FMAXNMP (scalar) - Encoding -
 1 0x 01101 FADDP (scalar) - Encoding -
 1 0x 01111 FMAXP (scalar) - Encoding -
@@ -6443,39 +6494,39 @@ x1 - Unallocated. -
 29 29
 22 23
 12 15
-- - 0000 Unallocated. -
-- - 0010 Unallocated. -
-- - 0100 Unallocated. -
-- - 0110 Unallocated. -
-- - 1000 Unallocated. -
-- - 1010 Unallocated. -
-- - 1110 Unallocated. -
-- 01 0001 Unallocated. -
-- 01 0101 Unallocated. -
-- 01 1001 Unallocated. -
+- - 0000 Unallocated.
+- - 0010 Unallocated.
+- - 0100 Unallocated.
+- - 0110 Unallocated.
+- - 1000 Unallocated.
+- - 1010 Unallocated.
+- - 1110 Unallocated.
+- 01 0001 Unallocated.
+- 01 0101 Unallocated.
+- 01 1001 Unallocated.
 0 - 0011 SQDMLAL, SQDMLAL2 (by element) -
 0 - 0111 SQDMLSL, SQDMLSL2 (by element) -
 0 - 1011 SQDMULL, SQDMULL2 (by element) -
 0 - 1100 SQDMULH (by element) -
 0 - 1101 SQRDMULH (by element) -
-0 - 1111 Unallocated. -
+0 - 1111 Unallocated.
 0 00 0001 FMLA (by element) - Encoding FEAT_FP16
 0 00 0101 FMLS (by element) - Encoding FEAT_FP16
 0 00 1001 FMUL (by element) - Encoding FEAT_FP16
 0 1x 0001 FMLA (by element) - Encoding -
 0 1x 0101 FMLS (by element) - Encoding -
 0 1x 1001 FMUL (by element) - Encoding -
-1 - 0011 Unallocated. -
-1 - 0111 Unallocated. -
-1 - 1011 Unallocated. -
-1 - 1100 Unallocated. -
+1 - 0011 Unallocated.
+1 - 0111 Unallocated.
+1 - 1011 Unallocated.
+1 - 1100 Unallocated.
 1 - 1101 SQRDMLAH (by element) FEAT_RDM
 1 - 1111 SQRDMLSH (by element) FEAT_RDM
-1 00 0001 Unallocated. -
-1 00 0101 Unallocated. -
+1 00 0001 Unallocated.
+1 00 0101 Unallocated.
 1 00 1001 FMULX (by element) - Encoding FEAT_FP16
-1 1x 0001 Unallocated. -
-1 1x 0101 Unallocated. -
+1 1x 0001 Unallocated.
+1 1x 0101 Unallocated.
 1 1x 1001 FMULX (by element) - Encoding -
 #Advanced SIMD table lookup -
 3 10
@@ -6540,19 +6591,19 @@ x1 Unallocated.
 0 0 010 FADD (vector) FEAT_FP16
 0 0 011 FMULX FEAT_FP16
 0 0 100 FCMEQ (register) FEAT_FP16
-0 0 101 Unallocated. -
+0 0 101 Unallocated.
 0 0 110 FMAX (vector) FEAT_FP16
 0 0 111 FRECPS FEAT_FP16
 0 1 000 FMINNM (vector) FEAT_FP16
 0 1 001 FMLS (vector) FEAT_FP16
 0 1 010 FSUB (vector) FEAT_FP16
-0 1 011 Unallocated. -
-0 1 100 Unallocated. -
-0 1 101 Unallocated. -
+0 1 011 Unallocated.
+0 1 100 Unallocated.
+0 1 101 Unallocated.
 0 1 110 FMIN (vector) FEAT_FP16
 0 1 111 FRSQRTS FEAT_FP16
 1 0 000 FMAXNMP (vector) FEAT_FP16
-1 0 001 Unallocated. -
+1 0 001 Unallocated.
 1 0 010 FADDP (vector) FEAT_FP16
 1 0 011 FMUL (vector) FEAT_FP16
 1 0 100 FCMGE (register) FEAT_FP16
@@ -6560,25 +6611,25 @@ x1 Unallocated.
 1 0 110 FMAXP (vector) FEAT_FP16
 1 0 111 FDIV (vector) FEAT_FP16
 1 1 000 FMINNMP (vector) FEAT_FP16
-1 1 001 Unallocated. -
+1 1 001 Unallocated.
 1 1 010 FABD FEAT_FP16
-1 1 011 Unallocated. -
+1 1 011 Unallocated.
 1 1 100 FCMGT (register) FEAT_FP16
 1 1 101 FACGT FEAT_FP16
 1 1 110 FMINP (vector) FEAT_FP16
-1 1 111 Unallocated. -
+1 1 111 Unallocated.
 #Advanced SIMD two-register miscellaneous (FP16) -
 3 39
 29 29
 23 23
 12 16
-- - 00xxx Unallocated. -
-- - 010xx Unallocated. -
-- - 10xxx Unallocated. -
-- - 11110 Unallocated. -
-- 0 011xx Unallocated. -
-- 0 11111 Unallocated. -
-- 1 11100 Unallocated. -
+- - 00xxx Unallocated.
+- - 010xx Unallocated.
+- - 10xxx Unallocated.
+- - 11110 Unallocated.
+- 0 011xx Unallocated.
+- 0 11111 Unallocated.
+- 1 11100 Unallocated.
 0 0 11000 FRINTN (vector) FEAT_FP16
 0 0 11001 FRINTM (vector) FEAT_FP16
 0 0 11010 FCVTNS (vector) FEAT_FP16
@@ -6594,7 +6645,7 @@ x1 Unallocated.
 0 1 11010 FCVTPS (vector) FEAT_FP16
 0 1 11011 FCVTZS (vector, integer) FEAT_FP16
 0 1 11101 FRECPE FEAT_FP16
-0 1 11111 Unallocated. -
+0 1 11111 Unallocated.
 1 0 11000 FRINTA (vector) FEAT_FP16
 1 0 11001 FRINTX (vector) FEAT_FP16
 1 0 11010 FCVTNU (vector) FEAT_FP16
@@ -6603,9 +6654,9 @@ x1 Unallocated.
 1 0 11101 UCVTF (vector, integer) FEAT_FP16
 1 1 01100 FCMGE (zero) FEAT_FP16
 1 1 01101 FCMLE (zero) FEAT_FP16
-1 1 01110 Unallocated. -
+1 1 01110 Unallocated.
 1 1 01111 FNEG (vector) FEAT_FP16
-1 1 11000 Unallocated. -
+1 1 11000 Unallocated.
 1 1 11001 FRINTI (vector) FEAT_FP16
 1 1 11010 FCVTPU (vector) FEAT_FP16
 1 1 11011 FCVTZU (vector, integer) FEAT_FP16
@@ -6617,45 +6668,45 @@ x1 Unallocated.
 29 29
 22 23
 11 14
-- - 0x 0011 Unallocated. -
-- - 11 0011 Unallocated. -
-- 0 - 0000 Unallocated. -
-- 0 - 0001 Unallocated. -
+- - 0x 0011 Unallocated.
+- - 11 0011 Unallocated.
+- 0 - 0000 Unallocated.
+- 0 - 0001 Unallocated.
 - 0 - 0010 SDOT (vector) FEAT_DotProd
-- 0 - 1xxx Unallocated. -
+- 0 - 1xxx Unallocated.
 - 0 10 0011 USDOT (vector) FEAT_I8MM
 - 1 - 0000 SQRDMLAH (vector) FEAT_RDM
 - 1 - 0001 SQRDMLSH (vector) FEAT_RDM
 - 1 - 0010 UDOT (vector) FEAT_DotProd
 - 1 - 10xx FCMLA FEAT_FCMA
 - 1 - 11x0 FCADD FEAT_FCMA
-- 1 00 1101 Unallocated. -
-- 1 00 1111 Unallocated. -
+- 1 00 1101 Unallocated.
+- 1 00 1111 Unallocated.
 - 1 01 1111 BFDOT (vector) FEAT_BF16
-- 1 1x 1101 Unallocated. -
-- 1 10 0011 Unallocated. -
-- 1 10 1111 Unallocated. -
+- 1 1x 1101 Unallocated.
+- 1 10 0011 Unallocated.
+- 1 10 1111 Unallocated.
 - 1 11 1111 BFMLALB, BFMLALT (vector) FEAT_BF16
-0 - - 01xx Unallocated. -
-0 1 01 1101 Unallocated. -
-1 - 0x 01xx Unallocated. -
-1 - 1x 011x Unallocated. -
+0 - - 01xx Unallocated.
+0 1 01 1101 Unallocated.
+1 - 0x 01xx Unallocated.
+1 - 1x 011x Unallocated.
 1 0 10 0100 SMMLA (vector) FEAT_I8MM
 1 0 10 0101 USMMLA (vector) FEAT_I8MM
 1 1 01 1101 BFMMLA FEAT_BF16
 1 1 10 0100 UMMLA (vector) FEAT_I8MM
-1 1 10 0101 Unallocated. -
+1 1 10 0101 Unallocated.
 #Advanced SIMD two-register miscellaneous -
 3 82
 29 29
 22 23
 12 16
-- - 1000x Unallocated. -
-- - 10101 Unallocated. -
-- 0x 011xx Unallocated. -
-- 1x 10111 Unallocated. -
-- 1x 11110 Unallocated. -
-- 11 10110 Unallocated. -
+- - 1000x Unallocated.
+- - 10101 Unallocated.
+- 0x 011xx Unallocated.
+- 1x 10111 Unallocated.
+- 1x 11110 Unallocated.
+- 11 10110 Unallocated.
 0 - 00000 REV64 -
 0 - 00001 REV16 (vector) -
 0 - 00010 SADDLP -
@@ -6669,7 +6720,7 @@ x1 Unallocated.
 0 - 01010 CMLT (zero) -
 0 - 01011 ABS -
 0 - 10010 XTN, XTN2 -
-0 - 10011 Unallocated. -
+0 - 10011 Unallocated.
 0 - 10100 SQXTN, SQXTN2 -
 0 0x 10110 FCVTN, FCVTN2 -
 0 0x 10111 FCVTL, FCVTL2 -
@@ -6691,10 +6742,10 @@ x1 Unallocated.
 0 1x 11011 FCVTZS (vector, integer) -
 0 1x 11100 URECPE -
 0 1x 11101 FRECPE -
-0 1x 11111 Unallocated. -
+0 1x 11111 Unallocated.
 0 10 10110 BFCVTN, BFCVTN2 FEAT_BF16
 1 - 00000 REV32 (vector) -
-1 - 00001 Unallocated. -
+1 - 00001 Unallocated.
 1 - 00010 UADDLP -
 1 - 00011 USQADD -
 1 - 00100 CLZ (vector) -
@@ -6702,13 +6753,13 @@ x1 Unallocated.
 1 - 00111 SQNEG -
 1 - 01000 CMGE (zero) -
 1 - 01001 CMLE (zero) -
-1 - 01010 Unallocated. -
+1 - 01010 Unallocated.
 1 - 01011 NEG (vector) -
 1 - 10010 SQXTUN, SQXTUN2 -
 1 - 10011 SHLL, SHLL2 -
 1 - 10100 UQXTN, UQXTN2 -
 1 0x 10110 FCVTXN, FCVTXN2 -
-1 0x 10111 Unallocated. -
+1 0x 10111 Unallocated.
 1 0x 11000 FRINTA (vector) -
 1 0x 11001 FRINTX (vector) -
 1 0x 11010 FCVTNU (vector) -
@@ -6719,50 +6770,50 @@ x1 Unallocated.
 1 0x 11111 FRINT64X (vector) FEAT_FRINTTS
 1 00 00101 NOT -
 1 01 00101 RBIT (vector) -
-1 1x 00101 Unallocated. -
+1 1x 00101 Unallocated.
 1 1x 01100 FCMGE (zero) -
 1 1x 01101 FCMLE (zero) -
-1 1x 01110 Unallocated. -
+1 1x 01110 Unallocated.
 1 1x 01111 FNEG (vector) -
-1 1x 11000 Unallocated. -
+1 1x 11000 Unallocated.
 1 1x 11001 FRINTI (vector) -
 1 1x 11010 FCVTPU (vector) -
 1 1x 11011 FCVTZU (vector, integer) -
 1 1x 11100 URSQRTE -
 1 1x 11101 FRSQRTE -
 1 1x 11111 FSQRT (vector) -
-1 10 10110 Unallocated. -
+1 10 10110 Unallocated.
 #Advanced SIMD across lanes -
 3 30
 29 29
 22 23
 12 16
-- - 0000x Unallocated. -
-- - 00010 Unallocated. -
-- - 001xx Unallocated. -
-- - 0100x Unallocated. -
-- - 01011 Unallocated. -
-- - 01101 Unallocated. -
-- - 01110 Unallocated. -
-- - 10xxx Unallocated. -
-- - 1100x Unallocated. -
-- - 111xx Unallocated. -
+- - 0000x Unallocated.
+- - 00010 Unallocated.
+- - 001xx Unallocated.
+- - 0100x Unallocated.
+- - 01011 Unallocated.
+- - 01101 Unallocated.
+- - 01110 Unallocated.
+- - 10xxx Unallocated.
+- - 1100x Unallocated.
+- - 111xx Unallocated.
 0 - 00011 SADDLV -
 0 - 01010 SMAXV -
 0 - 11010 SMINV -
 0 - 11011 ADDV -
 0 00 01100 FMAXNMV - Encoding FEAT_FP16
 0 00 01111 FMAXV - Encoding FEAT_FP16
-0 01 01100 Unallocated. -
-0 01 01111 Unallocated. -
+0 01 01100 Unallocated.
+0 01 01111 Unallocated.
 0 10 01100 FMINNMV - Encoding FEAT_FP16
 0 10 01111 FMINV - Encoding FEAT_FP16
-0 11 01100 Unallocated. -
-0 11 01111 Unallocated. -
+0 11 01100 Unallocated.
+0 11 01111 Unallocated.
 1 - 00011 UADDLV -
 1 - 01010 UMAXV -
 1 - 11010 UMINV -
-1 - 11011 Unallocated. -
+1 - 11011 Unallocated.
 1 0x 01100 FMAXNMV - Encoding -
 1 0x 01111 FMAXV - Encoding -
 1 1x 01100 FMINNMV - Encoding -
@@ -6840,18 +6891,18 @@ x1 Unallocated.
 0 00 00011 AND (vector) -
 0 00 11101 FMLAL, FMLAL2 (vector) - Encoding FEAT_FHM
 0 01 00011 BIC (vector, register) -
-0 01 11101 Unallocated. -
+0 01 11101 Unallocated.
 0 1x 11000 FMINNM (vector) -
 0 1x 11001 FMLS (vector) -
 0 1x 11010 FSUB (vector) -
-0 1x 11011 Unallocated. -
-0 1x 11100 Unallocated. -
+0 1x 11011 Unallocated.
+0 1x 11100 Unallocated.
 0 1x 11110 FMIN (vector) -
 0 1x 11111 FRSQRTS -
 0 10 00011 ORR (vector, register) -
 0 10 11101 FMLSL, FMLSL2 (vector) - Encoding FEAT_FHM
 0 11 00011 ORN (vector) -
-0 11 11101 Unallocated. -
+0 11 11101 Unallocated.
 1 - 00000 UHADD -
 1 - 00001 UQADD -
 1 - 00010 URHADD -
@@ -6874,7 +6925,7 @@ x1 Unallocated.
 1 - 10100 UMAXP -
 1 - 10101 UMINP -
 1 - 10110 SQRDMULH (vector) -
-1 - 10111 Unallocated. -
+1 - 10111 Unallocated.
 1 0x 11000 FMAXNMP (vector) -
 1 0x 11010 FADDP (vector) -
 1 0x 11011 FMUL (vector) -
@@ -6885,44 +6936,44 @@ x1 Unallocated.
 1 00 00011 EOR (vector) -
 1 00 11001 FMLAL, FMLAL2 (vector) - Encoding FEAT_FHM
 1 01 00011 BSL -
-1 01 11001 Unallocated. -
+1 01 11001 Unallocated.
 1 1x 11000 FMINNMP (vector) -
 1 1x 11010 FABD -
-1 1x 11011 Unallocated. -
+1 1x 11011 Unallocated.
 1 1x 11100 FCMGT (register) -
 1 1x 11101 FACGT -
 1 1x 11110 FMINP (vector) -
-1 1x 11111 Unallocated. -
+1 1x 11111 Unallocated.
 1 10 00011 BIT -
 1 10 11001 FMLSL, FMLSL2 (vector) - Encoding FEAT_FHM
 1 11 00011 BIF -
-1 11 11001 Unallocated. -
+1 11 11001 Unallocated.
 #Advanced SIMD modified immediate -
 4 22 
 30 30
 29 29
 12 15
 11 11
-- 0 0xxx 1 Unallocated. -
+- 0 0xxx 1 Unallocated.
 - 0 0xx0 0 MOVI - 32-bit shifted immediate variant -
 - 0 0xx1 0 ORR (vector, immediate) - 32-bit variant -
-- 0 10xx 1 Unallocated. -
+- 0 10xx 1 Unallocated.
 - 0 10x0 0 MOVI - 16-bit shifted immediate variant -
 - 0 10x1 0 ORR (vector, immediate) - 16-bit variant -
 - 0 110x 0 MOVI - 32-bit shifting ones variant -
-- 0 110x 1 Unallocated. -
+- 0 110x 1 Unallocated.
 - 0 1110 0 MOVI - 8-bit variant -
-- 0 1110 1 Unallocated. -
+- 0 1110 1 Unallocated.
 - 0 1111 0 FMOV (vector, immediate) - Single-precision variant -
 - 0 1111 1 FMOV (vector, immediate) - Encoding FEAT_FP16
-- 1 - 1 Unallocated. -
+- 1 - 1 Unallocated.
 - 1 0xx0 0 MVNI - 32-bit shifted immediate variant -
 - 1 0xx1 0 BIC (vector, immediate) - 32-bit variant -
 - 1 10x0 0 MVNI - 16-bit shifted immediate variant -
 - 1 10x1 0 BIC (vector, immediate) - 16-bit variant -
 - 1 110x 0 MVNI - 32-bit shifting ones variant -
 0 1 1110 0 MOVI - 64-bit scalar variant -
-0 1 1111 0 Unallocated. -
+0 1 1111 0 Unallocated.
 1 1 1110 0 MOVI - 64-bit vector variant -
 1 1 1111 0 FMOV (vector, immediate) - Double-precision variant -
 #Advanced SIMD shift by immediate -
@@ -6977,7 +7028,7 @@ x1 Unallocated.
 29 29
 22 23
 12 15
-- 01 1001 Unallocated. -
+- 01 1001 Unallocated.
 0 - 0010 SMLAL, SMLAL2 (by element) -
 0 - 0011 SQDMLAL, SQDMLAL2 (by element) -
 0 - 0110 SMLSL, SMLSL2 (by element) -
@@ -6988,14 +7039,14 @@ x1 Unallocated.
 0 - 1100 SQDMULH (by element) -
 0 - 1101 SQRDMULH (by element) -
 0 - 1110 SDOT (by element) FEAT_DotProd
-0 0x 0000 Unallocated. -
-0 0x 0100 Unallocated. -
+0 0x 0000 Unallocated.
+0 0x 0100 Unallocated.
 0 00 0001 FMLA (by element) - Encoding FEAT_FP16
 0 00 0101 FMLS (by element) - Encoding FEAT_FP16
 0 00 1001 FMUL (by element) - Encoding FEAT_FP16
 0 00 1111 SUDOT (by element) FEAT_I8MM
-0 01 0001 Unallocated. -
-0 01 0101 Unallocated. -
+0 01 0001 Unallocated.
+0 01 0101 Unallocated.
 0 01 1111 BFDOT (by element) FEAT_BF16
 0 1x 0001 FMLA (by element) - Encoding -
 0 1x 0101 FMLS (by element) - Encoding -
@@ -7003,36 +7054,36 @@ x1 Unallocated.
 0 10 0000 FMLAL, FMLAL2 (by element) - Encoding FEAT_FHM
 0 10 0100 FMLSL, FMLSL2 (by element) - Encoding FEAT_FHM
 0 10 1111 USDOT (by element) FEAT_I8MM
-0 11 0000 Unallocated. -
-0 11 0100 Unallocated. -
+0 11 0000 Unallocated.
+0 11 0100 Unallocated.
 0 11 1111 BFMLALB, BFMLALT (by element) FEAT_BF16
 1 - 0000 MLA (by element) -
 1 - 0010 UMLAL, UMLAL2 (by element) -
 1 - 0100 MLS (by element) -
 1 - 0110 UMLSL, UMLSL2 (by element) -
 1 - 1010 UMULL, UMULL2 (by element) -
-1 - 1011 Unallocated. -
+1 - 1011 Unallocated.
 1 - 1101 SQRDMLAH (by element) FEAT_RDM
 1 - 1110 UDOT (by element) FEAT_DotProd
 1 - 1111 SQRDMLSH (by element) FEAT_RDM
-1 0x 1000 Unallocated. -
-1 0x 1100 Unallocated. -
-1 00 0001 Unallocated. -
-1 00 0011 Unallocated. -
-1 00 0101 Unallocated. -
-1 00 0111 Unallocated. -
+1 0x 1000 Unallocated.
+1 0x 1100 Unallocated.
+1 00 0001 Unallocated.
+1 00 0011 Unallocated.
+1 00 0101 Unallocated.
+1 00 0111 Unallocated.
 1 00 1001 FMULX (by element) - Encoding FEAT_FP16
 1 01 0xx1 FCMLA (by element) FEAT_FCMA
 1 1x 1001 FMULX (by element) - Encoding -
 1 10 0xx1 FCMLA (by element) FEAT_FCMA
 1 10 1000 FMLAL, FMLAL2 (by element) - Encoding FEAT_FHM
 1 10 1100 FMLSL, FMLSL2 (by element) - Encoding FEAT_FHM
-1 11 0001 Unallocated. -
-1 11 0011 Unallocated. -
-1 11 0101 Unallocated. -
-1 11 0111 Unallocated. -
-1 11 1000 Unallocated. -
-1 11 1100 Unallocated. -
+1 11 0001 Unallocated.
+1 11 0011 Unallocated.
+1 11 0101 Unallocated.
+1 11 0111 Unallocated.
+1 11 1000 Unallocated.
+1 11 1100 Unallocated.
 #Cryptographic three-register, imm2 -
 1 4
 10 11
@@ -7051,20 +7102,20 @@ x1 Unallocated.
 1 00 SM3PARTW1 FEAT_SM3
 1 01 SM3PARTW2 FEAT_SM3
 1 10 SM4EKEY FEAT_SM4
-1 11 Unallocated. -
+1 11 Unallocated.
 #Cryptographic four-register -
 1 4
 21 22
 00 EOR3 FEAT_SHA3
 01 BCAX FEAT_SHA3
 10 SM3SS1 FEAT_SM3
-11 Unallocated. -
+11 Unallocated.
 #Cryptographic two-register SHA 512 -
 1 3
 10 11
 00 SHA512SU0 FEAT_SHA512
 01 SM4E FEAT_SM4
-1x Unallocated. -
+1x Unallocated.
 #Conversion between floating-point and fixed-point -
 6 32
 31 31
@@ -7073,14 +7124,14 @@ x1 Unallocated.
 19 20
 16 18
 10 15
-- - - - 1xx - Unallocated. -
-- - - x0 00x - Unallocated. -
-- - - x1 01x - Unallocated. -
-- - - 0x 00x - Unallocated. -
-- - - 1x 01x - Unallocated. -
-- - 10 - - - Unallocated. -
-- 1 - - - - Unallocated. -
-0 - - - - 0xxxxx Unallocated. -
+- - - - 1xx - Unallocated.
+- - - x0 00x - Unallocated.
+- - - x1 01x - Unallocated.
+- - - 0x 00x - Unallocated.
+- - - 1x 01x - Unallocated.
+- - 10 - - - Unallocated.
+- 1 - - - - Unallocated.
+0 - - - - 0xxxxx Unallocated.
 0 0 00 00 010 - SCVTF (scalar, fixed-point) - 32-bit to single-precision variant -
 0 0 00 00 011 - UCVTF (scalar, fixed-point) - 32-bit to single-precision variant -
 0 0 00 11 000 - FCVTZS (scalar, fixed-point) - Single-precision to 32-bit variant -
@@ -7112,14 +7163,14 @@ x1 Unallocated.
 22 23
 19 20
 16 18
-- - - x1 01x Unallocated. -
-- - - x1 10x Unallocated. -
-- - - 1x 01x Unallocated. -
-- - - 1x 10x Unallocated. -
-- 0 10 - 0xx Unallocated. -
-- 0 10 - 10x Unallocated. -
-- 1 - - - Unallocated. -
-0 0 00 x1 11x Unallocated. -
+- - - x1 01x Unallocated.
+- - - x1 10x Unallocated.
+- - - 1x 01x Unallocated.
+- - - 1x 10x Unallocated.
+- 0 10 - 0xx Unallocated.
+- 0 10 - 10x Unallocated.
+- 1 - - - Unallocated.
+0 0 00 x1 11x Unallocated.
 0 0 00 00 000 FCVTNS (scalar) - Single-precision to 32-bit variant -
 0 0 00 00 001 FCVTNU (scalar) - Single-precision to 32-bit variant -
 0 0 00 00 010 SCVTF (scalar, integer) - 32-bit to single-precision variant -
@@ -7130,12 +7181,12 @@ x1 Unallocated.
 0 0 00 00 111 FMOV (general) - 32-bit to single-precision variant -
 0 0 00 01 000 FCVTPS (scalar) - Single-precision to 32-bit variant -
 0 0 00 01 001 FCVTPU (scalar) - Single-precision to 32-bit variant -
-0 0 00 1x 11x Unallocated. -
+0 0 00 1x 11x Unallocated.
 0 0 00 10 000 FCVTMS (scalar) - Single-precision to 32-bit variant -
 0 0 00 10 001 FCVTMU (scalar) - Single-precision to 32-bit variant -
 0 0 00 11 000 FCVTZS (scalar, integer) - Single-precision to 32-bit variant -
 0 0 00 11 001 FCVTZU (scalar, integer) - Single-precision to 32-bit variant -
-0 0 01 0x 11x Unallocated. -
+0 0 01 0x 11x Unallocated.
 0 0 01 00 000 FCVTNS (scalar) - Double-precision to 32-bit variant -
 0 0 01 00 001 FCVTNU (scalar) - Double-precision to 32-bit variant -
 0 0 01 00 010 SCVTF (scalar, integer) - 32-bit to double-precision variant -
@@ -7146,12 +7197,12 @@ x1 Unallocated.
 0 0 01 01 001 FCVTPU (scalar) - Double-precision to 32-bit variant -
 0 0 01 10 000 FCVTMS (scalar) - Double-precision to 32-bit variant -
 0 0 01 10 001 FCVTMU (scalar) - Double-precision to 32-bit variant -
-0 0 01 10 11x Unallocated. -
+0 0 01 10 11x Unallocated.
 0 0 01 11 000 FCVTZS (scalar, integer) - Double-precision to 32-bit variant -
 0 0 01 11 001 FCVTZU (scalar, integer) - Double-precision to 32-bit variant -
 0 0 01 11 110 FJCVTZS FEAT_JSCVT
-0 0 01 11 111 Unallocated. -
-0 0 10 - 11x Unallocated. -
+0 0 01 11 111 Unallocated.
+0 0 10 - 11x Unallocated.
 0 0 11 00 000 FCVTNS (scalar) - Half-precision to 32-bit variant FEAT_FP16
 0 0 11 00 001 FCVTNU (scalar) - Half-precision to 32-bit variant FEAT_FP16
 0 0 11 00 010 SCVTF (scalar, integer) - 32-bit to half-precision variant FEAT_FP16
@@ -7166,7 +7217,7 @@ x1 Unallocated.
 0 0 11 10 001 FCVTMU (scalar) - Half-precision to 32-bit variant FEAT_FP16
 0 0 11 11 000 FCVTZS (scalar, integer) - Half-precision to 32-bit variant FEAT_FP16
 0 0 11 11 001 FCVTZU (scalar, integer) - Half-precision to 32-bit variant FEAT_FP16
-1 0 00 - 11x Unallocated. -
+1 0 00 - 11x Unallocated.
 1 0 00 00 000 FCVTNS (scalar) - Single-precision to 64-bit variant -
 1 0 00 00 001 FCVTNU (scalar) - Single-precision to 64-bit variant -
 1 0 00 00 010 SCVTF (scalar, integer) - 64-bit to single-precision variant -
@@ -7179,7 +7230,7 @@ x1 Unallocated.
 1 0 00 10 001 FCVTMU (scalar) - Single-precision to 64-bit variant -
 1 0 00 11 000 FCVTZS (scalar, integer) - Single-precision to 64-bit variant -
 1 0 00 11 001 FCVTZU (scalar, integer) - Single-precision to 64-bit variant -
-1 0 01 x1 11x Unallocated. -
+1 0 01 x1 11x Unallocated.
 1 0 01 00 000 FCVTNS (scalar) - Double-precision to 64-bit variant -
 1 0 01 00 001 FCVTNU (scalar) - Double-precision to 64-bit variant -
 1 0 01 00 010 SCVTF (scalar, integer) - 64-bit to double-precision variant -
@@ -7190,15 +7241,15 @@ x1 Unallocated.
 1 0 01 00 111 FMOV (general) - 64-bit to double-precision variant -
 1 0 01 01 000 FCVTPS (scalar) - Double-precision to 64-bit variant -
 1 0 01 01 001 FCVTPU (scalar) - Double-precision to 64-bit variant -
-1 0 01 1x 11x Unallocated. -
+1 0 01 1x 11x Unallocated.
 1 0 01 10 000 FCVTMS (scalar) - Double-precision to 64-bit variant -
 1 0 01 10 001 FCVTMU (scalar) - Double-precision to 64-bit variant -
 1 0 01 11 000 FCVTZS (scalar, integer) - Double-precision to 64-bit variant -
 1 0 01 11 001 FCVTZU (scalar, integer) - Double-precision to 64-bit variant -
-1 0 10 x0 11x Unallocated. -
+1 0 10 x0 11x Unallocated.
 1 0 10 01 110 FMOV (general) - Top half of 128-bit to 64-bit variant -
 1 0 10 01 111 FMOV (general) - 64-bit to top half of 128-bit variant -
-1 0 10 1x 11x Unallocated. -
+1 0 10 1x 11x Unallocated.
 1 0 11 00 000 FCVTNS (scalar) - Half-precision to 64-bit variant FEAT_FP16
 1 0 11 00 001 FCVTNU (scalar) - Half-precision to 64-bit variant FEAT_FP16
 1 0 11 00 010 SCVTF (scalar, integer) - 64-bit to half-precision variant FEAT_FP16
@@ -7219,36 +7270,36 @@ x1 Unallocated.
 29 29
 22 23
 15 20
-- - - 1xxxxx Unallocated. -
-- 1 - - Unallocated. -
+- - - 1xxxxx Unallocated.
+- 1 - - Unallocated.
 0 0 00 000000 FMOV (register) - Single-precision variant -
 0 0 00 000001 FABS (scalar) - Single-precision variant -
 0 0 00 000010 FNEG (scalar) - Single-precision variant -
 0 0 00 000011 FSQRT (scalar) - Single-precision variant -
-0 0 00 000100 Unallocated. -
+0 0 00 000100 Unallocated.
 0 0 00 000101 FCVT - Single-precision to double-precision variant -
-0 0 00 000110 Unallocated. -
+0 0 00 000110 Unallocated.
 0 0 00 000111 FCVT - Single-precision to half-precision variant -
 0 0 00 001000 FRINTN (scalar) - Single-precision variant -
 0 0 00 001001 FRINTP (scalar) - Single-precision variant -
 0 0 00 001010 FRINTM (scalar) - Single-precision variant -
 0 0 00 001011 FRINTZ (scalar) - Single-precision variant -
 0 0 00 001100 FRINTA (scalar) - Single-precision variant -
-0 0 00 001101 Unallocated. -
+0 0 00 001101 Unallocated.
 0 0 00 001110 FRINTX (scalar) - Single-precision variant -
 0 0 00 001111 FRINTI (scalar) - Single-precision variant -
 0 0 00 010000 FRINT32Z (scalar) - Single-precision variant FEAT_FRINTTS
 0 0 00 010001 FRINT32X (scalar) - Single-precision variant FEAT_FRINTTS
 0 0 00 010010 FRINT64Z (scalar) - Single-precision variant FEAT_FRINTTS
 0 0 00 010011 FRINT64X (scalar) - Single-precision variant FEAT_FRINTTS
-0 0 00 0101xx Unallocated. -
-0 0 00 011xxx Unallocated. -
+0 0 00 0101xx Unallocated.
+0 0 00 011xxx Unallocated.
 0 0 01 000000 FMOV (register) - Double-precision variant -
 0 0 01 000001 FABS (scalar) - Double-precision variant -
 0 0 01 000010 FNEG (scalar) - Double-precision variant -
 0 0 01 000011 FSQRT (scalar) - Double-precision variant -
 0 0 01 000100 FCVT - Double-precision to single-precision variant -
-0 0 01 000101 Unallocated. -
+0 0 01 000101 Unallocated.
 0 0 01 000110 BFCVT FEAT_BF16
 0 0 01 000111 FCVT - Double-precision to half-precision variant -
 0 0 01 001000 FRINTN (scalar) - Double-precision variant -
@@ -7256,33 +7307,33 @@ x1 Unallocated.
 0 0 01 001010 FRINTM (scalar) - Double-precision variant -
 0 0 01 001011 FRINTZ (scalar) - Double-precision variant -
 0 0 01 001100 FRINTA (scalar) - Double-precision variant -
-0 0 01 001101 Unallocated. -
+0 0 01 001101 Unallocated.
 0 0 01 001110 FRINTX (scalar) - Double-precision variant -
 0 0 01 001111 FRINTI (scalar) - Double-precision variant -
 0 0 01 010000 FRINT32Z (scalar) - Double-precision variant FEAT_FRINTTS
 0 0 01 010001 FRINT32X (scalar) - Double-precision variant FEAT_FRINTTS
 0 0 01 010010 FRINT64Z (scalar) - Double-precision variant FEAT_FRINTTS
 0 0 01 010011 FRINT64X (scalar) - Double-precision variant FEAT_FRINTTS
-0 0 01 0101xx Unallocated. -
-0 0 01 011xxx Unallocated. -
-0 0 10 0xxxxx Unallocated. -
+0 0 01 0101xx Unallocated.
+0 0 01 011xxx Unallocated.
+0 0 10 0xxxxx Unallocated.
 0 0 11 000000 FMOV (register) - Half-precision variant FEAT_FP16
 0 0 11 000001 FABS (scalar) - Half-precision variant FEAT_FP16
 0 0 11 000010 FNEG (scalar) - Half-precision variant FEAT_FP16
 0 0 11 000011 FSQRT (scalar) - Half-precision variant FEAT_FP16
 0 0 11 000100 FCVT - Half-precision to single-precision variant -
 0 0 11 000101 FCVT - Half-precision to double-precision variant -
-0 0 11 00011x Unallocated. -
+0 0 11 00011x Unallocated.
 0 0 11 001000 FRINTN (scalar) - Half-precision variant FEAT_FP16
 0 0 11 001001 FRINTP (scalar) - Half-precision variant FEAT_FP16
 0 0 11 001010 FRINTM (scalar) - Half-precision variant FEAT_FP16
 0 0 11 001011 FRINTZ (scalar) - Half-precision variant FEAT_FP16
 0 0 11 001100 FRINTA (scalar) - Half-precision variant FEAT_FP16
-0 0 11 001101 Unallocated. -
+0 0 11 001101 Unallocated.
 0 0 11 001110 FRINTX (scalar) - Half-precision variant FEAT_FP16
 0 0 11 001111 FRINTI (scalar) - Half-precision variant FEAT_FP16
-0 0 11 01xxxx Unallocated. -
-1 - - - Unallocated. -
+0 0 11 01xxxx Unallocated.
+1 - - - Unallocated.
 #Floating-point compare -
 5 20
 31 31
@@ -7290,13 +7341,13 @@ x1 Unallocated.
 22 23
 14 15
 0 4
-- - - - xxxx1 Unallocated. -
-- - - - xxx1x Unallocated. -
-- - - - xx1xx Unallocated. -
-- - - x1 - Unallocated. -
-- - - 1x - Unallocated. -
-- - 10 - - Unallocated. -
-- 1 - - - Unallocated. -
+- - - - xxxx1 Unallocated.
+- - - - xxx1x Unallocated.
+- - - - xx1xx Unallocated.
+- - - x1 - Unallocated.
+- - - 1x - Unallocated.
+- - 10 - - Unallocated.
+- 1 - - - Unallocated.
 0 0 00 00 00000 FCMP -
 0 0 00 00 01000 FCMP -
 0 0 00 00 10000 FCMPE -
@@ -7309,50 +7360,50 @@ x1 Unallocated.
 0 0 11 00 01000 FCMP FEAT_FP16
 0 0 11 00 10000 FCMPE FEAT_FP16
 0 0 11 00 11000 FCMPE FEAT_FP16
-1 - - - - Unallocated. -
+1 - - - - Unallocated.
 #Floating-point immediate -
 4 11
 31 31
 29 29
 22 23
 5 9
-- - - xxxx1 Unallocated. -
-- - - xxx1x Unallocated. -
-- - - xx1xx Unallocated. -
-- - - x1xxx Unallocated. -
-- - - 1xxxx Unallocated. -
-- - 10 - Unallocated. -
-- 1 - - Unallocated. -
+- - - xxxx1 Unallocated.
+- - - xxx1x Unallocated.
+- - - xx1xx Unallocated.
+- - - x1xxx Unallocated.
+- - - 1xxxx Unallocated.
+- - 10 - Unallocated.
+- 1 - - Unallocated.
 0 0 00 00000 FMOV (scalar, immediate) - Single-precision variant -
 0 0 01 00000 FMOV (scalar, immediate) - Double-precision variant -
 0 0 11 00000 FMOV (scalar, immediate) - Half-precision variant FEAT_FP16
-1 - - - Unallocated. -
+1 - - - Unallocated.
 #Floating-point conditional compare -
 4 9
 31 31
 29 29
 22 23
 4 4
-- - 10 - Unallocated. -
-- 1 - - Unallocated. -
+- - 10 - Unallocated.
+- 1 - - Unallocated.
 0 0 00 0 FCCMP - Single-precision variant -
 0 0 00 1 FCCMPE - Single-precision variant -
 0 0 01 0 FCCMP - Double-precision variant -
 0 0 01 1 FCCMPE - Double-precision variant -
 0 0 11 0 FCCMP - Half-precision variant FEAT_FP16
 0 0 11 1 FCCMPE - Half-precision variant FEAT_FP16
-1 - - - Unallocated. -
+1 - - - Unallocated.
 #Floating-point data-processing (2 source) -
 4 33 
 31 31
 29 29
 22 23
 12 15
-- - - 1xx1 Unallocated. -
-- - - 1x1x Unallocated. -
-- - - 11xx Unallocated. -
-- - 10 - Unallocated. -
-- 1 - - Unallocated. -
+- - - 1xx1 Unallocated.
+- - - 1x1x Unallocated.
+- - - 11xx Unallocated.
+- - 10 - Unallocated.
+- 1 - - Unallocated.
 0 0 00 0000 FMUL (scalar) - Single-precision variant -
 0 0 00 0001 FDIV (scalar) - Single-precision variant -
 0 0 00 0010 FADD (scalar) - Single-precision variant -
@@ -7380,18 +7431,18 @@ x1 Unallocated.
 0 0 11 0110 FMAXNM (scalar) - Half-precision variant FEAT_FP16
 0 0 11 0111 FMINNM (scalar) - Half-precision variant FEAT_FP16
 0 0 11 1000 FNMUL (scalar) - Half-precision variant FEAT_FP16
-1 - - - Unallocated. -
+1 - - - Unallocated.
 #Floating-point conditional select -
 3 6
 31 31
 29 29
 22 23
-- - 10 Unallocated. -
-- 1 - Unallocated. -
+- - 10 Unallocated.
+- 1 - Unallocated.
 0 0 00 FCSEL - Single-precision variant -
 0 0 01 FCSEL - Double-precision variant -
 0 0 11 FCSEL - Half-precision variant FEAT_FP16
-1 - - Unallocated. -
+1 - - Unallocated.
 #Floating-point data-processing (3 source) -
 5 15
 31 31
@@ -7399,8 +7450,8 @@ x1 Unallocated.
 22 23
 21 21
 15 15
-- - 10 - - Unallocated. -
-- 1 - - - Unallocated. -
+- - 10 - - Unallocated.
+- 1 - - - Unallocated.
 0 0 00 0 0 FMADD - Single-precision variant -
 0 0 00 0 1 FMSUB - Single-precision variant -
 0 0 00 1 0 FNMADD - Single-precision variant -
@@ -7413,4 +7464,4 @@ x1 Unallocated.
 0 0 11 0 1 FMSUB - Half-precision variant FEAT_FP16
 0 0 11 1 0 FNMADD - Half-precision variant FEAT_FP16
 0 0 11 1 1 FNMSUB - Half-precision variant FEAT_FP16
-1 - - - - Unallocated. -
+1 - - - - Unallocated.
