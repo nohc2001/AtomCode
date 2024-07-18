@@ -121,6 +121,9 @@ void PushNewTable()
   decode_table_count += 1;
 }
 
+unsigned int opIndexWeight[32] = {};
+unsigned int opIndexPriority[32] = {};
+
 void ReadDecodingTables()
 {
   ifstream rs;
@@ -177,6 +180,10 @@ void ReadDecodingTables()
       {
         rs >> last_table->oprangeArr[i].start;
         rs >> last_table->oprangeArr[i].end;
+
+        for(int k=last_table->oprangeArr[i].start;k<=last_table->oprangeArr[i].end;++k){
+          opIndexWeight[k] += 1;
+        }
       }
 
       last_table->linkArr = (ArmDecodeLink *)malloc(sizeof(ArmDecodeLink) * last_table->link_count);
@@ -257,12 +264,12 @@ void Arm_DecodingMachineCodeToASM(uint32_t instruction)
       if (cstr[0] == '#')
       {
         cout << cstr << endl;
+        break;
       }
       else
       {
         table = (ArmDecodeTable *)table->linkArr[i].next_table_ptr;
       }
-      break;
     }
   }
 }
@@ -321,12 +328,41 @@ void InstShow()
 int main()
 {
   ReadDecodingTables();
+  for(int i=0;i<32;++i){
+    opIndexPriority[i] = i;
+  }
+  for(int i=0;i<32;++i){
+    for(int k=i+1;k<32;++k){
+      if(opIndexWeight[i] > opIndexWeight[k]){
+        unsigned int temp = 0;
+        temp = opIndexWeight[i];
+        opIndexWeight[i] = opIndexWeight[k];
+        opIndexWeight[k] = temp;
+
+        temp = opIndexPriority[i];
+        opIndexPriority[i] = opIndexPriority[k];
+        opIndexPriority[k] = temp;
+      }
+    }
+  }
   InstShow();
-  uint64_t inst = 1;
-  while (inst != 0)
+  uint32_t priority = 0;
+  uint32_t inst = 1;
+  while (priority != -1)
   {
+    inst = 0;
+    for(int i=0;i<32;i+=8){
+      inst |= ((priority>>i) & 1) << opIndexPriority[i];
+      inst |= ((priority>>(i+1)) & 1) << opIndexPriority[i+1];
+      inst |= ((priority>>(i+2)) & 1) << opIndexPriority[i+2];
+      inst |= ((priority>>(i+3)) & 1) << opIndexPriority[i+3];
+      inst |= ((priority>>(i+4)) & 1) << opIndexPriority[i+4];
+      inst |= ((priority>>(i+5)) & 1) << opIndexPriority[i+5];
+      inst |= ((priority>>(i+6)) & 1) << opIndexPriority[i+6];
+      inst |= ((priority>>(i+7)) & 1) << opIndexPriority[i+7];
+    }
     Arm_DecodingMachineCodeToASM(inst);
-    inst += 1;
+    priority += 1;
   }
   return 0;
 }
