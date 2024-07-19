@@ -1,23 +1,440 @@
 #ADC
-6
 sf 31 31
-op 30 30
-S 29 29
 Rm 16 20
 Rn 5 9
 Rd 0 4
-:InstFormat
 32-bit variant
 Applies when sf == 0 .
 ADC <Wd>, <Wn>, <Wm>
 64-bit variant
 Applies when sf == 1 .
 ADC <Xd>, <Xn>, <Xm>
-
+Decode for all variants of this encoding
 integer d = UInt(Rd);
 integer n = UInt(Rn);
 integer m = UInt(Rm);
 integer datasize = if sf == '1' then 64 else 32;
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = X[n, datasize];
+bits(datasize) operand2 = X[m, datasize];
+(result, -) = AddWithCarry(operand1, operand2, PSTATE.C);
+X[d, datasize] = result;
 
+#ADCS
+sf 31 31
+Rm 16 20
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADCS <Wd>, <Wn>, <Wm>
+64-bit variant
+Applies when sf == 1 .
+ADCS <Xd>, <Xn>, <Xm>
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = X[n, datasize];
+bits(datasize) operand2 = X[m, datasize];
+bits(4) nzcv;
+(result, nzcv) = AddWithCarry(operand1, operand2, PSTATE.C);
+PSTATE.<N,Z,C,V> = nzcv;
+X[d, datasize] = result;
 
+#ADD (extended register)
+sf 31 31
+Rm 16 20
+option 13 15
+imm3 10 12
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADD <Wd|WSP>, <Wn|WSP>, <Wm>{, <extend> {#<amount>}}
+64-bit variant
+Applies when sf == 1 .
+ADD <Xd|SP>, <Xn|SP>, <R><m>{, <extend> {#<amount>}}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+ExtendType extend_type = DecodeRegExtend(option);
+integer shift = UInt(imm3);
+if shift > 4 then UNDEFINED;
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = if n == 31 then SP[]<datasize-1:0> else X[n, datasize];
+bits(datasize) operand2 = ExtendReg(m, extend_type, shift, datasize);
+(result, -) = AddWithCarry(operand1, operand2, '0');
+if d == 31 then
+SP[] = ZeroExtend(result, 64);
+else
+X[d, datasize] = result;
 
+#ADD (immediate)
+sf 31 31
+sh 22 22
+imm12 10 21
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADD <Wd|WSP>, <Wn|WSP>, #<imm>{, <shift>}
+64-bit variant
+Applies when sf == 1 .
+ADD <Xd|SP>, <Xn|SP>, #<imm>{, <shift>}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer datasize = if sf == '1' then 64 else 32;
+bits(datasize) imm;
+case sh of
+when '0' imm = ZeroExtend(imm12, datasize);
+when '1' imm = ZeroExtend(imm12:Zeros(12), datasize);
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = if n == 31 then SP[]<datasize-1:0> else X[n, datasize];
+(result, -) = AddWithCarry(operand1, imm, '0');
+if d == 31 then
+SP[] = ZeroExtend(result, 64);
+else
+X[d, datasize] = result;
+
+#ADD (shifted register)
+sf 31 31
+shift 22 23
+Rm 16 20
+imm6 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADD <Wd>, <Wn>, <Wm>{, <shift> #<amount>}
+64-bit variant
+Applies when sf == 1 .
+ADD <Xd>, <Xn>, <Xm>{, <shift> #<amount>}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+if shift == '11' then UNDEFINED;
+if sf == '0' && imm6<5> == '1' then UNDEFINED;
+ShiftType shift_type = DecodeShift(shift);
+integer shift_amount = UInt(imm6);
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = X[n, datasize];
+bits(datasize) operand2 = ShiftReg(m, shift_type, shift_amount, datasize);
+(result, -) = AddWithCarry(operand1, operand2, '0');
+X[d, datasize] = result;
+
+#ADDG
+uimm6 16 21
+uimm4 10 13
+Xn 5 9
+Xd 0 4
+Encoding
+ADDG <Xd|SP>, <Xn|SP>, #<uimm6>, #<uimm4>
+Decode for this encoding
+if !HaveMTEExt() then UNDEFINED;
+integer d = UInt(Xd);
+integer n = UInt(Xn);
+bits(64) offset = LSL(ZeroExtend(uimm6, 64), LOG2_TAG_GRANULE);
+Operation
+bits(64) operand1 = if n == 31 then SP[] else X[n, 64];
+bits(4) start_tag = AArch64.AllocationTagFromAddress(operand1);
+bits(16) exclude = GCR_EL1.Exclude;
+bits(64) result;
+bits(4) rtag;
+if AArch64.AllocationTagAccessIsEnabled(PSTATE.EL) then
+  rtag = AArch64.ChooseNonExcludedTag(start_tag, uimm4, exclude);
+else
+  rtag = '0000';
+(result, -) = AddWithCarry(operand1, offset, '0');
+result = AArch64.AddressWithAllocationTag(result, rtag);
+if d == 31 then
+  SP[] = result;
+else
+  X[d, 64] = result;
+
+#ADDS (extended register)
+sf 31 31
+Rm 16 20
+option 13 15
+imm3 10 12
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADDS <Wd>, <Wn|WSP>, <Wm>{, <extend> {#<amount>}}
+64-bit variant
+Applies when sf == 1 .
+ADDS <Xd>, <Xn|SP>, <R><m>{, <extend> {#<amount>}}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+ExtendType extend_type = DecodeRegExtend(option);
+integer shift = UInt(imm3);
+if shift > 4 then UNDEFINED;
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = if n == 31 then SP[]<datasize-1:0> else X[n, datasize];
+bits(datasize) operand2 = ExtendReg(m, extend_type, shift, datasize);
+bits(4) nzcv;
+(result, nzcv) = AddWithCarry(operand1, operand2, '0');
+PSTATE.<N,Z,C,V> = nzcv;
+X[d, datasize] = result;
+
+#ADDS (immediate)
+sf 31 31
+sh 22 22
+imm12 10 21
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADDS <Wd>, <Wn|WSP>, #<imm>{, <shift>}
+64-bit variant
+Applies when sf == 1 .
+ADDS <Xd>, <Xn|SP>, #<imm>{, <shift>}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer datasize = if sf == '1' then 64 else 32;
+bits(datasize) imm;
+case sh of
+when '0' imm = ZeroExtend(imm12, datasize);
+when '1' imm = ZeroExtend(imm12:Zeros(12), datasize);
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = if n == 31 then SP[]<datasize-1:0> else X[n, datasize];
+bits(4) nzcv;
+(result, nzcv) = AddWithCarry(operand1, imm, '0');
+PSTATE.<N,Z,C,V> = nzcv;
+X[d, datasize] = result;
+
+#ADDS (shifted register)
+sf 31 31
+shift 22 23
+Rm 16 29
+imm6 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ADDS <Wd>, <Wn>, <Wm>{, <shift> #<amount>}
+64-bit variant
+Applies when sf == 1 .
+ADDS <Xd>, <Xn>, <Xm>{, <shift> #<amount>}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+if shift == '11' then UNDEFINED;
+if sf == '0' && imm6<5> == '1' then UNDEFINED;
+ShiftType shift_type = DecodeShift(shift);
+integer shift_amount = UInt(imm6);
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = X[n, datasize];
+bits(datasize) operand2 = ShiftReg(m, shift_type, shift_amount, datasize);
+bits(4) nzcv;
+(result, nzcv) = AddWithCarry(operand1, operand2, '0');
+PSTATE.<N,Z,C,V> = nzcv;
+X[d, datasize] = result;
+
+#ADR
+immlo 29 30
+immhi 5 23
+Rd 0 4
+Encoding
+ADR <Xd>, <label>
+Decode for this encoding
+integer d = UInt(Rd);
+bits(64) imm;
+imm = SignExtend(immhi:immlo, 64);
+Operation
+bits(64) base = PC[];
+X[d, 64] = base + imm;
+
+#ADRP
+immlo 29 30
+immhi 5 23
+Rd 0 4
+Encoding
+ADRP <Xd>, <label>
+Decode for this encoding
+integer d = UInt(Rd);
+bits(64) imm;
+imm = SignExtend(immhi:immlo:Zeros(12), 64);
+Operation
+bits(64) base = PC[];
+base<11:0> = Zeros(12);
+X[d, 64] = base + imm;
+
+#AND (immediate)
+sf 31 31
+N 22 22
+immr 16 21
+imms 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 && N == 0 .
+AND <Wd|WSP>, <Wn>, #<imm>
+64-bit variant
+Applies when sf == 1 .
+AND <Xd|SP>, <Xn>, #<imm>
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer datasize = if sf == '1' then 64 else 32;
+bits(datasize) imm;
+if sf == '0' && N != '0' then UNDEFINED;
+(imm, -) = DecodeBitMasks(N, imms, immr, TRUE, datasize);
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = X[n, datasize];
+result = operand1 AND imm;
+if d == 31 then
+SP[] = ZeroExtend(result, 64);
+else
+X[d, datasize] = result;
+
+#AND (shifted register)
+sf 31 31
+shift 22 23
+Rm 16 20
+imm6 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+AND <Wd>, <Wn>, <Wm>{, <shift> #<amount>}
+64-bit variant
+Applies when sf == 1 .
+AND <Xd>, <Xn>, <Xm>{, <shift> #<amount>}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+if sf == '0' && imm6<5> == '1' then UNDEFINED;
+ShiftType shift_type = DecodeShift(shift);
+integer shift_amount = UInt(imm6);
+Operation
+bits(datasize) operand1 = X[n, datasize];
+bits(datasize) operand2 = ShiftReg(m, shift_type, shift_amount, datasize);
+bits(datasize) result;
+result = operand1 AND operand2;
+X[d, datasize] = result;
+
+#ANDS (immediate)
+sf 31 31
+N 22 22
+immr 16 21
+imms 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 && N == 0 .
+ANDS <Wd>, <Wn>, #<imm>
+64-bit variant
+Applies when sf == 1 .
+ANDS <Xd>, <Xn>, #<imm>
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer datasize = if sf == '1' then 64 else 32;
+bits(datasize) imm;
+if sf == '0' && N != '0' then UNDEFINED;
+(imm, -) = DecodeBitMasks(N, imms, immr, TRUE, datasize);
+Operation
+bits(datasize) result;
+bits(datasize) operand1 = X[n, datasize];
+result = operand1 AND imm;
+PSTATE.<N,Z,C,V> = result<datasize-1>:IsZeroBit(result):'00';
+X[d, datasize] = result;
+
+#ANDS (shifted register)
+sf 31 31
+shift 22 23
+Rm 16 20
+imm16 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ANDS <Wd>, <Wn>, <Wm>{, <shift> #<amount>}
+64-bit variant
+Applies when sf == 1 .
+ANDS <Xd>, <Xn>, <Xm>{, <shift> #<amount>}
+Decode for all variants of this encoding
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+if sf == '0' && imm6<5> == '1' then UNDEFINED;
+ShiftType shift_type = DecodeShift(shift);
+integer shift_amount = UInt(imm6);
+Operation
+bits(datasize) operand1 = X[n, datasize];
+bits(datasize) operand2 = ShiftReg(m, shift_type, shift_amount, datasize);
+bits(datasize) result;
+result = operand1 AND operand2;
+PSTATE.<N,Z,C,V> = result<datasize-1>:IsZeroBit(result):'00';
+X[d, datasize] = result;
+
+#ASR (register)
+sf 31 31
+Rm 16 20
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 .
+ASR <Wd>, <Wn>, <Wm>
+is equivalent to
+ASRV <Wd>, <Wn>, <Wm>
+and is always the preferred disassembly.
+64-bit variant
+Applies when sf == 1 .
+ASR <Xd>, <Xn>, <Xm>
+is equivalent to
+ASRV <Xd>, <Xn>, <Xm>
+and is always the preferred disassembly.
+Operation
+The description of ASRV gives the operational pseudocode for this instruction.
+
+#ASR (immediate)
+sf 31 31
+N 22 22
+immr 16 21
+imms 10 15
+Rn 5 9
+Rd 0 4
+32-bit variant
+Applies when sf == 0 && N == 0 && imms == 011111 .
+ASR <Wd>, <Wn>, #<shift>
+is equivalent to
+SBFM <Wd>, <Wn>, #<shift>, #31
+and is always the preferred disassembly.
+64-bit variant
+Applies when sf == 1 && N == 1 && imms == 111111 .
+ASR <Xd>, <Xn>, #<shift>
+is equivalent to
+SBFM <Xd>, <Xn>, #<shift>, #63
+and is always the preferred disassembly.
+Operation
+The description of SBFM gives the operational pseudocode for this instruction.
+
+#
