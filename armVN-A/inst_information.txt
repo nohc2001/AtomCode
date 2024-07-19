@@ -1,0 +1,23 @@
+#ADC
+6
+sf 31 31
+op 30 30
+S 29 29
+Rm 16 20
+Rn 5 9
+Rd 0 4
+:InstFormat
+32-bit variant
+Applies when sf == 0 .
+ADC <Wd>, <Wn>, <Wm>
+64-bit variant
+Applies when sf == 1 .
+ADC <Xd>, <Xn>, <Xm>
+
+integer d = UInt(Rd);
+integer n = UInt(Rn);
+integer m = UInt(Rm);
+integer datasize = if sf == '1' then 64 else 32;
+
+
+
