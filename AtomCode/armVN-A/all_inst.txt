@@ -1,0 +1,3347 @@
+#UDF
+#FMOPA (non-widening) FEAT_SME_F64F64
+#FMOPS (non-widening) FEAT_SME_F64F64
+#SMOPA (4-way) FEAT_SME_I16I64
+#SMOPS (4-way) FEAT_SME_I16I64
+#SUMOPA FEAT_SME_I16I64
+#SUMOPS FEAT_SME_I16I64
+#USMOPA FEAT_SME_I16I64
+#USMOPS FEAT_SME_I16I64
+#UMOPA (4-way) FEAT_SME_I16I64
+#UMOPS (4-way) FEAT_SME_I16I64
+#FMOPA (non-widening) FEAT_SME
+#FMOPS (non-widening) FEAT_SME
+#BFMOPA FEAT_SME
+#BFMOPS FEAT_SME
+#FMOPA (widening) FEAT_SME
+#FMOPS (widening) FEAT_SME
+#BMOPA FEAT_SME2
+#BMOPS FEAT_SME2
+#SMOPA (2-way) FEAT_SME2
+#SMOPS (2-way) FEAT_SME2
+#UMOPA (2-way) FEAT_SME2
+#UMOPS (2-way) FEAT_SME2
+#SMOPA (4-way) FEAT_SME
+#SMOPS (4-way) FEAT_SME
+#SUMOPA FEAT_SME
+#SUMOPS FEAT_SME
+#USMOPA FEAT_SME
+#USMOPS FEAT_SME
+#UMOPA (4-way) FEAT_SME
+#UMOPS (4-way) FEAT_SME
+#LD1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#LDNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1B (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1H (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1W (scalar plus scalar, consecutive registers) FEAT_SME2
+#ST1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#STNT1D (scalar plus scalar, consecutive registers) FEAT_SME2
+#LD1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#LDNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1B (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1H (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1W (scalar plus immediate, consecutive registers) FEAT_SME2
+#ST1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#STNT1D (scalar plus immediate, consecutive registers) FEAT_SME2
+#LD1B (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1B (scalar plus scalar, strided registers) FEAT_SME2
+#LD1H (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1H (scalar plus scalar, strided registers) FEAT_SME2
+#LD1W (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1W (scalar plus scalar, strided registers) FEAT_SME2
+#LD1D (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#LD1B (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1B (scalar plus scalar, strided registers) FEAT_SME2
+#LD1H (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1H (scalar plus scalar, strided registers) FEAT_SME2
+#LD1W (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1W (scalar plus scalar, strided registers) FEAT_SME2
+#LD1D (scalar plus scalar, strided registers) FEAT_SME2
+#LDNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#ST1B (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1B (scalar plus scalar, strided registers) FEAT_SME2
+#ST1H (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1H (scalar plus scalar, strided registers) FEAT_SME2
+#ST1W (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1W (scalar plus scalar, strided registers) FEAT_SME2
+#ST1D (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#ST1B (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1B (scalar plus scalar, strided registers) FEAT_SME2
+#ST1H (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1H (scalar plus scalar, strided registers) FEAT_SME2
+#ST1W (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1W (scalar plus scalar, strided registers) FEAT_SME2
+#ST1D (scalar plus scalar, strided registers) FEAT_SME2
+#STNT1D (scalar plus scalar, strided registers) FEAT_SME2
+#LD1B (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1B (scalar plus immediate, strided registers) FEAT_SME2
+#LD1H (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1H (scalar plus immediate, strided registers) FEAT_SME2
+#LD1W (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1W (scalar plus immediate, strided registers) FEAT_SME2
+#LD1D (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#LD1B (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1B (scalar plus immediate, strided registers) FEAT_SME2
+#LD1H (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1H (scalar plus immediate, strided registers) FEAT_SME2
+#LD1W (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1W (scalar plus immediate, strided registers) FEAT_SME2
+#LD1D (scalar plus immediate, strided registers) FEAT_SME2
+#LDNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#ST1B (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1B (scalar plus immediate, strided registers) FEAT_SME2
+#ST1H (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1H (scalar plus immediate, strided registers) FEAT_SME2
+#ST1W (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1W (scalar plus immediate, strided registers) FEAT_SME2
+#ST1D (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#ST1B (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1B (scalar plus immediate, strided registers) FEAT_SME2
+#ST1H (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1H (scalar plus immediate, strided registers) FEAT_SME2
+#ST1W (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1W (scalar plus immediate, strided registers) FEAT_SME2
+#ST1D (scalar plus immediate, strided registers) FEAT_SME2
+#STNT1D (scalar plus immediate, strided registers) FEAT_SME2
+#MOVA (vector to array, two registers) FEAT_SME2
+#MOVA (vector to array, four registers) FEAT_SME2
+#MOVA (vector to tile, single) - Encoding FEAT_SME
+#MOVA (vector to tile, single) - Encoding FEAT_SME
+#MOVA (vector to tile, single) - Encoding FEAT_SME
+#MOVA (vector to tile, single) - Encoding FEAT_SME
+#MOVA (vector to tile, single) - Encoding FEAT_SME
+#MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, two registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+#MOVA (vector to tile, four registers) - Encoding FEAT_SME2
+#MOVA (array to vector, two registers) FEAT_SME2
+#MOVA (array to vector, four registers) FEAT_SME2
+#MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, four registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, two registers) - Encoding FEAT_SME2
+#MOVA (tile to vector, single) - Encoding FEAT_SME
+#MOVA (tile to vector, single) - Encoding FEAT_SME
+#MOVA (tile to vector, single) - Encoding FEAT_SME
+#MOVA (tile to vector, single) - Encoding FEAT_SME
+#MOVA (tile to vector, single) - Encoding FEAT_SME
+#ADDHA - Encoding FEAT_SME
+#ADDVA - Encoding FEAT_SME
+#ADDHA - Encoding FEAT_SME_I16I64
+#ADDVA - Encoding FEAT_SME_I16I64
+#ZERO (tile) FEAT_SME
+#ZERO (ZT0) FEAT_SME2
+#MOVT (ZT0 to scalar) FEAT_SME2
+#MOVT (scalar to ZT0) FEAT_SME2
+#LUTI4 (four registers) FEAT_SME2
+#LUTI2 (four registers) FEAT_SME2
+#LUTI4 (two registers) FEAT_SME2
+#LUTI2 (two registers) FEAT_SME2
+#LUTI4 (single) FEAT_SME2
+#LUTI2 (single) FEAT_SME2
+#SMLALL (multiple and indexed vector) FEAT_SME2
+#USMLALL (multiple and indexed vector) FEAT_SME2
+#SMLSLL (multiple and indexed vector) FEAT_SME2
+#UMLALL (multiple and indexed vector) FEAT_SME2
+#SUMLALL (multiple and indexed vector) FEAT_SME2
+#UMLSLL (multiple and indexed vector) FEAT_SME2
+#SMLALL (multiple and indexed vector) FEAT_SME_I16I64
+#SMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#UMLALL (multiple and indexed vector) FEAT_SME_I16I64
+#UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#FMLAL (multiple and indexed vector) FEAT_SME2
+#FMLSL (multiple and indexed vector) FEAT_SME2
+#BFMLAL (multiple and indexed vector) FEAT_SME2
+#BFMLSL (multiple and indexed vector) FEAT_SME2
+#SMLAL (multiple and indexed vector) FEAT_SME2
+#SMLSL (multiple and indexed vector) FEAT_SME2
+#UMLAL (multiple and indexed vector) FEAT_SME2
+#UMLSL (multiple and indexed vector) FEAT_SME2
+#SMLALL (multiple and indexed vector) FEAT_SME2
+#SMLSLL (multiple and indexed vector) FEAT_SME2
+#UMLALL (multiple and indexed vector) FEAT_SME2
+#UMLSLL (multiple and indexed vector) FEAT_SME2
+#USMLALL (multiple and indexed vector) FEAT_SME2
+#SUMLALL (multiple and indexed vector) FEAT_SME2
+#FMLA (multiple and indexed vector) FEAT_SME2
+#FVDOT FEAT_SME2
+#FMLS (multiple and indexed vector) FEAT_SME2
+#BFVDOT FEAT_SME2
+#SVDOT (2-way) FEAT_SME2
+#UVDOT (2-way) FEAT_SME2
+#SDOT (2-way, multiple and indexed vector) FEAT_SME2
+#FDOT (multiple and indexed vector) FEAT_SME2
+#UDOT (2-way, multiple and indexed vector) FEAT_SME2
+#BFDOT (multiple and indexed vector) FEAT_SME2
+#SDOT (4-way, multiple and indexed vector) FEAT_SME2
+#USDOT (multiple and indexed vector) FEAT_SME2
+#UDOT (4-way, multiple and indexed vector) FEAT_SME2
+#SUDOT (multiple and indexed vector) FEAT_SME2
+#SMLALL (multiple and indexed vector) FEAT_SME_I16I64
+#SMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#UMLALL (multiple and indexed vector) FEAT_SME_I16I64
+#UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#FMLAL (multiple and indexed vector) FEAT_SME2
+#FMLSL (multiple and indexed vector) FEAT_SME2
+#BFMLAL (multiple and indexed vector) FEAT_SME2
+#BFMLSL (multiple and indexed vector) FEAT_SME2
+#FMLA (multiple and indexed vector) FEAT_SME_F64F64
+#SDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+#FMLS (multiple and indexed vector) FEAT_SME_F64F64
+#UDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+#SMLAL (multiple and indexed vector) FEAT_SME2
+#SMLSL (multiple and indexed vector) FEAT_SME2
+#UMLAL (multiple and indexed vector) FEAT_SME2
+#UMLSL (multiple and indexed vector) FEAT_SME2
+#SMLALL (multiple and indexed vector) FEAT_SME2
+#SMLSLL (multiple and indexed vector) FEAT_SME2
+#UMLALL (multiple and indexed vector) FEAT_SME2
+#UMLSLL (multiple and indexed vector) FEAT_SME2
+#USMLALL (multiple and indexed vector) FEAT_SME2
+#SUMLALL (multiple and indexed vector) FEAT_SME2
+#FMLA (multiple and indexed vector) FEAT_SME2
+#FMLS (multiple and indexed vector) FEAT_SME2
+#SVDOT (4-way) FEAT_SME2
+#USVDOT FEAT_SME2
+#UVDOT (4-way) FEAT_SME2
+#SUVDOT FEAT_SME2
+#SDOT (2-way, multiple and indexed vector) FEAT_SME2
+#FDOT (multiple and indexed vector) FEAT_SME2
+#UDOT (2-way, multiple and indexed vector) FEAT_SME2
+#BFDOT (multiple and indexed vector) FEAT_SME2
+#SDOT (4-way, multiple and indexed vector) FEAT_SME2
+#USDOT (multiple and indexed vector) FEAT_SME2
+#UDOT (4-way, multiple and indexed vector) FEAT_SME2
+#SUDOT (multiple and indexed vector) FEAT_SME2
+#SMLALL (multiple and indexed vector) FEAT_SME_I16I64
+#SMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#UMLALL (multiple and indexed vector) FEAT_SME_I16I64
+#UMLSLL (multiple and indexed vector) FEAT_SME_I16I64
+#FMLAL (multiple and indexed vector) FEAT_SME2
+#FMLSL (multiple and indexed vector) FEAT_SME2
+#BFMLAL (multiple and indexed vector) FEAT_SME2
+#BFMLSL (multiple and indexed vector) FEAT_SME2
+#FMLA (multiple and indexed vector) FEAT_SME_F64F64
+#SDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+#FMLS (multiple and indexed vector) FEAT_SME_F64F64
+#UDOT (4-way, multiple and indexed vector) FEAT_SME_I16I64
+#SVDOT (4-way) FEAT_SME_I16I64
+#UVDOT (4-way) FEAT_SME_I16I64
+#SMLAL (multiple and indexed vector) FEAT_SME2
+#SMLSL (multiple and indexed vector) FEAT_SME2
+#UMLAL (multiple and indexed vector) FEAT_SME2
+#UMLSL (multiple and indexed vector) FEAT_SME2
+#SEL - Encoding FEAT_SME2
+#SEL - Encoding FEAT_SME2
+#FCLAMP - Encoding FEAT_SME2
+#FCLAMP - Encoding FEAT_SME2
+#ZIP (two registers) FEAT_SME2
+#UZP (two registers) FEAT_SME2
+#SQRSHR (two registers) FEAT_SME2
+#UQRSHR (two registers) FEAT_SME2
+#SQRSHRU (two registers) FEAT_SME2
+#SCLAMP FEAT_SME2
+#UCLAMP FEAT_SME2
+#SCLAMP FEAT_SME2
+#UCLAMP FEAT_SME2
+#ZIP (two registers) FEAT_SME2
+#UZP (two registers) FEAT_SME2
+#SQRSHR (four registers) FEAT_SME2
+#UQRSHR (four registers) FEAT_SME2
+#SQRSHRU (four registers) FEAT_SME2
+#SQRSHRN FEAT_SME2
+#UQRSHRN FEAT_SME2
+#SQRSHRUN FEAT_SME2
+#FCVTZS FEAT_SME2
+#FCVTZU FEAT_SME2
+#SCVTF FEAT_SME2
+#UCVTF FEAT_SME2
+#FCVTZS FEAT_SME2
+#FCVTZU FEAT_SME2
+#SCVTF FEAT_SME2
+#UCVTF FEAT_SME2
+#ZIP (four registers) FEAT_SME2
+#UZP (four registers) FEAT_SME2
+#FCVT FEAT_SME2
+#FCVTN FEAT_SME2
+#BFCVT FEAT_SME2
+#BFCVTN FEAT_SME2
+#SQCVT (two registers) FEAT_SME2
+#UQCVT (two registers) FEAT_SME2
+#SQCVTU (two registers) FEAT_SME2
+#SUNPK FEAT_SME2
+#UUNPK FEAT_SME2
+#FRINTN FEAT_SME2
+#FRINTP FEAT_SME2
+#FRINTM FEAT_SME2
+#FRINTA FEAT_SME2
+#SQCVT (four registers) FEAT_SME2
+#UQCVT (four registers) FEAT_SME2
+#SQCVTN FEAT_SME2
+#UQCVTN FEAT_SME2
+#SQCVTU (four registers) FEAT_SME2
+#SQCVTUN FEAT_SME2
+#SUNPK FEAT_SME2
+#UUNPK FEAT_SME2
+#ZIP (four registers) FEAT_SME2
+#UZP (four registers) FEAT_SME2
+#FRINTN FEAT_SME2
+#FRINTP FEAT_SME2
+#FRINTM FEAT_SME2
+#FRINTA FEAT_SME2
+#SQDMULH (multiple vectors) - Encoding FEAT_SME2
+#SMAX (multiple vectors) FEAT_SME2
+#UMAX (multiple vectors) FEAT_SME2
+#SMIN (multiple vectors) FEAT_SME2
+#UMIN (multiple vectors) FEAT_SME2
+#FMAX (multiple vectors) FEAT_SME2
+#FMIN (multiple vectors) FEAT_SME2
+#FMAXNM (multiple vectors) FEAT_SME2
+#FMINNM (multiple vectors) FEAT_SME2
+#SRSHL (multiple vectors) FEAT_SME2
+#URSHL (multiple vectors) FEAT_SME2
+#SQDMULH (multiple vectors) - Encoding FEAT_SME2
+#SMAX (multiple vectors) FEAT_SME2
+#UMAX (multiple vectors) FEAT_SME2
+#SMIN (multiple vectors) FEAT_SME2
+#UMIN (multiple vectors) FEAT_SME2
+#FMAX (multiple vectors) FEAT_SME2
+#FMIN (multiple vectors) FEAT_SME2
+#FMAXNM (multiple vectors) FEAT_SME2
+#FMINNM (multiple vectors) FEAT_SME2
+#SRSHL (multiple vectors) FEAT_SME2
+#URSHL (multiple vectors) FEAT_SME2
+#ADD (to vector) - Encoding FEAT_SME2
+#SQDMULH (multiple and single vector) - Encoding FEAT_SME2
+#SMAX (multiple and single vector) FEAT_SME2
+#UMAX (multiple and single vector) FEAT_SME2
+#SMIN (multiple and single vector) FEAT_SME2
+#UMIN (multiple and single vector) FEAT_SME2
+#FMAX (multiple and single vector) FEAT_SME2
+#FMIN (multiple and single vector) FEAT_SME2
+#FMAXNM (multiple and single vector) FEAT_SME2
+#FMINNM (multiple and single vector) FEAT_SME2
+#SRSHL (multiple and single vector) FEAT_SME2
+#URSHL (multiple and single vector) FEAT_SME2
+#ADD (to vector) - Encoding FEAT_SME2
+#SQDMULH (multiple and single vector) - Encoding FEAT_SME2
+#SMAX (multiple and single vector) FEAT_SME2
+#UMAX (multiple and single vector) FEAT_SME2
+#SMIN (multiple and single vector) FEAT_SME2
+#UMIN (multiple and single vector) FEAT_SME2
+#FMAX (multiple and single vector) FEAT_SME2
+#FMIN (multiple and single vector) FEAT_SME2
+#FMAXNM (multiple and single vector) FEAT_SME2
+#FMINNM (multiple and single vector) FEAT_SME2
+#SRSHL (multiple and single vector) FEAT_SME2
+#URSHL (multiple and single vector) FEAT_SME2
+#FMLAL (multiple and single vector) FEAT_SME2
+#FMLSL (multiple and single vector) FEAT_SME2
+#BFMLAL (multiple and single vector) FEAT_SME2
+#BFMLSL (multiple and single vector) FEAT_SME2
+#FMLAL (multiple and single vector) FEAT_SME2
+#FMLSL (multiple and single vector) FEAT_SME2
+#BFMLAL (multiple and single vector) FEAT_SME2
+#BFMLSL (multiple and single vector) FEAT_SME2
+#USDOT (multiple and single vector) FEAT_SME2
+#SUDOT (multiple and single vector) FEAT_SME2
+#FMLAL (multiple and single vector) FEAT_SME2
+#FMLSL (multiple and single vector) FEAT_SME2
+#BFMLAL (multiple and single vector) FEAT_SME2
+#BFMLSL (multiple and single vector) FEAT_SME2
+#USDOT (multiple and single vector) FEAT_SME2
+#SUDOT (multiple and single vector) FEAT_SME2
+#SMLAL (multiple and single vector) FEAT_SME2
+#SMLSL (multiple and single vector) FEAT_SME2
+#UMLAL (multiple and single vector) FEAT_SME2
+#UMLSL (multiple and single vector) FEAT_SME2
+#SMLAL (multiple and single vector) FEAT_SME2
+#SMLSL (multiple and single vector) FEAT_SME2
+#UMLAL (multiple and single vector) FEAT_SME2
+#UMLSL (multiple and single vector) FEAT_SME2
+#SDOT (2-way, multiple and single vector) FEAT_SME2
+#UDOT (2-way, multiple and single vector) FEAT_SME2
+#SMLAL (multiple and single vector) FEAT_SME2
+#SMLSL (multiple and single vector) FEAT_SME2
+#UMLAL (multiple and single vector) FEAT_SME2
+#UMLSL (multiple and single vector) FEAT_SME2
+#SDOT (2-way, multiple and single vector) FEAT_SME2
+#UDOT (2-way, multiple and single vector) FEAT_SME2
+#SMLALL (multiple and single vector) FEAT_SME2
+#SMLSLL (multiple and single vector) FEAT_SME2
+#0 UMLALL (multiple and single vector) FEAT_SME2
+#UMLSLL (multiple and single vector) FEAT_SME2
+#USMLALL (multiple and single vector) FEAT_SME2
+#SUMLALL (multiple and single vector) FEAT_SME2
+#SMLALL (multiple and single vector) FEAT_SME2
+#SMLSLL (multiple and single vector) FEAT_SME2
+#UMLALL (multiple and single vector) FEAT_SME2
+#UMLSLL (multiple and single vector) FEAT_SME2
+#USMLALL (multiple and single vector) FEAT_SME2
+#FDOT (multiple and single vector) FEAT_SME2
+#BFDOT (multiple and single vector) FEAT_SME2
+#SDOT (4-way, multiple and single vector) FEAT_SME2
+#UDOT (4-way, multiple and single vector) FEAT_SME2
+#FMLA (multiple and single vector) FEAT_SME2
+#FMLS (multiple and single vector) FEAT_SME2
+#ADD (array results, multiple and single vector) FEAT_SME2
+#SUB (array results, multiple and single vector) FEAT_SME2
+#SMLALL (multiple and single vector) FEAT_SME2
+#SMLSLL (multiple and single vector) FEAT_SME2
+#UMLALL (multiple and single vector) FEAT_SME2
+#UMLSLL (multiple and single vector) FEAT_SME2
+#USMLALL (multiple and single vector) FEAT_SME2
+#SUMLALL (multiple and single vector) FEAT_SME2
+#FDOT (multiple and single vector) FEAT_SME2
+#BFDOT (multiple and single vector) FEAT_SME2
+#SDOT (4-way, multiple and single vector) FEAT_SME2
+#UDOT (4-way, multiple and single vector) FEAT_SME2
+#FMLA (multiple and single vector) FEAT_SME2
+#FMLS (multiple and single vector) FEAT_SME2
+#ADD (array results, multiple and single vector) FEAT_SME2
+#SUB (array results, multiple and single vector) FEAT_SME2
+#USDOT (multiple vectors) - Encoding FEAT_SME2
+#FMLAL (multiple vectors) FEAT_SME2
+#FMLSL (multiple vectors) FEAT_SME2
+#BFMLAL (multiple vectors) FEAT_SME2
+#BFMLSL (multiple vectors) FEAT_SME2
+#SMLAL (multiple vectors) FEAT_SME2
+#SMLSL (multiple vectors) FEAT_SME2
+#UMLAL (multiple vectors) FEAT_SME2
+#UMLSL (multiple vectors) FEAT_SME2
+#SDOT (2-way, multiple vectors) FEAT_SME2
+#UDOT (2-way, multiple vectors) FEAT_SME2
+#FADD FEAT_SME2
+#FSUB FEAT_SME2
+#ADD (array accumulators) FEAT_SME2
+#SUB (array accumulators) FEAT_SME2
+#SMLALL (multiple vectors) FEAT_SME2
+#SMLSLL (multiple vectors) FEAT_SME2
+#UMLALL (multiple vectors) FEAT_SME2
+#UMLSLL (multiple vectors) FEAT_SME2
+#USMLALL (multiple vectors) FEAT_SME2
+#FDOT (multiple vectors) FEAT_SME2
+#BFDOT (multiple vectors) FEAT_SME2
+#SDOT (4-way, multiple vectors) FEAT_SME2
+#UDOT (4-way, multiple vectors) FEAT_SME2
+#FMLA (multiple vectors) FEAT_SME2
+#FMLS (multiple vectors) FEAT_SME2
+#ADD (array results, multiple vectors) FEAT_SME2
+#SUB (array results, multiple vectors) FEAT_SME2
+#USDOT (multiple vectors) - Encoding
+#Unallocated. 
+#FMLAL (multiple vectors) FEAT_SME2
+#FMLSL (multiple vectors) FEAT_SME2
+#BFMLAL (multiple vectors) FEAT_SME2
+#BFMLSL (multiple vectors) FEAT_SME2
+#SMLAL (multiple vectors) FEAT_SME2
+#SMLSL (multiple vectors) FEAT_SME2
+#UMLAL (multiple vectors) FEAT_SME2
+#UMLSL (multiple vectors) FEAT_SME2
+#SDOT (2-way, multiple vectors) FEAT_SME2
+#UDOT (2-way, multiple vectors) FEAT_SME2
+#FADD FEAT_SME2
+#FSUB FEAT_SME2
+#ADD (array accumulators) FEAT_SME2
+#SUB (array accumulators) FEAT_SME2
+#SMLALL (multiple vectors) FEAT_SME2
+#SMLSLL (multiple vectors) FEAT_SME2
+#UMLALL (multiple vectors) FEAT_SME2
+#UMLSLL (multiple vectors) FEAT_SME2
+#USMLALL (multiple vectors) FEAT_SME2
+#FDOT (multiple vectors) FEAT_SME2
+#BFDOT (multiple vectors) FEAT_SME2
+#SDOT (4-way, multiple vectors) FEAT_SME2
+#UDOT (4-way, multiple vectors) FEAT_SME2
+#FMLA (multiple vectors) FEAT_SME2
+#FMLS (multiple vectors) FEAT_SME2
+#ADD (array results, multiple vectors) FEAT_SME2
+#SUB (array results, multiple vectors) FEAT_SME2
+#LD1Q FEAT_SME
+#ST1Q FEAT_SME
+#LD1B (scalar plus scalar, tile slice) FEAT_SME
+#LD1H (scalar plus scalar, tile slice) FEAT_SME
+#LD1W (scalar plus scalar, tile slice) FEAT_SME
+#LD1D (scalar plus scalar, tile slice) FEAT_SME
+#ST1B (scalar plus scalar, tile slice) FEAT_SME
+#ST1H (scalar plus scalar, tile slice) FEAT_SME
+#ST1W (scalar plus scalar, tile slice) FEAT_SME
+#ST1D (scalar plus scalar, tile slice) FEAT_SME
+#LDR (vector) FEAT_SME
+#STR (vector) FEAT_SME
+#LDR (ZT0) FEAT_SME2
+#STR (ZT0) FEAT_SME2
+#DUP (indexed) -
+#TBL - Encoding -
+#SEL (vectors) -
+#HISTCNT -
+#FCMLA (vectors) -
+#FCADD -
+#FCLAMP FEAT_SME2
+#MLA (vectors)
+#MLS (vectors)
+#MAD
+#MSB
+#ADD (vectors, predicated)
+#SUB (vectors, predicated)
+#SUBR (vectors)
+#SMAX (vectors)
+#UMAX (vectors)
+#SMIN (vectors)
+#UMIN (vectors)
+#SABD
+#UABD
+#MUL (vectors, predicated)
+#SMULH (predicated)
+#UMULH (predicated)
+#SDIV
+#UDIV
+#SDIVR
+#UDIVR
+#ORR (vectors, predicated)
+#EOR (vectors, predicated)
+#AND (vectors, predicated)
+#BIC (vectors, predicated)
+#SADDV
+#UADDV
+#SMAXV
+#UMAXV
+#SMINV
+#UMINV
+#MOVPRFX (predicated)
+#ORV
+#EORV
+#ANDV
+#ASR (immediate, predicated)
+#LSR (immediate, predicated)
+#LSL (immediate, predicated)
+#ASRD
+#SQSHL (immediate)
+#UQSHL (immediate)
+#SRSHR
+#URSHR
+#SQSHLU
+#ASR (vectors)
+#LSR (vectors)
+#LSL (vectors)
+#ASRR
+#LSRR
+#LSLR
+#ASR (wide elements, predicated)
+#LSR (wide elements, predicated)
+#LSL (wide elements, predicated)
+#SXTB, SXTH, SXTW - Encoding
+#UXTB, UXTH, UXTW - Encoding
+#SXTB, SXTH, SXTW - Encoding
+#UXTB, UXTH, UXTW - Encoding
+#SXTB, SXTH, SXTW - Encoding
+#UXTB, UXTH, UXTW - Encoding
+#ABS
+#NEG
+#CLS
+#CLZ
+#CNT
+#CNOT
+#FABS
+#FNEG
+#NOT (vector)
+#ADD (vectors, unpredicated)
+#SUB (vectors, unpredicated)
+#SQADD (vectors, unpredicated)
+#UQADD (vectors, unpredicated)
+#SQSUB (vectors, unpredicated)
+#UQSUB (vectors, unpredicated)
+#XAR
+#AND (vectors, unpredicated)
+#ORR (vectors, unpredicated)
+#EOR (vectors, unpredicated)
+#BIC (vectors, unpredicated)
+#EOR3
+#BSL
+#BCAX
+#BSL1N
+#BSL2N
+#NBSL
+#INDEX (immediates)
+#INDEX (scalar, immediate)
+#INDEX (immediate, scalar)
+#INDEX (scalars)
+#ADDVL
+#ADDPL
+#ADDSVL FEAT_SME
+#ADDSPL FEAT_SME
+#RDVL
+#RDSVL FEAT_SME
+#MUL (vectors, unpredicated)
+#SMULH (unpredicated)
+#UMULH (unpredicated)
+#PMUL
+#SQDMULH (vectors)
+#SQRDMULH (vectors)
+#ASR (wide elements, unpredicated)
+#LSR (wide elements, unpredicated)
+#LSL (wide elements, unpredicated)
+#ASR (immediate, unpredicated)
+#LSR (immediate, unpredicated)
+#LSL (immediate, unpredicated)
+#ADR - Encoding
+#ADR - Encoding
+#ADR - Encoding
+#FTSSEL
+#FEXPA
+#MOVPRFX (unpredicated)
+#SQINCH (vector)
+#UQINCH (vector)
+#SQDECH (vector)
+#UQDECH (vector)
+#SQINCW (vector)
+#UQINCW (vector)
+#SQDECW (vector)
+#UQDECW (vector)
+#SQINCD (vector)
+#UQINCD (vector)
+#SQDECD (vector)
+#UQDECD (vector)
+#CNTB, CNTD, CNTH, CNTW - Encoding
+#CNTB, CNTD, CNTH, CNTW - Encoding
+#CNTB, CNTD, CNTH, CNTW - Encoding
+#CNTB, CNTD, CNTH, CNTW - Encoding
+#INCD, INCH, INCW (vector) - Encoding
+#DECD, DECH, DECW (vector) - Encoding
+#INCD, INCH, INCW (vector) - Encoding
+#DECD, DECH, DECW (vector) - Encoding
+#INCD, INCH, INCW (vector) - Encoding
+#DECD, DECH, DECW (vector) - Encoding
+#INCB, INCD, INCH, INCW (scalar) - Encoding
+#DECB, DECD, DECH, DECW (scalar) - Encoding
+#INCB, INCD, INCH, INCW (scalar) - Encoding
+#DECB, DECD, DECH, DECW (scalar) - Encoding
+#INCB, INCD, INCH, INCW (scalar) - Encoding
+#DECB, DECD, DECH, DECW (scalar) - Encoding
+#INCB, INCD, INCH, INCW (scalar) - Encoding
+#DECB, DECD, DECH, DECW (scalar) - Encoding
+#SQINCB - Encoding
+#UQINCB - Encoding
+#SQDECB - Encoding
+#UQDECB - Encoding
+#SQINCB - Encoding
+#UQINCB - Encoding
+#SQDECB - Encoding
+#UQDECB - Encoding
+#SQINCH (scalar) - Encoding
+#UQINCH (scalar) - Encoding
+#SQDECH (scalar) - Encoding
+#UQDECH (scalar) - Encoding
+#SQINCH (scalar) - Encoding
+#UQINCH (scalar) - Encoding
+#SQDECH (scalar) - Encoding
+#UQDECH (scalar) - Encoding
+#SQINCW (scalar) - Encoding
+#UQINCW (scalar) - Encoding
+#SQDECW (scalar) - Encoding
+#UQDECW (scalar) - Encoding
+#SQINCW (scalar) - Encoding
+#UQINCW (scalar) - Encoding
+#SQDECW (scalar) - Encoding
+#UQDECW (scalar) - Encoding
+#SQINCD (scalar) - Encoding
+#UQINCD (scalar) - Encoding
+#SQDECD (scalar) - Encoding
+#UQDECD (scalar) - Encoding
+#SQINCD (scalar) - Encoding
+#UQINCD (scalar) - Encoding
+#SQDECD (scalar) - Encoding
+#UQDECD (scalar) - Encoding
+#DUPM
+#ORR (immediate)
+#EOR (immediate)
+#AND (immediate)
+#FCPY
+#CPY (immediate, zeroing)
+#CPY (immediate, merging)
+#TBL
+#TBX
+#DUP (scalar)
+#INSR (scalar)
+#INSR (SIMD&FP scalar)
+#REV (vector)
+#SUNPKHI, SUNPKLO - Encoding
+#SUNPKHI, SUNPKLO - Encoding
+#UUNPKHI, UUNPKLO - Encoding
+#UUNPKHI, UUNPKLO - Encoding
+#REV (predicate)
+#PUNPKHI, PUNPKLO - Encoding
+#PUNPKHI, PUNPKLO - Encoding
+#ZIP1, ZIP2 (predicates) - Encoding
+#ZIP1, ZIP2 (predicates) - Encoding
+#UZP1, UZP2 (predicates) - Encoding
+#UZP1, UZP2 (predicates) - Encoding
+#TRN1, TRN2 (predicates) - Encoding
+#TRN1, TRN2 (predicates) - Encoding
+#CPY (SIMD&FP scalar)
+#COMPACT
+#CPY (scalar)
+#SPLICE - Encoding
+#SPLICE - Encoding
+#LASTA (scalar)
+#LASTB (scalar)
+#LASTA (SIMD&FP scalar)
+#LASTB (SIMD&FP scalar)
+#REVB, REVH, REVW - Encoding
+#REVB, REVH, REVW - Encoding
+#REVB, REVH, REVW - Encoding
+#RBIT
+#CLASTA (vectors)
+#CLASTB (vectors)
+#CLASTA (SIMD&FP scalar)
+#CLASTB (SIMD&FP scalar)
+#REVD FEAT_SME
+#CLASTA (scalar)
+#CLASTB (scalar)
+#CPY (SIMD&FP scalar)
+#COMPACT
+#CPY (scalar)
+#SPLICE - Encoding
+#SPLICE - Encoding
+#LASTA (scalar)
+#LASTB (scalar)
+#LASTA (SIMD&FP scalar)
+#LASTB (SIMD&FP scalar)
+#REVB, REVH, REVW - Encoding
+#REVB, REVH, REVW - Encoding
+#REVB, REVH, REVW - Encoding
+#RBIT
+#CLASTA (vectors)
+#CLASTB (vectors)
+#CLASTA (SIMD&FP scalar)
+#CLASTB (SIMD&FP scalar)
+#REVD FEAT_SME
+#CLASTA (scalar)
+#CLASTB (scalar)
+#EXT - Encoding
+#EXT - Encoding
+#ZIP1, ZIP2 (vectors) - Encoding FEAT_F64MM
+#ZIP1, ZIP2 (vectors) - Encoding FEAT_F64MM
+#UZP1, UZP2 (vectors) - Encoding FEAT_F64MM
+#UZP1, UZP2 (vectors) - Encoding FEAT_F64MM
+#TRN1, TRN2 (vectors) - Encoding FEAT_F64MM
+#TRN1, TRN2 (vectors) - Encoding FEAT_F64MM
+#CMP<cc> (vectors) - Encoding
+#CMP<cc> (vectors) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (vectors) - Encoding
+#CMP<cc> (vectors) - Encoding
+#CMP<cc> (vectors) - Encoding
+#CMP<cc> (vectors) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (wide elements) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#CMP<cc> (immediate) - Encoding
+#AND (predicates)
+#BIC (predicates)
+#EOR (predicates)
+#SEL (predicates)
+#ANDS
+#BICS
+#EORS
+#ORR (predicates)
+#ORN (predicates)
+#NOR
+#NAND
+#ORRS
+#ORNS
+#NORS
+#NANDS
+#BRKPA
+#BRKPB
+#BRKPAS
+#BRKPBS
+#BRKN
+#BRKNS
+#BRKA
+#BRKAS
+#BRKB
+#BRKBS
+#PNEXT
+#PTEST
+#PFIRST
+#PFALSE
+#RDFFR (predicated)
+#RDFFRS
+#RDFFR (unpredicated)
+#PTRUE
+#PTRUES
+#WHILEGE (predicate)
+#WHILEGT (predicate)
+#WHILELT (predicate)
+#WHILELE (predicate)
+#WHILEHS (predicate)
+#WHILEHI (predicate)
+#WHILELO (predicate)
+#WHILELS (predicate)
+#CTERMEQ, CTERMNE - Encoding
+#CTERMEQ, CTERMNE - Encoding
+#WHILEWR
+#WHILERW
+#PSEL FEAT_SME
+#PTRUE FEAT_SME2
+#PEXT (predicate) FEAT_SME2
+#PEXT (predicate pair) FEAT_SME2
+#WHILEGE (predicate pair) FEAT_SME2
+#WHILEGT (predicate pair) FEAT_SME2
+#WHILELT (predicate pair) FEAT_SME2
+#WHILELE (predicate pair) FEAT_SME2
+#WHILEHS (predicate pair) FEAT_SME2
+#WHILEHI (predicate pair) FEAT_SME2
+#WHILELO (predicate pair) FEAT_SME2
+#WHILELS (predicate pair) FEAT_SME2
+#WHILEGE FEAT_SME2
+#WHILEGT FEAT_SME2
+#WHILELT FEAT_SME2
+#WHILELE FEAT_SME2
+#WHILEHS FEAT_SME2
+#WHILEHI FEAT_SME2
+#WHILELO FEAT_SME2
+#WHILELS FEAT_SME2
+#ADD (immediate)
+#SUB (immediate)
+#SUBR (immediate)
+#SQADD (immediate)
+#UQADD (immediate)
+#SQSUB (immediate)
+#UQSUB (immediate)
+#SMAX (immediate)
+#UMAX (immediate)
+#SMIN (immediate)
+#UMIN (immediate)
+#MUL (immediate)
+#DUP (immediate)
+#FDUP
+#CNTP FEAT_SME2
+#CNTP
+#SQINCP (vector)
+#UQINCP (vector)
+#SQDECP (vector)
+#UQDECP (vector)
+#SQINCP (scalar) - Encoding
+#SQINCP (scalar) - Encoding
+#UQINCP (scalar) - Encoding
+#UQINCP (scalar) - Encoding
+#SQDECP (scalar) - Encoding
+#SQDECP (scalar) - Encoding
+#UQDECP (scalar) - Encoding
+#UQDECP (scalar) - Encoding
+#INCP (vector)
+#DECP (vector)
+#INCP (scalar)
+#DECP (scalar)
+#WRFFR
+#SETFFR
+#CDOT (vectors)
+#SDOT (4-way, vectors)
+#UDOT (4-way, vectors)
+#SQDMLALBT
+#SQDMLSLBT
+#CMLA (vectors)
+#SQRDCMLAH (vectors)
+#SMLALB (vectors)
+#SMLALT (vectors)
+#UMLALB (vectors)
+#UMLALT (vectors)
+#SMLSLB (vectors)
+#SMLSLT (vectors)
+#UMLSLB (vectors)
+#UMLSLT (vectors)
+#SQDMLALB (vectors)
+#SQDMLALT (vectors)
+#SQDMLSLB (vectors)
+#SQDMLSLT (vectors)
+#SQRDMLAH (vectors)
+#SQRDMLSH (vectors)
+#USDOT (vectors) FEAT_I8MM
+#SADALP
+#UADALP
+#URECPE
+#URSQRTE
+#SQABS
+#SQNEG
+#SRSHL
+#URSHL
+#SRSHLR
+#URSHLR
+#SQSHL (vectors)
+#UQSHL (vectors)
+#SQRSHL
+#UQRSHL
+#SQSHLR
+#UQSHLR
+#SQRSHLR
+#UQRSHLR
+#SHADD
+#UHADD
+#SHSUB
+#UHSUB
+#SRHADD
+#URHADD
+#SHSUBR
+#UHSUBR
+#ADDP
+#SMAXP
+#UMAXP
+#SMINP
+#UMINP
+#SQADD (vectors, predicated)
+#UQADD (vectors, predicated)
+#SQSUB (vectors, predicated)
+#UQSUB (vectors, predicated)
+#SUQADD
+#USQADD
+#SQSUBR
+#UQSUBR
+#SCLAMP FEAT_SME
+#UCLAMP FEAT_SME
+#SDOT (4-way, indexed) - Encoding
+#UDOT (4-way, indexed) - Encoding
+#SDOT (4-way, indexed) - Encoding
+#UDOT (4-way, indexed) - Encoding
+#MLA (indexed) - Encoding
+#MLS (indexed) - Encoding
+#MLA (indexed) - Encoding
+#MLS (indexed) - Encoding
+#MLA (indexed) - Encoding
+#MLS (indexed) - Encoding
+#SQRDMLAH (indexed) - Encoding
+#SQRDMLSH (indexed) - Encoding
+#SQRDMLAH (indexed) - Encoding
+#SQRDMLSH (indexed) - Encoding
+#SQRDMLAH (indexed) - Encoding
+#SQRDMLSH (indexed) - Encoding
+#USDOT (indexed) FEAT_I8MM
+#SUDOT FEAT_I8MM
+#SQDMLALB (indexed) - Encoding
+#SQDMLALT (indexed) - Encoding
+#SQDMLSLB (indexed) - Encoding
+#SQDMLSLT (indexed) - Encoding
+#SQDMLALB (indexed) - Encoding
+#SQDMLALT (indexed) - Encoding
+#SQDMLSLB (indexed) - Encoding
+#SQDMLSLT (indexed) - Encoding
+#CDOT (indexed) - Encoding
+#CDOT (indexed) - Encoding
+#CMLA (indexed) - Encoding
+#CMLA (indexed) - Encoding
+#SQRDCMLAH (indexed) - Encoding
+#SQRDCMLAH (indexed) - Encoding
+#SMLALB (indexed) - Encoding
+#SMLALT (indexed) - Encoding
+#UMLALB (indexed) - Encoding
+#UMLALT (indexed) - Encoding
+#SMLSLB (indexed) - Encoding
+#SMLSLT (indexed) - Encoding
+#UMLSLB (indexed) - Encoding
+#UMLSLT (indexed) - Encoding
+#SMLALB (indexed) - Encoding
+#SMLALT (indexed) - Encoding
+#UMLALB (indexed) - Encoding
+#UMLALT (indexed) - Encoding
+#SMLSLB (indexed) - Encoding
+#SMLSLT (indexed) - Encoding
+#UMLSLB (indexed) - Encoding
+#UMLSLT (indexed) - Encoding
+#SMULLB (indexed) - Encoding
+#SMULLT (indexed) - Encoding
+#UMULLB (indexed) - Encoding
+#UMULLT (indexed) - Encoding
+#SMULLB (indexed) - Encoding
+#SMULLT (indexed) - Encoding
+#UMULLB (indexed) - Encoding
+#UMULLT (indexed) - Encoding
+#SQDMULLB (indexed) - Encoding
+#SQDMULLT (indexed) - Encoding
+#SQDMULLB (indexed) - Encoding
+#SQDMULLT (indexed) - Encoding
+#SQDMULH (indexed) - Encoding
+#SQRDMULH (indexed) - Encoding
+#SQDMULH (indexed) - Encoding
+#SQRDMULH (indexed) - Encoding
+#SQDMULH (indexed) - Encoding
+#SQRDMULH (indexed) - Encoding
+#MUL (indexed) - Encoding
+#MUL (indexed) - Encoding
+#MUL (indexed) - Encoding
+#SDOT (2-way, vectors) FEAT_SME2
+#UDOT (2-way, vectors) FEAT_SME2
+#SDOT (2-way, indexed) FEAT_SME2
+#UDOT (2-way, indexed) FEAT_SME2
+#SADDLB
+#SADDLT
+#UADDLB
+#UADDLT
+#SSUBLB
+#SSUBLT
+#USUBLB
+#USUBLT
+#SABDLB
+#SABDLT
+#UABDLB
+#UABDLT
+#SADDWB
+#SADDWT
+#UADDWB
+#UADDWT
+#SSUBWB
+#SSUBWT
+#USUBWB
+#USUBWT
+#SQDMULLB (vectors) -
+#SQDMULLT (vectors) -
+#SMULLB (vectors) -
+#SMULLT (vectors) -
+#UMULLB (vectors) -
+#UMULLT (vectors) -
+#PMULLB - Encoding -
+#PMULLT - Encoding -
+#PMULLB - Encoding FEAT_SVE_PMULL128
+#PMULLT - Encoding FEAT_SVE_PMULL128
+#SSHLLB
+#SSHLLT
+#USHLLB
+#USHLLT
+#SADDLBT
+#SSUBLBT
+#SSUBLTB
+#EORBT
+#EORTB
+#SMMLA FEAT_I8MM
+#USMMLA FEAT_I8MM
+#UMMLA FEAT_I8MM
+#BEXT FEAT_SVE_BitPerm
+#BDEP FEAT_SVE_BitPerm
+#BGRP FEAT_SVE_BitPerm
+#CADD
+#SQCADD
+#SABALB
+#SABALT
+#UABALB
+#UABALT
+#ADCLB
+#ADCLT
+#SBCLB
+#SBCLT
+#SSRA
+#USRA
+#SRSRA
+#URSRA
+#SRI
+#SLI
+#SABA
+#UABA
+#SQXTNB
+#SQXTNT
+#UQXTNB
+#UQXTNT
+#SQXTUNB
+#SQXTUNT
+#SQCVTN FEAT_SME2
+#UQCVTN FEAT_SME2
+#SQCVTUN FEAT_SME2
+#SQSHRUNB
+#SQSHRUNT
+#SQRSHRUNB
+#SQRSHRUNT
+#SHRNB
+#SHRNT
+#RSHRNB
+#RSHRNT
+#SQSHRNB
+#SQSHRNT
+#SQRSHRNB
+#SQRSHRNT
+#UQSHRNB
+#UQSHRNT
+#UQRSHRNB
+#UQRSHRNT
+#SQRSHRUN FEAT_SME2
+#SQRSHRN FEAT_SME2
+#UQRSHRN FEAT_SME2
+#ADDHNB
+#ADDHNT
+#RADDHNB
+#RADDHNT
+#SUBHNB
+#SUBHNT
+#RSUBHNB
+#RSUBHNT
+#MATCH
+#NMATCH
+#HISTSEG
+#AESMC FEAT_SVE_AES
+#AESIMC FEAT_SVE_AES
+#AESE FEAT_SVE_AES
+#AESD FEAT_SVE_AES
+#SM4E FEAT_SVE_SM4
+#SM4EKEY FEAT_SVE_SM4
+#RAX1 FEAT_SVE_SHA3
+#AESMC FEAT_SVE_AES
+#AESIMC FEAT_SVE_AES
+#AESE FEAT_SVE_AES
+#AESD FEAT_SVE_AES
+#SM4E FEAT_SVE_SM4
+#SM4EKEY FEAT_SVE_SM4
+#RAX1 FEAT_SVE_SHA3
+#FCVTXNT -
+#FCVTNT - Encoding -
+#FCVTLT - Encoding -
+#BFCVTNT FEAT_BF16
+#FCVTNT - Encoding -
+#FCVTLT - Encoding -
+#FADDP
+#FMAXNMP
+#FMINNMP
+#FMAXP
+#FMINP
+#FMLA (indexed) - Encoding
+#FMLS (indexed) - Encoding
+#FMLA (indexed) - Encoding
+#FMLS (indexed) - Encoding
+#FMLA (indexed) - Encoding
+#FMLS (indexed) - Encoding
+#FCMLA (indexed) - Encoding
+#FCMLA (indexed) - Encoding
+#FMUL (indexed) - Encoding
+#FMUL (indexed) - Encoding
+#FMUL (indexed) - Encoding
+#FDOT (indexed) FEAT_SME2
+#BFDOT (indexed) FEAT_BF16
+#FMLALB (indexed) -
+#FMLALT (indexed) -
+#FMLSLB (indexed) -
+#FMLSLT (indexed) -
+#BFMLALB (indexed) FEAT_BF16
+#BFMLALT (indexed) FEAT_BF16
+#BFMLSLB (indexed) FEAT_SME2
+#BFMLSLT (indexed) FEAT_SME2
+#FDOT (vectors) FEAT_SME2
+#BFDOT (vectors) FEAT_BF16
+#FMLALB (vectors) -
+#FMLALT (vectors) -
+#FMLSLB (vectors) -
+#FMLSLT (vectors) -
+#BFMLALB (vectors) FEAT_BF16
+#BFMLALT (vectors) FEAT_BF16
+#BFMLSLB (vectors) FEAT_SME2
+#BFMLSLT (vectors) FEAT_SME2
+#BFMMLA FEAT_BF16
+#FMMLA - Encoding FEAT_F32MM
+#FMMLA - Encoding FEAT_F64MM
+#FCM<cc> (vectors) - Encoding
+#FCM<cc> (vectors) - Encoding
+#FCM<cc> (vectors) - Encoding
+#FCM<cc> (vectors) - Encoding
+#FCM<cc> (vectors) - Encoding
+#FAC<cc> - Encoding
+#FAC<cc> - Encoding
+#FADD (vectors, unpredicated)
+#FSUB (vectors, unpredicated)
+#FMUL (vectors, unpredicated)
+#FTSMUL
+#FRECPS
+#FRSQRTS
+#FTMAD
+#FADD (vectors, predicated)
+#FSUB (vectors, predicated)
+#FMUL (vectors, predicated)
+#FSUBR (vectors)
+#FMAXNM (vectors)
+#FMINNM (vectors)
+#FMAX (vectors)
+#FMIN (vectors)
+#FABD
+#FSCALE
+#FMULX
+#FDIVR
+#FDIV
+#FADD (immediate)
+#FSUB (immediate)
+#FMUL (immediate)
+#FSUBR (immediate)
+#FMAXNM (immediate)
+#FMINNM (immediate)
+#FMAX (immediate)
+#FMIN (immediate)
+#FRINT<r> - Encoding
+#FRINT<r> - Encoding
+#FRINT<r> - Encoding
+#FRINT<r> - Encoding
+#FRINT<r> - Encoding
+#FRINT<r> - Encoding
+#FRINT<r> - Encoding
+#FCVTX -
+#FCVT - Encoding -
+#FCVT - Encoding -
+#BFCVT FEAT_BF16
+#FCVT - Encoding -
+#FCVT - Encoding -
+#FCVT - Encoding -
+#FCVT - Encoding -
+#FRECPX
+#FSQRT
+#SCVTF - Encoding
+#UCVTF - Encoding
+#SCVTF - Encoding
+#UCVTF - Encoding
+#SCVTF - Encoding
+#UCVTF - Encoding
+#SCVTF - Encoding
+#UCVTF - Encoding
+#SCVTF - Encoding
+#UCVTF - Encoding
+#SCVTF - Encoding
+#UCVTF - Encoding
+#SCVTF - Encoding
+#UCVTF - Encoding
+#FLOGB
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FCVTZS - Encoding
+#FCVTZU - Encoding
+#FADDV
+#FMAXNMV
+#FMINNMV
+#FMAXV
+#FMINV
+#FRECPE
+#FRSQRTE
+#FCM<cc> (zero) - Encoding
+#FCM<cc> (zero) - Encoding
+#FCM<cc> (zero) - Encoding
+#FCM<cc> (zero) - Encoding
+#FCM<cc> (zero) - Encoding
+#FCM<cc> (zero) - Encoding
+#FADDA
+#FMLA (vectors)
+#FMLS (vectors)
+#FNMLA
+#FNMLS
+#FMAD
+#FMSB
+#FNMAD
+#FNMSB
+#LDR (predicate)
+#LDR (vector)
+#PRFB (scalar plus vector)
+#PRFH (scalar plus vector)
+#PRFW (scalar plus vector)
+#PRFD (scalar plus vector)
+#LD1SH (scalar plus vector)
+#LDFF1SH (scalar plus vector)
+#LD1H (scalar plus vector)
+#LDFF1H (scalar plus vector)
+#LD1W (scalar plus vector)
+#LDFF1W (scalar plus vector)
+#PRFB (scalar plus immediate)
+#PRFH (scalar plus immediate)
+#PRFW (scalar plus immediate)
+#PRFD (scalar plus immediate)
+#LD1SB (scalar plus vector)
+#LDFF1SB (scalar plus vector)
+#LD1B (scalar plus vector)
+#LDFF1B (scalar plus vector)
+#LD1SH (scalar plus vector)
+#LDFF1SH (scalar plus vector)
+#LD1H (scalar plus vector)
+#LDFF1H (scalar plus vector)
+#LD1W (scalar plus vector)
+#LDFF1W (scalar plus vector)
+#LDNT1SB
+#LDNT1B (vector plus scalar)
+#LDNT1SH
+#LDNT1H (vector plus scalar)
+#LDNT1W (vector plus scalar)
+#PRFB (scalar plus scalar)
+#PRFH (scalar plus scalar)
+#PRFW (scalar plus scalar)
+#PRFD (scalar plus scalar)
+#PRFB (vector plus immediate)
+#PRFH (vector plus immediate)
+#PRFW (vector plus immediate)
+#PRFD (vector plus immediate)
+#LD1SB (vector plus immediate)
+#LDFF1SB (vector plus immediate)
+#LD1B (vector plus immediate)
+#LDFF1B (vector plus immediate)
+#LD1SH (vector plus immediate)
+#LDFF1SH (vector plus immediate)
+#LD1H (vector plus immediate)
+#LDFF1H (vector plus immediate)
+#LD1W (vector plus immediate)
+#LDFF1W (vector plus immediate)
+#LD1RB - Encoding
+#LD1RB - Encoding
+#LD1RB - Encoding
+#LD1RB - Encoding
+#LD1RSW
+#LD1RH - Encoding
+#LD1RH - Encoding
+#LD1RH - Encoding
+#LD1RSH - Encoding
+#LD1RSH - Encoding
+#LD1RW - Encoding
+#LD1RW - Encoding
+#LD1RSB - Encoding
+#LD1RSB - Encoding
+#LD1RSB - Encoding
+#LD1RD
+#LDNT1B (scalar plus immediate, single register)
+#LDNT1H (scalar plus immediate, single register)
+#LDNT1W (scalar plus immediate, single register)
+#LDNT1D (scalar plus immediate, single register)
+#LDNT1B (scalar plus scalar, single register)
+#LDNT1H (scalar plus scalar, single register)
+#LDNT1W (scalar plus scalar, single register)
+#LDNT1D (scalar plus scalar, single register)
+#LD2B (scalar plus immediate)
+#LD3B (scalar plus immediate)
+#LD4B (scalar plus immediate)
+#LD2H (scalar plus immediate)
+#LD3H (scalar plus immediate)
+#LD4H (scalar plus immediate)
+#LD2W (scalar plus immediate)
+#LD3W (scalar plus immediate)
+#LD4W (scalar plus immediate)
+#LD2D (scalar plus immediate)
+#LD3D (scalar plus immediate)
+#LD4D (scalar plus immediate)
+#LD2B (scalar plus scalar)
+#LD3B (scalar plus scalar)
+#LD4B (scalar plus scalar)
+#LD2H (scalar plus scalar)
+#LD3H (scalar plus scalar)
+#LD4H (scalar plus scalar)
+#LD2W (scalar plus scalar)
+#LD3W (scalar plus scalar)
+#LD4W (scalar plus scalar)
+#LD2D (scalar plus scalar)
+#LD3D (scalar plus scalar)
+#LD4D (scalar plus scalar)
+#LD1RQB (scalar plus immediate) -
+#LD1ROB (scalar plus immediate) FEAT_F64MM
+#LD1RQH (scalar plus immediate) -
+#LD1ROH (scalar plus immediate) FEAT_F64MM
+#LD1RQW (scalar plus immediate) -
+#LD1ROW (scalar plus immediate) FEAT_F64MM
+#LD1RQD (scalar plus immediate) -
+#LD1ROD (scalar plus immediate) FEAT_F64MM
+#LD1B (scalar plus immediate, single register) - Encoding
+#LD1B (scalar plus immediate, single register) - Encoding
+#LD1B (scalar plus immediate, single register) - Encoding
+#LD1B (scalar plus immediate, single register) - Encoding
+#LD1SW (scalar plus immediate)
+#LD1H (scalar plus immediate, single register) - Encoding
+#LD1H (scalar plus immediate, single register) - Encoding
+#LD1H (scalar plus immediate, single register) - Encoding
+#LD1SH (scalar plus immediate) - Encoding
+#LD1SH (scalar plus immediate) - Encoding
+#LD1W (scalar plus immediate, single register) - Encoding
+#LD1W (scalar plus immediate, single register) - Encoding
+#LD1SB (scalar plus immediate) - Encoding
+#LD1SB (scalar plus immediate) - Encoding
+#LD1SB (scalar plus immediate) - Encoding
+#LD1D (scalar plus immediate, single register)
+#LDNF1B - Encoding
+#LDNF1B - Encoding
+#LDNF1B - Encoding
+#LDNF1B - Encoding
+#LDNF1SW
+#LDNF1H - Encoding
+#LDNF1H - Encoding
+#LDNF1H - Encoding
+#LDNF1SH - Encoding
+#LDNF1SH - Encoding
+#LDNF1W - Encoding
+#LDNF1W - Encoding
+#LDNF1SB - Encoding
+#LDNF1SB - Encoding
+#LDNF1SB - Encoding
+#LDNF1D
+#LD1RQB (scalar plus scalar) -
+#LD1ROB (scalar plus scalar) FEAT_F64MM
+#LD1RQH (scalar plus scalar) -
+#LD1ROH (scalar plus scalar) FEAT_F64MM
+#LD1RQW (scalar plus scalar) -
+#LD1ROW (scalar plus scalar) FEAT_F64MM
+#LD1RQD (scalar plus scalar) -
+#LD1ROD (scalar plus scalar) FEAT_F64MM
+#LD1B (scalar plus scalar, single register) - Encoding
+#LD1B (scalar plus scalar, single register) - Encoding
+#LD1B (scalar plus scalar, single register) - Encoding
+#LD1B (scalar plus scalar, single register) - Encoding
+#LD1SW (scalar plus scalar)
+#LD1H (scalar plus scalar, single register) - Encoding
+#LD1H (scalar plus scalar, single register) - Encoding
+#LD1H (scalar plus scalar, single register) - Encoding
+#LD1SH (scalar plus scalar) - Encoding
+#LD1SH (scalar plus scalar) - Encoding
+#LD1W (scalar plus scalar, single register) - Encoding
+#LD1W (scalar plus scalar, single register) - Encoding
+#LD1SB (scalar plus scalar) - Encoding
+#LD1SB (scalar plus scalar) - Encoding
+#LD1SB (scalar plus scalar) - Encoding
+#LD1D (scalar plus scalar, single register)
+#LDFF1B (scalar plus scalar) - Encoding
+#LDFF1B (scalar plus scalar) - Encoding
+#LDFF1B (scalar plus scalar) - Encoding
+#LDFF1B (scalar plus scalar) - Encoding
+#LDFF1SW (scalar plus scalar)
+#LDFF1H (scalar plus scalar) - Encoding
+#LDFF1H (scalar plus scalar) - Encoding
+#LDFF1H (scalar plus scalar) - Encoding
+#LDFF1SH (scalar plus scalar) - Encoding
+#LDFF1SH (scalar plus scalar) - Encoding
+#LDFF1W (scalar plus scalar) - Encoding
+#LDFF1W (scalar plus scalar) - Encoding
+#LDFF1SB (scalar plus scalar) - Encoding
+#LDFF1SB (scalar plus scalar) - Encoding
+#LDFF1SB (scalar plus scalar) - Encoding
+#LDFF1D (scalar plus scalar)
+#PRFB (scalar plus vector)
+#PRFH (scalar plus vector)
+#PRFW (scalar plus vector)
+#PRFD (scalar plus vector)
+#PRFB (scalar plus vector)
+#PRFH (scalar plus vector)
+#PRFW (scalar plus vector)
+#PRFD (scalar plus vector)
+#LD1SH (scalar plus vector)
+#LDFF1SH (scalar plus vector)
+#LD1H (scalar plus vector)
+#LDFF1H (scalar plus vector)
+#LD1SW (scalar plus vector)
+#LDFF1SW (scalar plus vector)
+#LD1W (scalar plus vector)
+#LDFF1W (scalar plus vector)
+#LD1D (scalar plus vector)
+#LDFF1D (scalar plus vector)
+#LD1SH (scalar plus vector)
+#LDFF1SH (scalar plus vector)
+#LD1H (scalar plus vector)
+#LDFF1H (scalar plus vector)
+#LD1SW (scalar plus vector)
+#LDFF1SW (scalar plus vector)
+#LD1W (scalar plus vector)
+#LDFF1W (scalar plus vector)
+#LD1D (scalar plus vector)
+#LDFF1D (scalar plus vector)
+#PRFB (vector plus immediate)
+#PRFH (vector plus immediate)
+#PRFW (vector plus immediate)
+#PRFD (vector plus immediate)
+#LDNT1SB
+#LDNT1B (vector plus scalar)
+#LDNT1SH
+#LDNT1H (vector plus scalar)
+#LDNT1SW
+#LDNT1W (vector plus scalar)
+#LDNT1D (vector plus scalar)
+#LD1SB (vector plus immediate)
+#LDFF1SB (vector plus immediate)
+#LD1B (vector plus immediate)
+#LDFF1B (vector plus immediate)
+#LD1SH (vector plus immediate)
+#LDFF1SH (vector plus immediate)
+#LD1H (vector plus immediate)
+#LDFF1H (vector plus immediate)
+#LD1SW (vector plus immediate)
+#LDFF1SW (vector plus immediate)
+#LD1W (vector plus immediate)
+#LDFF1W (vector plus immediate)
+#LD1D (vector plus immediate)
+#LDFF1D (vector plus immediate)
+#LD1SB (scalar plus vector)
+#LDFF1SB (scalar plus vector)
+#LD1B (scalar plus vector)
+#LDFF1B (scalar plus vector)
+#LD1SH (scalar plus vector)
+#LDFF1SH (scalar plus vector)
+#LD1H (scalar plus vector)
+#LDFF1H (scalar plus vector)
+#LD1SW (scalar plus vector)
+#LDFF1SW (scalar plus vector)
+#LD1W (scalar plus vector)
+#LDFF1W (scalar plus vector)
+#LD1D (scalar plus vector)
+#LDFF1D (scalar plus vector)
+#LD1SB (scalar plus vector)
+#LDFF1SB (scalar plus vector)
+#LD1B (scalar plus vector)
+#LDFF1B (scalar plus vector)
+#LD1SH (scalar plus vector)
+#LDFF1SH (scalar plus vector)
+#LD1H (scalar plus vector)
+#LDFF1H (scalar plus vector)
+#LD1SW (scalar plus vector)
+#LDFF1SW (scalar plus vector)
+#LD1W (scalar plus vector)
+#LDFF1W (scalar plus vector)
+#LD1D (scalar plus vector)
+#LDFF1D (scalar plus vector)
+#STR (predicate)
+#STR (vector)
+#ST1B (scalar plus scalar, single register)
+#ST1H (scalar plus scalar, single register)
+#ST1W (scalar plus scalar, single register)
+#ST1D (scalar plus scalar, single register)
+#ST1B (scalar plus scalar, single register)
+#ST1H (scalar plus scalar, single register)
+#ST1W (scalar plus scalar, single register)
+#ST1D (scalar plus scalar, single register)
+#STNT1B (scalar plus scalar, single register)
+#STNT1H (scalar plus scalar, single register)
+#STNT1W (scalar plus scalar, single register)
+#STNT1D (scalar plus scalar, single register)
+#ST2B (scalar plus scalar)
+#ST3B (scalar plus scalar)
+#ST4B (scalar plus scalar)
+#ST2H (scalar plus scalar)
+#ST3H (scalar plus scalar)
+#ST4H (scalar plus scalar)
+#ST2W (scalar plus scalar)
+#ST3W (scalar plus scalar)
+#ST4W (scalar plus scalar)
+#ST2D (scalar plus scalar)
+#ST3D (scalar plus scalar)
+#ST4D (scalar plus scalar)
+#ST1B (scalar plus vector)
+#ST1H (scalar plus vector)
+#ST1W (scalar plus vector)
+#ST1D (scalar plus vector)
+#ST1H (scalar plus vector)
+#ST1W (scalar plus vector)
+#ST1D (scalar plus vector)
+#ST1B (scalar plus vector)
+#ST1H (scalar plus vector)
+#ST1W (scalar plus vector)
+#ST1H (scalar plus vector)
+#ST1W (scalar plus vector)
+#ST1B (scalar plus vector)
+#ST1H (scalar plus vector)
+#ST1W (scalar plus vector)
+#ST1D (scalar plus vector)
+#ST1H (scalar plus vector)
+#ST1W (scalar plus vector)
+#ST1D (scalar plus vector)
+#ST1B (vector plus immediate)
+#ST1H (vector plus immediate)
+#ST1W (vector plus immediate)
+#ST1D (vector plus immediate)
+#ST1B (vector plus immediate)
+#ST1H (vector plus immediate)
+#ST1W (vector plus immediate)
+#STNT1B (scalar plus immediate, single register)
+#STNT1H (scalar plus immediate, single register)
+#STNT1W (scalar plus immediate, single register)
+#STNT1D (scalar plus immediate, single register)
+#ST2B (scalar plus immediate)
+#ST3B (scalar plus immediate)
+#ST4B (scalar plus immediate)
+#ST2H (scalar plus immediate)
+#ST3H (scalar plus immediate)
+#ST4H (scalar plus immediate)
+#ST2W (scalar plus immediate)
+#ST3W (scalar plus immediate)
+#ST4W (scalar plus immediate)
+#ST2D (scalar plus immediate)
+#ST3D (scalar plus immediate)
+#ST4D (scalar plus immediate)
+#ST1B (scalar plus immediate, single register)
+#ST1H (scalar plus immediate, single register)
+#ST1W (scalar plus immediate, single register)
+#ST1D (scalar plus immediate, single register)
+#ADR
+#ADRP
+#ADD (immediate) - 32-bit variant
+#ADDS (immediate) - 32-bit variant
+#SUB (immediate) - 32-bit variant
+#SUBS (immediate) - 32-bit variant
+#ADD (immediate) - 64-bit variant
+#ADDS (immediate) - 64-bit variant
+#SUB (immediate) - 64-bit variant
+#SUBS (immediate) - 64-bit variant
+#ADDG FEAT_MTE
+#SUBG FEAT_MTE
+#AND (immediate) - 32-bit variant
+#ORR (immediate) - 32-bit variant
+#EOR (immediate) - 32-bit variant
+#ANDS (immediate) - 32-bit variant
+#AND (immediate) - 64-bit variant
+#ORR (immediate) - 64-bit variant
+#EOR (immediate) - 64-bit variant
+#ANDS (immediate) - 64-bit variant
+#MOVN - 32-bit variant
+#MOVZ - 32-bit variant
+#MOVK - 32-bit variant
+#MOVN - 64-bit variant
+#MOVZ - 64-bit variant
+#MOVK - 64-bit variant
+#SBFM - 32-bit variant
+#BFM - 32-bit variant
+#UBFM - 32-bit variant
+#SBFM - 64-bit variant
+#BFM - 64-bit variant
+#UBFM - 64-bit variant
+#EXTR - 32-bit variant
+#EXTR - 64-bit variant
+#B.cond -
+#BC.cond FEAT_HBC
+#SVC -
+#HVC -
+#SMC -
+#BRK -
+#HLT -
+#TCANCEL FEAT_TME
+#DCPS1 -
+#DCPS2 -
+#DCPS3 -
+#WFET FEAT_WFxT
+#WFIT FEAT_WFxT
+#HINT -
+#NOP -
+#YIELD -
+#WFE -
+#WFI -
+#SEV -
+#SEVL -
+#DGH FEAT_DGH
+#XPACD, XPACI, XPACLRI FEAT_PAuth
+#PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIA1716 variant FEAT_PAuth
+#PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIB1716 variant FEAT_PAuth
+#AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIA1716 variant FEAT_PAuth
+#AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIB1716 variant FEAT_PAuth
+#ESB FEAT_RAS
+#PSB CSYNC FEAT_SPE
+#TSB CSYNC FEAT_TRF
+#CSDB -
+#PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIAZ variant FEAT_PAuth
+#PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIASP variant FEAT_PAuth
+#PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIBZ variant FEAT_PAuth
+#PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIBSP variant FEAT_PAuth
+#AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIAZ variant FEAT_PAuth
+#AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIASP variant FEAT_PAuth
+#AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIBZ variant FEAT_PAuth
+#AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIBSP variant FEAT_PAuth
+#BTI FEAT_BTI
+#CLREX -
+#DSB - Encoding -
+#DMB -
+#ISB -
+#SB FEAT_SB
+#DSB - Encoding FEAT_XS
+#TCOMMIT FEAT_TME
+#MSR (immediate) -
+#CFINV FEAT_FlagM
+#XAFLAG FEAT_FlagM2
+#AXFLAG FEAT_FlagM2
+#TSTART FEAT_TME
+#TTEST FEAT_TME
+#SYS
+#SYSL
+#MSR (register)
+#MRS
+#BR -
+#BRAA, BRAAZ, BRAB, BRABZ - Key A, zero modifier variant FEAT_PAuth
+#BRAA, BRAAZ, BRAB, BRABZ - Key B, zero modifier variant FEAT_PAuth
+#BLR -
+#BLRAA, BLRAAZ, BLRAB, BLRABZ - Key A, zero modifier variant FEAT_PAuth
+#BLRAA, BLRAAZ, BLRAB, BLRABZ - Key B, zero modifier variant FEAT_PAuth
+#RET -
+#RETAA, RETAB - RETAA variant FEAT_PAuth
+#RETAA, RETAB - RETAB variant FEAT_PAuth
+#ERET -
+#ERETAA, ERETAB - ERETAA variant FEAT_PAuth
+#ERETAA, ERETAB - ERETAB variant FEAT_PAuth
+#B
+#BL
+#CBZ - 32-bit variant
+#CBNZ - 32-bit variant
+#CBZ - 64-bit variant
+#CBNZ - 64-bit variant
+#TBZ
+#TBNZ
+#CASP, CASPA, CASPAL, CASPL - 32-bit CASP variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 32-bit CASPL variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 32-bit CASPA variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 32-bit CASPAL variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 64-bit CASP variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 64-bit CASPL variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 64-bit CASPA variant FEAT_LSE
+#CASP, CASPA, CASPAL, CASPL - 64-bit CASPAL variant FEAT_LSE
+#ST4 (multiple structures)
+#ST1 (multiple structures) - Four registers variant
+#ST3 (multiple structures)
+#ST1 (multiple structures) - Three registers variant
+#ST1 (multiple structures) - One register variant
+#ST2 (multiple structures)
+#ST1 (multiple structures) - Two registers variant
+#LD4 (multiple structures)
+#LD1 (multiple structures) - Four registers variant
+#LD3 (multiple structures)
+#LD1 (multiple structures) - Three registers variant
+#LD1 (multiple structures) - One register variant
+#LD2 (multiple structures)
+#LD1 (multiple structures) - Two registers variant
+#ST4 (multiple structures) - Register offset variant
+#ST1 (multiple structures) - Four registers, register offset variant
+#ST3 (multiple structures) - Register offset variant
+#ST1 (multiple structures) - Three registers, register offset variant
+#ST1 (multiple structures) - One register, register offset variant
+#ST2 (multiple structures) - Register offset variant
+#ST1 (multiple structures) - Two registers, register offset variant
+#ST4 (multiple structures) - Immediate offset variant
+#ST1 (multiple structures) - Four registers, immediate offset variant
+#ST3 (multiple structures) - Immediate offset variant
+#ST1 (multiple structures) - Three registers, immediate offset variant
+#ST1 (multiple structures) - One register, immediate offset variant
+#ST2 (multiple structures) - Immediate offset variant
+#ST1 (multiple structures) - Two registers, immediate offset variant
+#LD4 (multiple structures) - Register offset variant
+#LD1 (multiple structures) - Four registers, register offset variant
+#LD3 (multiple structures) - Register offset variant
+#LD1 (multiple structures) - Three registers, register offset variant
+#LD1 (multiple structures) - One register, register offset variant
+#LD2 (multiple structures) - Register offset variant
+#LD1 (multiple structures) - Two registers, register offset variant
+#LD4 (multiple structures) - Immediate offset variant
+#LD1 (multiple structures) - Four registers, immediate offset variant
+#LD3 (multiple structures) - Immediate offset variant
+#LD1 (multiple structures) - Three registers, immediate offset variant
+#LD1 (multiple structures) - One register, immediate offset variant
+#LD2 (multiple structures) - Immediate offset variant
+#LD1 (multiple structures) - Two registers, immediate offset variant
+#ST1 (single structure) - 8-bit variant
+#ST3 (single structure) - 8-bit variant
+#ST1 (single structure) - 16-bit variant
+#ST3 (single structure) - 16-bit variant
+#ST1 (single structure) - 32-bit variant
+#ST1 (single structure) - 64-bit variant
+#ST3 (single structure) - 32-bit variant
+#ST3 (single structure) - 64-bit variant
+#ST2 (single structure) - 8-bit variant
+#ST4 (single structure) - 8-bit variant
+#ST2 (single structure) - 16-bit variant
+#ST4 (single structure) - 16-bit variant
+#ST2 (single structure) - 32-bit variant
+#ST2 (single structure) - 64-bit variant
+#ST4 (single structure) - 32-bit variant
+#ST4 (single structure) - 64-bit variant
+#LD1 (single structure) - 8-bit variant
+#LD3 (single structure) - 8-bit variant
+#LD1 (single structure) - 16-bit variant
+#LD3 (single structure) - 16-bit variant
+#LD1 (single structure) - 32-bit variant
+#LD1 (single structure) - 64-bit variant
+#LD3 (single structure) - 32-bit variant
+#LD3 (single structure) - 64-bit variant
+#LD1R
+#LD3R
+#LD2 (single structure) - 8-bit variant
+#LD4 (single structure) - 8-bit variant
+#LD2 (single structure) - 16-bit variant
+#LD4 (single structure) - 16-bit variant
+#LD2 (single structure) - 32-bit variant
+#LD2 (single structure) - 64-bit variant
+#LD4 (single structure) - 32-bit variant
+#LD4 (single structure) - 64-bit variant
+#LD2R
+#LD4R
+#ST1 (single structure) - 8-bit, register offset variant
+#ST3 (single structure) - 8-bit, register offset variant
+#ST1 (single structure) - 16-bit, register offset variant
+#ST3 (single structure) - 16-bit, register offset variant
+#ST1 (single structure) - 32-bit, register offset variant
+#ST1 (single structure) - 64-bit, register offset variant
+#ST3 (single structure) - 32-bit, register offset variant
+#ST3 (single structure) - 64-bit, register offset variant
+#ST1 (single structure) - 8-bit, immediate offset variant
+#ST3 (single structure) - 8-bit, immediate offset variant
+#ST1 (single structure) - 16-bit, immediate offset variant
+#ST3 (single structure) - 16-bit, immediate offset variant
+#ST1 (single structure) - 32-bit, immediate offset variant
+#ST1 (single structure) - 64-bit, immediate offset variant
+#ST3 (single structure) - 32-bit, immediate offset variant
+#ST3 (single structure) - 64-bit, immediate offset variant
+#ST2 (single structure) - 8-bit, register offset variant
+#ST4 (single structure) - 8-bit, register offset variant
+#ST2 (single structure) - 16-bit, register offset variant
+#ST4 (single structure) - 16-bit, register offset variant
+#ST2 (single structure) - 32-bit, register offset variant
+#ST2 (single structure) - 64-bit, register offset variant
+#ST4 (single structure) - 32-bit, register offset variant
+#ST4 (single structure) - 64-bit, register offset variant
+#ST2 (single structure) - 8-bit, immediate offset variant
+#ST4 (single structure) - 8-bit, immediate offset variant
+#ST2 (single structure) - 16-bit, immediate offset variant
+#ST4 (single structure) - 16-bit, immediate offset variant
+#ST2 (single structure) - 32-bit, immediate offset variant
+#ST2 (single structure) - 64-bit, immediate offset variant
+#ST4 (single structure) - 32-bit, immediate offset variant
+#ST4 (single structure) - 64-bit, immediate offset variant
+#LD1 (single structure) - 8-bit, register offset variant
+#LD3 (single structure) - 8-bit, register offset variant
+#LD1 (single structure) - 16-bit, register offset variant
+#LD3 (single structure) - 16-bit, register offset variant
+#LD1 (single structure) - 32-bit, register offset variant
+#LD1 (single structure) - 64-bit, register offset variant
+#LD3 (single structure) - 32-bit, register offset variant
+#LD3 (single structure) - 64-bit, register offset variant
+#LD1R - Register offset variant
+#LD3R - Register offset variant
+#LD1 (single structure) - 8-bit, immediate offset variant
+#LD3 (single structure) - 8-bit, immediate offset variant
+#LD1 (single structure) - 16-bit, immediate offset variant
+#LD3 (single structure) - 16-bit, immediate offset variant
+#LD1 (single structure) - 32-bit, immediate offset variant
+#LD1 (single structure) - 64-bit, immediate offset variant
+#LD3 (single structure) - 32-bit, immediate offset variant
+#LD3 (single structure) - 64-bit, immediate offset variant
+#LD1R - Immediate offset variant
+#LD3R - Immediate offset variant
+#LD2 (single structure) - 8-bit, register offset variant
+#LD4 (single structure) - 8-bit, register offset variant
+#LD2 (single structure) - 16-bit, register offset variant
+#LD4 (single structure) - 16-bit, register offset variant
+#LD2 (single structure) - 32-bit, register offset variant
+#LD2 (single structure) - 64-bit, register offset variant
+#LD4 (single structure) - 32-bit, register offset variant
+#LD4 (single structure) - 64-bit, register offset variant
+#LD2R - Register offset variant
+#LD4R - Register offset variant
+#LD2 (single structure) - 8-bit, immediate offset variant
+#LD4 (single structure) - 8-bit, immediate offset variant
+#LD2 (single structure) - 16-bit, immediate offset variant
+#LD4 (single structure) - 16-bit, immediate offset variant
+#LD2 (single structure) - 32-bit, immediate offset variant
+#LD2 (single structure) - 64-bit, immediate offset variant
+#LD4 (single structure) - 32-bit, immediate offset variant
+#LD4 (single structure) - 64-bit, immediate offset variant
+#LD2R - Immediate offset variant
+#LD4R - Immediate offset variant
+#STG - Encoding FEAT_MTE
+#STG - Encoding FEAT_MTE
+#STG - Encoding FEAT_MTE
+#STZGM FEAT_MTE2
+#LDG FEAT_MTE
+#STZG - Encoding FEAT_MTE
+#STZG - Encoding FEAT_MTE
+#STZG - Encoding FEAT_MTE
+#ST2G - Encoding FEAT_MTE
+#ST2G - Encoding FEAT_MTE
+#ST2G - Encoding FEAT_MTE
+#STGM FEAT_MTE2
+#STZ2G - Encoding FEAT_MTE
+#STZ2G - Encoding FEAT_MTE
+#STZ2G - Encoding FEAT_MTE
+#LDGM FEAT_MTE2
+#STXP - 32-bit variant
+#STLXP - 32-bit variant
+#LDXP - 32-bit variant
+#LDAXP - 32-bit variant
+#STXP - 64-bit variant
+#STLXP - 64-bit variant
+#LDXP - 64-bit variant
+#LDAXP - 64-bit variant
+#STXRB
+#STLXRB
+#LDXRB
+#LDAXRB
+#STXRH
+#STLXRH
+#LDXRH
+#LDAXRH
+#STXR - 32-bit variant
+#STLXR - 32-bit variant
+#LDXR - 32-bit variant
+#LDAXR - 32-bit variant
+#STXR - 64-bit variant
+#STLXR - 64-bit variant
+#LDXR - 64-bit variant
+#LDAXR - 64-bit variant
+#FEAT_LOR
+#STLRB -
+#LDLARB FEAT_LOR
+#LDARB -
+#STLLRH FEAT_LOR
+#STLRH -
+#LDLARH FEAT_LOR
+#LDARH -
+#STLLR - 32-bit variant FEAT_LOR
+#STLR - 32-bit variant -
+#LDLAR - 32-bit variant FEAT_LOR
+#LDAR - 32-bit variant -
+#STLLR - 64-bit variant FEAT_LOR
+#STLR - 64-bit variant -
+#LDLAR - 64-bit variant FEAT_LOR
+#LDAR - 64-bit variant -
+#CASB, CASAB, CASALB, CASLB - CASB variant FEAT_LSE
+#CASB, CASAB, CASALB, CASLB - CASLB variant FEAT_LSE
+#CASB, CASAB, CASALB, CASLB - CASAB variant FEAT_LSE
+#CASB, CASAB, CASALB, CASLB - CASALB variant FEAT_LSE
+#CASH, CASAH, CASALH, CASLH - CASH variant FEAT_LSE
+#CASH, CASAH, CASALH, CASLH - CASLH variant FEAT_LSE
+#CASH, CASAH, CASALH, CASLH - CASAH variant FEAT_LSE
+#CASH, CASAH, CASALH, CASLH - CASALH variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 32-bit CAS variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 32-bit CASL variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 32-bit CASA variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 32-bit CASAL variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 64-bit CAS variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 64-bit CASL variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 64-bit CASA variant FEAT_LSE
+#CAS, CASA, CASAL, CASL - 64-bit CASAL variant FEAT_LSE
+#STLURB FEAT_LRCPC2
+#LDAPURB FEAT_LRCPC2
+#LDAPURSB - 64-bit variant FEAT_LRCPC2
+#LDAPURSB - 32-bit variant FEAT_LRCPC2
+#STLURH FEAT_LRCPC2
+#LDAPURH FEAT_LRCPC2
+#LDAPURSH - 64-bit variant FEAT_LRCPC2
+#LDAPURSH - 32-bit variant FEAT_LRCPC2
+#STLUR - 32-bit variant FEAT_LRCPC2
+#LDAPUR - 32-bit variant FEAT_LRCPC2
+#LDAPURSW FEAT_LRCPC2
+#STLUR - 64-bit variant FEAT_LRCPC2
+#LDAPUR - 64-bit variant FEAT_LRCPC2
+#LDR (literal) - 32-bit variant
+#LDR (literal, SIMD&FP) - 32-bit variant
+#LDR (literal) - 64-bit variant
+#LDR (literal, SIMD&FP) - 64-bit variant
+#LDRSW (literal)
+#LDR (literal, SIMD&FP) - 128-bit variant
+#PRFM (literal)
+#CPYFP, CPYFM, CPYFE - Prologue variant FEAT_MOPS
+#CPYFPWT, CPYFMWT, CPYFEWT - Prologue variant FEAT_MOPS
+#CPYFPRT, CPYFMRT, CPYFERT - Prologue variant FEAT_MOPS
+#CPYFPT, CPYFMT, CPYFET - Prologue variant FEAT_MOPS
+#CPYFPWN, CPYFMWN, CPYFEWN - Prologue variant FEAT_MOPS
+#CPYFPWTWN, CPYFMWTWN, CPYFEWTWN - Prologue variant FEAT_MOPS
+#CPYFPRTWN, CPYFMRTWN, CPYFERTWN - Prologue variant FEAT_MOPS
+#CPYFPTWN, CPYFMTWN, CPYFETWN - Prologue variant FEAT_MOPS
+#CPYFPRN, CPYFMRN, CPYFERN - Prologue variant FEAT_MOPS
+#CPYFPWTRN, CPYFMWTRN, CPYFEWTRN - Prologue variant FEAT_MOPS
+#CPYFPRTRN, CPYFMRTRN, CPYFERTRN - Prologue variant FEAT_MOPS
+#CPYFPTRN, CPYFMTRN, CPYFETRN - Prologue variant FEAT_MOPS
+#CPYFPN, CPYFMN, CPYFEN - Prologue variant FEAT_MOPS
+#CPYFPWTN, CPYFMWTN, CPYFEWTN - Prologue variant FEAT_MOPS
+#CPYFPRTN, CPYFMRTN, CPYFERTN - Prologue variant FEAT_MOPS
+#CPYFPTN, CPYFMTN, CPYFETN - Prologue variant FEAT_MOPS
+#CPYFP, CPYFM, CPYFE - Main variant FEAT_MOPS
+#CPYFPWT, CPYFMWT, CPYFEWT - Main variant FEAT_MOPS
+#CPYFPRT, CPYFMRT, CPYFERT - Main variant FEAT_MOPS
+#CPYFPT, CPYFMT, CPYFET - Main variant FEAT_MOPS
+#CPYFPWN, CPYFMWN, CPYFEWN - Main variant FEAT_MOPS
+#CPYFPWTWN, CPYFMWTWN, CPYFEWTWN - Main variant FEAT_MOPS
+#CPYFPRTWN, CPYFMRTWN, CPYFERTWN - Main variant FEAT_MOPS
+#CPYFPTWN, CPYFMTWN, CPYFETWN - Main variant FEAT_MOPS
+#CPYFPRN, CPYFMRN, CPYFERN - Main variant FEAT_MOPS
+#CPYFPWTRN, CPYFMWTRN, CPYFEWTRN - Main variant FEAT_MOPS
+#CPYFPRTRN, CPYFMRTRN, CPYFERTRN - Main variant FEAT_MOPS
+#CPYFPTRN, CPYFMTRN, CPYFETRN - Main variant FEAT_MOPS
+#CPYFPN, CPYFMN, CPYFEN - Main variant FEAT_MOPS
+#CPYFPWTN, CPYFMWTN, CPYFEWTN - Main variant FEAT_MOPS
+#CPYFPRTN, CPYFMRTN, CPYFERTN - Main variant FEAT_MOPS
+#CPYFPTN, CPYFMTN, CPYFETN - Main variant FEAT_MOPS
+#CPYFP, CPYFM, CPYFE - Epilogue variant FEAT_MOPS
+#CPYFPWT, CPYFMWT, CPYFEWT - Epilogue variant FEAT_MOPS
+#CPYFPRT, CPYFMRT, CPYFERT - Epilogue variant FEAT_MOPS
+#CPYFPT, CPYFMT, CPYFET - Epilogue variant FEAT_MOPS
+#CPYFPWN, CPYFMWN, CPYFEWN - Epilogue variant FEAT_MOPS
+#CPYFPWTWN, CPYFMWTWN, CPYFEWTWN - Epilogue variant FEAT_MOPS
+#CPYFPRTWN, CPYFMRTWN, CPYFERTWN - Epilogue variant FEAT_MOPS
+#CPYFPTWN, CPYFMTWN, CPYFETWN - Epilogue variant FEAT_MOPS
+#CPYFPRN, CPYFMRN, CPYFERN - Epilogue variant FEAT_MOPS
+#CPYFPWTRN, CPYFMWTRN, CPYFEWTRN - Epilogue variant FEAT_MOPS
+#CPYFPRTRN, CPYFMRTRN, CPYFERTRN - Epilogue variant FEAT_MOPS
+#CPYFPTRN, CPYFMTRN, CPYFETRN - Epilogue variant FEAT_MOPS
+#CPYFPN, CPYFMN, CPYFEN - Epilogue variant FEAT_MOPS
+#CPYFPWTN, CPYFMWTN, CPYFEWTN - Epilogue variant FEAT_MOPS
+#CPYFPRTN, CPYFMRTN, CPYFERTN - Epilogue variant FEAT_MOPS
+#CPYFPTN, CPYFMTN, CPYFETN - Epilogue variant FEAT_MOPS
+#SETP, SETM, SETE - Prologue variant FEAT_MOPS
+#SETPT, SETMT, SETET - Prologue variant FEAT_MOPS
+#SETPN, SETMN, SETEN - Prologue variant FEAT_MOPS
+#SETPTN, SETMTN, SETETN - Prologue variant FEAT_MOPS
+#SETP, SETM, SETE - Main variant FEAT_MOPS
+#SETPT, SETMT, SETET - Main variant FEAT_MOPS
+#SETPN, SETMN, SETEN - Main variant FEAT_MOPS
+#SETPTN, SETMTN, SETETN - Main variant FEAT_MOPS
+#SETP, SETM, SETE - Epilogue variant FEAT_MOPS
+#SETPT, SETMT, SETET - Epilogue variant FEAT_MOPS
+#SETPN, SETMN, SETEN - Epilogue variant FEAT_MOPS
+#SETPTN, SETMTN, SETETN - Epilogue variant FEAT_MOPS
+#CPYP, CPYM, CPYE - Prologue variant FEAT_MOPS
+#CPYPWT, CPYMWT, CPYEWT - Prologue variant FEAT_MOPS
+#CPYPRT, CPYMRT, CPYERT - Prologue variant FEAT_MOPS
+#CPYPT, CPYMT, CPYET - Prologue variant FEAT_MOPS
+#CPYPWN, CPYMWN, CPYEWN - Prologue variant FEAT_MOPS
+#CPYPWTWN, CPYMWTWN, CPYEWTWN - Prologue variant FEAT_MOPS
+#CPYPRTWN, CPYMRTWN, CPYERTWN - Prologue variant FEAT_MOPS
+#CPYPTWN, CPYMTWN, CPYETWN - Prologue variant FEAT_MOPS
+#CPYPRN, CPYMRN, CPYERN - Prologue variant FEAT_MOPS
+#CPYPWTRN, CPYMWTRN, CPYEWTRN - Prologue variant FEAT_MOPS
+#CPYPRTRN, CPYMRTRN, CPYERTRN - Prologue variant FEAT_MOPS
+#CPYPTRN, CPYMTRN, CPYETRN - Prologue variant FEAT_MOPS
+#CPYPN, CPYMN, CPYEN - Prologue variant FEAT_MOPS
+#CPYPWTN, CPYMWTN, CPYEWTN - Prologue variant FEAT_MOPS
+#CPYPRTN, CPYMRTN, CPYERTN - Prologue variant FEAT_MOPS
+#CPYPTN, CPYMTN, CPYETN - Prologue variant FEAT_MOPS
+#CPYP, CPYM, CPYE - Main variant FEAT_MOPS
+#CPYPWT, CPYMWT, CPYEWT - Main variant FEAT_MOPS
+#CPYPRT, CPYMRT, CPYERT - Main variant FEAT_MOPS
+#CPYPT, CPYMT, CPYET - Main variant FEAT_MOPS
+#CPYPWN, CPYMWN, CPYEWN - Main variant FEAT_MOPS
+#CPYPWTWN, CPYMWTWN, CPYEWTWN - Main variant FEAT_MOPS
+#CPYPRTWN, CPYMRTWN, CPYERTWN - Main variant FEAT_MOPS
+#CPYPTWN, CPYMTWN, CPYETWN - Main variant FEAT_MOPS
+#CPYPRN, CPYMRN, CPYERN - Main variant FEAT_MOPS
+#CPYPWTRN, CPYMWTRN, CPYEWTRN - Main variant FEAT_MOPS
+#CPYPRTRN, CPYMRTRN, CPYERTRN - Main variant FEAT_MOPS
+#CPYPTRN, CPYMTRN, CPYETRN - Main variant FEAT_MOPS
+#CPYPN, CPYMN, CPYEN - Main variant FEAT_MOPS
+#CPYPWTN, CPYMWTN, CPYEWTN - Main variant FEAT_MOPS
+#CPYPRTN, CPYMRTN, CPYERTN - Main variant FEAT_MOPS
+#CPYPTN, CPYMTN, CPYETN - Main variant FEAT_MOPS
+#CPYP, CPYM, CPYE - Epilogue variant FEAT_MOPS
+#CPYPWT, CPYMWT, CPYEWT - Epilogue variant FEAT_MOPS
+#CPYPRT, CPYMRT, CPYERT - Epilogue variant FEAT_MOPS
+#CPYPT, CPYMT, CPYET - Epilogue variant FEAT_MOPS
+#CPYPWN, CPYMWN, CPYEWN - Epilogue variant FEAT_MOPS
+#CPYPWTWN, CPYMWTWN, CPYEWTWN - Epilogue variant FEAT_MOPS
+#CPYPRTWN, CPYMRTWN, CPYERTWN - Epilogue variant FEAT_MOPS
+#CPYPTWN, CPYMTWN, CPYETWN - Epilogue variant FEAT_MOPS
+#CPYPRN, CPYMRN, CPYERN - Epilogue variant FEAT_MOPS
+#CPYPWTRN, CPYMWTRN, CPYEWTRN - Epilogue variant FEAT_MOPS
+#CPYPRTRN, CPYMRTRN, CPYERTRN - Epilogue variant FEAT_MOPS
+#CPYPTRN, CPYMTRN, CPYETRN - Epilogue variant FEAT_MOPS
+#CPYPN, CPYMN, CPYEN - Epilogue variant FEAT_MOPS
+#CPYPWTN, CPYMWTN, CPYEWTN - Epilogue variant FEAT_MOPS
+#CPYPRTN, CPYMRTN, CPYERTN - Epilogue variant FEAT_MOPS
+#CPYPTN, CPYMTN, CPYETN - Epilogue variant FEAT_MOPS
+#SETGP, SETGM, SETGE - Prologue variant FEAT_MOPS
+#SETGPT, SETGMT, SETGET - Prologue variant FEAT_MOPS
+#SETGPN, SETGMN, SETGEN - Prologue variant FEAT_MOPS
+#SETGPTN, SETGMTN, SETGETN - Prologue variant FEAT_MOPS
+#SETGP, SETGM, SETGE - Main variant FEAT_MOPS
+#SETGPT, SETGMT, SETGET - Main variant FEAT_MOPS
+#SETGPN, SETGMN, SETGEN - Main variant FEAT_MOPS
+#SETGPTN, SETGMTN, SETGETN - Main variant FEAT_MOPS
+#SETGP, SETGM, SETGE - Epilogue variant FEAT_MOPS
+#SETGPT, SETGMT, SETGET - Epilogue variant FEAT_MOPS
+#SETGPN, SETGMN, SETGEN - Epilogue variant FEAT_MOPS
+#SETGPTN, SETGMTN, SETGETN - Epilogue variant FEAT_MOPS
+#STNP - 32-bit variant
+#LDNP - 32-bit variant
+#STNP (SIMD&FP) - 32-bit variant
+#LDNP (SIMD&FP) - 32-bit variant
+#STNP (SIMD&FP) - 64-bit variant
+#LDNP (SIMD&FP) - 64-bit variant
+#STNP - 64-bit variant
+#LDNP - 64-bit variant
+#STNP (SIMD&FP) - 128-bit variant
+#LDNP (SIMD&FP) - 128-bit variant
+#STP - 32-bit variant -
+#LDP - 32-bit variant -
+#STP (SIMD&FP) - 32-bit variant -
+#LDP (SIMD&FP) - 32-bit variant -
+#STGP FEAT_MTE
+#LDPSW -
+#STP (SIMD&FP) - 64-bit variant -
+#LDP (SIMD&FP) - 64-bit variant -
+#STP - 64-bit variant -
+#LDP - 64-bit variant -
+#STP (SIMD&FP) - 128-bit variant -
+#LDP (SIMD&FP) - 128-bit variant -
+#STP - 32-bit variant -
+#LDP - 32-bit variant -
+#STP (SIMD&FP) - 32-bit variant -
+#LDP (SIMD&FP) - 32-bit variant -
+#STGP FEAT_MTE
+#LDPSW -
+#STP (SIMD&FP) - 64-bit variant -
+#LDP (SIMD&FP) - 64-bit variant -
+#STP - 64-bit variant -
+#LDP - 64-bit variant -
+#STP (SIMD&FP) - 128-bit variant -
+#LDP (SIMD&FP) - 128-bit variant -
+#STP - 32-bit variant -
+#LDP - 32-bit variant -
+#STP (SIMD&FP) - 32-bit variant -
+#LDP (SIMD&FP) - 32-bit variant -
+#STGP FEAT_MTE
+#LDPSW -
+#STP (SIMD&FP) - 64-bit variant -
+#LDP (SIMD&FP) - 64-bit variant -
+#STP - 64-bit variant -
+#LDP - 64-bit variant -
+#STP (SIMD&FP) - 128-bit variant -
+#LDP (SIMD&FP) - 128-bit variant -
+#STURB
+#LDURB
+#LDURSB - 64-bit variant
+#LDURSB - 32-bit variant
+#STUR (SIMD&FP) - 8-bit variant
+#LDUR (SIMD&FP) - 8-bit variant
+#STUR (SIMD&FP) - 128-bit variant
+#LDUR (SIMD&FP) - 128-bit variant
+#STURH
+#LDURH
+#LDURSH - 64-bit variant
+#LDURSH - 32-bit variant
+#STUR (SIMD&FP) - 16-bit variant
+#LDUR (SIMD&FP) - 16-bit variant
+#STUR - 32-bit variant
+#LDUR - 32-bit variant
+#LDURSW
+#STUR (SIMD&FP) - 32-bit variant
+#LDUR (SIMD&FP) - 32-bit variant
+#STUR - 64-bit variant
+#LDUR - 64-bit variant
+#PRFUM
+#STUR (SIMD&FP) - 64-bit variant
+#LDUR (SIMD&FP) - 64-bit variant
+#STRB (immediate)
+#LDRB (immediate)
+#LDRSB (immediate) - 64-bit variant
+#LDRSB (immediate) - 32-bit variant
+#STR (immediate, SIMD&FP) - 8-bit variant
+#LDR (immediate, SIMD&FP) - 8-bit variant
+#STR (immediate, SIMD&FP) - 128-bit variant
+#LDR (immediate, SIMD&FP) - 128-bit variant
+#STRH (immediate)
+#LDRH (immediate)
+#LDRSH (immediate) - 64-bit variant
+#LDRSH (immediate) - 32-bit variant
+#STR (immediate, SIMD&FP) - 16-bit variant
+#LDR (immediate, SIMD&FP) - 16-bit variant
+#STR (immediate) - 32-bit variant
+#LDR (immediate) - 32-bit variant
+#LDRSW (immediate)
+#STR (immediate, SIMD&FP) - 32-bit variant
+#LDR (immediate, SIMD&FP) - 32-bit variant
+#STR (immediate) - 64-bit variant
+#LDR (immediate) - 64-bit variant
+#STR (immediate, SIMD&FP) - 64-bit variant
+#LDR (immediate, SIMD&FP) - 64-bit variant
+#STTRB
+#LDTRB
+#LDTRSB - 64-bit variant
+#LDTRSB - 32-bit variant
+#STTRH
+#LDTRH
+#LDTRSH - 64-bit variant
+#LDTRSH - 32-bit variant
+#STTR - 32-bit variant
+#LDTR - 32-bit variant
+#LDTRSW
+#STTR - 64-bit variant
+#LDTR - 64-bit variant
+#STRB (immediate)
+#LDRB (immediate)
+#LDRSB (immediate) - 64-bit variant
+#LDRSB (immediate) - 32-bit variant
+#STR (immediate, SIMD&FP) - 8-bit variant
+#LDR (immediate, SIMD&FP) - 8-bit variant
+#STR (immediate, SIMD&FP) - 128-bit variant
+#LDR (immediate, SIMD&FP) - 128-bit variant
+#STRH (immediate)
+#LDRH (immediate)
+#LDRSH (immediate) - 64-bit variant
+#LDRSH (immediate) - 32-bit variant
+#STR (immediate, SIMD&FP) - 16-bit variant
+#LDR (immediate, SIMD&FP) - 16-bit variant
+#STR (immediate) - 32-bit variant
+#LDR (immediate) - 32-bit variant
+#LDRSW (immediate)
+#STR (immediate, SIMD&FP) - 32-bit variant
+#LDR (immediate, SIMD&FP) - 32-bit variant
+#STR (immediate) - 64-bit variant
+#LDR (immediate) - 64-bit variant
+#STR (immediate, SIMD&FP) - 64-bit variant
+#LDR (immediate, SIMD&FP) - 64-bit variant
+#LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDB variant FEAT_LSE
+#LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRB variant FEAT_LSE
+#LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORB variant FEAT_LSE
+#LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETB variant FEAT_LSE
+#LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXB variant FEAT_LSE
+#LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINB variant FEAT_LSE
+#LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXB variant FEAT_LSE
+#LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINB variant FEAT_LSE
+#SWPB, SWPAB, SWPALB, SWPLB - SWPB variant FEAT_LSE
+#LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDLB variant FEAT_LSE
+#LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRLB variant FEAT_LSE
+#LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORLB variant FEAT_LSE
+#LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETLB variant FEAT_LSE
+#LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXLB variant FEAT_LSE
+#LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINLB variant FEAT_LSE
+#LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXLB variant FEAT_LSE
+#LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINLB variant FEAT_LSE
+#SWPB, SWPAB, SWPALB, SWPLB - SWPLB variant FEAT_LSE
+#LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDAB variant FEAT_LSE
+#LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRAB variant FEAT_LSE
+#LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORAB variant FEAT_LSE
+#LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETAB variant FEAT_LSE
+#LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXAB variant FEAT_LSE
+#LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINAB variant FEAT_LSE
+#LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXAB variant FEAT_LSE
+#LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINAB variant FEAT_LSE
+#SWPB, SWPAB, SWPALB, SWPLB - SWPAB variant FEAT_LSE
+#LDAPRB FEAT_LRCPC
+#LDADDB, LDADDAB, LDADDALB, LDADDLB - LDADDALB variant FEAT_LSE
+#LDCLRB, LDCLRAB, LDCLRALB, LDCLRLB - LDCLRALB variant FEAT_LSE
+#LDEORB, LDEORAB, LDEORALB, LDEORLB - LDEORALB variant FEAT_LSE
+#LDSETB, LDSETAB, LDSETALB, LDSETLB - LDSETALB variant FEAT_LSE
+#LDSMAXB, LDSMAXAB, LDSMAXALB, LDSMAXLB - LDSMAXALB variant FEAT_LSE
+#LDSMINB, LDSMINAB, LDSMINALB, LDSMINLB - LDSMINALB variant FEAT_LSE
+#LDUMAXB, LDUMAXAB, LDUMAXALB, LDUMAXLB - LDUMAXALB variant FEAT_LSE
+#LDUMINB, LDUMINAB, LDUMINALB, LDUMINLB - LDUMINALB variant FEAT_LSE
+#SWPB, SWPAB, SWPALB, SWPLB - SWPALB variant FEAT_LSE
+#LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDH variant FEAT_LSE
+#LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRH variant FEAT_LSE
+#LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORH variant FEAT_LSE
+#LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETH variant FEAT_LSE
+#LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXH variant FEAT_LSE
+#LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINH variant FEAT_LSE
+#LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXH variant FEAT_LSE
+#LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINH variant FEAT_LSE
+#SWPH, SWPAH, SWPALH, SWPLH - SWPH variant FEAT_LSE
+#LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDLH variant FEAT_LSE
+#LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRLH variant FEAT_LSE
+#LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORLH variant FEAT_LSE
+#LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETLH variant FEAT_LSE
+#LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXLH variant FEAT_LSE
+#LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINLH variant FEAT_LSE
+#LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXLH variant FEAT_LSE
+#LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINLH variant FEAT_LSE
+#SWPH, SWPAH, SWPALH, SWPLH - SWPLH variant FEAT_LSE
+#LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDAH variant FEAT_LSE
+#LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRAH variant FEAT_LSE
+#LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORAH variant FEAT_LSE
+#LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETAH variant FEAT_LSE
+#LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXAH variant FEAT_LSE
+#LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINAH variant FEAT_LSE
+#LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXAH variant FEAT_LSE
+#LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINAH variant FEAT_LSE
+#SWPH, SWPAH, SWPALH, SWPLH - SWPAH variant FEAT_LSE
+#LDAPRH FEAT_LRCPC
+#LDADDH, LDADDAH, LDADDALH, LDADDLH - LDADDALH variant FEAT_LSE
+#LDCLRH, LDCLRAH, LDCLRALH, LDCLRLH - LDCLRALH variant FEAT_LSE
+#LDEORH, LDEORAH, LDEORALH, LDEORLH - LDEORALH variant FEAT_LSE
+#LDSETH, LDSETAH, LDSETALH, LDSETLH - LDSETALH variant FEAT_LSE
+#LDSMAXH, LDSMAXAH, LDSMAXALH, LDSMAXLH - LDSMAXALH variant FEAT_LSE
+#LDSMINH, LDSMINAH, LDSMINALH, LDSMINLH - LDSMINALH variant FEAT_LSE
+#LDUMAXH, LDUMAXAH, LDUMAXALH, LDUMAXLH - LDUMAXALH variant FEAT_LSE
+#LDUMINH, LDUMINAH, LDUMINALH, LDUMINLH - LDUMINALH variant FEAT_LSE
+#SWPH, SWPAH, SWPALH, SWPLH - SWPALH variant FEAT_LSE
+#LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADD variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLR variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEOR variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSET variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAX variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMIN variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAX variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMIN variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 32-bit SWP variant FEAT_LSE
+#LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDL variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRL variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORL variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSETL variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAXL variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMINL variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAXL variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMINL variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 32-bit SWPL variant FEAT_LSE
+#LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDA variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRA variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORA variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSETA variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAXA variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMINA variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAXA variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 32-bit LDUMINA variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 32-bit SWPA variant FEAT_LSE
+#LDAPR - 32-bit variant FEAT_LRCPC
+#LDADD, LDADDA, LDADDAL, LDADDL - 32-bit LDADDAL variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 32-bit LDCLRAL variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 32-bit LDEORAL variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 32-bit LDSETAL variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 32-bit LDSMAXAL variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 32-bit LDSMINAL variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 32-bit LDUMAXAL variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL -32-bit LDUMINAL variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 32-bit SWPALvariant FEAT_LSE
+#LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADD variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLR variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEOR variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSET variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAX variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMIN variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAX variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMIN variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 64-bit SWP variant FEAT_LSE
+#ST64BV0 FEAT_LS64_ACCDATA
+#ST64BV FEAT_LS64_V
+#ST64B FEAT_LS64
+#LD64B FEAT_LS64
+#LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADDL variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLRL variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEORL variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSETL variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXL variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINL variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXL variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMINL variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 64-bit SWPL variant FEAT_LSE
+#LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADDA variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLRA variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEORA variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSETA variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXA variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINA variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXA variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMINA variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 64-bit SWPA variant FEAT_LSE
+#LDAPR - 64-bit variant FEAT_LRCPC
+#LDADD, LDADDA, LDADDAL, LDADDL - 64-bit LDADDAL variant FEAT_LSE
+#LDCLR, LDCLRA, LDCLRAL, LDCLRL - 64-bit LDCLRAL variant FEAT_LSE
+#LDEOR, LDEORA, LDEORAL, LDEORL - 64-bit LDEORAL variant FEAT_LSE
+#LDSET, LDSETA, LDSETAL, LDSETL - 64-bit LDSETAL variant FEAT_LSE
+#LDSMAX, LDSMAXA, LDSMAXAL, LDSMAXL - 64-bit LDSMAXAL variant FEAT_LSE
+#LDSMIN, LDSMINA, LDSMINAL, LDSMINL - 64-bit LDSMINAL variant FEAT_LSE
+#LDUMAX, LDUMAXA, LDUMAXAL, LDUMAXL - 64-bit LDUMAXAL variant FEAT_LSE
+#LDUMIN, LDUMINA, LDUMINAL, LDUMINL - 64-bit LDUMINAL variant FEAT_LSE
+#SWP, SWPA, SWPAL, SWPL - 64-bit SWPAL variant FEAT_LSE
+#STRB (register) - Extended register variant
+#STRB (register) - Shifted register variant
+#LDRB (register) - Extended register variant
+#LDRB (register) - Shifted register variant
+#LDRSB (register) - 64-bit with extended register offset variant
+#LDRSB (register) - 64-bit with shifted register offset variant
+#LDRSB (register) - 32-bit with extended register offset variant
+#LDRSB (register) - 32-bit with shifted register offset variant
+#STR (register, SIMD&FP)
+#STR (register, SIMD&FP)
+#LDR (register, SIMD&FP)
+#LDR (register, SIMD&FP)
+#STR (register, SIMD&FP)
+#LDR (register, SIMD&FP)
+#STRH (register)
+#LDRH (register)
+#LDRSH (register) - 64-bit variant
+#LDRSH (register) - 32-bit variant
+#STR (register, SIMD&FP)
+#LDR (register, SIMD&FP)
+#STR (register) - 32-bit variant
+#LDR (register) - 32-bit variant
+#LDRSW (register)
+#STR (register, SIMD&FP)
+#LDR (register, SIMD&FP)
+#STR (register) - 64-bit variant
+#LDR (register) - 64-bit variant
+#PRFM (register)
+#STR (register, SIMD&FP)
+#LDR (register, SIMD&FP)
+#LDRAA, LDRAB - Key A, offset variant FEAT_PAuth
+#LDRAA, LDRAB - Key A, pre-indexed variant FEAT_PAuth
+#LDRAA, LDRAB - Key B, offset variant FEAT_PAuth
+#LDRAA, LDRAB - Key B, pre-indexed variant FEAT_PAuth
+#STRB (immediate)
+#LDRB (immediate)
+#LDRSB (immediate) - 64-bit variant
+#LDRSB (immediate) - 32-bit variant
+#STR (immediate, SIMD&FP) - 8-bit variant
+#LDR (immediate, SIMD&FP) - 8-bit variant
+#STR (immediate, SIMD&FP) - 128-bit variant
+#LDR (immediate, SIMD&FP) - 128-bit variant
+#STRH (immediate)
+#LDRH (immediate)
+#LDRSH (immediate) - 64-bit variant
+#LDRSH (immediate) - 32-bit variant
+#STR (immediate, SIMD&FP) - 16-bit variant
+#LDR (immediate, SIMD&FP) - 16-bit variant
+#STR (immediate) - 32-bit variant
+#LDR (immediate) - 32-bit variant
+#LDRSW (immediate)
+#STR (immediate, SIMD&FP) - 32-bit variant
+#LDR (immediate, SIMD&FP) - 32-bit variant
+#STR (immediate) - 64-bit variant
+#LDR (immediate) - 64-bit variant
+#PRFM (immediate)
+#STR (immediate, SIMD&FP) - 64-bit variant
+#LDR (immediate, SIMD&FP) - 64-bit variant
+#UDIV - 32-bit variant -
+#SDIV - 32-bit variant -
+#LSLV - 32-bit variant -
+#LSRV - 32-bit variant -
+#ASRV - 32-bit variant -
+#RORV - 32-bit variant -
+#CRC32B, CRC32H, CRC32W, CRC32X - CRC32B variant FEAT_CRC32
+#CRC32B, CRC32H, CRC32W, CRC32X - CRC32H variant FEAT_CRC32
+#CRC32B, CRC32H, CRC32W, CRC32X - CRC32W variant FEAT_CRC32
+#CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CB variant FEAT_CRC32
+#CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CH variant FEAT_CRC32
+#CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CW variant FEAT_CRC32
+#SUBP FEAT_MTE
+#UDIV - 64-bit variant -
+#SDIV - 64-bit variant -
+#IRG FEAT_MTE
+#GMI FEAT_MTE
+#LSLV - 64-bit variant -
+#LSRV - 64-bit variant -
+#ASRV - 64-bit variant -
+#RORV - 64-bit variant -
+#PACGA FEAT_PAuth
+#CRC32B, CRC32H, CRC32W, CRC32X - CRC32X variant FEAT_CRC32
+#CRC32CB, CRC32CH, CRC32CW, CRC32CX - CRC32CX variant FEAT_CRC32
+#SUBPS FEAT_MTE
+#Unallocated. 
+#RBIT - 32-bit variant -
+#REV16 - 32-bit variant -
+#REV - 32-bit variant -
+#CLZ - 32-bit variant -
+#CLS - 32-bit variant -
+#RBIT - 64-bit variant -
+#REV16 - 64-bit variant -
+#REV32 -
+#REV - 64-bit variant -
+#CLZ - 64-bit variant -
+#CLS - 64-bit variant -
+#PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIA variant FEAT_PAuth
+#PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIB variant FEAT_PAuth
+#PACDA, PACDZA - PACDA variant FEAT_PAuth
+#PACDB, PACDZB - PACDB variant FEAT_PAuth
+#AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIA variant FEAT_PAuth
+#AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIB variant FEAT_PAuth
+#AUTDA, AUTDZA - AUTDA variant FEAT_PAuth
+#AUTDB, AUTDZB - AUTDB variant FEAT_PAuth
+#PACIA, PACIA1716, PACIASP, PACIAZ, PACIZA - PACIZA variant FEAT_PAuth
+#PACIB, PACIB1716, PACIBSP, PACIBZ, PACIZB - PACIZB variant FEAT_PAuth
+#PACDA, PACDZA - PACDZA variant FEAT_PAuth
+#PACDB, PACDZB - PACDZB variant FEAT_PAuth
+#AUTIA, AUTIA1716, AUTIASP, AUTIAZ, AUTIZA - AUTIZA variant FEAT_PAuth
+#AUTIB, AUTIB1716, AUTIBSP, AUTIBZ, AUTIZB - AUTIZB variant FEAT_PAuth
+#AUTDA, AUTDZA - AUTDZA variant FEAT_PAuth
+#AUTDB, AUTDZB - AUTDZB variant FEAT_PAuth
+#XPACD, XPACI, XPACLRI - XPACI variant FEAT_PAuth
+#XPACD, XPACI, XPACLRI - XPACD variant FEAT_PAuth
+#AND (shifted register) - 32-bit variant
+#BIC (shifted register) - 32-bit variant
+#ORR (shifted register) - 32-bit variant
+#ORN (shifted register) - 32-bit variant
+#EOR (shifted register) - 32-bit variant
+#EON (shifted register) - 32-bit variant
+#ANDS (shifted register) - 32-bit variant
+#BICS (shifted register) - 32-bit variant
+#AND (shifted register) - 64-bit variant
+#BIC (shifted register) - 64-bit variant
+#ORR (shifted register) - 64-bit variant
+#ORN (shifted register) - 64-bit variant
+#EOR (shifted register) - 64-bit variant
+#EON (shifted register) - 64-bit variant
+#ANDS (shifted register) - 64-bit variant
+#BICS (shifted register) - 64-bit variant
+#ADD (shifted register) - 32-bit variant
+#ADDS (shifted register) - 32-bit variant
+#SUB (shifted register) - 32-bit variant
+#SUBS (shifted register) - 32-bit variant
+#ADD (shifted register) - 64-bit variant
+#ADDS (shifted register) - 64-bit variant
+#SUB (shifted register) - 64-bit variant
+#SUBS (shifted register) - 64-bit variant
+#ADD (extended register) - 32-bit variant
+#ADDS (extended register) - 32-bit variant
+#SUB (extended register) - 32-bit variant
+#SUBS (extended register) - 32-bit variant
+#ADD (extended register) - 64-bit variant
+#ADDS (extended register) - 64-bit variant
+#SUB (extended register) - 64-bit variant
+#SUBS (extended register) - 64-bit variant
+#ADC - 32-bit variant
+#ADCS - 32-bit variant
+#SBC - 32-bit variant
+#SBCS - 32-bit variant
+#ADC - 64-bit variant
+#ADCS - 64-bit variant
+#SBC - 64-bit variant
+#SBCS - 64-bit variant
+#RMIF FEAT_FlagM
+#SETF8, SETF16 - SETF8 variant FEAT_FlagM
+#SETF8, SETF16 - SETF16 variant FEAT_FlagM
+#CCMN (register) - 32-bit variant
+#CCMP (register) - 32-bit variant
+#CCMN (register) - 64-bit variant
+#CCMP (register) - 64-bit variant
+#CCMN (immediate) - 32-bit variant
+#CCMP (immediate) - 32-bit variant
+#CCMN (immediate) - 64-bit variant
+#CCMP (immediate) - 64-bit variant
+#CSEL - 32-bit variant
+#CSINC - 32-bit variant
+#CSINV - 32-bit variant
+#CSNEG - 32-bit variant
+#CSEL - 64-bit variant
+#CSINC - 64-bit variant
+#CSINV - 64-bit variant
+#CSNEG - 64-bit variant
+#MADD - 32-bit variant
+#MSUB - 32-bit variant
+#MADD - 64-bit variant
+#MSUB - 64-bit variant
+#SMADDL
+#SMSUBL
+#SMULH
+#UMADDL
+#UMSUBL
+#UMULH
+#XAR FEAT_SHA3
+#AESE FEAT_AES
+#AESD FEAT_AES
+#AESMC FEAT_AES
+#AESIMC FEAT_AES
+#SHA1C FEAT_SHA1
+#SHA1P FEAT_SHA1
+#SHA1M FEAT_SHA1
+#SHA1SU0 FEAT_SHA1
+#SHA256H FEAT_SHA256
+#SHA256H2 FEAT_SHA256
+#SHA256SU1 FEAT_SHA256
+#SHA1H FEAT_SHA1
+#SHA1SU1 FEAT_SHA1
+#SHA256SU0 FEAT_SHA256
+#DUP (element)
+#FMULX FEAT_FP16
+#FCMEQ (register) FEAT_FP16
+#FRECPS FEAT_FP16
+#FRSQRTS FEAT_FP16
+#FCMGE (register) FEAT_FP16
+#FACGE FEAT_FP16
+#FABD FEAT_FP16
+#FCMGT (register) FEAT_FP16
+#FACGT FEAT_FP16
+#FCVTNS (vector) FEAT_FP16
+#FCVTMS (vector) FEAT_FP16
+#FCVTAS (vector) FEAT_FP16
+#SCVTF (vector, integer) FEAT_FP16
+#FCMGT (zero) FEAT_FP16
+#FCMEQ (zero) FEAT_FP16
+#FCMLT (zero) FEAT_FP16
+#FCVTPS (vector) FEAT_FP16
+#FCVTZS (vector, integer) FEAT_FP16
+#FRECPE FEAT_FP16
+#FRECPX FEAT_FP16
+#FCVTNU (vector) FEAT_FP16
+#FCVTMU (vector) FEAT_FP16
+#FCVTAU (vector) FEAT_FP16
+#UCVTF (vector, integer) FEAT_FP16
+#FCMGE (zero) FEAT_FP16
+#FCMLE (zero) FEAT_FP16
+#FCVTPU (vector) FEAT_FP16
+#FCVTZU (vector, integer) FEAT_FP16
+#FRSQRTE FEAT_FP16
+#SQRDMLAH (vector) FEAT_RDM
+#SQRDMLSH (vector) FEAT_RDM
+#SUQADD
+#SQABS
+#CMGT (zero)
+#CMEQ (zero)
+#CMLT (zero)
+#ABS
+#SQXTN, SQXTN2
+#FCVTNS (vector)
+#FCVTMS (vector)
+#FCVTAS (vector)
+#SCVTF (vector, integer)
+#FCMGT (zero)
+#FCMEQ (zero)
+#FCMLT (zero)
+#FCVTPS (vector)
+#FCVTZS (vector, integer)
+#FRECPE
+#FRECPX
+#USQADD
+#SQNEG
+#CMGE (zero)
+#CMLE (zero)
+#NEG (vector)
+#SQXTUN, SQXTUN2
+#UQXTN, UQXTN2
+#FCVTXN, FCVTXN2
+#FCVTNU (vector)
+#FCVTMU (vector)
+#FCVTAU (vector)
+#UCVTF (vector, integer)
+#FCMGE (zero)
+#FCMLE (zero)
+#FCVTPU (vector)
+#FCVTZU (vector, integer)
+#FRSQRTE
+#ADDP (scalar) -
+#FMAXNMP (scalar) - Encoding FEAT_FP16
+#FADDP (scalar) - Encoding FEAT_FP16
+#FMAXP (scalar) - Encoding FEAT_FP16
+#FMINNMP (scalar) - Encoding FEAT_FP16
+#FMINP (scalar) - Encoding FEAT_FP16
+#FMAXNMP (scalar) - Encoding -
+#FADDP (scalar) - Encoding -
+#FMAXP (scalar) - Encoding -
+#FMINNMP (scalar) - Encoding -
+#FMINP (scalar) - Encoding -
+#SQDMLAL, SQDMLAL2 (vector)
+#SQDMLSL, SQDMLSL2 (vector)
+#SQDMULL, SQDMULL2 (vector)
+#SQADD
+#SQSUB
+#CMGT (register)
+#CMGE (register)
+#SSHL
+#SQSHL (register)
+#SRSHL
+#SQRSHL
+#ADD (vector)
+#CMTST
+#SQDMULH (vector)
+#FMULX
+#FCMEQ (register)
+#FRECPS
+#FRSQRTS
+#UQADD
+#UQSUB
+#CMHI (register)
+#CMHS (register)
+#USHL
+#UQSHL (register)
+#URSHL
+#UQRSHL
+#SUB (vector)
+#CMEQ (register)
+#SQRDMULH (vector)
+#FCMGE (register)
+#FACGE
+#FABD
+#FCMGT (register)
+#FACGT
+#SSHR
+#SSRA
+#SRSHR
+#SRSRA
+#SHL
+#SQSHL (immediate)
+#SQSHRN, SQSHRN2
+#SQRSHRN, SQRSHRN2
+#SCVTF (vector, fixed-point)
+#FCVTZS (vector, fixed-point)
+#USHR
+#USRA
+#URSHR
+#URSRA
+#SRI
+#SLI
+#SQSHLU
+#UQSHL (immediate)
+#SQSHRUN, SQSHRUN2
+#SQRSHRUN, SQRSHRUN2
+#UQSHRN, UQSHRN2
+#UQRSHRN, UQRSHRN2
+#UCVTF (vector, fixed-point)
+#FCVTZU (vector, fixed-point)
+#SQDMLAL, SQDMLAL2 (by element) -
+#SQDMLSL, SQDMLSL2 (by element) -
+#SQDMULL, SQDMULL2 (by element) -
+#SQDMULH (by element) -
+#SQRDMULH (by element) -
+#FMLA (by element) - Encoding FEAT_FP16
+#FMLS (by element) - Encoding FEAT_FP16
+#FMUL (by element) - Encoding FEAT_FP16
+#FMLA (by element) - Encoding -
+#FMLS (by element) - Encoding -
+#FMUL (by element) - Encoding -
+#SQRDMLAH (by element) FEAT_RDM
+#SQRDMLSH (by element) FEAT_RDM
+#FMULX (by element) - Encoding FEAT_FP16
+#FMULX (by element) - Encoding -
+#TBL - Single register table variant
+#TBX - Single register table variant
+#TBL - Two register table variant
+#TBX - Two register table variant
+#TBL - Three register table variant
+#TBX - Three register table variant
+#TBL - Four register table variant
+#TBX - Four register table variant
+#UZP1
+#TRN1
+#ZIP1
+#UZP2
+#TRN2
+#ZIP2
+#EXT
+#DUP (element)
+#DUP (general)
+#SMOV
+#UMOV
+#INS (general)
+#SMOV
+#UMOV
+#INS (element)
+#FMAXNM (vector) FEAT_FP16
+#FMLA (vector) FEAT_FP16
+#FADD (vector) FEAT_FP16
+#FMULX FEAT_FP16
+#FCMEQ (register) FEAT_FP16
+#FMAX (vector) FEAT_FP16
+#FRECPS FEAT_FP16
+#FMINNM (vector) FEAT_FP16
+#FMLS (vector) FEAT_FP16
+#FSUB (vector) FEAT_FP16
+#FMIN (vector) FEAT_FP16
+#FRSQRTS FEAT_FP16
+#FMAXNMP (vector) FEAT_FP16
+#FADDP (vector) FEAT_FP16
+#FMUL (vector) FEAT_FP16
+#FCMGE (register) FEAT_FP16
+#FACGE FEAT_FP16
+#FMAXP (vector) FEAT_FP16
+#FDIV (vector) FEAT_FP16
+#FMINNMP (vector) FEAT_FP16
+#FABD FEAT_FP16
+#FCMGT (register) FEAT_FP16
+#FACGT FEAT_FP16
+#FMINP (vector) FEAT_FP16
+#FRINTN (vector) FEAT_FP16
+#FRINTM (vector) FEAT_FP16
+#FCVTNS (vector) FEAT_FP16
+#FCVTMS (vector) FEAT_FP16
+#FCVTAS (vector) FEAT_FP16
+#SCVTF (vector, integer) FEAT_FP16
+#FCMGT (zero) FEAT_FP16
+#FCMEQ (zero) FEAT_FP16
+#FCMLT (zero) FEAT_FP16
+#FABS (vector) FEAT_FP16
+#FRINTP (vector) FEAT_FP16
+#FRINTZ (vector) FEAT_FP16
+#FCVTPS (vector) FEAT_FP16
+#FCVTZS (vector, integer) FEAT_FP16
+#FRECPE FEAT_FP16
+#FRINTA (vector) FEAT_FP16
+#FRINTX (vector) FEAT_FP16
+#FCVTNU (vector) FEAT_FP16
+#FCVTMU (vector) FEAT_FP16
+#FCVTAU (vector) FEAT_FP16
+#UCVTF (vector, integer) FEAT_FP16
+#FCMGE (zero) FEAT_FP16
+#FCMLE (zero) FEAT_FP16
+#FNEG (vector) FEAT_FP16
+#FRINTI (vector) FEAT_FP16
+#FCVTPU (vector) FEAT_FP16
+#FCVTZU (vector, integer) FEAT_FP16
+#FRSQRTE FEAT_FP16
+#FSQRT (vector) FEAT_FP16
+#SDOT (vector) FEAT_DotProd
+#USDOT (vector) FEAT_I8MM
+#SQRDMLAH (vector) FEAT_RDM
+#SQRDMLSH (vector) FEAT_RDM
+#UDOT (vector) FEAT_DotProd
+#FCMLA FEAT_FCMA
+#FCADD FEAT_FCMA
+#BFDOT (vector) FEAT_BF16
+#BFMLALB, BFMLALT (vector) FEAT_BF16
+#SMMLA (vector) FEAT_I8MM
+#USMMLA (vector) FEAT_I8MM
+#BFMMLA FEAT_BF16
+#UMMLA (vector) FEAT_I8MM
+#REV64 -
+#REV16 (vector) -
+#SADDLP -
+#SUQADD -
+#CLS (vector) -
+#CNT -
+#SADALP -
+#SQABS -
+#CMGT (zero) -
+#CMEQ (zero) -
+#CMLT (zero) -
+#ABS -
+#XTN, XTN2 -
+#SQXTN, SQXTN2 -
+#FCVTN, FCVTN2 -
+#FCVTL, FCVTL2 -
+#FRINTN (vector) -
+#FRINTM (vector) -
+#FCVTNS (vector) -
+#FCVTMS (vector) -
+#FCVTAS (vector) -
+#SCVTF (vector, integer) -
+#FRINT32Z (vector) FEAT_FRINTTS
+#FRINT64Z (vector) FEAT_FRINTTS
+#FCMGT (zero) -
+#FCMEQ (zero) -
+#FCMLT (zero) -
+#FABS (vector) -
+#FRINTP (vector) -
+#FRINTZ (vector) -
+#FCVTPS (vector) -
+#FCVTZS (vector, integer) -
+#URECPE -
+#FRECPE -
+#BFCVTN, BFCVTN2 FEAT_BF16
+#REV32 (vector) -
+#UADDLP -
+#USQADD -
+#CLZ (vector) -
+#UADALP -
+#SQNEG -
+#CMGE (zero) -
+#CMLE (zero) -
+#NEG (vector) -
+#SQXTUN, SQXTUN2 -
+#SHLL, SHLL2 -
+#UQXTN, UQXTN2 -
+#FCVTXN, FCVTXN2 -
+#FRINTA (vector) -
+#FRINTX (vector) -
+#FCVTNU (vector) -
+#FCVTMU (vector) -
+#FCVTAU (vector) -
+#UCVTF (vector, integer) -
+#FRINT32X (vector) FEAT_FRINTTS
+#FRINT64X (vector) FEAT_FRINTTS
+#NOT -
+#RBIT (vector) -
+#FCMGE (zero) -
+#FCMLE (zero) -
+#FNEG (vector) -
+#FRINTI (vector) -
+#FCVTPU (vector) -
+#FCVTZU (vector, integer) -
+#URSQRTE -
+#FRSQRTE -
+#FSQRT (vector) -
+#SADDLV -
+#SMAXV -
+#SMINV -
+#ADDV -
+#FMAXNMV - Encoding FEAT_FP16
+#FMAXV - Encoding FEAT_FP16
+#FMINNMV - Encoding FEAT_FP16
+#FMINV - Encoding FEAT_FP16
+#UADDLV -
+#UMAXV -
+#UMINV -
+#FMAXNMV - Encoding -
+#FMAXV - Encoding -
+#FMINNMV - Encoding -
+#FMINV - Encoding -
+#SADDL, SADDL2
+#SADDW, SADDW2
+#SSUBL, SSUBL2
+#SSUBW, SSUBW2
+#ADDHN, ADDHN2
+#SABAL, SABAL2
+#SUBHN, SUBHN2
+#SABDL, SABDL2
+#SMLAL, SMLAL2 (vector)
+#SQDMLAL, SQDMLAL2 (vector)
+#SMLSL, SMLSL2 (vector)
+#SQDMLSL, SQDMLSL2 (vector)
+#SMULL, SMULL2 (vector)
+#SQDMULL, SQDMULL2 (vector)
+#PMULL, PMULL2
+#UADDL, UADDL2
+#UADDW, UADDW2
+#USUBL, USUBL2
+#USUBW, USUBW2
+#RADDHN, RADDHN2
+#UABAL, UABAL2
+#RSUBHN, RSUBHN2
+#UABDL, UABDL2
+#UMLAL, UMLAL2 (vector)
+#UMLSL, UMLSL2 (vector)
+#UMULL, UMULL2 (vector)
+#SHADD -
+#SQADD -
+#SRHADD -
+#SHSUB -
+#SQSUB -
+#CMGT (register) -
+#CMGE (register) -
+#SSHL -
+#SQSHL (register) -
+#SRSHL -
+#SQRSHL -
+#SMAX -
+#SMIN -
+#SABD -
+#SABA -
+#ADD (vector) -
+#CMTST -
+#MLA (vector) -
+#MUL (vector) -
+#SMAXP -
+#SMINP -
+#SQDMULH (vector) -
+#ADDP (vector) -
+#FMAXNM (vector) -
+#FMLA (vector) -
+#FADD (vector) -
+#FMULX -
+#FCMEQ (register) -
+#FMAX (vector) -
+#FRECPS -
+#AND (vector) -
+#FMLAL, FMLAL2 (vector) - Encoding FEAT_FHM
+#BIC (vector, register) -
+#FMINNM (vector) -
+#FMLS (vector) -
+#FSUB (vector) -
+#FMIN (vector) -
+#FRSQRTS -
+#ORR (vector, register) -
+#FMLSL, FMLSL2 (vector) - Encoding FEAT_FHM
+#ORN (vector) -
+#UHADD -
+#UQADD -
+#URHADD -
+#UHSUB -
+#UQSUB -
+#CMHI (register) -
+#CMHS (register) -
+#USHL -
+#UQSHL (register) -
+#URSHL -
+#UQRSHL -
+#UMAX -
+#UMIN -
+#UABD -
+#UABA -
+#SUB (vector) -
+#CMEQ (register) -
+#MLS (vector) -
+#PMUL -
+#UMAXP -
+#UMINP -
+#SQRDMULH (vector) -
+#FMAXNMP (vector) -
+#FADDP (vector) -
+#FMUL (vector) -
+#FCMGE (register) -
+#FACGE -
+#FMAXP (vector) -
+#FDIV (vector) -
+#EOR (vector) -
+#FMLAL, FMLAL2 (vector) - Encoding FEAT_FHM
+#BSL -
+#FMINNMP (vector) -
+#FABD -
+#FCMGT (register) -
+#FACGT -
+#FMINP (vector) -
+#BIT -
+#FMLSL, FMLSL2 (vector) - Encoding FEAT_FHM
+#BIF -
+#MOVI - 32-bit shifted immediate variant -
+#ORR (vector, immediate) - 32-bit variant -
+#MOVI - 16-bit shifted immediate variant -
+#ORR (vector, immediate) - 16-bit variant -
+#MOVI - 32-bit shifting ones variant -
+#MOVI - 8-bit variant -
+#FMOV (vector, immediate) - Single-precision variant -
+#FMOV (vector, immediate) - Encoding FEAT_FP16
+#MVNI - 32-bit shifted immediate variant -
+#BIC (vector, immediate) - 32-bit variant -
+#MVNI - 16-bit shifted immediate variant -
+#BIC (vector, immediate) - 16-bit variant -
+#MVNI - 32-bit shifting ones variant -
+#MOVI - 64-bit scalar variant -
+#MOVI - 64-bit vector variant -
+#FMOV (vector, immediate) - Double-precision variant -
+#SSHR
+#SSRA
+#SRSHR
+#SRSRA
+#SHL
+#SQSHL (immediate)
+#SHRN, SHRN2
+#RSHRN, RSHRN2
+#SQSHRN, SQSHRN2
+#SQRSHRN, SQRSHRN2
+#SSHLL, SSHLL2
+#SCVTF (vector, fixed-point)
+#FCVTZS (vector, fixed-point)
+#USHR
+#USRA
+#URSHR
+#URSRA
+#SRI
+#SLI
+#SQSHLU
+#UQSHL (immediate)
+#SQSHRUN, SQSHRUN2
+#SQRSHRUN, SQRSHRUN2
+#UQSHRN, UQSHRN2
+#UQRSHRN, UQRSHRN2
+#USHLL, USHLL2
+#UCVTF (vector, fixed-point)
+#FCVTZU (vector, fixed-point)
+#SMLAL, SMLAL2 (by element) -
+#SQDMLAL, SQDMLAL2 (by element) -
+#SMLSL, SMLSL2 (by element) -
+#SQDMLSL, SQDMLSL2 (by element) -
+#MUL (by element) -
+#SMULL, SMULL2 (by element) -
+#SQDMULL, SQDMULL2 (by element) -
+#SQDMULH (by element) -
+#SQRDMULH (by element) -
+#SDOT (by element) FEAT_DotProd
+#FMLA (by element) - Encoding FEAT_FP16
+#FMLS (by element) - Encoding FEAT_FP16
+#FMUL (by element) - Encoding FEAT_FP16
+#SUDOT (by element) FEAT_I8MM
+#BFDOT (by element) FEAT_BF16
+#FMLA (by element) - Encoding -
+#FMLS (by element) - Encoding -
+#FMUL (by element) - Encoding -
+#FMLAL, FMLAL2 (by element) - Encoding FEAT_FHM
+#FMLSL, FMLSL2 (by element) - Encoding FEAT_FHM
+#USDOT (by element) FEAT_I8MM
+#BFMLALB, BFMLALT (by element) FEAT_BF16
+#MLA (by element) -
+#UMLAL, UMLAL2 (by element) -
+#MLS (by element) -
+#UMLSL, UMLSL2 (by element) -
+#UMULL, UMULL2 (by element) -
+#SQRDMLAH (by element) FEAT_RDM
+#UDOT (by element) FEAT_DotProd
+#SQRDMLSH (by element) FEAT_RDM
+#FMULX (by element) - Encoding FEAT_FP16
+#FCMLA (by element) FEAT_FCMA
+#FMULX (by element) - Encoding -
+#FCMLA (by element) FEAT_FCMA
+#FMLAL, FMLAL2 (by element) - Encoding FEAT_FHM
+#FMLSL, FMLSL2 (by element) - Encoding FEAT_FHM
+#SM3TT1A FEAT_SM3
+#SM3TT1B FEAT_SM3
+#SM3TT2A FEAT_SM3
+#SM3TT2B FEAT_SM3
+#SHA512H FEAT_SHA512
+#SHA512H2 FEAT_SHA512
+#SHA512SU1 FEAT_SHA512
+#RAX1 FEAT_SHA3
+#SM3PARTW1 FEAT_SM3
+#SM3PARTW2 FEAT_SM3
+#SM4EKEY FEAT_SM4
+#EOR3 FEAT_SHA3
+#BCAX FEAT_SHA3
+#SM3SS1 FEAT_SM3
+#SHA512SU0 FEAT_SHA512
+#SM4E FEAT_SM4
+#SCVTF (scalar, fixed-point) - 32-bit to single-precision variant -
+#UCVTF (scalar, fixed-point) - 32-bit to single-precision variant -
+#FCVTZS (scalar, fixed-point) - Single-precision to 32-bit variant -
+#FCVTZU (scalar, fixed-point) - Single-precision to 32-bit variant -
+#SCVTF (scalar, fixed-point) - 32-bit to double-precision variant -
+#UCVTF (scalar, fixed-point) - 32-bit to double-precision variant -
+#FCVTZS (scalar, fixed-point) - Double-precision to 32-bit variant -
+#FCVTZU (scalar, fixed-point) - Double-precision to 32-bit variant -
+#SCVTF (scalar, fixed-point) - 32-bit to half-precision variant FEAT_FP16
+#UCVTF (scalar, fixed-point) - 32-bit to half-precision variant FEAT_FP16
+#FCVTZS (scalar, fixed-point) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTZU (scalar, fixed-point) - Half-precision to 32-bit variant FEAT_FP16
+#SCVTF (scalar, fixed-point) - 64-bit to single-precision variant -
+#UCVTF (scalar, fixed-point) - 64-bit to single-precision variant -
+#FCVTZS (scalar, fixed-point) - Single-precision to 64-bit variant -
+#FCVTZU (scalar, fixed-point) - Single-precision to 64-bit variant -
+#SCVTF (scalar, fixed-point) - 64-bit to double-precision variant -
+#UCVTF (scalar, fixed-point) - 64-bit to double-precision variant -
+#FCVTZS (scalar, fixed-point) - Double-precision to 64-bit variant -
+#FCVTZU (scalar, fixed-point) - Double-precision to 64-bit variant -
+#SCVTF (scalar, fixed-point) - 64-bit to half-precision variant FEAT_FP16
+#UCVTF (scalar, fixed-point) - 64-bit to half-precision variant FEAT_FP16
+#FCVTZS (scalar, fixed-point) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTZU (scalar, fixed-point) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTNS (scalar) - Single-precision to 32-bit variant -
+#FCVTNU (scalar) - Single-precision to 32-bit variant -
+#SCVTF (scalar, integer) - 32-bit to single-precision variant -
+#UCVTF (scalar, integer) - 32-bit to single-precision variant -
+#FCVTAS (scalar) - Single-precision to 32-bit variant -
+#FCVTAU (scalar) - Single-precision to 32-bit variant -
+#FMOV (general) - Single-precision to 32-bit variant -
+#FMOV (general) - 32-bit to single-precision variant -
+#FCVTPS (scalar) - Single-precision to 32-bit variant -
+#FCVTPU (scalar) - Single-precision to 32-bit variant -
+#FCVTMS (scalar) - Single-precision to 32-bit variant -
+#FCVTMU (scalar) - Single-precision to 32-bit variant -
+#FCVTZS (scalar, integer) - Single-precision to 32-bit variant -
+#FCVTZU (scalar, integer) - Single-precision to 32-bit variant -
+#FCVTNS (scalar) - Double-precision to 32-bit variant -
+#FCVTNU (scalar) - Double-precision to 32-bit variant -
+#SCVTF (scalar, integer) - 32-bit to double-precision variant -
+#UCVTF (scalar, integer) - 32-bit to double-precision variant -
+#FCVTAS (scalar) - Double-precision to 32-bit variant -
+#FCVTAU (scalar) - Double-precision to 32-bit variant -
+#FCVTPS (scalar) - Double-precision to 32-bit variant -
+#FCVTPU (scalar) - Double-precision to 32-bit variant -
+#FCVTMS (scalar) - Double-precision to 32-bit variant -
+#FCVTMU (scalar) - Double-precision to 32-bit variant -
+#FCVTZS (scalar, integer) - Double-precision to 32-bit variant -
+#FCVTZU (scalar, integer) - Double-precision to 32-bit variant -
+#FJCVTZS FEAT_JSCVT
+#FCVTNS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTNU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#SCVTF (scalar, integer) - 32-bit to half-precision variant FEAT_FP16
+#UCVTF (scalar, integer) - 32-bit to half-precision variant FEAT_FP16
+#FCVTAS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTAU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FMOV (general) - Half-precision to 32-bit variant FEAT_FP16
+#FMOV (general) - 32-bit to half-precision variant FEAT_FP16
+#FCVTPS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTPU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTMS (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTMU (scalar) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTZS (scalar, integer) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTZU (scalar, integer) - Half-precision to 32-bit variant FEAT_FP16
+#FCVTNS (scalar) - Single-precision to 64-bit variant -
+#FCVTNU (scalar) - Single-precision to 64-bit variant -
+#SCVTF (scalar, integer) - 64-bit to single-precision variant -
+#UCVTF (scalar, integer) - 64-bit to single-precision variant -
+#FCVTAS (scalar) - Single-precision to 64-bit variant -
+#FCVTAU (scalar) - Single-precision to 64-bit variant -
+#FCVTPS (scalar) - Single-precision to 64-bit variant -
+#FCVTPU (scalar) - Single-precision to 64-bit variant -
+#FCVTMS (scalar) - Single-precision to 64-bit variant -
+#FCVTMU (scalar) - Single-precision to 64-bit variant -
+#FCVTZS (scalar, integer) - Single-precision to 64-bit variant -
+#FCVTZU (scalar, integer) - Single-precision to 64-bit variant -
+#FCVTNS (scalar) - Double-precision to 64-bit variant -
+#FCVTNU (scalar) - Double-precision to 64-bit variant -
+#SCVTF (scalar, integer) - 64-bit to double-precision variant -
+#UCVTF (scalar, integer) - 64-bit to double-precision variant -
+#FCVTAS (scalar) - Double-precision to 64-bit variant -
+#FCVTAU (scalar) - Double-precision to 64-bit variant -
+#FMOV (general) - Double-precision to 64-bit variant -
+#FMOV (general) - 64-bit to double-precision variant -
+#FCVTPS (scalar) - Double-precision to 64-bit variant -
+#FCVTPU (scalar) - Double-precision to 64-bit variant -
+#FCVTMS (scalar) - Double-precision to 64-bit variant -
+#FCVTMU (scalar) - Double-precision to 64-bit variant -
+#FCVTZS (scalar, integer) - Double-precision to 64-bit variant -
+#FCVTZU (scalar, integer) - Double-precision to 64-bit variant -
+#FMOV (general) - Top half of 128-bit to 64-bit variant -
+#FMOV (general) - 64-bit to top half of 128-bit variant -
+#FCVTNS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTNU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#SCVTF (scalar, integer) - 64-bit to half-precision variant FEAT_FP16
+#UCVTF (scalar, integer) - 64-bit to half-precision variant FEAT_FP16
+#FCVTAS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTAU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FMOV (general) - Half-precision to 64-bit variant FEAT_FP16
+#FMOV (general) - 64-bit to half-precision variant FEAT_FP16
+#FCVTPS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTPU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTMS (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTMU (scalar) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTZS (scalar, integer) - Half-precision to 64-bit variant FEAT_FP16
+#FCVTZU (scalar, integer) - Half-precision to 64-bit variant FEAT_FP16
+#FMOV (register) - Single-precision variant -
+#FABS (scalar) - Single-precision variant -
+#FNEG (scalar) - Single-precision variant -
+#FSQRT (scalar) - Single-precision variant -
+#FCVT - Single-precision to double-precision variant -
+#FCVT - Single-precision to half-precision variant -
+#FRINTN (scalar) - Single-precision variant -
+#FRINTP (scalar) - Single-precision variant -
+#FRINTM (scalar) - Single-precision variant -
+#FRINTZ (scalar) - Single-precision variant -
+#FRINTA (scalar) - Single-precision variant -
+#FRINTX (scalar) - Single-precision variant -
+#FRINTI (scalar) - Single-precision variant -
+#FRINT32Z (scalar) - Single-precision variant FEAT_FRINTTS
+#FRINT32X (scalar) - Single-precision variant FEAT_FRINTTS
+#FRINT64Z (scalar) - Single-precision variant FEAT_FRINTTS
+#FRINT64X (scalar) - Single-precision variant FEAT_FRINTTS
+#FMOV (register) - Double-precision variant -
+#FABS (scalar) - Double-precision variant -
+#FNEG (scalar) - Double-precision variant -
+#FSQRT (scalar) - Double-precision variant -
+#FCVT - Double-precision to single-precision variant -
+#BFCVT FEAT_BF16
+#FCVT - Double-precision to half-precision variant -
+#FRINTN (scalar) - Double-precision variant -
+#FRINTP (scalar) - Double-precision variant -
+#FRINTM (scalar) - Double-precision variant -
+#FRINTZ (scalar) - Double-precision variant -
+#FRINTA (scalar) - Double-precision variant -
+#FRINTX (scalar) - Double-precision variant -
+#FRINTI (scalar) - Double-precision variant -
+#FRINT32Z (scalar) - Double-precision variant FEAT_FRINTTS
+#FRINT32X (scalar) - Double-precision variant FEAT_FRINTTS
+#FRINT64Z (scalar) - Double-precision variant FEAT_FRINTTS
+#FRINT64X (scalar) - Double-precision variant FEAT_FRINTTS
+#FMOV (register) - Half-precision variant FEAT_FP16
+#FABS (scalar) - Half-precision variant FEAT_FP16
+#FNEG (scalar) - Half-precision variant FEAT_FP16
+#FSQRT (scalar) - Half-precision variant FEAT_FP16
+#FCVT - Half-precision to single-precision variant -
+#FCVT - Half-precision to double-precision variant -
+#FRINTN (scalar) - Half-precision variant FEAT_FP16
+#FRINTP (scalar) - Half-precision variant FEAT_FP16
+#FRINTM (scalar) - Half-precision variant FEAT_FP16
+#FRINTZ (scalar) - Half-precision variant FEAT_FP16
+#FRINTA (scalar) - Half-precision variant FEAT_FP16
+#FRINTX (scalar) - Half-precision variant FEAT_FP16
+#FRINTI (scalar) - Half-precision variant FEAT_FP16
+#FCMP -
+#FCMP -
+#FCMPE -
+#FCMPE -
+#FCMP -
+#FCMP -
+#FCMPE -
+#FCMPE -
+#FCMP FEAT_FP16
+#FCMP FEAT_FP16
+#FCMPE FEAT_FP16
+#FCMPE FEAT_FP16
+#FMOV (scalar, immediate) - Single-precision variant -
+#FMOV (scalar, immediate) - Double-precision variant -
+#FMOV (scalar, immediate) - Half-precision variant FEAT_FP16
+#FCCMP - Single-precision variant -
+#FCCMPE - Single-precision variant -
+#FCCMP - Double-precision variant -
+#FCCMPE - Double-precision variant -
+#FCCMP - Half-precision variant FEAT_FP16
+#FCCMPE - Half-precision variant FEAT_FP16
+#FMUL (scalar) - Single-precision variant -
+#FDIV (scalar) - Single-precision variant -
+#FADD (scalar) - Single-precision variant -
+#FSUB (scalar) - Single-precision variant -
+#FMAX (scalar) - Single-precision variant -
+#FMIN (scalar) - Single-precision variant -
+#FMAXNM (scalar) - Single-precision variant -
+#FMINNM (scalar) - Single-precision variant -
+#FNMUL (scalar) - Single-precision variant -
+#FMUL (scalar) - Double-precision variant -
+#FDIV (scalar) - Double-precision variant -
+#FADD (scalar) - Double-precision variant -
+#FSUB (scalar) - Double-precision variant -
+#FMAX (scalar) - Double-precision variant -
+#FMIN (scalar) - Double-precision variant -
+#FMAXNM (scalar) - Double-precision variant -
+#FMINNM (scalar) - Double-precision variant -
+#FNMUL (scalar) - Double-precision variant -
+#FMUL (scalar) - Half-precision variant FEAT_FP16
+#FDIV (scalar) - Half-precision variant FEAT_FP16
+#FADD (scalar) - Half-precision variant FEAT_FP16
+#FSUB (scalar) - Half-precision variant FEAT_FP16
+#FMAX (scalar) - Half-precision variant FEAT_FP16
+#FMIN (scalar) - Half-precision variant FEAT_FP16
+#FMAXNM (scalar) - Half-precision variant FEAT_FP16
+#FMINNM (scalar) - Half-precision variant FEAT_FP16
+#FNMUL (scalar) - Half-precision variant FEAT_FP16
+#FCSEL - Single-precision variant -
+#FCSEL - Double-precision variant -
+#FCSEL - Half-precision variant FEAT_FP16
+#FMADD - Single-precision variant -
+#FMSUB - Single-precision variant -
+#FNMADD - Single-precision variant -
+#FNMSUB - Single-precision variant -
+#FMADD - Double-precision variant -
+#FMSUB - Double-precision variant -
+#FNMADD - Double-precision variant -
+#FNMSUB - Double-precision variant -
+#FMADD - Half-precision variant FEAT_FP16
+#FMSUB - Half-precision variant FEAT_FP16
+#FNMADD - Half-precision variant FEAT_FP16
+#FNMSUB - Half-precision variant FEAT_FP16

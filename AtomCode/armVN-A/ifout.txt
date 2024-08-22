@@ -1,0 +1,8 @@
+if(masking(op0, "0") &&(masking(op1, "00") &&(masking(op2, "000") &&(masking(op3, "-") &&(masking(op4, "00000"))))))
+{
+	// SVE FFR write from predicate
+}
+if(masking(op0, "1") &&(masking(op1, "00") &&(masking(op2, "000") &&(masking(op3, "0000") &&(masking(op4, "00000"))))))
+{
+	// SVE FFR initialise
+}

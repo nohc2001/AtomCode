@@ -1,0 +1,4 @@
+5 2
+op0 op1 op2 op3 op4 
+0 00 000 - 00000 SVE FFR write from predicate
+1 00 000 0000 00000 SVE FFR initialise

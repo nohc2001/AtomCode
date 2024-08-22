@@ -1,0 +1,87 @@
+1. 목표는 4바이트 명령을 입력했을때, 어떤 명령인지 식별하고, 파라미터들을 뽑아오는 기능.
+입력을 4바이트로 받고, 어떤 명령인지 식별하는 코드가 필요.
+
+두 연산이 필요함.
+명령(4byte) > 타입, 파라미터 추출, 실행 // 이거 만드는 중
+타입, 파라미터 > 명령(4byte)
+
+if(0)
+{
+
+}
+else 1
+{
+
+}
+
+x
+
+인코딩 - 400~730
+에뮬레이트 / 상세정보 - 1246 ~ 4703
+
+optype 분류를 다 만들면
+명령마다의 최종 opcode 데이터를 얻어야 함
+0~2의32승 까지의 반복문을 거쳐가면서 
+enum 으로 분류된 명령마다 32개의 비트 아스키를 단다.
+1 - 1
+0 - 0
+x - 아무거나 가능
+만약 다른 값이 같은 명령으로 묶인다면, 
+다른 비트의 위치를 찾아서 x로 만들어 버린다.
+
+좀더 자동화 못하나?
+데이터를 가져오고 점프하는 거까지 신경 쓰기 가능?
+그리고 이넘 ㅂ
+
+자동화 파일 형식
+
+(총 테이블 개수)
+(테이블 이름)
+(oprange 개수) (테이블항목개수)
+start end
+start end
+...
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+...
+
+(테이블 이름)
+(oprange 개수) (테이블항목개수)
+start end
+start end
+...
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+...
+
+(테이블 이름)
+(oprange 개수) (테이블항목개수)
+start end
+start end
+...
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+xxx xxx TEXT
+...
+
+-> 출력 코드 형식
+struct OprangeObj{
+    byte* oprangeData; // len is oprange_num*2 (start - end)
+    void* tableptr;
+}
+
+struct InstNodeTable{
+    char[128] name;
+    int oprange_num;
+    vecarr<OprangeObj*> table;
+};
+
+-> 어떻게 4바이트를 명령어로 디코딩 하는가?
+-> 4바이트 모두 다 거치면 너무 시간이 걸림??
+1. 자주쓰이는 영역의 oprange 번호들을 내림차순으로 정렬.
+2. 
