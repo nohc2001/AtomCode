@@ -38,10 +38,10 @@ type3 :
 
 /*
 todo : 
-1. ¸ð¸£´Â ´Ï¸ð´Ð ¿¬»êÀ» ÀÌÇØÇÏ°í ÇØ´ç °ª¿¡ ÁÖ¼®ÇÏ±â. 
+1. ï¿½ð¸£´ï¿½ ï¿½Ï¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½Ï±ï¿½. 
 */
 char OneByteOpcode_DecodingTable[255][32] = {
-"ADD Eb, Gb",//00  ´õÇÏ±â
+"ADD Eb, Gb",//00  ï¿½ï¿½ï¿½Ï±ï¿½
 "ADD Ev, Gv",
 "ADD Gb, Eb",
 "ADD Gv, Ev",
@@ -57,7 +57,7 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "OR rAx, lz",
 "PUSH CS^i64",
 "2byte Escape", // goto 2byte opcode decoding table
-"ADC Eb, Gb",//10   Ä³¸®ÇÃ·¹±×¿¡ ¿µÇâÀ» ÁÖ´Â ´õÇÏ±â
+"ADC Eb, Gb",//10   Ä³ï¿½ï¿½ï¿½Ã·ï¿½ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 "ADC Ev, Gv",
 "ADC Gb, Eb",
 "ADC Gv, Ev",
@@ -65,7 +65,7 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "ADC rAx, lz",
 "PUSH SS^i64",
 "POP SS^i64",
-"SBB Eb, Gb",//18   °á°ú°¡ À½¼öÀÏ¶§ Ä³¸®ÇÃ·¡±×¿µÇâÁÖ´Â »©±â
+"SBB Eb, Gb",//18   ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ Ä³ï¿½ï¿½ï¿½Ã·ï¿½ï¿½×¿ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 "SBB Ev, Gv",
 "SBB Gb, Eb",
 "SBB Gv, Ev",
@@ -81,7 +81,7 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "AND rAx, lz",
 "SEG=ES(Prefix)",
 "DAA^i64",
-"SUB Eb, Gb",//28    »©±â
+"SUB Eb, Gb",//28    ï¿½ï¿½ï¿½ï¿½
 "SUB Ev, Gv",
 "SUB Gb, Eb",
 "SUB Gv, Ev",
@@ -97,7 +97,7 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "XOR rAx, lz",
 "SEG=CS(Prefix)",
 "AAA^i64",
-"CMP Eb, Gb",//38   µÎ°ª ºñ±³ ÈÄ ÇÃ·¡±× ¼öÁ¤
+"CMP Eb, Gb",//38   ï¿½Î°ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 "CMP Ev, Gv",
 "CMP Gb, Eb",
 "CMP Gv, Ev",
@@ -137,9 +137,9 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "POP rBP/r13",
 "POP rSI/r14",
 "POP rDI/r15",
-"PUSHA^i64 / PUSHAD^i64", //60 ¸ðµç ¹ü¿ë·¹Áö½ºÅÍ¸¦ ½ºÅÃ¿¡ Çª½ÃÇÑ´Ù.
-"POPA^i64 / POPAD^i64", //61 ½ºÅÃ¿¡ ÀúÀåµÈ ¹ü¿ë·¹Áö½ºÅÍ°ªÀ» ·Îµå
-"BOUND^i64 Gv, Ma", //62 ?? °æ°è¸¦ ±âÁØÀ¸·Î ¹è¿­ ÀÎµ¦½º °Ë»ç
+"PUSHA^i64 / PUSHAD^i64", //60 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë·¹ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ Çªï¿½ï¿½ï¿½Ñ´ï¿½.
+"POPA^i64 / POPAD^i64", //61 ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë·¹ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½ ï¿½Îµï¿½
+"BOUND^i64 Gv, Ma", //62 ?? ï¿½ï¿½è¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 "APRL Ew, Gw / MOVSXD Gv, Ev",//63
 "PUSH^d64 lz",//68
 "IMUL Gv, Ev, lz",//69
@@ -149,7 +149,7 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "INS/INSW/INSD Yz, DX",
 "OUTS/OUTSB DX, Xb",
 "OUTS/OUTSW/OUTSD DX, Xz",
-"JO Jb", // 70 jumps -> µÚ¿¡ "opcode¿¡ CB°¡ ºÙ´Â´Ù."
+"JO Jb", // 70 jumps -> ï¿½Ú¿ï¿½ "opcodeï¿½ï¿½ CBï¿½ï¿½ ï¿½Ù´Â´ï¿½."
 "JNO Jb",
 "JB/JNAE/JC Jb",
 "JNB/JAE/JNC Jb",
@@ -354,9 +354,9 @@ char TwoByteOpcode_DecodingTable[256][32] = {
 	"SYSEXIT",
 	"Unallocated",
 	"GETSEC",
-	"3byteEscapeA4", // 3byte opcode table A-4·Î °¡±â
+	"3byteEscapeA4", // 3byte opcode table A-4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	"Unallocated",
-	"3byteEscapeA5", // 3byte opcode table A-5·Î °¡±â
+	"3byteEscapeA5", // 3byte opcode table A-5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	"Unallocated",
 	"Unallocated",
 	"Unallocated",
@@ -588,16 +588,16 @@ char TwoByteOpcode_DecodingTable__[256][32] = {
 
 	"VMOVUPS Vps, Wps",//10
 	"VMOVUPS Wps, Vps",
-	"VMOVLPS Vq, Hq, Mq", // VMOVHLPS Vq, Hq, Uq µµ µÊ
+	"VMOVLPS Vq, Hq, Mq", // VMOVHLPS Vq, Hq, Uq ï¿½ï¿½ ï¿½ï¿½
 	"VMOVLPS Mq, Vq",
 	"VUNPCKLPS Vx, Hx, Wx",
 	"VUNPCKHPS Vx, Hx, Wx",
 	"VMOVHPS Vdq, Hq, Mq",
+	"VMOVHPS Mq, Vq",
 	"Unallocated",
 	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"BNDLDX",
+	"BNDSTX",
 	"Unallocated",
 	"Unallocated",
 	"Unallocated",
@@ -654,56 +654,56 @@ char TwoByteOpcode_DecodingTable__[256][32] = {
 	"Unallocated",
 	"Unallocated",
 
-	"Unallocated",//50
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"VMOVMSKPS Gy, Ups",//50
+	"VSQRTPS Vps, Wps",
+	"VRSQRTPS Vps, Wps",
+	"VECCPPS Vps, Wps",
+	"VANDPS Vps, Hps, Wps",
+	"VANDNPS Vps, Hps, Wps",
+	"VORPS Vps, Hps, Wps",
+	"VXORPS Vps, Hps, Wps",
+	"VADDPS Vps, Hps, Wps",
+	"VMULPS Vps, Hps, Wps",
+	"VCVTPS2PD Vpd, Wps",
+	"VCTDQ2PS Vps, Wdq",
+	"VSUBPS Vps, Hps, Wps",
+	"VMINPS Vps, Hps, Wps",
+	"VDIVPS Vps, Hps, Wps",
+	"VMAXPS Vps, Hps, Wps",
 
-	"Unallocated",//60
+	"PUNPCKLBW Pq, Qd",//60
+	"PUNPCKLWD Pq, Qd",
+	"PUNPCKLDQ Pq, Qd",
+	"PACKSSWB Pq, Qq",
+	"PCMPGTB Pq, Qq",
+	"PCMPGTW Pq, Qq",
+	"PCMPGTD Pq, Qq",
+	"PACKUSWB Pq, Qq",
+	"PUNPCKHBW Pq, Qd",
+	"PUNPCKHWD Pq, Qd",
+	"PUNPCKHDQ Pq, Qd",
+	"PACKSSDW Pq, Qd",
 	"Unallocated",
 	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"MOVD/MOVQ Pd, Ev",
+	"MOVq Pq, Qq",
 
-	"Unallocated",//70
+	"PSHUFW Pq, Qq, lb",//70
+	"Unallocated",
+	"Unallocated",
+	"Unallocated",
+	"PCMPEQB Pq, Qq",
+	"PCMPEQW Pq, Qq",
+	"PCMPEQD Pq, Qq",
+	"EMMS_VZEROUPPER_VZEROALL",
+	"VMREAD Ey, Gy",
+	"VMWRITE Gy, Ey",
 	"Unallocated",
 	"Unallocated",
 	"Unallocated",
 	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"MOVD/MOVQ Ey, Pd",
+	"MOVQ Qq, Pq",
 
 	"Unallocated",//80
 	"Unallocated",
@@ -773,13 +773,13 @@ char TwoByteOpcode_DecodingTable__[256][32] = {
 	"Unallocated",
 	"Unallocated",
 
-	"Unallocated",//C0
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"XADD Eb, Gb",//C0
+	"XADD Ev, Gv",
+	"VCMPPS Vps, Hps, Wps, lb",
+	"MOVNTI My, Gy",
+	"PINSRW Pq, Ry/Mw, lb",
+	"PEXTRW Gd, Nq, lb",
+	"VSHUFPS Vps, Hps, Wps, lb",
 	"Unallocated",
 	"Unallocated",
 	"Unallocated",
@@ -791,54 +791,54 @@ char TwoByteOpcode_DecodingTable__[256][32] = {
 	"Unallocated",
 
 	"Unallocated",//D0
+	"PSRAW Pq, Qq",
+	"PSRAD Pq, Qq",
+	"PAVGW Pq, Qq",
+	"PMULHUW Pq, Qq",
+	"PMULHW Pq, Qq",
 	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"MOVNTQ Mq, Pq",
+	"PSUBSUB Pq, Qq",
+	"PSUBUSW Pq, Qq",
+	"PMINUB Pq, Qq",
+	"PAND Pq, Qq",
+	"PADDUSB Pq, Qq",
+	"PADDUSW Pq, Qq",
+	"PMAXUB Pq, Qq",
+	"PANDN Pq, Qq",
 
-	"Unallocated",//E0
+	"PAVGB Pq, Qq",//E0
+	"PSRAW Pq, Qq",
+	"PSRAD Pq, Qq",
+	"PAVGW Pq, Qq",
+	"PMULHUW Pq, Qq",
+	"PMULHW Pq, Qq",
 	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"MOVTQ Mq, Pq",
+	"PSUBSB Pq, Qq",
+	"PSUBSW Pq, Qq",
+	"PMINSW Pq, Qq",
+	"POR Pq, Qq",
+	"PADDSB Pq, Qq",
+	"PADDSW Pq, Qq",
+	"PMAXSW Pq, Qq",
+	"PXOR Pq, Qq",
 
 	"Unallocated",//F0
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"PSLLW Pq, Qq",
+	"PSLLD Pq, Qq",
+	"PSLLQ Pq, Qq",
+	"PMULUDQ Pq, Qq",
+	"PMADDWD Pq, Qq",
+	"PSADBW Pq, Qq",
+	"MASKMOVQ Pq, Nq",
+	"PSUBB Pq, Qq",
+	"PSUBW Pq, Qq",
+	"PSUBD Pq, Qq",
+	"PSUBQ Pq, Qq",
+	"PADDB Pq, Qq",
+	"PADDW Pq, Qq",
+	"PADDD Pq, Qq",
 	"Unallocated",
 };
 char TwoByteOpcode_DecodingTable66[256][32] = {
@@ -859,11 +859,11 @@ char TwoByteOpcode_DecodingTable66[256][32] = {
 	"Unallocated",
 	"Unallocated",
 
-	"Unallocated",//10
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
-	"Unallocated",
+	"VMOVUPD Vpd, Wpd",//10
+	"VMOVUPD Wpd, Vpd",
+	"VMOVLPD Vqm Hq, Mq",
+	"VMOVLPD Mq, Vq",
+	"VUNPCKLPD Vx, Hx, Wx",
 	"Unallocated",
 	"Unallocated",
 	"Unallocated",
