@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
@@ -2538,6 +2539,196 @@ char ThreeByteOpcode_DecodingTableA566[256][32]{
 char ThreeByteOpcode_DecodingTableA5_0F[32] = "palignr Pq, Qq, Ib";
 char ThreeByteOpcode_DecodingTableA5_CC[32] = "sha1rnds4 Vdq, Wdq, Ib";
 char ThreeByteOpcode_DecodingTableA5F2_F0[32] = "RORX Gy, Ey, Ib";
+
+struct asmtext{
+	char codetxt[32] = {};
+};
+
+struct mcode_x64{
+	unsigned char data[16] = {};
+};
+
+enum class x86_PrefixType{
+	G1_LOCK = 0xf0,
+	G1_REPNE_REPNZ = 0xf2,
+	G1_REP_REPE_REPZ = 0xf3,
+	
+	G2_CS_SegmentOverride = 0x2e,
+	G2_SS_SegmentOverride = 0x36,
+	G2_DS_SegmentOverride = 0x3e,
+	G2_ES_SegmentOverride = 0x26,
+	G2_FS_SegmentOverride = 0x65,
+	G2_GS_SegmentOverride = 0x65,
+	G2_BranchNotTaken = 0x2e,
+	G2_BranchTaken = 0x3e,
+
+	G3_OperandSizeOverride = 0x66,
+	
+	G4_AddressSizeOverride = 0x67,
+
+	Mandatory_66 = 0x66,
+	Mandatory_F3 = 0xf3,
+	Mandatory_F2 = 0xf2,
+	//REX - 0x4?
+	VEX3byte = 0xc4,
+	VEX2byte = 0xc5,
+	XOP3byte = 0x8f,
+	//3D Now! - 0x0f + 0x0f
+};
+
+asmtext GetASM(mcode_x64 mcode){
+	asmtext r;
+	for(int i=0;i<32;++i){
+		r.codetxt[i] = 0;
+	}
+	//g1
+	unsigned int pivot = 0;
+	bool Prefix_LOCK = mcode.data[pivot] == (unsigned char)x86_PrefixType::G1_LOCK;
+	bool Prefix_REPNE_PEPNZ = mcode.data[pivot] == (unsigned char)x86_PrefixType::G1_REPNE_REPNZ;
+	bool Prefix_REP_REPE_REPZ = mcode.data[pivot] == (unsigned char)x86_PrefixType::G1_REP_REPE_REPZ;
+	if((Prefix_LOCK || Prefix_REPNE_PEPNZ) || Prefix_REP_REPE_REPZ) pivot += 1;
+	//g2
+	bool Prefix_CS = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_CS_SegmentOverride;
+	bool Prefix_SS = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_SS_SegmentOverride;
+	bool Prefix_DS = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_DS_SegmentOverride;
+	bool Prefix_ES = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_ES_SegmentOverride;
+	bool Prefix_FS = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_FS_SegmentOverride;
+	bool Prefix_GS = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_GS_SegmentOverride;
+	bool Prefix_BranchNotTaken = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_BranchNotTaken;
+	bool Prefix_BranchTaken = mcode.data[pivot] == (unsigned char)x86_PrefixType::G2_BranchTaken;
+	if(((Prefix_CS || Prefix_SS) || (Prefix_DS || Prefix_ES)) || ((Prefix_FS|| Prefix_GS) || (Prefix_BranchNotTaken || Prefix_BranchTaken))) {
+		pivot += 1;
+	}
+	//g3
+	bool Prefix_OperandSizeOverride = mcode.data[pivot] == (unsigned char)x86_PrefixType::G3_OperandSizeOverride;
+	if(Prefix_OperandSizeOverride) pivot += 1;
+	//g4
+	bool Prefix_AddressSizeOverride = mcode.data[pivot] == (unsigned char)x86_PrefixType::G4_AddressSizeOverride;
+	if(Prefix_AddressSizeOverride) pivot += 1;
+	
+	//mandatory prefix
+	bool Prefix_Mandatory66 = mcode.data[pivot] == (unsigned char)x86_PrefixType::Mandatory_66;
+	if(Prefix_Mandatory66) pivot += 1;
+	bool Prefix_MandatoryF3 = mcode.data[pivot] == (unsigned char)x86_PrefixType::Mandatory_F3;
+	if(Prefix_MandatoryF3) pivot += 1;
+	bool Prefix_MandatoryF2 = mcode.data[pivot] == (unsigned char)x86_PrefixType::Mandatory_F2;
+	if(Prefix_MandatoryF2) pivot += 1;
+
+	//REX
+	bool Prefix_REX = mcode.data[pivot] & 0xF0 == 0x40;
+	bool REX_Wbit = false;
+	bool REX_Rbit = false;
+	bool REX_Xbit = false;
+	bool REX_Bbit = false;
+	
+	bool Prefix_3byteVEX = mcode.data[pivot] == (unsigned char)x86_PrefixType::VEX3byte;
+	bool Prefix_2byteVEX = mcode.data[pivot] == (unsigned char)x86_PrefixType::VEX2byte;
+	bool Prefix_3byteXOP = mcode.data[pivot] == (unsigned char)x86_PrefixType::XOP3byte;
+	bool Prefix_3dnow = mcode.data[pivot] == 0x0f;
+	bool VEXXOP_Rbit = false;
+	bool VEXXOP_Xbit = false;
+	bool VEXXOP_Bbit = false;
+	unsigned char VEXXOP_MapSelect = 0; // 5bit
+	bool VEXXOP_W_or_E = false;
+	unsigned char VEXXOP_VVVV = 0; // 4bit
+	bool VEXXOP_L = false;
+	unsigned char VEXXOP_pp = 0; // 2bit
+
+	if(Prefix_REX){
+		REX_Wbit = !!(mcode.data[pivot] & 0x80);
+		REX_Rbit = !!(mcode.data[pivot] & 0x40);
+		REX_Xbit = !!(mcode.data[pivot] & 0x20);
+		REX_Bbit = !!(mcode.data[pivot] & 0x10);
+		pivot += 1;
+		goto GETASMTEXT_OPCODE;
+	}
+	else if(Prefix_3byteVEX || Prefix_3byteXOP){
+		pivot += 1;
+		VEXXOP_Rbit = !!(mcode.data[pivot] & 0x80);
+		VEXXOP_Xbit = !!(mcode.data[pivot] & 0x40);
+		VEXXOP_Bbit = !!(mcode.data[pivot] & 0x20);
+		VEXXOP_MapSelect = mcode.data[pivot] & 0x1F;
+		pivot += 1;
+		VEXXOP_W_or_E = !!(mcode.data[pivot] & 0x80);
+		VEXXOP_VVVV = (mcode.data[pivot] & 0x78) >> 3;
+		VEXXOP_L = !!(mcode.data[pivot] & 0x04);
+		VEXXOP_pp = mcode.data[pivot] & 0x03;
+		pivot += 1;
+		goto GETASMTEXT_OPCODE;
+	}
+	else if(Prefix_2byteVEX){
+		pivot += 1;
+		VEXXOP_W_or_E = !!(mcode.data[pivot] & 0x80);
+		VEXXOP_VVVV = (mcode.data[pivot] & 0x78) >> 3;
+		VEXXOP_L = !!(mcode.data[pivot] & 0x04);
+		VEXXOP_pp = mcode.data[pivot] & 0x03;
+		pivot += 1;
+		goto GETASMTEXT_OPCODE;
+	}
+	else if(Prefix_3dnow){
+		pivot += 1;
+		if(mcode.data[pivot] == 0x0f){
+			goto GETASMTEXT_OPCODE;
+		}
+		else return r;
+	}
+
+	GETASMTEXT_OPCODE:
+	char* sudo = OneByteOpcode_DecodingTable[mcode.data[pivot]];
+	if(strcmp(sudo, "2byte Escape") == 0){
+		pivot += 1;
+		sudo = TwoByteOpcode_DecodingTable[mcode.data[pivot]];
+		goto GETASMTEXT_TWOBYTEOPCODE;
+	}
+	else{
+		// r = sudo;
+	}
+
+	GETASMTEXT_TWOBYTEOPCODE:
+	if(mcode.data[pivot] == 0x38){
+		//3byte opcode A4 table
+		goto GETASMTEXT_THREEBYTEOPCODE_A4;
+	}
+	else if(mcode.data[pivot] == 0x3A){
+		//3byte opcode A5 table
+		goto GETASMTEXT_THREEBYTEOPCODE_A5;
+	}
+	else if(strcmp(sudo, "__66F3F2") == 0){
+		if(Prefix_Mandatory66){
+			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+		}
+		else if(Prefix_MandatoryF3){
+			sudo = TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
+		}
+		else if(Prefix_MandatoryF2){
+			sudo = TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
+		}
+	}
+	else if(strcmp(sudo, "__66F3") == 0){
+		if(Prefix_Mandatory66){
+			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+		}
+		else if(Prefix_MandatoryF3){
+			sudo = TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
+		}
+	}
+	else if(strcmp(sudo, "__66F2") == 0){
+		if(Prefix_Mandatory66){
+			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+		}
+		else if(Prefix_MandatoryF2){
+			sudo = TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
+		}
+	}
+
+	GETASMTEXT_THREEBYTEOPCODE_A4:
+
+	GETASMTEXT_THREEBYTEOPCODE_A5:
+}
+
+mcode_x64 GetMcode(asmtext text){
+
+}
 
 int main() {
 
