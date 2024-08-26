@@ -2540,6 +2540,125 @@ char ThreeByteOpcode_DecodingTableA5_0F[32] = "palignr Pq, Qq, Ib";
 char ThreeByteOpcode_DecodingTableA5_CC[32] = "sha1rnds4 Vdq, Wdq, Ib";
 char ThreeByteOpcode_DecodingTableA5F2_F0[32] = "RORX Gy, Ey, Ib";
 
+//addressing replace string
+/*
+1. regA -> rax / eax / mmx0 ...
+2. disp8 -> 1byte disp
+3. SIB -> SIB addressing
+*/
+
+// 5bit (r/m 3bit) + (mod 2 bit)
+char Addressing16_DecodingTable[32][32] = {
+	"[BX + SI]", // mod == 00
+	"[BX + DI]",
+	"[BP + SI]",
+	"[BP + DI]",
+	"[SI]",
+	"[DI]",
+	"[disp16]",
+	"[BX]",
+
+	"[BX + SI + disp8]", // mod == 01
+	"[BX + DI + disp8]",
+	"[BP + SI + disp8]",
+	"[BP + DI + disp8]",
+	"[SI + disp8]",
+	"[DI + disp8]",
+	"[BP + disp8]",
+	"[BX + disp8]",
+
+	"[BX + SI + disp16]", // mod == 10
+	"[BX + DI + disp16]",
+	"[BP + SI + disp16]",
+	"[BP + DI + disp16]",
+	"[SI + disp16]",
+	"[DI + disp16]",
+	"[BP + disp16]",
+	"[BX + disp16]",
+
+	"AX", // mod == 11
+	"CX",
+	"DX",
+	"BX",
+	"SP",
+	"BP",
+	"SI",
+	"DI",
+};
+
+// 6bit (r/m 4bit) + (mod 2 bit)
+char Addressing86_DecodingTable[64][32] = {
+	"[reg00]", // mod == 00
+	"[reg01]",
+	"[reg02]",
+	"[reg03]",
+	"[SIB]",
+	"[RIP/EIP + disp32]",
+	"[reg06]",
+	"[reg07]",
+	"[reg08]",
+	"[reg09]",
+	"[reg10]",
+	"[reg11]",
+	"[SIB]",
+	"[RIP/EIP + disp32]",
+	"[reg14]",
+	"[reg15]",
+
+	"[reg00 + disp8]", // mod == 01
+	"[reg01 + disp8]",
+	"[reg02 + disp8]",
+	"[reg03 + disp8]",
+	"[SIB + disp8]",
+	"[reg05 + disp8]",
+	"[reg06 + disp8]",
+	"[reg07 + disp8]",
+	"[reg08 + disp8]",
+	"[reg09 + disp8]",
+	"[reg10 + disp8]",
+	"[reg11 + disp8]",
+	"[SIB + disp8]",
+	"[reg13 + disp8]",
+	"[reg14 + disp8]",
+	"[reg15 + disp8]",
+
+	"[reg00 + disp32]", // mod == 10
+	"[reg01 + disp32]",
+	"[reg02 + disp32]",
+	"[reg03 + disp32]",
+	"[SIB + disp32]",
+	"[reg05 + disp32]",
+	"[reg06 + disp32]",
+	"[reg07 + disp32]",
+	"[reg08 + disp32]",
+	"[reg09 + disp32]",
+	"[reg10 + disp32]",
+	"[reg11 + disp32]",
+	"[SIB + disp32]",
+	"[reg13 + disp32]",
+	"[reg14 + disp32]",
+	"[reg15 + disp32]",
+
+	"reg00", // mod == 11
+	"reg01",
+	"reg02",
+	"reg03",
+	"reg04",
+	"reg05",
+	"reg06",
+	"reg07",
+	"reg08",
+	"reg09",
+	"reg10",
+	"reg11",
+	"reg12",
+	"reg13",
+	"reg14",
+	"reg15",
+};
+
+// addressing sib -> RangeArr / base -> baseregister / index->indexregister / s -> 2^scalenum
+
 struct asmtext{
 	char codetxt[32] = {};
 };
@@ -2696,34 +2815,56 @@ asmtext GetASM(mcode_x64 mcode){
 	else if(strcmp(sudo, "__66F3F2") == 0){
 		if(Prefix_Mandatory66){
 			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF3){
 			sudo = TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF2){
 			sudo = TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 	}
 	else if(strcmp(sudo, "__66F3") == 0){
 		if(Prefix_Mandatory66){
 			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF3){
 			sudo = TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 	}
 	else if(strcmp(sudo, "__66F2") == 0){
 		if(Prefix_Mandatory66){
 			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF2){
 			sudo = TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
+			pivot+=1;
+			goto GETASMTEXT_MODRM;
 		}
 	}
 
 	GETASMTEXT_THREEBYTEOPCODE_A4:
 
+	
 	GETASMTEXT_THREEBYTEOPCODE_A5:
+
+	GETASMTEXT_MODRM:
+	unsigned char MODRM_mod = (mcode.data[pivot] & 0xC0) >> 6;
+	unsigned char MODRM_reg = (mcode.data[pivot] & 0x38) >> 3;
+	unsigned char MODRM_rm = (mcode.data[pivot] & 0x07);
+	
+	GETASMTEXT_SIB:
 }
 
 mcode_x64 GetMcode(asmtext text){
