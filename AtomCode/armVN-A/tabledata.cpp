@@ -2,7 +2,312 @@
 #include <fstream>
 #include <stdio.h>
 #include <string.h>
+#include "sen_tr.h"
 using namespace std;
+
+class lcstr
+{
+public:
+    char* Arr;
+    size_t maxsize = 0;
+    size_t up = 0;
+    bool islocal = true;
+
+    lcstr()
+    {
+        Arr = nullptr;
+        maxsize = 0;
+        up = 0;
+        islocal = true;
+    }
+
+    virtual ~lcstr()
+    {
+        if (islocal) {
+            delete[]Arr;
+            Arr = nullptr;
+        }
+    }
+
+    void NULLState()
+    {
+        Arr = nullptr;
+        maxsize = 0;
+        up = 0;
+    }
+
+    void Init(size_t siz, bool local)
+    {
+        islocal = local;
+        char* newArr = new char[siz];
+        if (Arr != nullptr)
+        {
+            for (int i = 0; i < maxsize; ++i)
+            {
+                newArr[i] = Arr[i];
+            }
+
+            delete[]Arr;
+            Arr = nullptr;
+        }
+
+        Arr = newArr;
+        maxsize = siz;
+    }
+
+    void operator=(const char* str)
+    {
+        int len = strlen(str) + 1;
+        if (Arr == nullptr)
+        {
+            Arr = new char[len];
+        }
+
+        if (maxsize < len)
+        {
+            Init(len + 1, islocal);
+        }
+#if defined(__GNUC__)
+        strcpy(Arr, str);
+#elif defined (_MSC_VER)
+        strcpy_s(Arr, len, str);
+#endif
+        up = len - 1;
+    }
+
+    bool operator==(char* str)
+    {
+        if (strcmp(Arr, str) == 0)
+            return true;
+        else
+            return false;
+    }
+
+    bool operator==(const char* str)
+    {
+        if (strcmp(Arr, str) == 0)
+            return true;
+        else
+            return false;
+    }
+
+    char& at(size_t i)
+    {
+        return Arr[i];
+    }
+
+    char* c_str()
+    {
+        Arr[up] = 0;
+        return Arr;
+    }
+
+    char& operator[] (size_t i)
+    {
+        return Arr[i];
+    }
+
+    void push_back(char value)
+    {
+        if (up < maxsize)
+        {
+            Arr[up] = value;
+            up += 1;
+            Arr[up] = 0;
+        }
+        else
+        {
+            Init(maxsize * 2 + 1, islocal);
+            Arr[up] = value;
+            up += 1;
+            Arr[up] = 0;
+        }
+    }
+
+    void pop_back()
+    {
+        if (up - 1 >= 0)
+        {
+            up -= 1;
+            Arr[up] = 0;
+        }
+    }
+
+    void erase(size_t i)
+    {
+        for (int k = i; k < up; ++k)
+        {
+            Arr[k] = Arr[k + 1];
+        }
+        up -= 1;
+    }
+
+    void insert(size_t i, char value)
+    {
+        push_back(value);
+        for (int k = maxsize - 1; k > i; k--)
+        {
+            Arr[k] = Arr[k - 1];
+        }
+        Arr[i] = value;
+    }
+
+    size_t size()
+    {
+        return up;
+    }
+
+    void clear()
+    {
+        if (Arr != nullptr)
+            delete[]Arr;
+        Arr = nullptr;
+        up = 0;
+
+        Init(2, islocal);
+    }
+
+    void release()
+    {
+        if (Arr != nullptr)
+            delete[]Arr;
+        Arr = nullptr;
+        up = 0;
+        islocal = false;
+    }
+};
+
+template < typename T > class vecarr
+{
+public:
+    T* Arr;
+    size_t maxsize = 0;
+    int up = 0;
+    bool islocal = true;
+
+    vecarr()
+    {
+        Arr = nullptr;
+        maxsize = 0;
+        up = 0;
+        islocal = true;
+    }
+
+    ~vecarr()
+    {
+        if (islocal) {
+            release();
+        }
+    }
+
+    void NULLState()
+    {
+        Arr = nullptr;
+        maxsize = 0;
+        up = 0;
+    }
+
+    void Init(size_t siz)
+    {
+        T* newArr = new T[siz];
+        if (Arr != nullptr)
+        {
+            for (int i = 0; i < maxsize; ++i)
+            {
+                newArr[i] = Arr[i];
+            }
+
+            delete[]Arr;
+            Arr = nullptr;
+        }
+
+        Arr = newArr;
+        maxsize = siz;
+    }
+
+    T& at(size_t i)
+    {
+        return Arr[i];
+    }
+
+    T& operator[](size_t i)
+    {
+        return Arr[i];
+    }
+
+    void push_back(T value)
+    {
+        if (up < maxsize)
+        {
+            Arr[up] = value;
+            up += 1;
+        }
+        else
+        {
+            Init(maxsize * 2 + 1);
+            Arr[up] = value;
+            up += 1;
+        }
+    }
+
+    void pop_back()
+    {
+        if (up - 1 >= 0)
+        {
+            up -= 1;
+            //Arr[up] = 0;
+        }
+    }
+
+    void erase(size_t i)
+    {
+        for (int k = i; k < up; ++k)
+        {
+            Arr[k] = Arr[k + 1];
+        }
+        up -= 1;
+    }
+
+    void insert(size_t i, T value)
+    {
+        push_back(value);
+        for (int k = maxsize - 1; k > i; k--)
+        {
+            Arr[k] = Arr[k - 1];
+        }
+        Arr[i] = value;
+    }
+
+    size_t size()
+    {
+        return up;
+    }
+
+    void clear()
+    {
+        if (Arr != nullptr)
+            delete[]Arr;
+        Arr = nullptr;
+        up = 0;
+
+        Init(2, islocal);
+    }
+
+    T& last() {
+        if (up > 0) {
+            return Arr[up - 1];
+        }
+        return Arr[0];
+    }
+
+    void release()
+    {
+        if (Arr != nullptr)
+            delete[]Arr;
+        Arr = nullptr;
+        up = 0;
+    }
+};
 
 constexpr char filename[256] = "tabledata_example.txt";
 constexpr char outfile[256] = "tableout.txt";
@@ -380,4 +685,40 @@ int main()
     priority += 1;
   }
   return 0;
+}
+
+struct asmtext {
+    lcstr codetxt;
+};
+
+typedef unsigned int mcode_arm64;
+
+struct operand_range {
+    char name[8] = {};
+    op_range r;
+};
+
+struct ARM64_ASM_Description {
+    char nemonic[16] = {};
+    lcstr Description;
+    lcstr sudocode;
+    mcode_arm64 encoding;
+    vecarr<operand_range> operands;
+};
+
+vecarr<ARM64_ASM_Description*> IntructionInformation;
+
+constexpr char instdescription_file[256] = "arm_inst_description.txt";
+
+void GetInstructionInformation() {
+    ifstream rs;
+    rs.open(instdescription_file);
+
+    lcstr rbuff;
+    rbuff.NULLState();
+    rbuff.Init(8, false);
+    while (!rs.eof())
+    {
+        rbuff.push_back(rs.get());
+    }
 }

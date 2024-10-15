@@ -35,5 +35,13 @@
     <Text Include="..\armVN-A\all_inst.txt">
       <Filter>소스 파일\arm64</Filter>
     </Text>
+    <Text Include="..\amd64\info.txt">
+      <Filter>소스 파일\amd64_x64</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\armVN-A\sen_tr.h">
+      <Filter>소스 파일\arm64</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

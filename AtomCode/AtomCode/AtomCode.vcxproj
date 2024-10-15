@@ -131,8 +131,12 @@
     <ClCompile Include="..\armVN-A\tabledata.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\amd64\info.txt" />
     <Text Include="..\armVN-A\all_inst.txt" />
     <Text Include="..\armVN-A\tabledata_example.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\armVN-A\sen_tr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

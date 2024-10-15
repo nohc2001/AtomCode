@@ -3,6 +3,179 @@
 
 using namespace std;
 
+class lcstr
+{
+public:
+	char* Arr;
+	size_t maxsize = 0;
+	size_t up = 0;
+	bool islocal = true;
+
+	lcstr()
+	{
+		Arr = nullptr;
+		maxsize = 0;
+		up = 0;
+		islocal = true;
+	}
+
+	virtual ~lcstr()
+	{
+		if (islocal) {
+			delete[]Arr;
+			Arr = nullptr;
+		}
+	}
+
+	void NULLState()
+	{
+		Arr = nullptr;
+		maxsize = 0;
+		up = 0;
+	}
+
+	void Init(size_t siz, bool local)
+	{
+		islocal = local;
+		char* newArr = new char[siz];
+		if (Arr != nullptr)
+		{
+			for (int i = 0; i < maxsize; ++i)
+			{
+				newArr[i] = Arr[i];
+			}
+
+			delete[]Arr;
+			Arr = nullptr;
+		}
+
+		Arr = newArr;
+		maxsize = siz;
+	}
+
+	void operator=(const char* str)
+	{
+		int len = strlen(str) + 1;
+		if (Arr == nullptr)
+		{
+			Arr = new char[len];
+		}
+
+		if (maxsize < len)
+		{
+			Init(len + 1, islocal);
+		}
+#if defined(__GNUC__)
+		strcpy(Arr, str);
+#elif defined (_MSC_VER)
+		strcpy_s(Arr, len, str);
+#endif
+		up = len - 1;
+	}
+
+	bool operator==(char* str)
+	{
+		if (strcmp(Arr, str) == 0)
+			return true;
+		else
+			return false;
+	}
+
+	bool operator==(const char* str)
+	{
+		if (strcmp(Arr, str) == 0)
+			return true;
+		else
+			return false;
+	}
+
+	char& at(size_t i)
+	{
+		return Arr[i];
+	}
+
+	char* c_str()
+	{
+		Arr[up] = 0;
+		return Arr;
+	}
+
+	char& operator[] (size_t i)
+	{
+		return Arr[i];
+	}
+
+	void push_back(char value)
+	{
+		if (up < maxsize)
+		{
+			Arr[up] = value;
+			up += 1;
+			Arr[up] = 0;
+		}
+		else
+		{
+			Init(maxsize * 2 + 1, islocal);
+			Arr[up] = value;
+			up += 1;
+			Arr[up] = 0;
+		}
+	}
+
+	void pop_back()
+	{
+		if (up - 1 >= 0)
+		{
+			up -= 1;
+			Arr[up] = 0;
+		}
+	}
+
+	void erase(size_t i)
+	{
+		for (int k = i; k < up; ++k)
+		{
+			Arr[k] = Arr[k + 1];
+		}
+		up -= 1;
+	}
+
+	void insert(size_t i, char value)
+	{
+		push_back(value);
+		for (int k = maxsize - 1; k > i; k--)
+		{
+			Arr[k] = Arr[k - 1];
+		}
+		Arr[i] = value;
+	}
+
+	size_t size()
+	{
+		return up;
+	}
+
+	void clear()
+	{
+		if (Arr != nullptr)
+			delete[]Arr;
+		Arr = nullptr;
+		up = 0;
+
+		Init(2, islocal);
+	}
+
+	void release()
+	{
+		if (Arr != nullptr)
+			delete[]Arr;
+		Arr = nullptr;
+		up = 0;
+		islocal = false;
+	}
+};
+
+
 /*
 type0 : 
 " Eb, Gb",
@@ -41,7 +214,7 @@ type3 :
 todo : 
 1. �𸣴� �ϸ�� ������ �����ϰ� �ش� ���� �ּ��ϱ�. 
 */
-char OneByteOpcode_DecodingTable[255][32] = {
+constexpr char OneByteOpcode_DecodingTable[255][32] = {
 "ADD Eb, Gb",//00  ���ϱ�
 "ADD Ev, Gv",
 "ADD Gb, Eb",
@@ -295,7 +468,7 @@ char OneByteOpcode_DecodingTable[255][32] = {
 "GrpINC/DEC 5^1A" //FF
 };
 
-char TwoByteOpcode_DecodingTable[256][32] = {
+constexpr char TwoByteOpcode_DecodingTable[256][32] = {
 	"Grp6^1A",//00
 	"Grp7^1A",
 	"LAR Gv, Ew",
@@ -569,7 +742,7 @@ char TwoByteOpcode_DecodingTable[256][32] = {
 	"__66F2",
 };
 
-char TwoByteOpcode_DecodingTable__[256][32] = {
+constexpr char TwoByteOpcode_DecodingTable__[256][32] = {
 	"Unallocated",//00
 	"Unallocated",
 	"Unallocated",
@@ -842,7 +1015,7 @@ char TwoByteOpcode_DecodingTable__[256][32] = {
 	"PADDD Pq, Qq",
 	"Unallocated",
 };
-char TwoByteOpcode_DecodingTable66[256][32] = {
+constexpr char TwoByteOpcode_DecodingTable66[256][32] = {
 	"Unallocated",//00
 	"Unallocated",
 	"Unallocated",
@@ -1115,7 +1288,7 @@ char TwoByteOpcode_DecodingTable66[256][32] = {
 	"vpaddd Vx, Hx, Wx",
 	"LD0",
 };
-char TwoByteOpcode_DecodingTableF3[256][32] = {
+constexpr char TwoByteOpcode_DecodingTableF3[256][32] = {
 	"Unallocated",//00
 	"Unallocated",
 	"Unallocated",
@@ -1388,7 +1561,7 @@ char TwoByteOpcode_DecodingTableF3[256][32] = {
 	"Unallocated",
 	"Unallocated",
 };
-char TwoByteOpcode_DecodingTableF2[256][32] = {
+constexpr char TwoByteOpcode_DecodingTableF2[256][32] = {
 	"Unallocated",//00
 	"Unallocated",
 	"Unallocated",
@@ -1662,7 +1835,7 @@ char TwoByteOpcode_DecodingTableF2[256][32] = {
 	"UD0",
 };
 
-char ThreeByteOpcode_DecodingTableA4[256][32] = {
+constexpr char ThreeByteOpcode_DecodingTableA4[256][32] = {
 	"pshufb Pq, Qq",//00
 	"phaddw Pq, Qq",
 	"phaddd Pq, Qq",
@@ -1935,7 +2108,7 @@ char ThreeByteOpcode_DecodingTableA4[256][32] = {
 	"Unallocated",
 	"Unallocated",
 };
-char ThreeByteOpcode_DecodingTableA466[256][32] = {
+constexpr char ThreeByteOpcode_DecodingTableA466[256][32] = {
 	"vpshufb Vx, Hx, Wx",//00
 	"vphaddw Vx, Hx, Wx",
 	"vphaddd Vx, Hx, Wx",
@@ -2208,7 +2381,7 @@ char ThreeByteOpcode_DecodingTableA466[256][32] = {
 	"Unallocated",
 	"Unallocated",
 };
-char ThreeByteOpcode_DecodingTableA4F3_Fx[16][32] = {
+constexpr char ThreeByteOpcode_DecodingTableA4F3_Fx[16][32] = {
 	"Unallocated",//F0
 	"Unallocated",
 	"Unallocated",
@@ -2226,7 +2399,7 @@ char ThreeByteOpcode_DecodingTableA4F3_Fx[16][32] = {
 	"Unallocated",
 	"Unallocated",
 };
-char ThreeByteOpcode_DecodingTableA4F2_Fx[16][32] = {
+constexpr char ThreeByteOpcode_DecodingTableA4F2_Fx[16][32] = {
 	"CRC32 Gd, Eb",//F0
 	"CRC32 Gd, Ey",
 	"Unallocated",
@@ -2244,7 +2417,7 @@ char ThreeByteOpcode_DecodingTableA4F2_Fx[16][32] = {
 	"Unallocated",
 	"Unallocated",
 };
-char ThreeByteOpcode_DecodingTableA466F2_Fx[16][32] = {
+constexpr char ThreeByteOpcode_DecodingTableA466F2_Fx[16][32] = {
 	"CRC32 Gd, Eb",//F0
 	"CRC32 Gd, Ew",
 	"Unallocated",
@@ -2263,7 +2436,7 @@ char ThreeByteOpcode_DecodingTableA466F2_Fx[16][32] = {
 	"Unallocated",
 };
 
-char ThreeByteOpcode_DecodingTableA566[256][32]{
+constexpr char ThreeByteOpcode_DecodingTableA566[256][32]{
 	"vpermq Vqq, Wqq, Ib",//00
 	"vpermpd Vqq, Wqq, Ib",
 	"vpblendd Vx,Hx,Wx,Ib",
@@ -2536,11 +2709,12 @@ char ThreeByteOpcode_DecodingTableA566[256][32]{
 	"Unallocated",
 	"Unallocated",
 };
-char ThreeByteOpcode_DecodingTableA5_0F[32] = "palignr Pq, Qq, Ib";
-char ThreeByteOpcode_DecodingTableA5_CC[32] = "sha1rnds4 Vdq, Wdq, Ib";
-char ThreeByteOpcode_DecodingTableA5F2_F0[32] = "RORX Gy, Ey, Ib";
+constexpr char ThreeByteOpcode_DecodingTableA5_0F[32] = "palignr Pq, Qq, Ib";
+constexpr char ThreeByteOpcode_DecodingTableA5_CC[32] = "sha1rnds4 Vdq, Wdq, Ib";
+constexpr char ThreeByteOpcode_DecodingTableA5F2_F0[32] = "RORX Gy, Ey, Ib";
 
 //addressing replace string
+
 /*
 1. regA -> rax / eax / mmx0 ...
 2. disp8 -> 1byte disp
@@ -2548,7 +2722,7 @@ char ThreeByteOpcode_DecodingTableA5F2_F0[32] = "RORX Gy, Ey, Ib";
 */
 
 // 5bit (r/m 3bit) + (mod 2 bit)
-char Addressing16_DecodingTable[32][32] = {
+constexpr char Addressing16_DecodingTable[32][32] = {
 	"[BX + SI]", // mod == 00
 	"[BX + DI]",
 	"[BP + SI]",
@@ -2587,7 +2761,7 @@ char Addressing16_DecodingTable[32][32] = {
 };
 
 // 6bit (r/m 4bit) + (mod 2 bit)
-char Addressing86_DecodingTable[64][32] = {
+constexpr char Addressing86_DecodingTable[64][32] = {
 	"[reg00]", // mod == 00
 	"[reg01]",
 	"[reg02]",
@@ -2658,9 +2832,52 @@ char Addressing86_DecodingTable[64][32] = {
 };
 
 // addressing sib -> RangeArr / base -> baseregister / index->indexregister / s -> 2^scalenum
+constexpr unsigned char AddressingSIB_BaseTable[16] = {
+	1, 1, 1, 1, 1,
+	2,
+	3, 3, 3, 3, 3, 3, 3,
+	4,
+	5, 5
+};
+constexpr unsigned char AddressingSIB_IndexTable[16] = {
+	1, 1, 1, 1,
+	2,
+	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+};
+constexpr char AddressingSIB_MOD00Table[15][32] = {
+	"base + index * s",
+	"index * s + disp32",
+	"base + index * s",
+	"index * s + disp32",
+	"base + index * s",
+
+	"base",
+	"disp32",
+	"base",
+	"disp32",
+	"base",
+
+	"base + index * s",
+	"index * s + disp32",
+	"base + index * s",
+	"index * s + disp32",
+	"base + index * s",
+};
+constexpr char AddressingSIB_MOD01Table[3][32] = {
+	"base + index * s + disp8",
+	"base + disp8",
+	"base + index * s + disp8",
+};
+constexpr char AddressingSIB_MOD10Table[3][32] = {
+	"base + index * s + disp32",
+	"base + disp32",
+	"base + index * s + disp32",
+};
+//MOD != 11
+//AddressingSIB_MOD00Table[5 * indextable[index] + basetable[base]] -> access way;
 
 struct asmtext{
-	char codetxt[32] = {};
+	lcstr codetxt;
 };
 
 struct mcode_x64{
@@ -2694,6 +2911,39 @@ enum class x86_PrefixType{
 	XOP3byte = 0x8f,
 	//3D Now! - 0x0f + 0x0f
 };
+
+int seekstr(const char* seek_str, char* big_str, int biglen) {
+	int slen = strlen(seek_str);
+	for (int i = 0; i < biglen-slen; ++i) {
+		char* ptr = &big_str[i];
+		bool match = true;
+		for (int k = 0; k < slen; ++k) {
+			if (seek_str[k] != ptr[k]) {
+				match = false;
+				break;
+			}
+		}
+
+		if (match) {
+			return i;
+		}
+	}
+
+	return -1;
+}
+
+void replace_str(char* seek_str, char* replace_str, lcstr* big_str) {
+	int slen = strlen(replace_str);
+	int seeklen = strlen(seek_str);
+	int seekindex = seekstr(seek_str, big_str->c_str(), big_str->size());
+	int bl = big_str->size();
+	for (int i = seekindex; i < seekindex + seeklen; ++i) {
+		big_str->erase(i);
+	}
+	for (int i = 0; i < slen; ++i) {
+		big_str->insert(seekindex + i, replace_str[i]);
+	}
+}
 
 asmtext GetASM(mcode_x64 mcode){
 	asmtext r;
@@ -2793,10 +3043,10 @@ asmtext GetASM(mcode_x64 mcode){
 	}
 
 	GETASMTEXT_OPCODE:
-	char* sudo = OneByteOpcode_DecodingTable[mcode.data[pivot]];
+	char* sudo = (char*)OneByteOpcode_DecodingTable[mcode.data[pivot]];
 	if(strcmp(sudo, "2byte Escape") == 0){
 		pivot += 1;
-		sudo = TwoByteOpcode_DecodingTable[mcode.data[pivot]];
+		sudo = (char*)TwoByteOpcode_DecodingTable[mcode.data[pivot]];
 		goto GETASMTEXT_TWOBYTEOPCODE;
 	}
 	else{
@@ -2814,41 +3064,41 @@ asmtext GetASM(mcode_x64 mcode){
 	}
 	else if(strcmp(sudo, "__66F3F2") == 0){
 		if(Prefix_Mandatory66){
-			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF3){
-			sudo = TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF2){
-			sudo = TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
 	}
 	else if(strcmp(sudo, "__66F3") == 0){
 		if(Prefix_Mandatory66){
-			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF3){
-			sudo = TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTableF3[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
 	}
 	else if(strcmp(sudo, "__66F2") == 0){
 		if(Prefix_Mandatory66){
-			sudo = TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTable66[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
 		else if(Prefix_MandatoryF2){
-			sudo = TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
+			sudo = (char*)TwoByteOpcode_DecodingTableF2[mcode.data[pivot]];
 			pivot+=1;
 			goto GETASMTEXT_MODRM;
 		}
@@ -2856,13 +3106,75 @@ asmtext GetASM(mcode_x64 mcode){
 
 	GETASMTEXT_THREEBYTEOPCODE_A4:
 
-	
 	GETASMTEXT_THREEBYTEOPCODE_A5:
 
-	GETASMTEXT_MODRM:
-	unsigned char MODRM_mod = (mcode.data[pivot] & 0xC0) >> 6;
-	unsigned char MODRM_reg = (mcode.data[pivot] & 0x38) >> 3;
-	unsigned char MODRM_rm = (mcode.data[pivot] & 0x07);
+GETASMTEXT_MODRM:
+	r.codetxt.NULLState();
+	r.codetxt.Init(32, false);
+	r.codetxt = sudo;
+
+	bool requireMODRM = false;
+	int len = strlen(sudo);
+	for (int i = 0; i < len; ++i) {
+		if (sudo[i] == ' ') {
+			requireMODRM = true;
+			break;
+		}
+	}
+
+	if (requireMODRM) {
+		unsigned char MODRM_mod = (mcode.data[pivot] & 0xC0) >> 6;
+		unsigned char MODRM_reg = (mcode.data[pivot] & 0x38) >> 3;
+		unsigned char MODRM_rm = (mcode.data[pivot] & 0x07);
+		char* addstr;
+		if (Prefix_REX) {
+			//32bit addressing
+			if (REX_Rbit) {
+				MODRM_reg += 8;
+			}
+			if (REX_Bbit) {
+				MODRM_rm += 8;
+			}
+			addstr = (char*)Addressing86_DecodingTable[(MODRM_mod << 4) + MODRM_rm];
+			bool SIBMOD = seekstr("SIB", addstr, 32);
+			bool disp8Mod = seekstr("disp8", addstr, 32);
+			bool disp16Mod = seekstr("disp16", addstr, 32);
+			bool disp32Mod = seekstr("disp32", addstr, 32);
+			bool reg = seekstr("reg", addstr, 32);
+
+			if (SIBMOD) {
+				pivot += 1;
+				unsigned char sibbyte = mcode.data[pivot];
+				unsigned char scale = sibbyte >> 6;
+				unsigned char index = (sibbyte & 0x3F) >> 3;
+				unsigned char base = sibbyte & 0x07;
+				char* replaceStr;
+				if (REX_Xbit) {
+					index += 8;
+				}
+				if (REX_Bbit) {
+					base += 8;
+				}
+				unsigned char basei = AddressingSIB_BaseTable[base];
+				unsigned char indexi = AddressingSIB_IndexTable[index];
+				if (MODRM_mod == 0) {
+					replaceStr = (char*)AddressingSIB_MOD00Table[5 * indexi + basei];
+				}
+				else if (MODRM_mod == 1) {
+					replaceStr = (char*)AddressingSIB_MOD01Table[indexi];
+				}
+				else if (MODRM_mod == 2) {
+					replaceStr = (char*)AddressingSIB_MOD10Table[indexi];
+				}
+
+				replace_str((char*)"SIB", replaceStr, &r.codetxt);
+			}
+		}
+		else {
+			//16bit addressing
+			addstr = (char*)Addressing16_DecodingTable[(MODRM_mod << 3) + MODRM_rm];
+		}
+	}
 	
 	GETASMTEXT_SIB:
 }
